@@ -1,2 +1,2 @@
-class StockController < ApplicationController
+class StocksController < ApplicationController
 end
