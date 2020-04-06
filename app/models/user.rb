@@ -26,6 +26,10 @@ class User < ApplicationRecord
     foreign_key: :investor_id,
     class_name: "Stock"
 
+    has_many :watchlists,
+    foreign_key: :user_id,
+    class_name: "Watchlist"
+
     after_initialize :ensure_session_token
 
     def self.find_by_credentials(username, password)

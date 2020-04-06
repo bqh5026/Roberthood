@@ -27,4 +27,8 @@ class Stock < ApplicationRecord
     foreign_key: :investor_id,
     class_name: "User"
 
+    belongs_to :watchlist,
+    foreign_key: :watchlist_id,
+    class_name: "Watchlist"
+
 end

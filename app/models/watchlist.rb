@@ -13,4 +13,13 @@
 #  index_watchlists_on_user_id  (user_id) UNIQUE
 #
 class Watchlist < ApplicationRecord
+
+    has_many :stocks,
+    foreign_key: :watchlist_id,
+    class_name: "Stock"
+
+    belongs_to :investor,
+    foreign_key: :user_id,
+    class_name: "User"
+    
 end
