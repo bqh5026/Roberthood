@@ -1,16 +1,14 @@
-<h1>Sign In</h1>
 
-<form action="<%= session_url %>" method="POST">
-    <input 
-        type="hidden"
-        method="authenticity_token"
-        value="<%= form_authenticity_token %>"
-    >
-    <label>Username:
-        <input name="user[username]" value="">
-    </label>
-    <label>Password:
-        <input name="user[username]" value="">
-    </label>
-    <button type="submit">Sign In</button>
+<h1>Welcome to Roberthood</h1>
+
+<form action='<%= session_url %>' method='POST'>
+  <input type='hidden' name='authenticity_token' method=<%='form_authenticity_token'%>>
+<label>Username
+    <input type='text' name='user[username]'>
+</label>
+<label>Password
+    <input type='password' name='user[password]'>
+</label>
+<p>Forgot your username or password?</p>
+<button type='submit'>Sign In</button>
 </form>
