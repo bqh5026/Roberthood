@@ -1,16 +1,17 @@
-<h1>Welcome!</h1>
+<h1>Make Your Money Move</h1>
+<h3>Robinhood lets you invest in companies you love, commission-free.</h3>
 
-<form action="<%= users_url %>%" method="POST">
+<form action="<%= users_url %>" method="POST">
     <input 
         type="hidden"
         name="authenticity_token"
         value="<%= form_authenticity_token %>"
     >
     <label>Username:
-        <input name="user[username]" value="<%= @user.username %>">
+        <input name="user[username]" value="">
     </label>
     <label>Password: 
-        <input name="user[password]" value="<%= @user.password %>">
+        <input name="user[password]" value="">
     </label>
     <button type="submit">Sign Up</button>
 </form>
