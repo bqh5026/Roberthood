@@ -1,12 +1,29 @@
-<h1>Welcome to Roberthood</h1>
+
+<style>
+form {
+    width: 1000px;
+    margin: auto;
+    margin-top: 250px;
+}
+
+.search {
+    width: 80%;
+    padding: 10px;
+    font-size: 20px; 
+}
+
+.submit {
+    width: 15%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #333399;
+    color: white;
+}
+</style>
+
 
 <form>
-<label>Username
-    <input type='text'>
-</label>
-<label>Password
-    <input type='password'>
-</label>
-<p>Forgot your username or password?</p>
-<button value='Sign In'>
+    <div><%= image_tag('logos/roberthood_black_feather.jpg', width: '10px') %></div>
+    <input type='text' name='text' class='search' placeholder='Search' />
+    <input type='submit' name='submit' class='submit' value='Search' /> 
 </form>
