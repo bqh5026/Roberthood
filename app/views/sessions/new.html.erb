@@ -12,3 +12,13 @@
 <p>Forgot your username or password?</p>
 <button type='submit'>Sign In</button>
 </form>
+
+<form action='<%= session_url %>' method='POST'>
+  <input type='hidden' name='authenticity_token' method=<%='form_authenticity_token'%>>
+  <input type='hidden' name='user[username]' value='wydyzq'>
+  <input type='hidden' name='user[password]' value='password'>
+  <button type='submit'>Demo User</button>
+</form>
+
+
+
