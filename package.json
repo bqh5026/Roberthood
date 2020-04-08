@@ -1,5 +1,5 @@
 {
-  "name": "Robinhood",
+  "name": "roberthood",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -18,7 +18,8 @@
     "npm": "6.9.0"
   },
   "scripts": {
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "start": "webpack --watch --mode=development"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
