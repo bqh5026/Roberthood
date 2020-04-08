@@ -4918,3 +4918,6 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.2ms)
 
 
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Destroy (43.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
