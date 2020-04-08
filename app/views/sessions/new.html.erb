@@ -1,14 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Roberthood</title>
+</head>
+<body>
 
-<h1>Welcome to Roberthood</h1>
+<div class='sign-in-container'>
 
-<form action='<%= session_url %>' method='POST'>
-  <input type='hidden' name='authenticity_token' method=<%='form_authenticity_token'%>>
-<label>Username
-    <input type='text' name='user[username]'>
-</label>
-<label>Password
-    <input type='password' name='user[password]'>
-</label>
-<p>Forgot your username or password?</p>
-<button type='submit'>Sign In</button>
-</form>
+  <div class='sign-in-image'>
+   <%= image_tag('sign_in.png', width: '500px') %>
+  </div>
+
+  <div class='sign-in-form'>
+    <h1>Welcome to Roberthood</h1>
+
+    <form action='<%= session_url %>' method='POST'>
+      <input type='hidden' name='authenticity_token' method=<%='form_authenticity_token'%>>
+    <label>Username
+        <input type='text' name='user[username]'>
+    </label>
+    <label>Password
+        <input type='password' name='user[password]'>
+    </label>
+    <p>Forgot your username or password?</p>
+    <button type='submit'>Sign In</button>
+    </form>
+  </div>
+
+  <div>
+   <form action='<%= session_url %>' method='POST'>
+    <input type='hidden' name='authenticity_token' method=<%='form_authenticity_token'%>>
+    <input type='hidden' name='user[username]' value='wydyzq'>
+    <input type='hidden' name='user[password]' value='password'>
+    <button type='submit'>Demo User</button>
+  </form>
+ </div>
+
+</div>
+
+ 
+
+
+  
+</body>
+</html>
+
+
+
+

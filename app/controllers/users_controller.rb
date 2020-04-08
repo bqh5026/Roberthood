@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
-    before_action :require_sign_in!, only: [:show, :index]
+    before_action :require_signed_in!, only: [:show, :index]
 
     def create 
         @user = User.new(user_params)
         if @user.save
-            sign_in!(@user)
+            signed_in!(@user)
             redirect_to users_url
         else
             flash.now[:errors] = @user.errors.full_messages
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:first_name, :last_name, :username, :password)
     end
 
 end

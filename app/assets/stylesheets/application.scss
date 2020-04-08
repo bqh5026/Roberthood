@@ -1,0 +1,83 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+a {
+  color: gray; 
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.container-1 {
+  display: flex; 
+  justify-content: space-between;
+  flex-basis: 90%;
+}
+
+.box-1 {
+  flex: 1;
+}
+
+.box-2 {
+  flex: 1;
+}
+
+.box-3 {
+  flex: 1;
+}
+
+.link-item:hover {
+  color: #21cd99; 
+}
+
+.menu-items:hover {
+  color: #21cd99; 
+}
+
+.search {
+    width: 200px;
+    height: 5px; 
+    padding: 10px;
+    font-size: 8px;
+    background-color: #ffffff;
+    color: gray;
+    text-align: left; 
+}
+
+// Landing page
+  .landing-page-menu {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+
+
+// Sign in page
+
+.sign-in-container {
+  display: flex;  
+}
+
+// Sign out page
+
+.sign-out {
+    width: 1000px;
+    margin: auto;
+    margin-top: 250px;
+}
+

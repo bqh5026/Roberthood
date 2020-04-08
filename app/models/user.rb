@@ -30,7 +30,7 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: "Watchlist"
 
-    after_initialize :ensure_session_token
+  after_initialize :ensure_session_token
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
@@ -40,14 +40,14 @@ class User < ApplicationRecord
     end
 
     def is_password?(password)
-        BCypt::Password(self.password_digest).is_password?(password)
+        BCrypt::Password.new(self.password_digest).is_password?(password)
     end
-
+    
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)
     end
-
+    
     def reset_session_token!
         self.session_token = SecureRandom.base64(64)
         self.save!
@@ -55,9 +55,7 @@ class User < ApplicationRecord
     end
 
     private
-
     def ensure_session_token
-        self.session_token ||= SecureRandom::base64(64)
+        self.session_token ||= SecureRandom.base64(64)
     end
-
 end
