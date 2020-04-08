@@ -5048,3 +5048,14 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/api/session/new" for ::1 at 2020-04-08 14:17:20 -0400
+Processing by Api::SessionsController#new as JSON
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template api/sessions/new, application/new with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/bqh5026/Desktop/App Academy/Final Project/Roberthood/app/views"
+):
+  
+app/controllers/api/sessions_controller.rb:8:in `new'
