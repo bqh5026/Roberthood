@@ -2,7 +2,7 @@
 
 class Api::SessionsController < ApplicationController
 
-   before_action :require_signed_in!, only: [:destroy]
+   before_action :require_logged_in, only: [:destroy]
 
   def new
     render :new
@@ -15,8 +15,8 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user
-      sign_in!(@user)
-      redirect_to users_url
+      login!(@user)
+      redirect_to api_users_url
     else
       flash.now[:errors] = ['Invalid username or password']
       render :new
@@ -24,7 +24,7 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    sign_out!
+    logout!
     redirect_to new_api_session_url
   end
 end
