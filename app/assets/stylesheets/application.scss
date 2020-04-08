@@ -41,11 +41,11 @@ a {
   flex: 1;
 }
 
-.menu-item:hover {
-  color: gray;  
+.link-item:hover {
+  color: #21cd99; 
 }
 
-.menu-item:hover {
+.menu-items:hover {
   color: #21cd99; 
 }
 
@@ -58,3 +58,26 @@ a {
     color: gray;
     text-align: left; 
 }
+
+// Landing page
+  .landing-page-menu {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+
+
+// Sign in page
+
+.sign-in-container {
+  display: flex;  
+}
+
+// Sign out page
+
+.sign-out {
+    width: 1000px;
+    margin: auto;
+    margin-top: 250px;
+}
+

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portfolio | Roberthood</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,11 +15,6 @@
     <% if signed_in? %>
 
     <style>
-form {
-    width: 1000px;
-    margin: auto;
-    margin-top: 250px;
-}
 
 </style>
 
@@ -37,16 +31,16 @@ form {
       </div>
 
       <div class='box-3'>
-          <a class='menu-item' href='#'>Free Stocks</a>
-          <a class='menu-item' href='#'>Portfolio</a>
-          <a class='menu-item' href='#'>Cash</a>
-          <a class='menu-item' href='#'>Messages</a>
-          <a class='menu-item' href='#'>Account</a>
+          <a class='link-item' href='#'>Free Stocks</a>
+          <a class='link-item' href='#'>Portfolio</a>
+          <a class='link-item' href='#'>Cash</a>
+          <a class='link-item' href='#'>Messages</a>
+          <a class='link-item' href='#'>Account</a>
       </div> 
 
     </div>
    
-<form action=<%= session_url %> method='post'%>
+<form class='sign-out' action=<%= session_url %> method='post'%>
   <input 
     type='hidden'
     name='_method'
