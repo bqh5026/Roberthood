@@ -25,6 +25,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out!
-    redirect_to new_session_url
+    redirect_to new_api_session_url
   end
 end
