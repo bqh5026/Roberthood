@@ -4,16 +4,17 @@ import { Route,
          Switch
 } from "react-router-dom";
 import Home from './home/home';
+import LoginContainer from './session/login_container'; 
 import SignupContainer from "./session/signup_container";
-import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
 
 export default () => (
   <div>
     <Switch>
-      <AuthRoute exact Path="/login" component={LoginContainer} />
-      <AuthRoute exact Path="/signup" component={SignupContainer} />
-      <Route exact Path="/" component={Home} />
+      <Route exact path="/" component={Home} />
+      <AuthRoute path="/signup" component={SignupContainer} />
+      <AuthRoute path="/login" component={LoginContainer} />
     </Switch>
   </div>
 );

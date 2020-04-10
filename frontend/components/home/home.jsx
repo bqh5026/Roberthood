@@ -5,7 +5,7 @@ export default () => (
     <div className="landing-page-menu">
       <div>
         <h3>Roberthood</h3>
-        <img src={blackFeatherURL} />
+        <img className='logo' src={blackFeatherURL} />
       </div>
 
       <div className="landing-page-menu-items">
