@@ -9,13 +9,13 @@ export default () => (
       </div>
 
       <div className="landing-page-menu-items">
-        <a class="landing-page-menu-item" href="#">
+        <a className="landing-page-menu-item" href="#">
           Products
         </a>
-        <a class="landing-page-menu-item" href="#">
+        <a className="landing-page-menu-item" href="#">
           Learn
         </a>
-        <a class="landing-page-menu-item" href="#">
+        <a className="landing-page-menu-item" href="#">
           Support
         </a>
       </div>

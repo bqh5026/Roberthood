@@ -3,18 +3,21 @@ import { Provider } from 'react-redux';
 import { Route,
          Switch
 } from "react-router-dom";
-import SignupContainer from './session/signup_container';
 import Home from './home/home';
+import SignupContainer from "./session/signup_container";
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 
 export default () => (
   <div>
     <Switch>
-      <Route Path="/signup" component={SignupContainer} />
+      <AuthRoute exact Path="/login" component={LoginContainer} />
+      <AuthRoute exact Path="/signup" component={SignupContainer} />
       <Route exact Path="/" component={Home} />
     </Switch>
   </div>
 );
 
 //    <Route Path="/" component={NavBarContainer} />
+
   
