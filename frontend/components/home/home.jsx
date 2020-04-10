@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom'; 
 
 export default () => (
   <div>
     <div className="landing-page-menu">
       <div>
         <h3>Roberthood</h3>
-        <img className='logo' src={blackFeatherURL} />
+        <img className="black-feather" src={blackFeatherURL} />
       </div>
 
       <div className="landing-page-menu-items">
@@ -21,11 +22,11 @@ export default () => (
       </div>
 
       <div>
-        <a href={`/api/session/new`}>Sign In</a>
+        <Link to="/login">Sign In</Link>
       </div>
 
       <div>
-        <a href={`/api/users/new`}>Sign Up</a>
+        <Link to="/signup">Sign Up</Link>
       </div>
     </div>
 

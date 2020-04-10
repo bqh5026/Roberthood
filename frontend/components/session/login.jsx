@@ -25,39 +25,39 @@ class Login extends React.Component {
 
   render() {
     // console.log(this.props);
-    return ( 
-<div>
-        
-    <div className='sign-in-container'>
+    return (
+      <div>
+        <div className="sign-in-container">
+          <div>
+            <img className="sign-in-image" src={signInURL} />
+          </div>
 
-        <div className='sign-in-image'>
-            <img src={signInURL} />
-        </div>
-
-        <div className='sign-in-form'>
+          <div className="sign-in-form">
             <h1>Welcome to Roberthood</h1>
 
             <form>
-            <label>Username:
-            <input
-                type="text"
-                value={this.state.username}
-                onChange={this.handleInput('username')}
-            />
-            </label>
+              <label>
+                Username:
+                <input
+                  type="text"
+                  value={this.state.username}
+                  onChange={this.handleInput("username")}
+                />
+              </label>
 
-            <label>Password:
-            <input
-                type="password"
-                value={this.state.password}
-                onChange={this.handleInput('password')}
-            />
-                <button onClick={this.handleSubmit}>Log In!</button>
-            </label>
+              <label>
+                Password:
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handleInput("password")}
+                />
+                <button onClick={this.handleSubmit}>Sign In</button>
+              </label>
             </form>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
     );
   }
 }
