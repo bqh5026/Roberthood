@@ -25,11 +25,10 @@ class Signup extends React.Component {
 
     render() {
         return (
-          <div className="session-form">
-            <h1>Make Your Money Move</h1>
+          <div className="signup-form">
+            <h1 className='signup-header'>Make Your Money Move</h1>
             <h3>
-              Robinhood lets you invest in companies you love, 
-              commission-free.
+              Robinhood lets you invest in companies you love, commission-free.
             </h3>
             <form>
               <label>
@@ -48,6 +47,7 @@ class Signup extends React.Component {
                   onChange={this.handleInput("last_name")}
                 />
               </label>
+              <br />
               <label>
                 Username
                 <input
@@ -56,6 +56,7 @@ class Signup extends React.Component {
                   onChange={this.handleInput("username")}
                 />
               </label>
+              <br />
               <label>
                 Password
                 <input
@@ -64,7 +65,10 @@ class Signup extends React.Component {
                   onChange={this.handleInput("password")}
                 />
               </label>
-              <button onClick={this.handleSubmit}>Continue</button>
+              <br />
+              <button className="signup-btn" onClick={this.handleSubmit}>
+                Continue
+              </button>
             </form>
           </div>
         ); 
