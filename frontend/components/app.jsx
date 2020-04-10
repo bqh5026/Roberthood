@@ -1,15 +1,20 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { Route,
+         Switch
+} from "react-router-dom";
 import SignupContainer from './session/signup_container';
 import Home from './home/home';
-import { Route } from 'react-router-dom';
 
 
 export default () => (
-    <div>
-        <Route exact Path="/" component={Home} />
-        <Route exact Path="/signup" component={SignupContainer} />
-
-    </div>
-)
+  <div>
+    <Switch>
+      <Route Path="/signup" component={SignupContainer} />
+      <Route exact Path="/" component={Home} />
+    </Switch>
+  </div>
+);
 
 //    <Route Path="/" component={NavBarContainer} />
+  
