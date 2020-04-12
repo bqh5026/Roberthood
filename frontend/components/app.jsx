@@ -6,7 +6,7 @@ import { Route,
 // import NavBarContainer from './nav_bar/nav_bar_container';
 import LoginContainer from './session/login_container'; 
 import SignupContainer from './session/signup_container';
-import UserProfileContainer from './user_profile/user_profile_container'; 
+import DashboardContainer from './dashboard/dashboard_container'; 
 import Home from "./home/home";
 // import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
@@ -19,7 +19,7 @@ export default () => (
       <Route exact path="/" component={Home} />
       <Route path="/signup" component={SignupContainer} />
       <Route path="/login" component={LoginContainer} />
-      <Route path="/api/users/" component={UserProfileContainer} />;
+      <Route path="/api/users/" component={DashboardContainer} />;
   
   </div>
 );
