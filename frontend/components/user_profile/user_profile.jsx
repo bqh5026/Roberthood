@@ -1,17 +1,25 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 
-class UserProfile extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
-        render() {
-        return (
-                <div>
-                <h1>Roberthood Profile Page</h1>
-                </div>
-            )
-        }      
+export default ({ currentUser, logout }) => {
+  const [username, setUsername] = useState('')
+  const [last_name, setLastname] = useState('')
+  console.log("currentUser", currentUser); 
+  if (!currentUser) {
+    return (
+      <div>Loading...</div>
+    )
+  }
+   return (
+     <div>
+       <header className="nav-bar">
+         <h1 className="logo">Roberthood</h1>
+         <h3>Welcome {currentUser.username}</h3>
+         <p>{currentUser.last_name}</p>
+       </header>
+       <button onClick={logout}>Logout</button>
+     </div>
+   );
 }
-
-export default UserProfile; 
+     
+       

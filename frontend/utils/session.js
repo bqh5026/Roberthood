@@ -17,5 +17,11 @@ export const deleteSession = () => (
     $.ajax({
         url: `/api/session`,
         method: 'DELETE',
+        success: function (data, text) {
+            console.log(data);
+        },
+        error: function (request, status, error) {
+            console.log(request.responseText);
+        }
     })
 );
