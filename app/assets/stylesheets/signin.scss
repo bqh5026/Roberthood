@@ -1,0 +1,35 @@
+// Place all the styles related to the session controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sign-in-image {
+    height: 500px;
+    width: 500px; 
+}
+
+.sign-in-form {
+    width: 400px;
+    margin: 20px; 
+}
+
+.sign-in-header {
+    font-family: "DIN Pro", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 10px; 
+    font-weight: 700;
+}
+
+.label {
+    font-size: 10px;
+}
+.input {
+    background-color: #fafafa;
+}
+
+.sign-in-btn {
+    background-color: #21ce99;
+    color: #ffffff; 
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 5px;
+    width: 55px;
+}

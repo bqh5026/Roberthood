@@ -33,34 +33,32 @@ class Login extends React.Component {
           </div>
 
           <div className="sign-in-form">
-            <h1>Welcome to Roberthood</h1>
+            <h1 className='sign-in-header'>Welcome to Roberthood</h1>
 
             <form>
-              <label>
-                Username:
-                <input
+              <span className='label'>Username</span><br/>
+                <input className='input'
                   type="text"
                   value={this.state.username}
                   onChange={this.handleInput("username")}
-                />
-              </label>
-
-              <label>
-                Password:
-                <input
+                /> <br />
+              <span className='label'>Password</span><br />
+                <input className='input'
                   type="password"
                   value={this.state.password}
                   onChange={this.handleInput("password")}
-                />
-                <button onClick={this.handleSubmit}>Sign In</button>
-              </label>
+                /> <br />
+              <span className='retrieval'>Forgot your username or password?</span>
+              <br />
+              <br />
+              <button className='sign-in-btn' onClick={this.handleSubmit}>Sign In</button>
             </form>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Login; 
+export default Login 
 

@@ -26,45 +26,44 @@ class Signup extends React.Component {
     render() {
         return (
           <div className="signup-form">
+            <img className='signup-logo' src={greenFeatherURL} />
             <h1 className='signup-header'>Make Your Money Move</h1>
-            <h3>
+            <h3 className='signup-subheader'>
               Robinhood lets you invest in companies you love, commission-free.
             </h3>
             <form>
-              <label>
-                First Name
+          
+              <span>First Name</span>
                 <input
                   type="text"
                   value={this.state.first_name}
                   onChange={this.handleInput("first_name")}
                 />
-              </label>
-              <label>
-                Last Name
+          
+              <span>Last Name</span>
+              
                 <input
                   type="text"
                   value={this.state.last_name}
                   onChange={this.handleInput("last_name")}
                 />
-              </label>
               <br />
-              <label>
-                Username
+            
+              <span>Username</span>
                 <input
                   type="text"
                   value={this.state.username}
                   onChange={this.handleInput("username")}
                 />
-              </label>
+           
               <br />
-              <label>
-                Password
+              <span>Password</span>
+              
                 <input
                   type="password"
                   value={this.state.password}
                   onChange={this.handleInput("password")}
                 />
-              </label>
               <br />
               <button className="signup-btn" onClick={this.handleSubmit}>
                 Continue
