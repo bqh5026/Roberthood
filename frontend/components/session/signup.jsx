@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Signup extends React.Component {
     constructor(props) {
@@ -26,7 +27,14 @@ class Signup extends React.Component {
     render() {
         return (
           <div className="signup-form">
-            <img className='signup-logo' src={greenFeatherURL} />
+            <nav className='signup-navbar'>
+              <img className='signup-logo' src={greenFeatherURL} />
+              <Link to='#'>Account</Link>
+              <Link to='#'>Basic Info</Link>
+              <Link to='#'>Identity</Link>
+              <Link to='#'>Funding</Link>
+              <Link to='#'>Submit</Link>
+            </nav>
             <h1 className='signup-header'>Make Your Money Move</h1>
             <h3 className='signup-subheader'>
               Robinhood lets you invest in companies you love, commission-free.

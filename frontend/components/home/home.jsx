@@ -3,23 +3,22 @@ import {Link} from 'react-router-dom';
 
 export default () => (
   <div>
-    <div className="landing-page-menu">
-      <div>
+    <nav className="landing-page-nav-bar">
+
+      <div className='landing-page-logo'>
         <h3>Roberthood</h3>
         <img className="black-feather" src={blackFeatherURL} />
       </div>
 
-      <div className="landing-page-menu-items">
-        <a className="landing-page-menu-item" href="#">
+        <Link className="landing-page-menu-item" to="#">
           Products
-        </a>
-        <a className="landing-page-menu-item" href="#">
+        </Link>
+        <Link className="landing-page-menu-item" to="#">
           Learn
-        </a>
-        <a className="landing-page-menu-item" href="#">
+        </Link>
+        <Link className="landing-page-menu-item" to="#">
           Support
-        </a>
-      </div>
+        </Link>
 
       <div>
         <Link to="/login">Sign In</Link>
@@ -28,16 +27,28 @@ export default () => (
       <div>
         <Link to="/signup">Sign Up</Link>
       </div>
+    </nav>
+
+    <div className='content-1'>
+      <div className='container-1'>
+
+        <div className='landing-page-signup'>
+          <h1>It's Time to Do Money</h1>
+          <p>Roberthood, a pioneer of commission-free investing,
+        gives you more ways to make your money work harder.</p>
+          <button type='submit'>Sign Up</button>
+        </div>
+
+        <div>
+          <img className='cash-management-photo' src={cashManagementURL} />
+        </div>
+        
+      </div>
     </div>
 
-    <div>
+    <div className='content-2'>
       <div>
-        <header>
-          <h2>Break Free from Commission Fees</h2>
-        </header>
-      </div>
-      <div>
-        <img src={cashManagementURL} />
+        <h2>Break Free from Commission Fees</h2>
       </div>
     </div>
   </div>

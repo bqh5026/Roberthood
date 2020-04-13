@@ -27,8 +27,7 @@ class Api::SessionsController < ApplicationController
     if @user 
     logout
     render 'api/users/show'
-    # render 'api/session/new'
-    # redirect_to 'api/session/new'
+    
     else 
     render json: ['Nobody signed in'], status: 404
     end

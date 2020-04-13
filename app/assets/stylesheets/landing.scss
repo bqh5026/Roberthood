@@ -2,7 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+//landing page nav bar 
+.landing-page-nav-bar {
+    display: flex; 
+    justify-content: space-between;
+}
+
+
+
+//landing page logo 
+
+.landing-page-logo {
+    display: flex;
+    flex-direction: row;
+}
+
 .black-feather {
     height: 25px;
     width: 25px;
+}
+
+//content-1
+
+.content-1 {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #21ce99; 
+}
+
+.container-1 {
+    width: 40%;
+    margin: 0 auto; 
+}
+.cash-management-photo {
+    height: 200px;
 }
