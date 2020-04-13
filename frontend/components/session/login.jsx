@@ -20,7 +20,7 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      .then(() => this.props.history.push('/api/users'));
+      .then(() => this.props.history.push('/dashboard'));
   }
 
   render() {
@@ -34,7 +34,6 @@ class Login extends React.Component {
 
           <div className="sign-in-form">
             <h1 className='sign-in-header'>Welcome to Roberthood</h1>
-
             <form>
               <span className='label'>Username</span><br/>
                 <input className='input'
@@ -54,6 +53,23 @@ class Login extends React.Component {
               <button className='sign-in-btn' onClick={this.handleSubmit}>Sign In</button>
             </form>
           </div>
+
+          <div className='demo-user'>
+            <form>
+              <input 
+                type="hidden"
+                // value={this.setState({username: 'bqh5026'})}
+                value={this.state.username = 'bqh5026'}
+                />
+              <input 
+                type="hidden"
+                // value={this.setState({password: 'password'})}
+               value={this.state.password = 'password'}
+              />
+              <button className='demo-user-btn' onClick={this.handleSubmit}>Sign In</button>
+            </form>
+          </div>
+
         </div>
       </div>
     )

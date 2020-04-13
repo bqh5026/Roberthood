@@ -10132,3 +10132,143 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 330ms (Views: 328.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2020-04-13 14:53:43 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 279ms (Views: 278.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2020-04-13 14:54:03 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"bqh5026", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bqh5026"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (0.9ms)
+Completed 200 OK in 185ms (Views: 4.5ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-04-13 14:54:07 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "J5RiriqrvyEZVZlfAmNWLIKMCwiX7drDhxvK0egBvDN79jTcHfkUj16O14sIFIDVfil7pePGMhX13oikKJGOJA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:53
+  [1m[36mUser Update (6.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "5wF77lx3BCJzs9GtLMZHGHmvbj54Tolzu0iF9XJY+aGIDELFNwHyRftyAMGqKUhc/qy6K+9jMjDCAY7pr/oFeg=="], ["updated_at", "2020-04-13 18:54:07.293775"], ["id", 7]]
+  ↳ app/models/user.rb:53
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:53
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (0.9ms)
+Completed 200 OK in 15ms (Views: 5.3ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/api/session" for ::1 at 2020-04-13 14:54:26 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"bqh5026", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bqh5026"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (0.9ms)
+Completed 200 OK in 181ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-04-13 14:54:31 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5wF77lx3BCJzs9GtLMZHGHmvbj54Tolzu0iF9XJY+aGIDELFNwHyRftyAMGqKUhc/qy6K+9jMjDCAY7pr/oFeg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:53
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "yLKnMa5IoH0iYZcha1O4Qfgkn9UXcq17xcdkRTMYn0KfpXYWXccrfk1fny7fX32+0J8vlXQL6FbzRdhsC3gQAg=="], ["updated_at", "2020-04-13 18:54:31.638274"], ["id", 7]]
+  ↳ app/models/user.rb:53
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:53
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (0.8ms)
+Completed 200 OK in 13ms (Views: 5.1ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/" for ::1 at 2020-04-13 14:54:52 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/users" for ::1 at 2020-04-13 14:55:15 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"first_name"=>"Andrew ", "last_name"=>"Yoo", "username"=>"Andrew", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[36mUser Create (11.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "session_token", "password_digest", "created_at", "updated_at", "first_name", "last_name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "Andrew"], ["session_token", "W981MMMLkPWvdEknWn2BkR0pduKCV1lRTzo7ugBWc4Q8dq+EIpoLm2GtJ3Duswb7qlXti1+jlXZx0MR850Ng6Q=="], ["password_digest", "$2a$12$7Ye5jA6Z.skvJa8jN69XkOB/CQo9wgnEy5zIwaHW1vVUBrx2GpHbi"], ["created_at", "2020-04-13 18:55:15.863201"], ["updated_at", "2020-04-13 18:55:15.863201"], ["first_name", "Andrew "], ["last_name", "Yoo"]]
+  ↳ app/controllers/api/users_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:7
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (0.9ms)
+Completed 200 OK in 194ms (Views: 4.8ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/" for ::1 at 2020-04-13 14:55:52 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "W981MMMLkPWvdEknWn2BkR0pduKCV1lRTzo7ugBWc4Q8dq+EIpoLm2GtJ3Duswb7qlXti1+jlXZx0MR850Ng6Q=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 272ms (Views: 271.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-04-13 14:56:05 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "W981MMMLkPWvdEknWn2BkR0pduKCV1lRTzo7ugBWc4Q8dq+EIpoLm2GtJ3Duswb7qlXti1+jlXZx0MR850Ng6Q=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:53
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "i6ngBFdkElrDpp2WaDtZyB4uXog1S3BHi5qK4hKWqJrh15LE+kdP977YTnddZigNh+o0l7tmvt9AuIEBwjHgLg=="], ["updated_at", "2020-04-13 18:56:05.196533"], ["id", 22]]
+  ↳ app/models/user.rb:53
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:53
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (0.9ms)
+Completed 200 OK in 14ms (Views: 5.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/" for ::1 at 2020-04-13 15:18:36 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 359ms (Views: 357.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-13 15:20:20 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 318ms (Views: 317.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-13 15:20:36 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 278ms (Views: 276.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2020-04-13 15:20:39 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"bqh5026", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bqh5026"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.5ms)
+Completed 200 OK in 189ms (Views: 7.2ms | ActiveRecord: 0.8ms)
+
+

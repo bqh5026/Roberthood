@@ -18,7 +18,7 @@ export default () => (
       <AuthRoute exact path="/" component={Home} />
       <AuthRoute path="/signup" component={SignupContainer} />
       <AuthRoute path="/login" component={LoginContainer} />
-      <ProtectedRoute path="/api/users/" component={DashboardContainer} />; 
+      <ProtectedRoute path="/dashboard" component={DashboardContainer} />; 
   </div>
 );
 
