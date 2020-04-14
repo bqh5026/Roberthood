@@ -2,7 +2,6 @@ ul {
     list-style: none;
 }
 
-
 //nav-bar
 
 .nav-bar {
@@ -28,6 +27,15 @@ ul {
 }
 
 .dropdown {
+    border: none; 
+}
+
+.dropdown-list:hover {
+    background: lightgrey;
+}
+
+button {
+    cursor: pointer; 
 }
 
 .rg-logo {
@@ -44,12 +52,20 @@ ul {
   color: #171718; 
 }
 
+.menu-icon {
+    margin: 5px; 
+}
+
 // content container 
 
 .content {
     width: 50%; 
     margin: 0 auto; 
     display: flex;
+}
+
+.left {
+    margin-right: 2rem; 
 }
 
 // fund account container
@@ -74,14 +90,35 @@ ul {
     font-size: 13px;
     color: #21ce99;
 }
+
+// collections container
+
+.popular-collections {
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between;
+    // border: 1px solid lightgray; 
+    padding: 5px; 
+}
+
+.show-more-collections {
+    font-size: 8px;
+    color: #21ce99;
+}
+
+
 //news container
 
 .news {
     margin: 0 auto; 
     display: flex;
     justify-content: space-between;
-    border: 1px solid lightgray; 
+    // border: 1px solid lightgray; 
     padding: 5px; 
+}
+.news-item:hover {
+    background: lightgrey;
+    cursor: pointer; 
 }
 
 .show-more-news {
@@ -95,25 +132,12 @@ ul {
     margin: 2px; 
 }
 
-// collections container
-
-.popular-collections {
-    margin: 0 auto; 
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid lightgray; 
-    padding: 5px; 
-}
-
-.show-more-collections {
-    font-size: 8px;
-    color: #21ce99;
-}
 
 // footer container 
-.footer {
-    border: 1px solid lightgray; 
-}
+
+// .footer {
+    // border: 1px solid lightgray; 
+// }
 
 .footer-paragraph {
     font-family: "DIN Pro", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -131,19 +155,21 @@ ul {
 // right column container
 
 .right {
-    border: 1px solid lightgray; 
+    // border: 1px solid lightgray; 
     font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
     font-size: 16px;
     padding: 5px; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+    -2px 0px 4px rgba(0, 0, 0, 0.5)
 }
 
 //logout button
 
-.logout-btn {
-    background-color: black;
-    color: #ffffff; 
-    border-radius: 3px;
-    padding: 5px;
-    font-size: 5px;
-    width: 55px;
-}
+// .logout-btn {
+//     background-color: black;
+//     color: #ffffff; 
+//     border-radius: 3px;
+//     padding: 5px;
+//     font-size: 5px;
+//     width: 55px;
+// }

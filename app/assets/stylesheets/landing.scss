@@ -10,18 +10,35 @@
 }
 
 
-
-//landing page logo 
-
 .landing-page-logo {
     display: flex;
     flex-direction: row;
 }
 
+.roberthood {
+    font-family: Times;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+}
 .black-feather {
     height: 25px;
     width: 25px;
 }
+
+.landing-page-menu-item {
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    color: #040d14;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.landing-page-menu-item:hover {
+    color: #18563e; ;
+}
+
+
 
 //content-1
 

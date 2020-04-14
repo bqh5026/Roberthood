@@ -5,7 +5,7 @@ export default () => (
   <div>
     <nav className="landing-page-nav-bar">
       <div className="landing-page-logo">
-        <h3>Roberthood</h3>
+        <h3 className='.roberthood'>Roberthood</h3>
         <Link to="/">
           <img className="black-feather" src={blackFeatherURL} />
         </Link>

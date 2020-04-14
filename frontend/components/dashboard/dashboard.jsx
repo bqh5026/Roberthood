@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 export default ({ currentUser, logout }) => {
   const [username, setUsername] = useState('')
   const [last_name, setLastname] = useState('')
+  const [first_name, setFirstname] = useState('')
   console.log("currentUser", currentUser); 
 
   const [news, setNews] = useState([]);
@@ -47,48 +48,54 @@ export default ({ currentUser, logout }) => {
              <button className="nav-menu-item dropdown">Account</button>
              <ul className='dropdown-menu'>
               <li>
+                <div>
+                  {currentUser.first_name} {currentUser.last_name}
+                </div>
+                <hr />
+              </li>
+              <li className='dropdown-list'>
                  <img className="rg-logo" src={roberthoodGoldURL} />
                  <Link className="gold" to="#">Roberthood Gold</Link>
               </li>
-              <li>
-                 <i className="fas fa-gift"></i>
+              <li className='dropdown-list'>
+                 <i className="fas fa-gift menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Free Stock</Link>
               </li>
-              <li>
-                 <i className="fas fa-briefcase"></i>
+              <li className='dropdown-list'>
+                 <i className="fas fa-briefcase menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Account</Link>
               </li>
-              <li>
-                 <i className="fas fa-university"></i>
+              <li className='dropdown-list'>
+                 <i className="fas fa-university menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Banking</Link>
               </li>
-              <li>
-                 <i className="fas fa-history"></i>
+              <li className='dropdown-list'>
+                 <i className="fas fa-history menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">History</Link>
               </li>
-              <li>
-                 <i className="fas fa-file-alt"></i>
+              <li className='dropdown-list'>
+                 <i className="fas fa-file-alt menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Documents</Link>
               </li>
-              <li>
-                 <i className="fas fa-cog"></i>
+              <li className='dropdown-list'>
+                 <i className="fas fa-cog menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Settings</Link>
               </li>
-              <li>
-                 <i className="far fa-life-ring"></i>
+              <li className='dropdown-list'>
+                 <i className="far fa-life-ring menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Help Center</Link>
               </li>
-              <li>
-                 <i className="fas fa-comment-dots"></i>
+              <li className='dropdown-list'>
+                 <i className="fas fa-comment-dots menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Contact Us</Link>
               </li>
-              <li>
-                 <i className="far fa-file-pdf"></i>
+              <li className='dropdown-list'>
+                 <i className="far fa-file-pdf menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Disclosure</Link>
               </li>
-              <li>
-                 <i className="fas fa-sign-out-alt"></i>
-                 <Link className="dropdown-menu-item" to="#">Log Out</Link>
+              <li className='dropdown-list'>
+                 <i className="fas fa-sign-out-alt menu-icon"></i>
+                 <Link className="dropdown-menu-item" to="#" onClick={logout}>Log Out</Link>
               </li>
              </ul>
            </div>
@@ -118,9 +125,10 @@ export default ({ currentUser, logout }) => {
               <h4>News</h4>
              <ul>
                {news.map((item, idx) => {
-                 return (<li key={idx}>
+                 return (<li key={idx} className='news-item'>
                   <i className="fas fa-bolt"></i>
                   {item.title}
+                  <hr />
                   </li>)
                })}
              </ul> 
@@ -137,12 +145,10 @@ export default ({ currentUser, logout }) => {
 
          <div className="right">
            <span>Watchlist</span>
+           <hr/>
          </div>
        </div>
 
-       <br />
-
-       <button className='logout-btn' onClick={logout}>Logout</button>
      </div>
    );
 }
