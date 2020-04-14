@@ -1,6 +1,8 @@
-import React, {useState} from 'react'; 
+import React, {useState, useEffect} from 'react'; 
 import {Link} from 'react-router-dom'; 
 // import { LineChart, Line } from "recharts";
+
+
 
 
 export default ({ currentUser, logout }) => {
@@ -8,12 +10,27 @@ export default ({ currentUser, logout }) => {
   const [last_name, setLastname] = useState('')
   console.log("currentUser", currentUser); 
 
+  const [news, setNews] = useState([]);
+  console.log("currentUser", currentUser);
+  useEffect(() => {
+    if (news.length < 1) {
+      $.ajax('/api/news/new').done(res => {
+        setNews(news.concat(res.articles));
+      });
+    }
+  });
+
+  
+
+
    return (
      <div>
        <div>
          <nav className="nav-bar">
            <Link to="/dashboard">
-             <img className="dashboard-green-feather" src={greenFeatherURL} />
+             <img className="dashboard-green-feather" src={greenFeatherURL} 
+             />
+
            </Link>
            <div className="search-box">
              <i className="fas fa-search"></i>
@@ -29,7 +46,44 @@ export default ({ currentUser, logout }) => {
            <Link className="nav-menu-item" to="#">Portfolio</Link>
            <Link className="nav-menu-item" to="#">Cash</Link>
            <Link className="nav-menu-item" to="#">Messages</Link>
-           <Link className="nav-menu-item" to="#">Account</Link>
+           <div className="dropdown">
+             <button className="nav-menu-item dropdown">Account</button>
+             <ul>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Robinhood Gold</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Free Stock</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Account</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Banking</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">History</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Documents</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Settings</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Help Center</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Contact Us</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Disclosure</Link>
+              </li>
+              <li>
+                 <Link className="dropdown-menu-item" to="#">Log Out</Link>
+              </li>
+             </ul>
+           </div>
          </nav>
        </div>
 
@@ -54,6 +108,11 @@ export default ({ currentUser, logout }) => {
 
            <div className="news">
              <h4>News</h4>
+             <ul>
+               {news.map((item) => {
+                 return (<li>{item.title}</li>)
+               })}
+             </ul>
              <span className="show-more-news">Show More</span>
            </div>
 
