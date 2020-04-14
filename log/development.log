@@ -10934,3 +10934,54 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 630ms (Views: 627.9ms | ActiveRecord: 0.3ms)
 
 
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/news/new" for 127.0.0.1 at 2020-04-14 12:00:39 -0400
+  [1m[35m (40.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/news/new"):
+  
+(pry):1:in `__pry__'
+Started GET "/" for ::1 at 2020-04-14 12:38:31 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/bqh5026/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "0RJ3r77bPMajTJLqB1GxAZb3ud/BBSV9F/RNkdz+kp8VjPVxl5+D6uSUdcQvWOxI59YtOZIQAYy032rlHB5aiA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 1424ms (Views: 1413.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/api/news/new" for ::1 at 2020-04-14 12:38:33 -0400
+Processing by Api::NewsController#new as JSON
+Completed 200 OK in 115ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-14 12:41:40 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "0RJ3r77bPMajTJLqB1GxAZb3ud/BBSV9F/RNkdz+kp8VjPVxl5+D6uSUdcQvWOxI59YtOZIQAYy032rlHB5aiA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 50ms (Views: 40.2ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/api/news/new" for ::1 at 2020-04-14 12:41:40 -0400
+Processing by Api::NewsController#new as JSON
+Completed 200 OK in 130ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-14 12:43:38 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "0RJ3r77bPMajTJLqB1GxAZb3ud/BBSV9F/RNkdz+kp8VjPVxl5+D6uSUdcQvWOxI59YtOZIQAYy032rlHB5aiA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/news/new" for ::1 at 2020-04-14 12:43:39 -0400
+Processing by Api::NewsController#new as JSON
+Completed 200 OK in 87ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
