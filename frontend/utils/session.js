@@ -25,3 +25,12 @@ export const deleteSession = () => (
         }
     })
 );
+
+
+//testing
+
+// export const fetchUser = (usertId) => (
+//     $.ajax({
+//         url: `/api/users/${userId}`
+//     })
+// ); 

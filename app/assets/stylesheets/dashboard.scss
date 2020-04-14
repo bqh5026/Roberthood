@@ -12,10 +12,32 @@
 // content container 
 
 .content {
-    width: 70%; 
-
+    width: 50%; 
+    margin: 0 auto; 
 }
 
+// fund account container
+.fund-account {
+    border: 1px solid lightgray;
+}
+
+.funds {
+    font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: gray; 
+}
+
+.funds-message {
+    font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
+    font-size: 13px;
+}
+
+.add-funds-message {
+    font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
+    font-size: 13px;
+    color: #21ce99;
+}
 //news container
 
 .news {
@@ -45,4 +67,22 @@
 .show-more-collections {
     font-size: 8px;
     color: #21ce99;
+}
+
+// footer container 
+.footer {
+    border: 1px solid lightgray; 
+}
+
+.footer-paragraph {
+    font-family: "DIN Pro", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.privacy-policy {
+    font-family: "DIN Pro", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #21ce99; 
 }

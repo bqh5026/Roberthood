@@ -1,7 +1,8 @@
 import {
     postUser, 
     postSession,
-    deleteSession
+    deleteSession,
+    // fetchUser
 } from '../utils/session'; 
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'; 
@@ -26,3 +27,9 @@ export const login = formUser => dispatch =>
 export const logout = () => dispatch => 
     deleteSession()
     .then(()=> dispatch(logoutCurrentUser()));
+
+
+
+export const receiveUser = formUser => dispatch =>
+    fetchUser(formUser)
+        .then(user => dispatch(receiveCurrentUser(user)));

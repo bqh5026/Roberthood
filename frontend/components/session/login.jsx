@@ -58,15 +58,13 @@ class Login extends React.Component {
             <form>
               <input 
                 type="hidden"
-                // value={this.setState({username: 'bqh5026'})}
                 value={this.state.username = 'bqh5026'}
                 />
               <input 
                 type="hidden"
-                // value={this.setState({password: 'password'})}
-               value={this.state.password = 'password'}
+                value={this.state.password = 'password'}
               />
-              <button className='demo-user-btn' onClick={this.handleSubmit}>Sign In</button>
+              <button className='demo-user-btn' onClick={this.handleSubmit}>Demo User</button>
             </form>
           </div>
 
