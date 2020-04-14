@@ -10,7 +10,6 @@ export default ({ currentUser, logout }) => {
 
    return (
      <div>
-
        <div>
          <nav className="nav-bar">
            <img className="dashboard-green-feather" src={greenFeatherURL} />
@@ -32,39 +31,41 @@ export default ({ currentUser, logout }) => {
          </nav>
        </div>
 
-        <div className="content">
+       <br />
+       <div className="content">
+         <br />
+         <br />
+         <div className="left">
+           <div className="fund-account">
+             <span className="funds">Fund Your Account</span>
+             <p className="funds-message">
+               Your bank account is ready! Fund your Robinhood account to begin
+               trading.
+             </p>
+             <span className="add-funds-message">Add Funds</span>
+           </div>
 
-          <br />
-          <br />
-          <div className='left'>
-            <div className="fund-account">
-              <span className="funds">Fund Your Account</span>
-              <p className="funds-message">
-                Your bank account is ready! Fund your Robinhood account to begin
-                trading.
-              </p>
-              <span className="add-funds-message">Add Funds</span>
-            </div>
+           <div className="popular-collections">
+             <h4>Popular Collections</h4>
+             <span className="show-more-collections">Show More</span>
+           </div>
 
-            <div className="popular-collections">
-              <h4>Popular Collections</h4>
-              <span className="show-more-collections">Show More</span>
-            </div>
+           <div className="news">
+             <h4>News</h4>
+             <span className="show-more-news">Show More</span>
+           </div>
 
-            <div className="news">
-              <h4>News</h4>
-              <span className="show-more-news">Show More</span>
-            </div>
+           <div className="footer">
+             <p className="footer-paragraph">
+               For more information, see our
+               <span className="privacy-policy"> Privacy Policy</span>.
+             </p>
+           </div>
+         </div>
 
-            <div className="footer">
-              <p className="footer-paragraph">
-                For more information, see our
-                <span className="privacy-policy"> Privacy Policy</span>.
-              </p>
-            </div>
-
-          </div>
-
+         <div className="right">
+           <span>Watchlist</span>
+         </div>
        </div>
 
        <br />

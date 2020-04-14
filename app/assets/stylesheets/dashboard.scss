@@ -14,6 +14,7 @@
 .content {
     width: 50%; 
     margin: 0 auto; 
+    display: flex;
 }
 
 // fund account container
@@ -85,4 +86,13 @@
     font-size: 13px;
     font-weight: 500;
     color: #21ce99; 
+}
+
+// right column container
+
+.right {
+    border: 1px solid lightgray; 
+    font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
+    font-size: 16px;
+    padding: 5px; 
 }
