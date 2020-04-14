@@ -12,7 +12,9 @@ export default ({ currentUser, logout }) => {
      <div>
        <div>
          <nav className="nav-bar">
-           <img className="dashboard-green-feather" src={greenFeatherURL} />
+           <Link to="/dashboard">
+             <img className="dashboard-green-feather" src={greenFeatherURL} />
+           </Link>
            <div className="search-box">
              <i className="fas fa-search"></i>
              <input
@@ -70,7 +72,7 @@ export default ({ currentUser, logout }) => {
 
        <br />
 
-       <button onClick={logout}>Logout</button>
+       <button className='logout-btn' onClick={logout}>Logout</button>
      </div>
    );
 }

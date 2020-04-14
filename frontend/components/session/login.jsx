@@ -29,48 +29,54 @@ class Login extends React.Component {
       <div>
         <div className="sign-in-container">
           <div>
-            <img className="sign-in-image" src={signInURL} />
+              <img className="sign-in-image" src={signInURL} />
           </div>
 
           <div className="sign-in-form">
-            <h1 className='sign-in-header'>Welcome to Roberthood</h1>
+            <h1 className="sign-in-header">Welcome to Roberthood</h1>
             <form>
-              <span className='label'>Username</span><br/>
-                <input className='input'
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.handleInput("username")}
-                /> <br />
-              <span className='label'>Password</span><br />
-                <input className='input'
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.handleInput("password")}
-                /> <br />
-              <span className='retrieval'>Forgot your username or password?</span>
+              <span className="label">Username</span>
+              <br />
+              <input
+                className="input"
+                type="text"
+                value={this.state.username}
+                onChange={this.handleInput("username")}
+              />{" "}
+              <br />
+              <span className="label">Password</span>
+              <br />
+              <input
+                className="input"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleInput("password")}
+              />{" "}
+              <br />
+              <span className="retrieval">
+                Forgot your username or password?
+              </span>
               <br />
               <br />
-              <button className='sign-in-btn' onClick={this.handleSubmit}>Sign In</button>
+              <button className="sign-in-btn" onClick={this.handleSubmit}>
+                Sign In
+              </button>
             </form>
           </div>
 
-          <div className='demo-user'>
+          <div className="demo-user">
             <form>
-              <input 
-                type="hidden"
-                value={this.state.username = 'bqh5026'}
-                />
-              <input 
-                type="hidden"
-                value={this.state.password = 'password'}
-              />
-              <button className='demo-user-btn' onClick={this.handleSubmit}>Demo User</button>
+              <input type="hidden" value={(this.state.username = "bqh5026")} />
+              <input type="hidden" value={(this.state.password = "password")} />
+              <button className="demo-user-btn" onClick={this.handleSubmit}>
+                Demo User
+              </button>
             </form>
           </div>
-
+          
         </div>
       </div>
-    )
+    );
   }
 }
 

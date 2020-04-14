@@ -33,3 +33,47 @@
     font-size: 5px;
     width: 55px;
 }
+
+
+.demo-user-btn {
+    background-color: black;
+    color: #ffffff; 
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 5px;
+    width: 55px;
+}
+
+
+
+// .demo-user-btn {
+//     border: none;
+//     background: linear-gradient(to right, #46a046, #5cb85c);
+//     color: #fff;
+//     padding: .5em 1em;
+//     border-radius: 1em;
+//     font-size: 2em;
+//     cursor: pointer;
+//     position: relative;
+//     overflow: hidden;
+//     height: 20px;
+//     width: 40px; 
+// }
+
+// .demo-user-btn::before {
+//     content: "";
+//     height: 160%;
+//     width: 40px;
+//     background: rgba(255,255,255,.3);
+//     position: absolute;
+//     top: -20px;
+//     transform: translateX(-80px) rotate(20deg);
+//     transition: all .5s;
+// }
+
+// .demo-user-btn:hover::before {
+//     transform: translateX(230px) rotate(20deg);
+// }
+
+
+
