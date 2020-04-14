@@ -25,11 +25,11 @@ export default ({ currentUser, logout }) => {
              />
              <Link to="#" className="search-btn"></Link>
            </div>
-           <Link to="#">Free Stocks</Link>
-           <Link to="#">Portfolio</Link>
-           <Link to="#">Cash</Link>
-           <Link to="#">Messages</Link>
-           <Link to="#">Account</Link>
+           <Link className="nav-menu-item" to="#">Free Stocks</Link>
+           <Link className="nav-menu-item" to="#">Portfolio</Link>
+           <Link className="nav-menu-item" to="#">Cash</Link>
+           <Link className="nav-menu-item" to="#">Messages</Link>
+           <Link className="nav-menu-item" to="#">Account</Link>
          </nav>
        </div>
 

@@ -1,3 +1,5 @@
+//nav-bar
+
 .nav-bar {
     display: flex;
     justify-content: space-evenly;
@@ -6,6 +8,18 @@
 .dashboard-green-feather {
     height: 25px;
     width: 25px;
+}
+
+.nav-menu-item {
+    font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
+    color: #171718;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.nav-menu-item:hover {
+    color: #21ce99;
 }
 
 
