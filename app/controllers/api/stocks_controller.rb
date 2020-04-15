@@ -8,6 +8,7 @@ class Api::StocksController < ApplicationController
           res = Net::HTTP.start(url.host, url.port) {|http|
           http.request(req)
             }
+          render :json => res.body 
 
         # domain='https://cloud.iexapis.com/stable/tops?token=sk_fdb0342d026443a28057ef26a4c60a23&symbols='+symbol
         # url = URI.parse(domain)
