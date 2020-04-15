@@ -7,6 +7,7 @@ namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :new, :index, :show]
     resource :session, only: [:new, :create, :destroy]
     resources :news, only: [:new]
+    resources :stocks, only: [:show]
 end
 
   root "static_pages#root"

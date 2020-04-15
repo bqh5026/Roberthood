@@ -116,6 +116,11 @@ button {
     // border: 1px solid lightgray; 
     padding: 5px; 
 }
+
+.news-image {
+    height: auto;
+    width: 150px;
+}
 .news-item:hover {
     background: lightgrey;
     cursor: pointer; 

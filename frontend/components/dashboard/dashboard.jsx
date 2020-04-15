@@ -14,12 +14,19 @@ export default ({ currentUser, logout }) => {
   const [news, setNews] = useState([]);
   useEffect(() => {
     if (news.length < 1) {
+      search(); 
       $.ajax('/api/news/new').done(res => {
         setNews(news.concat(res.articles));
       });
     }
   });
 
+  const search = () => {
+    $.ajax('/api/stocks/fb').done(res => {
+      // setNews(news.concat(res.articles));
+      console.log(res); 
+    });
+  }
   
    return (
      <div>
@@ -127,7 +134,8 @@ export default ({ currentUser, logout }) => {
                {news.map((item, idx) => {
                  return (<li key={idx} className='news-item'>
                   <i className="fas fa-bolt"></i>
-                  {item.title}
+                   <img className="news-image" src={item.urlToImage} />
+                   <a href={ item.url } target="_blank">{ item.title }</a>
                   <hr />
                   </li>)
                })}
