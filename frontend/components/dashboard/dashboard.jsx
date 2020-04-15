@@ -133,10 +133,17 @@ export default ({ currentUser, logout }) => {
              <ul>
                {news.map((item, idx) => {
                  return (<li key={idx} className='news-item'>
-                  <i className="fas fa-bolt"></i>
-                   <img className="news-image" src={item.urlToImage} />
-                   <br />
-                   <a href={ item.url } target="_blank">{ item.title }</a>
+                   <div><i className="fas fa-bolt"></i> {item.source.name}</div>
+                   <div className='news-title'>
+
+                     <div>
+                       <a href={item.url} target="_blank">{item.title}</a>
+                     </div>
+                     <div>
+                       <img className="news-image" src={item.urlToImage} />
+                     </div>
+
+                   </div>       
                   <hr />
                   </li>)
                })}
