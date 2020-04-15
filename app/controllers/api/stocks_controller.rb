@@ -9,6 +9,7 @@ class Api::StocksController < ApplicationController
         #   http.request(req)
         #     }
 
+        domain='https://cloud.iexapis.com/stable/tops?token=sk_fdb0342d026443a28057ef26a4c60a23&symbols='+symbol
         url = URI.parse(domain)
         req = Net::HTTP::Get.new(url.request_uri)
         http = Net::HTTP.new(url.host, url.port)

@@ -135,6 +135,7 @@ export default ({ currentUser, logout }) => {
                  return (<li key={idx} className='news-item'>
                   <i className="fas fa-bolt"></i>
                    <img className="news-image" src={item.urlToImage} />
+                   <br />
                    <a href={ item.url } target="_blank">{ item.title }</a>
                   <hr />
                   </li>)
