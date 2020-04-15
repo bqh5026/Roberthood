@@ -1,5 +1,24 @@
+hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background: #F5F8FA;
+}
+
 ul {
     list-style: none;
+}
+
+:-moz-placeholder {
+    color: f5f8fa; 
+}
+
+:-ms-input-placeholder {
+    color: f5f8fa; 
+}
+
+::-webkit-input-placeholder {
+    color: f5f8fa; 
 }
 
 //nav-bar
@@ -9,10 +28,15 @@ ul {
     justify-content: space-evenly;
 }
 
-.dashboard-green-feather {
-    height: 25px;
+.dashboard-roberthood-hat {
+    height: 15px;
     width: 25px;
 }
+
+// .search-box:hover {
+    // border: 1px solid #F5F8FA;
+//     color: #171718; 
+// }
 
 .nav-menu-item {
     font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
@@ -30,8 +54,15 @@ ul {
     border: none; 
 }
 
+.dropdown-menu {
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+    padding: 0;  
+    width: 7rem; 
+    padding: 1rem; 
+}
+
 .dropdown-list:hover {
-    background: lightgrey;
+    background: #F5F8FA;
 }
 
 button {
@@ -70,26 +101,38 @@ button {
 
 // fund account container
 .fund-account {
-    border: 1px solid lightgray;
+    border: 1px solid #f5f8fa; 
+    border-width: 0.5px;
+    padding: 1rem; 
+    
 }
 
 .funds {
     font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
     font-size: 13px;
-    font-weight: 400;
-    color: gray; 
+    font-weight: 500;
+    color: #68787e; 
+    line-height: 18px;
+    font-style: normal; 
 }
 
 .funds-message {
     font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
     font-size: 13px;
+    font-weight: 400;
+    color: #171718; 
+    line-height: 18px;
+    font-style: normal; 
 }
-
 .add-funds-message {
     font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
     font-size: 13px;
-    color: #21ce99;
+    font-weight: 500;
+    color: #21ce99; 
+    line-height: 18px;
+    font-style: normal; 
 }
+
 
 // collections container
 
@@ -122,7 +165,7 @@ button {
     width: 150px;
 }
 .news-item:hover {
-    background: lightgrey;
+    background: #F5F8FA;
     cursor: pointer; 
 }
 
@@ -140,19 +183,17 @@ button {
 
 // footer container 
 
-// .footer {
-    // border: 1px solid lightgray; 
-// }
-
-.footer-paragraph {
+.footer {
     font-family: "DIN Pro", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 13px;
+}
+
+.footer-paragraph {
     font-weight: 400;
+    color: #b4bdc2; 
 }
 
 .privacy-policy {
-    font-family: "DIN Pro", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 13px;
     font-weight: 500;
     color: #21ce99; 
 }
@@ -160,12 +201,20 @@ button {
 // right column container
 
 .right {
-    // border: 1px solid lightgray; 
     font-family: "DIN Pro", -apple-system, system-ui, sans-serif;
     font-size: 16px;
     padding: 5px; 
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
-    -2px 0px 4px rgba(0, 0, 0, 0.5)
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+    width: 10rem;
+}
+
+.watchlist-header {
+    font-family: "DIN Pro", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #171718; 
+    line-height: 22px;
+    font-style: normal; 
 }
 
 //logout button

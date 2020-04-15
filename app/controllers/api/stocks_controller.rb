@@ -6,6 +6,7 @@ class Api::StocksController < ApplicationController
           url = URI.parse('https://cloud.iexapis.com/stable/tops?token=sk_fdb0342d026443a28057ef26a4c60a23&symbols='+symbol)
           req = Net::HTTP::Get.new(url.to_s)
           req.use_ssl = true
+          req.verify_mode = OpenSSL::SSL::VERIFY_NONE
           res = Net::HTTP.start(url.host, url.port) {|http|
           http.request(req)
             }

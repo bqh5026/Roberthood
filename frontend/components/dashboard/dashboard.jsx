@@ -33,8 +33,7 @@ export default ({ currentUser, logout }) => {
        <div>
          <nav className="nav-bar">
            <Link to="/dashboard">
-             <img className="dashboard-green-feather" src={greenFeatherURL} 
-             />
+             <img className="dashboard-roberthood-hat" src={roberthoodHatURL} />
 
            </Link>
            <div className="search-box">
@@ -88,6 +87,7 @@ export default ({ currentUser, logout }) => {
                  <i className="fas fa-cog menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Settings</Link>
               </li>
+              <hr />
               <li className='dropdown-list'>
                  <i className="far fa-life-ring menu-icon"></i>
                  <Link className="dropdown-menu-item" to="#">Help Center</Link>
@@ -153,7 +153,7 @@ export default ({ currentUser, logout }) => {
          </div>
 
          <div className="right">
-           <span>Watchlist</span>
+           <span className="watchlist-header">Watchlist</span>
            <hr/>
          </div>
        </div>
