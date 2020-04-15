@@ -15,12 +15,21 @@
     flex-direction: row;
 }
 
+.landing-page-hover {
+    cursor: pointer; 
+}
+
 .roberthood {
     font-family: Times;
     font-weight: 400;
     font-size: 16px;
     color: #000;
 }
+
+// .roberthood:hover {
+//     cursor: pointer; 
+// }
+
 .black-feather {
     height: 25px;
     width: 25px;
@@ -35,26 +44,63 @@
 }
 
 .landing-page-menu-item:hover {
-    color: #18563e; ;
+    color: #18563e; 
+}
+
+.nav-bar-signin {
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #040d14; 
+}
+
+.nav-bar-signin:hover {
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #18563e; 
+}
+.nav-bar-signup {
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #040d14; 
+}
+
+.nav-bar-signup:hover {
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #18563e; 
 }
 
 
 
 //content-1
 
-.content-1 {
-    display: flex;
+.container-1 {
     width: 100%;
     margin: 0 auto;
     background-color: #21ce99; 
+
 }
 
-.container-1 {
-    width: 40%;
+.content-1 {
+    width: 60%;
+    display: flex;
     margin: 0 auto; 
 }
+
+.landing-page-signup-header {
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #040d14;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 72px;
+ }
 .cash-management-photo {
-    height: 200px;
+    height: 250px;
+    margin: 0 auto; 
 }
 
 .content-signup-btn {
@@ -64,4 +110,78 @@
     font-size: 6px; 
     font-weight: 600;
     padding: 5px 12px;   
+}
+
+//content-2
+
+// .contianer-2 {
+
+// }
+
+.content-2-header {
+    text-align: center;
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #040d14;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+}
+.content-2-body {
+    text-align: center;
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #040d14;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+.content-2-footer {
+    display: flex; 
+    justify-content: center;
+    text-align: center;
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #040d14;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+
+}
+
+.content-2-footer:hover {
+    color: #18563e; 
+}
+
+//content-3 
+
+.container-3 {
+    background: #F5F8FA;
+    width: 100%;
+    // display: flex;
+    // margin: 0 auto; 
+    // justify-content: center;
+}
+
+.container-3-full {
+    display: flex;
+}
+
+.content-3-box1 {
+    width: 60%;
+    margin: 0 auto;
+}
+.content-2-header {
+    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #040d14;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.content-3-box2 {
+    display: flex; 
+}
+
+.abstract_image {
+    height: 250px; 
 }
