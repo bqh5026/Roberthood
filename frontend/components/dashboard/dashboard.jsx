@@ -9,6 +9,8 @@ export default ({ currentUser, logout }) => {
   const [username, setUsername] = useState('')
   const [last_name, setLastname] = useState('')
   const [first_name, setFirstname] = useState('')
+  const [searchValue, setSearchValue] = useState('')
+  const [quote, setQuote] = useState('')
   console.log("currentUser", currentUser); 
 
   const [news, setNews] = useState([]);
@@ -24,11 +26,16 @@ export default ({ currentUser, logout }) => {
   });
 
   const search = () => {
-    $.ajax('/api/stocks/fb').done(res => {
+    $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
       // setNews(news.concat(res.articles));
       console.log(res); 
+      setQuote(res); 
     });
-  }
+  };
+
+  const handleOnChange = event => {
+    setSearchValue(event.target.value);
+  };
 
 
 //  const operation = () => {
@@ -55,8 +62,10 @@ export default ({ currentUser, logout }) => {
                type="text"
                name=""
                placeholder="Search"
+               onChange={(event) => {handleOnChange(event)}}
+               value={searchValue}
              />
-             <Link to="#" className="search-btn"></Link>
+             <button onClick={search} className="search-btn">Search</button>
            </div>
            <Link className="nav-menu-item" to="#">Free Stocks</Link>
            <Link className="nav-menu-item" to="#">Portfolio</Link>
@@ -124,6 +133,10 @@ export default ({ currentUser, logout }) => {
 
        <br />
        <div className="content">
+          <div className="Quote">
+          {quote ? JSON.stringify(quote) : ""}
+          {quote ? JSON.stringify(quote.latest_price) : ""}
+          </div>
          <br />
          <br />
          <div className="left">
