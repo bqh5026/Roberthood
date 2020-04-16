@@ -11592,3 +11592,262 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 689ms (Views: 687.3ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/api/session" for ::1 at 2020-04-16 11:16:15 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"bqh5026", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (32.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bqh5026"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:36
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered api/users/show.json.jbuilder (3.3ms)
+Completed 200 OK in 342ms (Views: 15.8ms | ActiveRecord: 89.9ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:16:15 -0400
+Processing by Api::StocksController#show as JSON
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:16:15 -0400
+  Parameters: {"id"=>"fb"}
+Started GET "/" for ::1 at 2020-04-16 11:17:43 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/bqh5026/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 1642ms (Views: 1634.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:17:45 -0400
+Processing by Api::StocksController#show as JSON
+  Parameters: {"id"=>"fb"}
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:17:45 -0400
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Api::StocksController::Net):
+  
+app/controllers/api/stocks_controller.rb:7:in `show'
+Processing by Api::NewsController#new as JSON
+Completed 200 OK in 129ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:17:46 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:17:46 -0400
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:17:46 -0400
+Processing by Api::StocksController#show as JSON
+  Parameters: {"id"=>"fb"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+Processing by Api::NewsController#new as JSON
+  
+NoMethodError (undefined method `verify_mode=' for #<Net::HTTP::Get GET>):
+  
+app/controllers/api/stocks_controller.rb:9:in `show'
+Completed 200 OK in 123ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:20:37 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 59ms (Views: 48.1ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:20:38 -0400
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:20:38 -0400
+Processing by Api::StocksController#show as JSON
+Processing by Api::NewsController#new as JSON
+  Parameters: {"id"=>"fb"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `keys' for 443:Integer):
+  
+app/controllers/api/stocks_controller.rb:7:in `new'
+app/controllers/api/stocks_controller.rb:7:in `show'
+Completed 200 OK in 129ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:23:06 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 55ms (Views: 49.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:23:07 -0400
+Processing by Api::StocksController#show as JSON
+  Parameters: {"id"=>"fb"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `log' for nil:NilClass):
+  
+app/controllers/api/stocks_controller.rb:7:in `show'
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:23:07 -0400
+Processing by Api::NewsController#new as JSON
+Completed 200 OK in 102ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:24:51 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 49ms (Views: 47.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:24:52 -0400
+Processing by Api::StocksController#show as JSON
+  Parameters: {"id"=>"fb"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `keys' for 443:Integer):
+  
+app/controllers/api/stocks_controller.rb:8:in `new'
+app/controllers/api/stocks_controller.rb:8:in `show'
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:24:52 -0400
+Processing by Api::NewsController#new as JSON
+Completed 200 OK in 60ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:26:07 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 53ms (Views: 51.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:26:07 -0400
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:26:07 -0400
+Processing by Api::NewsController#new as JSON
+Processing by Api::StocksController#show as JSON
+  Parameters: {"id"=>"fb"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `keys' for 443:Integer):
+  
+app/controllers/api/stocks_controller.rb:8:in `new'
+app/controllers/api/stocks_controller.rb:8:in `show'
+Completed 200 OK in 75ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:27:58 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 54ms (Views: 47.1ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:27:58 -0400
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:27:58 -0400
+Processing by Api::NewsController#new as JSON
+Processing by Api::StocksController#show as JSON
+  Parameters: {"id"=>"fb"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `keys' for 443:Integer):
+  
+app/controllers/api/stocks_controller.rb:8:in `new'
+app/controllers/api/stocks_controller.rb:8:in `show'
+Completed 200 OK in 86ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:28:35 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 52ms (Views: 41.7ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:28:35 -0400
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:28:35 -0400
+Processing by Api::StocksController#show as JSON
+  Parameters: {"id"=>"fb"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `keys' for 443:Integer):
+  
+app/controllers/api/stocks_controller.rb:8:in `new'
+app/controllers/api/stocks_controller.rb:8:in `show'
+Processing by Api::NewsController#new as JSON
+Completed 200 OK in 142ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:29:51 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 51ms (Views: 48.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:29:51 -0400
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:29:51 -0400
+Processing by Api::StocksController#show as JSON
+Processing by Api::NewsController#new as JSON
+  Parameters: {"id"=>"fb"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `keys' for 443:Integer):
+  
+app/controllers/api/stocks_controller.rb:8:in `new'
+app/controllers/api/stocks_controller.rb:8:in `show'
+Completed 200 OK in 84ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-16 11:30:51 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+760sLgE4PXpXLSXFnFaFbgPjX/BUnUMVytcG17j8KdGb9HINouiwDqfjgNjbWr6SuEFjbIwaIoC9Ybe0uUERA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 52ms (Views: 50.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/stocks/fb" for ::1 at 2020-04-16 11:30:51 -0400
+Started GET "/api/news/new" for ::1 at 2020-04-16 11:30:51 -0400
+Processing by Api::StocksController#show as JSON
+  Parameters: {"id"=>"fb"}
+Processing by Api::NewsController#new as JSON
+Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 125ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
