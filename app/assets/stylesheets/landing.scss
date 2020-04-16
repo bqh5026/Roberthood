@@ -17,9 +17,9 @@
     display: flex;
 }
 
-.landing-page-hover {
-    cursor: pointer; 
-}
+// .landing-page:hover {
+//     cursor: pointer; 
+// }
 
 .roberthood {
     font-family: Times;
@@ -28,13 +28,19 @@
     color: #000;
 }
 
-// .roberthood:hover {
-//     cursor: pointer; 
-// }
+.roberthood:hover {
+    cursor: pointer; 
+}
 
 .roberthood-hat {
     height: 15px;
     width: 25px;
+}
+
+.landing-page-menu-items {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
 }
 
 .landing-page-menu-item {
@@ -51,6 +57,8 @@
 
 .navbar-container-2 {
     display: flex; 
+    justify-content: space-around;
+    width: 150px;
 }
 
 .nav-bar-signin {

@@ -8,21 +8,23 @@ export default () => (
 
       <div className="navbar-container-1">
           <div className="landing-page-logo">
-            <h3 className='.roberthood'>Roberthood</h3>
+            <h3 className='roberthood'>Roberthood</h3>
             <Link to="/">
               <img className="roberthood-hat" src={roberthoodHatURL} />
             </Link>
           </div>
 
+        <div className="landing-page-menu-items">
           <Link className="landing-page-menu-item" to="#">
             Products
           </Link>
-            <Link className="landing-page-menu-item" to="#">
-              Learn
+          <Link className="landing-page-menu-item" to="#">
+            Learn
           </Link>
-            <Link className="landing-page-menu-item" to="#">
-              Support
-          </Link>  
+          <Link className="landing-page-menu-item" to="#">
+            Support
+          </Link> 
+        </div> 
       </div>
 
       <div className="navbar-container-2">
