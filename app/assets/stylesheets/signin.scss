@@ -22,7 +22,17 @@
     font-size: 10px;
 }
 .input {
-    background-color: #fafafa;
+    background-color: #F5F8FA;
+    border-radius: 2px;
+    border: none; 
+    height: 1.4rem; 
+    width: 10rem; 
+    outline: none
+}
+
+.input:hover {
+    background-color: #ffffff;
+    border: 0.5px solid #21ce99;
 }
 
 .sign-in-btn {

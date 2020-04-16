@@ -5,7 +5,7 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: '',
+      password: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,7 +42,7 @@ class Login extends React.Component {
                 type="text"
                 value={this.state.username}
                 onChange={this.handleInput("username")}
-              />{" "}
+              />
               <br />
               <span className="label">Password</span>
               <br />
@@ -51,7 +51,7 @@ class Login extends React.Component {
                 type="password"
                 value={this.state.password}
                 onChange={this.handleInput("password")}
-              />{" "}
+              />
               <br />
               <span className="retrieval">
                 Forgot your username or password?

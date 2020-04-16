@@ -12,6 +12,8 @@ export default ({ currentUser, logout }) => {
   console.log("currentUser", currentUser); 
 
   const [news, setNews] = useState([]);
+  // const [show, setShow] = useState(true); 
+
   useEffect(() => {
     if (news.length < 1) {
       search(); 
@@ -27,6 +29,16 @@ export default ({ currentUser, logout }) => {
       console.log(res); 
     });
   }
+
+
+//  const operation = () => {
+//     this.setState({
+//       show: !this.state.show
+//     })
+//   }
+    
+ 
+  
   
    return (
      <div>
@@ -51,7 +63,8 @@ export default ({ currentUser, logout }) => {
            <Link className="nav-menu-item" to="#">Cash</Link>
            <Link className="nav-menu-item" to="#">Messages</Link>
            <div className="dropdown">
-             <button className="nav-menu-item dropdown">Account</button>
+
+             <button className="nav-menu-item dropdown" onClick={() => this.operation()}>Account</button>
              <ul className='dropdown-menu'>
               <li>
                 <div>
@@ -169,6 +182,7 @@ export default ({ currentUser, logout }) => {
    );
 }
      
+// { this.state.show ? <div></div> : null } 
        
 // <header>
 //   <h1>Roberthood</h1>

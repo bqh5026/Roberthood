@@ -8,7 +8,7 @@ export default () => (
       <div className="landing-page-logo">
         <h3 className='.roberthood'>Roberthood</h3>
         <Link to="/">
-          <img className="black-feather" src={blackFeatherURL} />
+          <img className="roberthood-hat" src={roberthoodHatURL} />
         </Link>
       </div>
 
@@ -111,6 +111,32 @@ export default () => (
      
     </div>
     </div>
+
+    <div className='container-4'>
+      <div className='content-4'>
+
+      <div className='content-4-box1'>
+        <ul>
+            <li><Link className="learn" to='#'>Learn</Link></li>
+            <li><Link className="manage" to='#'>Manage</Link></li>
+            <li><Link className="customize" to='#'>Customize</Link></li>
+        </ul>
+      </div>
+      <div>
+          <img className="learn-image" src={learnAsYouGrowURL} />
+      </div>
+      
+      </div>
+    </div>
+
+    <div className='container-5'>
+      <img className="our-products-image" src={ourProductsURL} />
+    </div>
+
+    <div className='container-6'>
+      <img className="landing-page-footer" src={} />
+    </div>
+
   </div>
 );
 
