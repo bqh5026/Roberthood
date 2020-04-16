@@ -134,7 +134,7 @@ export default () => (
     </div>
 
     <div className='container-6'>
-      <img className="landing-page-footer" src={} />
+      <img className="landing-page-footer" src={landingPageFooterURL} />
     </div>
 
   </div>
