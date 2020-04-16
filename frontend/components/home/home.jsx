@@ -5,29 +5,35 @@ export default () => (
   <div>
 
     <nav className="landing-page-nav-bar">
-      <div className="landing-page-logo">
-        <h3 className='.roberthood'>Roberthood</h3>
-        <Link to="/">
-          <img className="roberthood-hat" src={roberthoodHatURL} />
-        </Link>
+
+      <div className="navbar-container-1">
+          <div className="landing-page-logo">
+            <h3 className='.roberthood'>Roberthood</h3>
+            <Link to="/">
+              <img className="roberthood-hat" src={roberthoodHatURL} />
+            </Link>
+          </div>
+
+          <Link className="landing-page-menu-item" to="#">
+            Products
+          </Link>
+            <Link className="landing-page-menu-item" to="#">
+              Learn
+          </Link>
+            <Link className="landing-page-menu-item" to="#">
+              Support
+          </Link>  
       </div>
 
-      <Link className="landing-page-menu-item" to="#">
-        Products
-      </Link>
-      <Link className="landing-page-menu-item" to="#">
-        Learn
-      </Link>
-      <Link className="landing-page-menu-item" to="#">
-        Support
-      </Link>
-      <div >
-        <Link className='nav-bar-signin' to="/login">Sign In</Link>
-      </div>
+      <div className="navbar-container-2">
+          <div >
+            <Link className='nav-bar-signin' to="/login">Sign In</Link>
+          </div>
+          <div>
+            <Link className='nav-bar-signup' to="/signup">Sign Up</Link>
+          </div>
+      </div> 
 
-      <div>
-        <Link className='nav-bar-signup' to="/signup">Sign Up</Link>
-      </div>
     </nav>
 
     <div className="container-1">

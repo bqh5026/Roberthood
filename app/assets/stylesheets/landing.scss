@@ -9,6 +9,9 @@
     justify-content: space-between;
 }
 
+.navbar-container-1 {
+    display: flex; 
+}
 
 .landing-page-logo {
     display: flex;
@@ -44,6 +47,10 @@
 
 .landing-page-menu-item:hover {
     color: #18563e; 
+}
+
+.navbar-container-2 {
+    display: flex; 
 }
 
 .nav-bar-signin {
