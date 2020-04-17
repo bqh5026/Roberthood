@@ -89,11 +89,17 @@ class Signup extends React.Component {
               <button className="signup-btn" onClick={this.handleSubmit}>
                 Continue
               </button>
+              <br />
+              <br />
+              <br />
               <div>
                 <p className="application">
                   Already started? <span>Log in to complete your application.</span>
                 </p>
               </div>
+              <br />
+              <br />
+              <br />
               <br />
               <br />
               <div>
