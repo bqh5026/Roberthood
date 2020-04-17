@@ -26,22 +26,28 @@ class Signup extends React.Component {
 
     render() {
         return (
-          <div className="signup-form">
-            <div className="signup-navbar">
-              <Link to="/">
-                <img className="signup-logo" src={roberthoodHatURL} />
-              </Link>
-              <Link className="active" to="#">Account</Link>
-              <Link className="signup-navbar-item" to="#">Basic Info</Link>
-              <Link className="signup-navbar-item" to="#">Identity</Link>
-              <Link className="signup-navbar-item" to="#">Funding</Link>
-              <Link className="signup-navbar-item" to="#">Submit</Link>
-            </div>
-            <h1 className="signup-header">Make Your Money Move</h1>
-            <h3 className="signup-subheader">
-              Robinhood lets you invest in companies you love, commission-free.
-            </h3>
-            <form>
+          <div>
+          
+            <form className="signup-form">
+
+              <div className="signup-navbar">
+                <Link to="/">
+                  <img className="signup-logo" src={roberthoodHatURL} />
+                </Link>
+                <Link className="active" to="#">Account</Link>
+                <Link className="signup-navbar-item" to="#">Basic Info</Link>
+                <Link className="signup-navbar-item" to="#">Identity</Link>
+                <Link className="signup-navbar-item" to="#">Funding</Link>
+                <Link className="signup-navbar-item" to="#">Submit</Link>
+              </div>
+              <hr />
+
+              <div>
+                <h1 className="signup-header">Make Your Money Move</h1>
+                <h3 className="signup-subheader">
+                  Roberthood lets you invest in companies you love, commission-free.
+                </h3>
+              </div>
               <div className="firstname-lastname">
                 <input
                   className='input'
@@ -71,7 +77,7 @@ class Signup extends React.Component {
               />
 
               <br />
-      
+              <br />
               <input
                 className="input"
                 type="password"
@@ -80,11 +86,26 @@ class Signup extends React.Component {
                 placeholder="Username"
               />
               <br />
+              <br />
               <button className="signup-btn" onClick={this.handleSubmit}>
                 Continue
               </button>
+              <div>
+                <p className="application">
+                  Already started? <span>Log in to complete your application.</span>
+                </p>
+              </div>
+              <br />
+              <br />
+              <div>
+                <img className="signup-form-footer-image" src={signupFormFooterURL} />
+              </div>
             </form>
+           
+           
+
           </div>
+      
         ); 
     }
 }

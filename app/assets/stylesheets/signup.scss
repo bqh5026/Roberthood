@@ -28,6 +28,7 @@ input {
     width: 50px;
 }
 
+
 .signup-form {
     width: 27%;
     margin: 0 auto; 
@@ -67,6 +68,10 @@ input {
     line-height: 24px;
 }
 
+.signup-form input {
+    width: fit-content;
+}
+
 .retrieval {
     color: #21ce99;
     font-size: 7px;
@@ -81,3 +86,20 @@ input {
     width: 95%; 
 }
 
+.application {
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #b1bfc4; 
+}
+
+span {
+    color: #1ae9aa; 
+}
+
+.signup-form-footer-image {
+    width: 700px;
+    height: auto;
+}
