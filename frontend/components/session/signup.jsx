@@ -50,41 +50,40 @@ class Signup extends React.Component {
               </div>
               <div className="firstname-lastname">
                 <input
-                  className='input'
+                  className='signup-input1'
                   type="text"
                   value={this.state.first_name}
                   onChange={this.handleInput("first_name")}
                   placeholder="First name"
                 />
                 <input
-                  className='input'
+                  className='signup-input1'
                   type="text"
                   value={this.state.last_name}
                   onChange={this.handleInput("last_name")}
                   placeholder="Last name"
                 />
               </div>
-
               <br />
-
+              <br />
               <input
-                className="input"
+                className="signup-input2"
                 type="text"
                 value={this.state.username}
                 onChange={this.handleInput("username")}
                 placeholder="Username"
-
               />
-
+              <br />
               <br />
               <br />
               <input
-                className="input"
+                className="signup-input2"
                 type="password"
                 value={this.state.password}
                 onChange={this.handleInput("password")}
-                placeholder="Username"
+                placeholder="Password"
               />
+              <br />
               <br />
               <br />
               <button className="signup-btn" onClick={this.handleSubmit}>
