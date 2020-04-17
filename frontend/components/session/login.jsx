@@ -62,17 +62,20 @@ class Login extends React.Component {
                 Sign In
               </button>
             </form>
+
+            <div className="demo-user">
+              <form>
+                <input type="hidden" value={(this.state.username = "bqh5026")} />
+                <input type="hidden" value={(this.state.password = "password")} />
+                <button className="demo-user-btn" onClick={this.handleSubmit}>
+                  Demo User
+              </button>
+              </form>
+            </div>
+            
           </div>
 
-          <div className="demo-user">
-            <form>
-              <input type="hidden" value={(this.state.username = "bqh5026")} />
-              <input type="hidden" value={(this.state.password = "password")} />
-              <button className="demo-user-btn" onClick={this.handleSubmit}>
-                Demo User
-              </button>
-            </form>
-          </div>
+      
           
         </div>
       </div>

@@ -4,8 +4,6 @@
 
 class Api::StocksController < ApplicationController
 
-    require 'iex-ruby-client'
-
     def quote
     
           # symbol = params[:id]
@@ -34,18 +32,18 @@ class Api::StocksController < ApplicationController
           result = client.quote(symbol)
           render :json => result
 
+    end
 
-
-
-
-
-        # domain='https://cloud.iexapis.com/stable/tops?token=sk_fdb0342d026443a28057ef26a4c60a23&symbols='+symbol
-        # url = URI.parse(domain)
-        # req = Net::HTTP::Get.new(url.request_uri)
-        # http = Net::HTTP.new(url.host, url.port)
-        # http.use_ssl = (url.scheme == "https")
-        # response = http.request(req)
-        # render :json => res.body 
+    def chart 
+          symbol = params[:symbol]
+          client = IEX::Api::Client.new(
+          publishable_token: 'pk_a97bf10f146749bf9d64c36ba6ee72c6',
+          secret_token: 'sk_fdb0342d026443a28057ef26a4c60a23',
+          endpoint: 'https://cloud.iexapis.com/v1'
+            )
+          # byebug
+          result = client.chart(symbol, "5d")
+          render :json => result
 
     end
 

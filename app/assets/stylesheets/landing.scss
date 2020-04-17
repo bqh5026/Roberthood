@@ -58,7 +58,14 @@
 .navbar-container-2 {
     display: flex; 
     justify-content: space-around;
-    width: 150px;
+    width: 250px;
+}
+
+.signin-btn {
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    margin: auto; 
 }
 
 .nav-bar-signin {
@@ -74,18 +81,29 @@
     font-weight: 700;
     color: #18563e; 
 }
+
+.signup-btn {
+    height: 50px; 
+    width: 100px; 
+    text-align: center;
+    margin: auto; 
+}
+
 .nav-bar-signup {
     font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;
     color: #040d14; 
+    background: #21CE99;
 }
+
 
 .nav-bar-signup:hover {
     font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: #18563e; 
+    background: #18563e;
+    color: #ffffff;
 }
 
 
@@ -100,20 +118,30 @@
 }
 
 .content-1 {
-    width: 60%;
+    width: 55%;
     display: flex;
     margin: 0 auto; 
 }
 
-.landing-page-signup-header {
-    font-family: "Maison Neue", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+.signup-header {
+    // all: unset; 
     color: #040d14;
     font-size: 62px;
+    font-style: normal;
     font-weight: 700;
     line-height: 72px;
  }
+
+ .paragraph-1 {
+   color: #040d14;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 36px;
+ }
+
 .cash-management-photo {
-    height: 250px;
+    height: 575px;
     margin: 0 auto; 
 }
 
@@ -121,8 +149,8 @@
     background-color: #242a2d;
     color: #ffffff;
     border-radius: 5px;
-    font-size: 6px; 
-    font-weight: 600;
+    font-size: 16px; 
+    font-weight: 400;
     padding: 5px 12px;   
 }
 
@@ -257,5 +285,5 @@
 
 .landing-page-footer {
     height: 400px;
-    width: 90%
+    width: 100%; 
 }
