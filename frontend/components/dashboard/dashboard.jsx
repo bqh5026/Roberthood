@@ -49,24 +49,33 @@ export default ({ currentUser, logout }) => {
   
    return (
      <div>
+
+        <div className="header">
+        <div className="navbar-left">
+          <div>
+            <Link to="/dashboard">
+              <img className="dashboard-roberthood-hat" src={roberthoodHatURL} />
+            </Link>
+          </div>  
+       
+         <div className="search-box">
+           <i className="fas fa-search"></i>
+           <input
+             className="search-txt"
+             type="text"
+             name=""
+             placeholder="Search"
+             onChange={(event) => { handleOnChange(event) }}
+             value={searchValue}
+           />
+           <button onClick={search} className="search-btn">Search</button>
+         </div>
+       </div>
+       
+    
        <div>
          <nav className="nav-bar">
-           <Link to="/dashboard">
-             <img className="dashboard-roberthood-hat" src={roberthoodHatURL} />
-
-           </Link>
-           <div className="search-box">
-             <i className="fas fa-search"></i>
-             <input
-               className="search-txt"
-               type="text"
-               name=""
-               placeholder="Search"
-               onChange={(event) => {handleOnChange(event)}}
-               value={searchValue}
-             />
-             <button onClick={search} className="search-btn">Search</button>
-           </div>
+           
            <Link className="nav-menu-item" to="#">Free Stocks</Link>
            <Link className="nav-menu-item" to="#">Portfolio</Link>
            <Link className="nav-menu-item" to="#">Cash</Link>
@@ -129,17 +138,26 @@ export default ({ currentUser, logout }) => {
              </ul>
            </div>
          </nav>
+
+       </div>
+
        </div>
 
        <br />
        <div className="content">
-          <div className="Quote">
-          {quote ? JSON.stringify(quote) : ""}
-          {quote ? JSON.stringify(quote.latest_price) : ""}
-          </div>
          <br />
          <br />
          <div className="left">
+           <div className="Quote">
+              <ul className="ticker-results">
+               <li><span>Company Name:</span> {quote ? JSON.stringify(quote.company_name) : ""}</li>
+               <li><span>Ticker:</span> {quote ? JSON.stringify(quote.symbol) : ""}</li>
+               <li><span>Latest Price:</span> {quote ? JSON.stringify(quote.latest_price) : ""}</li>
+               <li><span>PE ratio:</span> {quote ? JSON.stringify(quote.pe_ratio) : ""}</li>
+               <li><span>YTD change:</span> {quote ? JSON.stringify(quote.ytd_change) : ""}</li>
+              </ul>
+           </div>
+
            <div className="fund-account">
              <span className="funds">Fund Your Account</span>
              <p className="funds-message">
@@ -154,16 +172,19 @@ export default ({ currentUser, logout }) => {
              <span className="show-more-collections">Show More</span>
            </div>
 
+           <div className="news-header">
+             <h4>News</h4>
+             <span className="show-more-news">Show More</span>
+           </div>
+
            <div className="news">
-              <h4>News</h4>
              <ul>
                {news.map((item, idx) => {
                  return (<li key={idx} className='news-item'>
                    <div><i className="fas fa-bolt"></i> {item.source.name}</div>
                    <div className='news-title'>
-
                      <div>
-                       <a href={item.url} target="_blank">{item.title}</a>
+                       <a className='news-title-header' href={item.url} target="_blank">{item.title}</a>
                      </div>
                      <div>
                        <img className="news-image" src={item.urlToImage} />
@@ -173,8 +194,7 @@ export default ({ currentUser, logout }) => {
                   <hr />
                   </li>)
                })}
-             </ul> 
-             <span className="show-more-news">Show More</span>  
+             </ul>   
            </div>
 
            <div className="footer">
@@ -195,6 +215,8 @@ export default ({ currentUser, logout }) => {
    );
 }
      
+// { quote ? JSON.stringify(quote) : "" }
+
 // { this.state.show ? <div></div> : null } 
        
 // <header>
