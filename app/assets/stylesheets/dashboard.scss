@@ -64,6 +64,11 @@ input:hover::-webkit-input-placeholder {
     width: 45px;
 }
 
+.dashboard-roberthood-hat:hover {
+    filter: hue-rotate(180deg); 
+}
+
+
 .search-txt:hover {
     border: 0.5px solid #171718; 
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
@@ -88,7 +93,9 @@ input:hover::-webkit-input-placeholder {
 .dropdown-menu {
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
     padding: 0;  
-    width: 11rem; 
+    position: absolute;
+    width: 20rem; 
+    right: 20px;
     padding: 1rem; 
 }
 

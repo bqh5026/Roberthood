@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.sign-in-container {
+    display: flex;
+    margin: 1rem; 
+}
+
 .sign-in-image {
-    height: 500px;
-    width: 500px; 
+    height: 100%;
+    width: 800px; 
 }
 
 .sign-in-form {
@@ -13,13 +18,15 @@
 }
 
 .sign-in-header {
-    font-family: "DIN Pro", system-ui, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 10px; 
+    font-size: 26px; 
+    line-height: 32px;;
     font-weight: 700;
+    font-style: normal;
+    color: #171718; 
 }
 
 .label {
-    font-size: 10px;
+    font-size: 13px;
 }
 .input {
     background-color: #F5F8FA;
@@ -40,8 +47,8 @@
     color: #ffffff; 
     border-radius: 3px;
     padding: 5px;
-    font-size: 5px;
-    width: 55px;
+    font-size: 13px;
+    width: 100px;
 }
 
 
@@ -50,8 +57,16 @@
     color: #ffffff; 
     border-radius: 3px;
     padding: 5px;
-    font-size: 5px;
-    width: 55px;
+    font-size: 15px;
+    width: 100px;
+}
+
+.retrieval {
+    font-size: 13px; 
+    line-height: 18px;;
+    font-weight: 500;
+    font-style: normal;
+    color: #21ce99; 
 }
 
 

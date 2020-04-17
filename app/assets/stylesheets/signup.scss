@@ -1,6 +1,31 @@
+input {
+    width: 100%;
+}
+
+.signup-navbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.active {
+    color: #040d14; 
+    font-style: normal;
+    font-weight: 400; 
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.signup-navbar-item {
+    color: #b1bfc4; 
+    font-style: normal;
+    font-weight: 400; 
+    font-size: 18px;
+    line-height: 24px;
+}
+
 .signup-logo {
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 50px;
 }
 
 .signup-form {
@@ -9,10 +34,11 @@
 }
 
 .signup-header {
-    font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
     color: #040d14; 
+    font-style: normal;
     font-weight: 100; 
-    font-size: 20px;
+    font-size: 48px;
+    line-height: 53px;
 }
 
 .signup-navbar {
@@ -21,10 +47,24 @@
 }
 
 .signup-subheader {
-    font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
     color: #040d14; 
+    font-style: normal;
     font-weight: 100; 
-    font-size: 9px;
+    font-size: 24px;
+    line-height: 26px;
+}
+
+.firstname-lastname {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input {
+   color: #040d14; 
+    font-style: normal;
+    font-weight: 100; 
+    font-size: 18px;
+    line-height: 24px;
 }
 
 .retrieval {
@@ -33,10 +73,10 @@
 }
 
 .signup-btn {
+    font-size: 18px; 
     background-color: #21ce99;
     border-radius: 5px;
     color: #ffffff;
-    font-family: "DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;
     line-height: 24px;
     width: 95%; 
 }

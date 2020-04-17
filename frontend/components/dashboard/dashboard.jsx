@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'; 
 import {Link} from 'react-router-dom'; 
-// import { LineChart, Line } from "recharts";
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts";
 
 
 
@@ -12,9 +12,9 @@ export default ({ currentUser, logout }) => {
   const [searchValue, setSearchValue] = useState('')
   const [quote, setQuote] = useState('')
   console.log("currentUser", currentUser); 
-
+  const [chartData, setChartData] = useState([]);
   const [news, setNews] = useState([]);
-  // const [show, setShow] = useState(true); 
+  const [show, setShow] = useState(true); 
 
   useEffect(() => {
     if (news.length < 1) {
@@ -31,6 +31,12 @@ export default ({ currentUser, logout }) => {
       console.log(res); 
       setQuote(res); 
     });
+
+    $.ajax(`/api/stocks/chart/${searchValue}`).done(res => {
+      // setNews(news.concat(res.articles));
+      console.log(res);
+      setChartData(res);
+    });
   };
 
   const handleOnChange = event => {
@@ -38,11 +44,11 @@ export default ({ currentUser, logout }) => {
   };
 
 
-//  const operation = () => {
-//     this.setState({
-//       show: !this.state.show
-//     })
-//   }
+ const operation = () => {
+    setShow(
+       !show
+    )
+  }
     
  
   
@@ -82,7 +88,8 @@ export default ({ currentUser, logout }) => {
            <Link className="nav-menu-item" to="#">Messages</Link>
            <div className="dropdown">
 
-             <button className="nav-menu-item dropdown" onClick={() => this.operation()}>Account</button>
+             <button className="nav-menu-item dropdown" onClick={operation}>Account</button>
+             {show && 
              <ul className='dropdown-menu'>
               <li>
                 <div>
@@ -136,6 +143,7 @@ export default ({ currentUser, logout }) => {
                  <Link className="dropdown-menu-item" to="#" onClick={logout}>Log Out</Link>
               </li>
              </ul>
+             }
            </div>
          </nav>
 
@@ -156,6 +164,17 @@ export default ({ currentUser, logout }) => {
                <li><span>PE ratio:</span> {quote ? JSON.stringify(quote.pe_ratio) : ""}</li>
                <li><span>YTD change:</span> {quote ? JSON.stringify(quote.ytd_change) : ""}</li>
               </ul>
+           </div>
+
+           <div className="Chart">
+              <LineChart width={800} height={400} data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="date" />
+               <YAxis />
+               <Tooltip />
+               <Line type="monotone" dataKey="close" stroke="#8884d8" />
+             </LineChart>
+
            </div>
 
            <div className="fund-account">
