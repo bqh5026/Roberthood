@@ -27,13 +27,11 @@ export default ({ currentUser, logout }) => {
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
-      // setNews(news.concat(res.articles));
       console.log(res); 
       setQuote(res); 
     });
 
     $.ajax(`/api/stocks/chart/${searchValue}`).done(res => {
-      // setNews(news.concat(res.articles));
       console.log(res);
       setChartData(res);
     });
@@ -51,8 +49,6 @@ export default ({ currentUser, logout }) => {
   }
     
  
-  
-  
    return (
      <div>
 
@@ -180,7 +176,7 @@ export default ({ currentUser, logout }) => {
            <div className="fund-account">
              <span className="funds">Fund Your Account</span>
              <p className="funds-message">
-               Your bank account is ready! Fund your Robinhood account to begin
+               Your bank account is ready! Fund your Roberthood account to begin
                trading.
              </p>
              <span className="add-funds-message">Add Funds</span>
