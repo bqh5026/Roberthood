@@ -29,13 +29,32 @@ class Login extends React.Component {
       <div>
         <div className="sign-in-container">
           <div>
-              <img className="sign-in-image" src={signInURL} />
+            <img className="sign-in-image" src={signInURL} />
           </div>
 
           <div className="sign-in-form">
-            <h1 className="sign-in-header">Welcome to Roberthood</h1>
-            <form>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <form className="login-form">
+              <h1 className="sign-in-header">Welcome to Roberthood</h1>
               <span className="label">Username</span>
+              <br />
               <br />
               <input
                 className="input"
@@ -44,7 +63,9 @@ class Login extends React.Component {
                 onChange={this.handleInput("username")}
               />
               <br />
+              <br />
               <span className="label">Password</span>
+              <br />
               <br />
               <input
                 className="input"
@@ -52,6 +73,7 @@ class Login extends React.Component {
                 value={this.state.password}
                 onChange={this.handleInput("password")}
               />
+              <br />
               <br />
               <span className="retrieval">
                 Forgot your username or password?
@@ -61,22 +83,25 @@ class Login extends React.Component {
               <button className="sign-in-btn" onClick={this.handleSubmit}>
                 Sign In
               </button>
+              <br />
+              <br />
+              <div className="demo-user">
+                <form>
+                  <input
+                    type="hidden"
+                    value={(this.state.username = "bqh5026")}
+                  />
+                  <input
+                    type="hidden"
+                    value={(this.state.password = "password")}
+                  />
+                  <button className="demo-user-btn" onClick={this.handleSubmit}>
+                    Demo User
+                  </button>
+                </form>
+              </div>
             </form>
-
-            <div className="demo-user">
-              <form>
-                <input type="hidden" value={(this.state.username = "bqh5026")} />
-                <input type="hidden" value={(this.state.password = "password")} />
-                <button className="demo-user-btn" onClick={this.handleSubmit}>
-                  Demo User
-              </button>
-              </form>
-            </div>
-            
           </div>
-
-      
-          
         </div>
       </div>
     );
