@@ -43,14 +43,14 @@ export default () => (
 
     <div className="container-1">
       <div className="content-1">
-        <div>
+        <div className="content-1-parapgraph-1"> 
           <h1 className="signup-header">It's Time to Do Money</h1>
           <p className="paragraph-1">
             Roberthood, a pioneer of commission-free investing, gives you more
             ways to make your money work harder.
           </p>
-          <Link className="content-signup-btn " to="/signup">
-            Sign Up
+          <Link to="/signup">
+            <button className="content-signup-btn">Sign Up</button>
           </Link>
         </div>
         <div>
