@@ -43,7 +43,6 @@
 }
 
 .landing-page-menu-item {
-    font-weight: 300;
     color: #040d14;
     font-size: 19px;
     line-height: 19px;
@@ -74,11 +73,18 @@
 }
 
 
-.signup-btn {
-    height: 40px; 
+.splash-signup-btn {
+    height: 45px; 
+    color: #040; 
+    font-size: 16px; 
+    background-color: #21ce99;
+    border-radius: 10px;
+    line-height: 24px;
+    width: 88px;  
+    font-weight: 700; 
 }
 
-.signup-btn:hover {
+.splash-signup-btn:hover {
     color: #040d14; 
 }
 
@@ -93,24 +99,18 @@
 }
 
 .content-1 {
-    width: 55%;
+    width: 58%;
     display: flex;
     margin: 0 auto; 
+    padding-top: 32px;
 }
 
+.signup-message {
+    font-size: 62px;
+}
 // .content-1-paragraph-1 {
   
 // }
-
-.signup-header {
-    // all: unset; 
-    color: #040d14;
-    // font-size: 62px;
-    // font-size: 162px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 72px;
- }
 
  .paragraph-1 {
    color: #040d14;

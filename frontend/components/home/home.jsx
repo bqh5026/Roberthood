@@ -33,18 +33,16 @@ export default () => (
         </div>
         <div>
           <Link className="nav-bar-signup" to="/signup">
-            <button className="signup-btn">Sign Up</button>
+            <button className="splash-signup-btn">Sign Up</button>
           </Link>
         </div>
       </div>
     </nav>
 
-    <br />
-
     <div className="container-1">
       <div className="content-1">
-        <div className="content-1-parapgraph-1"> 
-          <h1 className="signup-header">It's Time to Do Money</h1>
+        <div> 
+          <h1 className="signup-message">It's Time to Do Money</h1>
           <p className="paragraph-1">
             Roberthood, a pioneer of commission-free investing, gives you more
             ways to make your money work harder.
