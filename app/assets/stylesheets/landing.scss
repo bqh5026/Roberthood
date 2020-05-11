@@ -134,16 +134,13 @@
 .signup-message {
     font-size: 62px;
 }
-// .content-1-paragraph-1 {
-  
-// }
 
  .paragraph-1 {
    color: #040d14;
     font-size: 28px;
     font-style: normal;
-    font-weight: 200;
     line-height: 36px;
+    width: 450px;
  }
 
 .cash-management-photo {
@@ -158,7 +155,7 @@
     font-size: 16px; 
     font-weight: 400;
     padding: 5px 12px; 
-    height: 50px;
+    height: 55px;
     width: 150px;
     transition: color 300ms ease-in-out;
     position: relative;
@@ -195,7 +192,9 @@
 
 //content-2
 
-
+.container-2 {
+    height: 350px; 
+}
 .content-2-header {
     text-align: center;
     color: #040d14;
@@ -232,17 +231,26 @@
 .container-3 {
     background: #F5F8FA;
     width: 100%;
+    height: 500px; 
 }
 
 .container-3-full {
     display: flex;
 }
 
+.container-3-left {
+    padding: 10px;
+}
+
+.content-3 {
+    width: 1800px;
+}
 .content-3-box1 {
     width: 60%;
-    margin: 0 auto;
+    // margin: 0 auto;
+    margin-left: 500px;
 }
-.content-2-header {
+.content-3-header {
     color: #040d14;
     font-size: 36px;
     font-weight: 700;
@@ -250,11 +258,30 @@
 }
 
 .content-3-box2 {
+    margin-left: 500px;
     display: flex; 
+    width: 55%;
 }
 
+.content-3-box2A {
+    width: 270px; 
+    margin-right: 60px;
+} 
+
+.content-3-box2B {
+    width: 270px; 
+    margin-right: 60px;
+} 
+
+.content-3-box2C {
+    width: 270px; 
+} 
+
+.content-3-search {
+    margin-left: 500px;
+}
 .abstract_image {
-    height: 250px; 
+    height: 500px; 
 }
 
 //container-4

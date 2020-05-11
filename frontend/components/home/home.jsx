@@ -58,8 +58,11 @@ export default () => (
     </div>
 
     <div className="container-2">
+      <br />
+      <br />
+      <br />
       <div className="content-2">
-        <h4 className="content-2-header">Break Free from Commission Fees</h4>
+        <h2 className="content-2-header">Break Free from Commission Fees</h2>
         <p className="content-2-body">
           Make unlimited commission-free trades in stocks, funds, and options
           with Robinhood Financial. The same goes for buying and selling
@@ -77,27 +80,27 @@ export default () => (
         <div className="container-3-left">
           <div className="content-3">
             <div className="content-3-box1">
-              <h4>Introducing Fractional Shares</h4>
+              <h2 className="content-3-header">Introducing Fractional Shares</h2>
               <p>Invest in thousands of stocks with as little as $1.</p>
             </div>
 
             <div className="content-3-box2">
               <div className="content-3-box2A">
-                <h5>Invest Any Amount</h5>
+                <h3>Invest Any Amount</h3>
                 <p>
                   Choose how much you want to invest, and we’ll convert from
                   dollars to parts of a whole share.
                 </p>
               </div>
               <div className="content-3-box2B">
-                <h5>Build a Balanced Portfolio</h5>
+                <h3>Build a Balanced Portfolio</h3>
                 <p>
                   Customize your portfolio with pieces of different companies
                   and funds to help reduce risk.
                 </p>
               </div>
               <div className="content-3-box2C">
-                <h5>Trade in Real Time</h5>
+                <h3>Trade in Real Time</h3>
                 <p>
                   Investing in fractional shares is real-time and, as always,
                   commission-free.
