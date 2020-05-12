@@ -96,6 +96,10 @@
     height: 50px; 
 }
 
+.signup-btn:hover {
+    background: #1aa178;
+}
+
 .application {
     text-align: center;
     font-style: normal;
@@ -105,9 +109,11 @@
     color: #b1bfc4; 
 }
 
-span {
+.application-continue {
+     cursor: pointer;
     color: #1ae9aa; 
 }
+
 
 .signup-form-footer-image {
     width: 700px;

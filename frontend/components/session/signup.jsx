@@ -94,7 +94,7 @@ class Signup extends React.Component {
               <br />
               <div>
                 <p className="application">
-                  Already started? <span>Log in to complete your application.</span>
+                  Already started? <span className="application-continue">Log in to complete your application.</span>
                 </p>
               </div>
               <br />
