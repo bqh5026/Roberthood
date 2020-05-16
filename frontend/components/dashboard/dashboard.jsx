@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'; 
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts";
 
+import axios from '../axios-quotes'; 
 
 
 
@@ -48,6 +49,11 @@ export default ({ currentUser, logout }) => {
     )
   }
     
+const postDataHandler = () => {
+  axios.post('./stocks.json', quote)
+    .then(response => console.log(response))
+    .catch(error => console.log(error)); 
+}
  
    return (
      <div>
@@ -160,6 +166,7 @@ export default ({ currentUser, logout }) => {
                <li><span>PE ratio:</span> {quote ? JSON.stringify(quote.pe_ratio) : ""}</li>
                <li><span>YTD change:</span> {quote ? JSON.stringify(quote.ytd_change) : ""}</li>
               </ul>
+              <button onClick={postDataHandler}>Add</button>
            </div>
 
            <div className="Chart">
