@@ -15,6 +15,8 @@ export default ({ currentUser, logout }) => {
   const [news, setNews] = useState([]);
   const [show, setShow] = useState(true); 
 
+  const [stock, setStock] = useState([]); 
+
   useEffect(() => {
     if (news.length < 1) {
       search(); 
@@ -24,6 +26,17 @@ export default ({ currentUser, logout }) => {
     }
   });
 
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: `https://roberthood-edcdd.firebaseio.com/${currentUser.username}.json`})
+      // url: `https://roberthood-edcdd.firebaseio.com/stocks.json`})
+    .then(res => {
+      setStock(res.data);
+      console.log(res.data); 
+    }) 
+    .catch(error => console.log(error));  
+  }, []);
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
@@ -229,6 +242,7 @@ const postDataHandler = () => {
 
          <div className="right">
            <span className="watchlist-header">Watchlist</span>
+           {stock ? JSON.stringify(stock) : ""}
            <hr/>
          </div>
        </div>
