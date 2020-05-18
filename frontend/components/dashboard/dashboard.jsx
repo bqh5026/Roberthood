@@ -4,12 +4,10 @@ import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts"
 
 import axios from '../axios-quotes'; 
 
-
-
 export default ({ currentUser, logout }) => {
-  const [username, setUsername] = useState('')
-  const [last_name, setLastname] = useState('')
-  const [first_name, setFirstname] = useState('')
+  // const [username, setUsername] = useState('')
+  // const [last_name, setLastname] = useState('')
+  // const [first_name, setFirstname] = useState('')
   const [searchValue, setSearchValue] = useState('')
   const [quote, setQuote] = useState('')
   console.log("currentUser", currentUser); 
@@ -25,6 +23,7 @@ export default ({ currentUser, logout }) => {
       });
     }
   });
+
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
@@ -50,7 +49,8 @@ export default ({ currentUser, logout }) => {
   }
     
 const postDataHandler = () => {
-  axios.post('./stocks.json', quote)
+  // axios.post('./stocks.json', quote)
+  axios.post(`./${currentUser.username}.json`, quote)
     .then(response => console.log(response))
     .catch(error => console.log(error)); 
 }
