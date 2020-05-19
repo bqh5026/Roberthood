@@ -10,7 +10,7 @@ export default ({ currentUser, logout }) => {
   // const [first_name, setFirstname] = useState('')
   const [searchValue, setSearchValue] = useState('')
   const [quote, setQuote] = useState('')
-  console.log("currentUser", currentUser); 
+  // console.log("currentUser", currentUser); 
   const [chartData, setChartData] = useState([]);
   const [news, setNews] = useState([]);
   const [show, setShow] = useState(true); 
@@ -30,13 +30,13 @@ export default ({ currentUser, logout }) => {
     axios({
       method: 'GET',
       url: `https://roberthood-edcdd.firebaseio.com/${currentUser.username}.json`})
-      // url: `https://roberthood-edcdd.firebaseio.com/stocks.json`})
-    .then(res => {
-      setStock(res.data);
+    .then(res => { 
+      // debugger
+      setStock(Object.values(res.data));
       console.log(res.data); 
     }) 
     .catch(error => console.log(error));  
-  }, []);
+  }, [setStock]);
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
@@ -67,103 +67,156 @@ const postDataHandler = () => {
     .then(response => console.log(response))
     .catch(error => console.log(error)); 
 }
+
+// const deleteWatchlistItemHandler = () => {
+//   axios
+//     // .delete("./${currentUser.username}/-M7iG6l0NVyYJbguaToz.json")
+//     .delete(`./${currentUser.username}.json`, stock)
+//     .then((response) => console.log(response))
+//     .catch((error) => console.log(error)); 
+// }
+
+const deleteWatchlistItemHandler = (watchlistItem) => {
+  axios
+    // .delete("./${currentUser.username}/-M7iG6l0NVyYJbguaToz.json")
+    .delete(`./${currentUser.username}.json`, watchlistItem)
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error)); 
+}
  
    return (
      <div>
-
-        <div className="header">
-        <div className="navbar-left">
-          <div>
-            <Link to="/dashboard">
-              <img className="dashboard-roberthood-hat" src={roberthoodHatURL} />
-            </Link>
-          </div>  
-       
-         <div className="search-box">
-           <i className="fas fa-search"></i>
-           <input
-             className="search-txt"
-             type="text"
-             name=""
-             placeholder="Search"
-             onChange={(event) => { handleOnChange(event) }}
-             value={searchValue}
-           />
-           <button onClick={search} className="search-btn">Search</button>
-         </div>
-       </div>
-       
-    
-       <div>
-         <nav className="nav-bar">
-           
-           <Link className="nav-menu-item" to="#">Free Stocks</Link>
-           <Link className="nav-menu-item" to="#">Portfolio</Link>
-           <Link className="nav-menu-item" to="#">Cash</Link>
-           <Link className="nav-menu-item" to="#">Messages</Link>
-           <div className="dropdown">
-
-             <button className="nav-menu-item dropdown" onClick={operation}>Account</button>
-             {show && 
-             <ul className='dropdown-menu'>
-              <li>
-                <div>
-                  {currentUser.first_name} {currentUser.last_name}
-                </div>
-                <hr />
-              </li>
-              <li className='dropdown-list'>
-                 <img className="rg-logo" src={roberthoodGoldURL} />
-                 <Link className="gold" to="#">Roberthood Gold</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="fas fa-gift menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">Free Stock</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="fas fa-briefcase menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">Account</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="fas fa-university menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">Banking</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="fas fa-history menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">History</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="fas fa-file-alt menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">Documents</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="fas fa-cog menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">Settings</Link>
-              </li>
-              <hr />
-              <li className='dropdown-list'>
-                 <i className="far fa-life-ring menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">Help Center</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="fas fa-comment-dots menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">Contact Us</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="far fa-file-pdf menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#">Disclosure</Link>
-              </li>
-              <li className='dropdown-list'>
-                 <i className="fas fa-sign-out-alt menu-icon"></i>
-                 <Link className="dropdown-menu-item" to="#" onClick={logout}>Log Out</Link>
-              </li>
-             </ul>
-             }
+       <div className="header">
+         <div className="navbar-left">
+           <div>
+             <Link to="/dashboard">
+               <img
+                 className="dashboard-roberthood-hat"
+                 src={roberthoodHatURL}
+               />
+             </Link>
            </div>
-         </nav>
 
-       </div>
+           <div className="search-box">
+             <i className="fas fa-search"></i>
+             <input
+               className="search-txt"
+               type="text"
+               name=""
+               placeholder="Search"
+               onChange={(event) => {
+                 handleOnChange(event);
+               }}
+               value={searchValue}
+             />
+             <button onClick={search} className="search-btn">
+               Search
+             </button>
+           </div>
+         </div>
 
+         <div>
+           <nav className="nav-bar">
+             <Link className="nav-menu-item" to="#">
+               Free Stocks
+             </Link>
+             <Link className="nav-menu-item" to="#">
+               Portfolio
+             </Link>
+             <Link className="nav-menu-item" to="#">
+               Cash
+             </Link>
+             <Link className="nav-menu-item" to="#">
+               Messages
+             </Link>
+             <div className="dropdown">
+               <button className="nav-menu-item dropdown" onClick={operation}>
+                 Account
+               </button>
+               {show && (
+                 <ul className="dropdown-menu">
+                   <li>
+                     <div>
+                       {currentUser.first_name} {currentUser.last_name}
+                     </div>
+                     <hr />
+                   </li>
+                   <li className="dropdown-list">
+                     <img className="rg-logo" src={roberthoodGoldURL} />
+                     <Link className="gold" to="#">
+                       Roberthood Gold
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="fas fa-gift menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       Free Stock
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="fas fa-briefcase menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       Account
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="fas fa-university menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       Banking
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="fas fa-history menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       History
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="fas fa-file-alt menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       Documents
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="fas fa-cog menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       Settings
+                     </Link>
+                   </li>
+                   <hr />
+                   <li className="dropdown-list">
+                     <i className="far fa-life-ring menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       Help Center
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="fas fa-comment-dots menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       Contact Us
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="far fa-file-pdf menu-icon"></i>
+                     <Link className="dropdown-menu-item" to="#">
+                       Disclosure
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i className="fas fa-sign-out-alt menu-icon"></i>
+                     <Link
+                       className="dropdown-menu-item"
+                       to="#"
+                       onClick={logout}
+                     >
+                       Log Out
+                     </Link>
+                   </li>
+                 </ul>
+               )}
+             </div>
+           </nav>
+         </div>
        </div>
 
        <br />
@@ -172,25 +225,39 @@ const postDataHandler = () => {
          <br />
          <div className="left">
            <div className="Quote">
-              <ul className="ticker-results">
-               <li><span>Company Name:</span> {quote ? JSON.stringify(quote.company_name) : ""}</li>
-               <li><span>Ticker:</span> {quote ? JSON.stringify(quote.symbol) : ""}</li>
-               <li><span>Latest Price:</span> {quote ? JSON.stringify(quote.latest_price) : ""}</li>
-               <li><span>PE ratio:</span> {quote ? JSON.stringify(quote.pe_ratio) : ""}</li>
-               <li><span>YTD change:</span> {quote ? JSON.stringify(quote.ytd_change) : ""}</li>
-              </ul>
-              <button onClick={postDataHandler}>Add</button>
+             <ul className="ticker-results">
+               <li>
+                 <span>Company Name:</span>{" "}
+                 {quote ? JSON.stringify(quote.company_name) : ""}
+               </li>
+               <li>
+                 <span>Ticker:</span>{" "}
+                 {quote ? JSON.stringify(quote.symbol) : ""}
+               </li>
+               <li>
+                 <span>Latest Price:</span>{" "}
+                 {quote ? JSON.stringify(quote.latest_price) : ""}
+               </li>
+               <li>
+                 <span>PE ratio:</span>{" "}
+                 {quote ? JSON.stringify(quote.pe_ratio) : ""}
+               </li>
+               <li>
+                 <span>YTD change:</span>{" "}
+                 {quote ? JSON.stringify(quote.ytd_change) : ""}
+               </li>
+             </ul>
+             <button onClick={postDataHandler}>Add</button>
            </div>
 
            <div className="Chart">
-              <LineChart width={800} height={400} data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
+             <LineChart width={800} height={400} data={chartData}>
+               <CartesianGrid strokeDasharray="3 3" />
+               <XAxis dataKey="date" />
                <YAxis />
                <Tooltip />
                <Line type="monotone" dataKey="close" stroke="#8884d8" />
              </LineChart>
-
            </div>
 
            <div className="fund-account">
@@ -215,21 +282,30 @@ const postDataHandler = () => {
            <div className="news">
              <ul>
                {news.map((item, idx) => {
-                 return (<li key={idx} className='news-item'>
-                   <div><i className="fas fa-bolt"></i> {item.source.name}</div>
-                   <div className='news-title'>
+                 return (
+                   <li key={idx} className="news-item">
                      <div>
-                       <a className='news-title-header' href={item.url} target="_blank">{item.title}</a>
+                       <i className="fas fa-bolt"></i> {item.source.name}
                      </div>
-                     <div>
-                       <img className="news-image" src={item.urlToImage} />
+                     <div className="news-title">
+                       <div>
+                         <a
+                           className="news-title-header"
+                           href={item.url}
+                           target="_blank"
+                         >
+                           {item.title}
+                         </a>
+                       </div>
+                       <div>
+                         <img className="news-image" src={item.urlToImage} />
+                       </div>
                      </div>
-
-                   </div>       
-                  <hr />
-                  </li>)
+                     <hr />
+                   </li>
+                 );
                })}
-             </ul>   
+             </ul>
            </div>
 
            <div className="footer">
@@ -242,24 +318,34 @@ const postDataHandler = () => {
 
          <div className="right">
            <span className="watchlist-header">Watchlist</span>
-           {stock ? JSON.stringify(stock) : ""}
-           <hr/>
+           <hr />
+           <div>
+             {stock.map((item, idx) => (
+               <div key={idx} className="watchlist">
+                 <ul>
+                   <li>
+                     {item.symbol}
+                     {item.latest_price}
+                     {item.change_percent_s}
+                   </li>
+                 </ul>
+                 <button onClick={deleteWatchlistItemHandler}>
+                   Delele from watchlist
+                 </button>
+               </div>
+             ))}
+           </div>
          </div>
        </div>
-
      </div>
    );
 }
      
-// { quote ? JSON.stringify(quote) : "" }
+ 
 
-// { this.state.show ? <div></div> : null } 
-       
-// <header>
-//   <h1>Roberthood</h1>
-//   <h3>Welcome {currentUser.username}</h3>
-//   <p>{currentUser.last_name}</p>
-// </header>
+//  {
+//    stock ? JSON.stringify(stock) : "";
+//  }
 
-
-
+  
+  
