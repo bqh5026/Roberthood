@@ -32,7 +32,11 @@ export default ({ currentUser, logout }) => {
       url: `https://roberthood-edcdd.firebaseio.com/${currentUser.username}.json`})
     .then(res => { 
       // debugger
-      setStock(Object.values(res.data));
+      const watchlist = [];
+      for(let stock in res.data) {
+        watchlist.push({...res.data[stock], firebaseID: stock})
+      }
+      setStock(watchlist);
       console.log(res.data); 
     }) 
     .catch(error => console.log(error));  
@@ -68,20 +72,20 @@ const postDataHandler = () => {
     .catch(error => console.log(error)); 
 }
 
-// const deleteWatchlistItemHandler = () => {
-//   axios
-//     // .delete("./${currentUser.username}/-M7iG6l0NVyYJbguaToz.json")
-//     .delete(`./${currentUser.username}.json`, stock)
-//     .then((response) => console.log(response))
-//     .catch((error) => console.log(error)); 
-// }
 
 const deleteWatchlistItemHandler = (watchlistItem) => {
-  axios
-    // .delete("./${currentUser.username}/-M7iG6l0NVyYJbguaToz.json")
-    .delete(`./${currentUser.username}.json`, watchlistItem)
-    .then((response) => console.log(response))
-    .catch((error) => console.log(error)); 
+  return (
+    (event) => {
+      event.preventDefault();
+      console.log(watchlistItem);
+      // debugger
+      axios
+      //this.props.deleteWatchlistItem(watclistItem.firebaseID)
+        .delete(`./${currentUser.username}/${watchlistItem.firebaseID}.json`)
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error)); 
+    } 
+  )
 }
  
    return (
@@ -329,7 +333,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                      {item.change_percent_s}
                    </li>
                  </ul>
-                 <button onClick={deleteWatchlistItemHandler}>
+                 <button onClick={deleteWatchlistItemHandler(item)}>
                    Delele from watchlist
                  </button>
                </div>
