@@ -66,7 +66,6 @@ export default ({ currentUser, logout }) => {
   }
     
 const postDataHandler = () => {
-  // axios.post('./stocks.json', quote)
   axios.post(`./${currentUser.username}.json`, quote)
     .then(response => console.log(response))
     .catch(error => console.log(error)); 
