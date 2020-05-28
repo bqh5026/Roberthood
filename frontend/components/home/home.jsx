@@ -41,7 +41,7 @@ export default () => (
 
     <div className="container-1">
       <div className="content-1">
-        <div> 
+        <div>
           <h1 className="signup-message">It's Time to Do Money</h1>
           <p className="paragraph-1">
             Roberthood, a pioneer of commission-free investing, gives you more
@@ -80,7 +80,9 @@ export default () => (
         <div className="container-3-left">
           <div className="content-3">
             <div className="content-3-box1">
-              <h2 className="content-3-header">Introducing Fractional Shares</h2>
+              <h2 className="content-3-header">
+                Introducing Fractional Shares
+              </h2>
               <p>Invest in thousands of stocks with as little as $1.</p>
             </div>
 
@@ -148,16 +150,39 @@ export default () => (
         <div>
           <img className="learn-image" src={learnAsYouGrowURL} />
         </div>
+        <div className="social-media">
+          <a
+            class="sm-icon"
+            href="https://angel.co/u/ben-hsieh-6"
+            target="_blank"
+          >
+            <i class="fab fa-angellist fa-5x"></i>
+          </a>
+          <a
+            class="sm-icon"
+            href="https://www.facebook.com/beenchi.hsieh"
+            target="_blank"
+          >
+            <i class="fab fa-facebook-f fa-5x"></i>
+          </a>
+          <a
+            class="sm-icon"
+            href="https://www.linkedin.com/in/ben-hsieh-05522542/"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin-in fa-5x"></i>
+          </a>
+        </div>
       </div>
-    </div>
-
-    <div className="container-5">
-      <img className="our-products-image" src={ourProductsURL} />
-    </div>
-
-    <div className="container-6">
-      <img className="landing-page-footer" src={landingPageFooterURL} />
     </div>
   </div>
 );
 
+
+  // <div className="container-5">
+  //     <img className="our-products-image" src={ourProductsURL} />
+  //   </div>
+
+  //   <div className="container-6">
+  //     <img className="landing-page-footer" src={landingPageFooterURL} />
+  //   </div>
