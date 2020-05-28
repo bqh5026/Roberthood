@@ -93,18 +93,18 @@ class Signup extends React.Component {
               <br />
               <br />
               <div>
-                <p className="application">
-                  Already started? <span className="application-continue">Log in to complete your application.</span>
-                </p>
+                <Link to="/login">
+                  <p className="application">
+                    Already an user? <span className="application-continue">Proceed to login page.</span>
+                  </p>
+                </Link>
               </div>
               <br />
               <br />
               <br />
               <br />
               <br />
-              <div>
-                <img className="signup-form-footer-image" src={signupFormFooterURL} />
-              </div>
+          
             </form>
            
            
@@ -116,3 +116,7 @@ class Signup extends React.Component {
 }
 
 export default Signup; 
+
+  //  <div>
+  //    <img className="signup-form-footer-image" src={signupFormFooterURL} />
+  //  </div>;

@@ -13,7 +13,7 @@ export default ({ currentUser, logout }) => {
   // console.log("currentUser", currentUser); 
   const [chartData, setChartData] = useState([]);
   const [news, setNews] = useState([]);
-  const [show, setShow] = useState(true); 
+  const [show, setShow] = useState(false); 
 
   const [stock, setStock] = useState([]); 
 
@@ -58,6 +58,11 @@ export default ({ currentUser, logout }) => {
     setSearchValue(event.target.value);
   };
 
+  const handleKeyPress = event => {
+    if(event.key === 'Enter') {
+      search();
+    }
+  }
 
  const operation = () => {
     setShow(
@@ -111,6 +116,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                  handleOnChange(event);
                }}
                value={searchValue}
+               onKeyPress={handleKeyPress}
              />
              <button onClick={search} className="search-btn">
                Search
