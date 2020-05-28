@@ -13,15 +13,15 @@ export default () => (
         </div>
 
         <div className="landing-page-menu-items">
-          <Link className="landing-page-menu-item" to="#">
+          <span className="landing-page-menu-item">
             Products
-          </Link>
-          <Link className="landing-page-menu-item" to="#">
+          </span>
+          <span className="landing-page-menu-item">
             Learn
-          </Link>
-          <Link className="landing-page-menu-item" to="#">
+          </span>
+          <span className="landing-page-menu-item">
             Support
-          </Link>
+          </span>
         </div>
       </div>
 
@@ -131,19 +131,19 @@ export default () => (
         <div className="content-4-box1">
           <ul>
             <li>
-              <Link className="learn" to="#">
+              <span className="learn">
                 Learn
-              </Link>
+              </span>
             </li>
             <li>
-              <Link className="manage" to="#">
+              <span className="manage">
                 Manage
-              </Link>
+              </span>
             </li>
             <li>
-              <Link className="customize" to="#">
+              <span className="customize" to="#">
                 Customize
-              </Link>
+              </span>
             </li>
           </ul>
         </div>

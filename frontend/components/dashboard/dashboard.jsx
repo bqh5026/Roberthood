@@ -110,6 +110,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
              <input
                className="search-txt"
                type="text"
+              //  type="image"
                name=""
                placeholder="Search"
                onChange={(event) => {
@@ -117,6 +118,8 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                }}
                value={searchValue}
                onKeyPress={handleKeyPress}
+              //  src={magnifyingGlassURL}
+               alt="search"
              />
              <button onClick={search} className="search-btn">
                Search
