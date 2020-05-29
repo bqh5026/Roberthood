@@ -120,7 +120,6 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                  }}
                  value={searchValue}
                  onKeyPress={handleKeyPress}
-                 //  src={magnifyingGlassURL}
                  alt="search"
                />
              </form>
@@ -207,29 +206,34 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          <br />
          <div className="left">
            <div className="Quote">
-             <ul className="ticker-results">
-               <li>
-                 <span>Company Name:</span>{" "}
-                 {quote ? JSON.stringify(quote.company_name) : ""}
-               </li>
-               <li>
-                 <span>Ticker:</span>{" "}
-                 {quote ? JSON.stringify(quote.symbol) : ""}
-               </li>
-               <li>
-                 <span>Latest Price:</span>{" "}
-                 {quote ? JSON.stringify(quote.latest_price) : ""}
-               </li>
-               <li>
-                 <span>PE ratio:</span>{" "}
-                 {quote ? JSON.stringify(quote.pe_ratio) : ""}
-               </li>
-               <li>
-                 <span>YTD change:</span>{" "}
-                 {quote ? JSON.stringify(quote.ytd_change) : ""}
-               </li>
-             </ul>
-             <button onClick={postDataHandler}>Add</button>
+              {quote ?  
+                <div>
+                  <ul className="ticker-results">
+                    <li>
+                      <span>Company Name:</span>
+                      {JSON.stringify(quote.company_name)}
+                    </li>
+                    <li>
+                      <span>Ticker:</span>
+                      {JSON.stringify(quote.symbol)}
+                    </li>
+                    <li>
+                      <span>Latest Price:</span>
+                      {JSON.stringify(quote.latest_price)}
+                    </li>
+                    <li>
+                      <span>PE ratio:</span>
+                      {JSON.stringify(quote.pe_ratio)}
+                    </li>
+                    <li>
+                      <span>YTD change:</span>{" "}
+                      {JSON.stringify(quote.ytd_change)}
+                    </li>
+                  </ul>
+                  <button onClick={postDataHandler}>Add</button>
+                </div>
+                : <ul></ul>
+              }
            </div>
 
            <div className="Chart">
