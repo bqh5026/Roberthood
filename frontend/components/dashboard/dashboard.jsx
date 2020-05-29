@@ -13,7 +13,6 @@ export default ({ currentUser, logout }) => {
   // console.log("currentUser", currentUser); 
   const [chartData, setChartData] = useState([]);
   const [news, setNews] = useState([]);
-  console.log(news); 
   const [show, setShow] = useState(false); 
 
   const [stock, setStock] = useState([]); 
@@ -32,25 +31,24 @@ export default ({ currentUser, logout }) => {
       method: 'GET',
       url: `https://roberthood-edcdd.firebaseio.com/${currentUser.username}.json`})
     .then(res => { 
-      // debugger
       const watchlist = [];
       for(let stock in res.data) {
         watchlist.push({...res.data[stock], firebaseID: stock})
       }
       setStock(watchlist);
-      console.log(res.data); 
+      // console.log(res.data); 
     }) 
     .catch(error => console.log(error));  
   }, [setStock]);
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
-      console.log(res); 
+      // console.log(res); 
       setQuote(res); 
     });
 
     $.ajax(`/api/stocks/chart/${searchValue}`).done(res => {
-      console.log(res);
+      // console.log(res);
       setChartData(res);
     });
   };
@@ -73,7 +71,7 @@ export default ({ currentUser, logout }) => {
     
 const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
-    .then(response => console.log(response))
+    // .then(response => console.log(response))
     .catch(error => console.log(error)); 
 }
 
@@ -82,7 +80,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
   return (
     (event) => {
       event.preventDefault();
-      console.log(watchlistItem);
+      // console.log(watchlistItem);
       // debugger
       axios
       //this.props.deleteWatchlistItem(watclistItem.firebaseID)
