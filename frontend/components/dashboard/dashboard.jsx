@@ -106,41 +106,35 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
            </div>
 
            <div className="search-box">
-             <i className="fas fa-search"></i>
-             <input
-               className="search-txt"
-               type="text"
-              //  type="image"
-               name=""
-               placeholder="Search"
-               onChange={(event) => {
-                 handleOnChange(event);
-               }}
-               value={searchValue}
-               onKeyPress={handleKeyPress}
-              //  src={magnifyingGlassURL}
-               alt="search"
-             />
-             <button onClick={search} className="search-btn">
-               Search
-             </button>
+             <form>
+               <button onClick={search} className="search-btn">
+                 <i className="fas fa-search"></i>
+               </button>
+               <input
+                 className="search-txt"
+                 type="text"
+                 name=""
+                 placeholder="Search"
+                 onChange={(event) => {
+                   handleOnChange(event);
+                 }}
+                 value={searchValue}
+                 onKeyPress={handleKeyPress}
+                 //  src={magnifyingGlassURL}
+                 alt="search"
+               />
+             </form>
            </div>
          </div>
 
          <div>
            <nav className="nav-bar">
-             <Link className="nav-menu-item" to="#">
-               Free Stocks
-             </Link>
-             <Link className="nav-menu-item" to="#">
-               Portfolio
-             </Link>
-             <Link className="nav-menu-item" to="#">
-               Cash
-             </Link>
-             <Link className="nav-menu-item" to="#">
+             <span className="nav-menu-item">Free Stocks</span>
+             <span className="nav-menu-item">Portfolio</span>
+             <span className="nav-menu-item">Cash</span>
+             <span className="nav-menu-item" to="#">
                Messages
-             </Link>
+             </span>
              <div className="dropdown">
                <button className="nav-menu-item dropdown" onClick={operation}>
                  Account
@@ -155,74 +149,50 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    </li>
                    <li className="dropdown-list">
                      <img className="rg-logo" src={roberthoodGoldURL} />
-                     <Link className="gold" to="#">
-                       Roberthood Gold
-                     </Link>
+                     <span className="gold">Roberthood Gold</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-gift menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       Free Stock
-                     </Link>
+                     <span className="dropdown-menu-item">Free Stock</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-briefcase menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       Account
-                     </Link>
+                     <span className="dropdown-menu-item">Account</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-university menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       Banking
-                     </Link>
+                     <span className="dropdown-menu-item">Banking</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-history menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       History
-                     </Link>
+                     <span className="dropdown-menu-item">History</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-file-alt menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       Documents
-                     </Link>
+                     <span className="dropdown-menu-item">Documents</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-cog menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       Settings
-                     </Link>
+                     <span className="dropdown-menu-item">Settings</span>
                    </li>
                    <hr />
                    <li className="dropdown-list">
                      <i className="far fa-life-ring menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       Help Center
-                     </Link>
+                     <span className="dropdown-menu-item">Help Center</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-comment-dots menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       Contact Us
-                     </Link>
+                     <span className="dropdown-menu-item">Contact Us</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="far fa-file-pdf menu-icon"></i>
-                     <Link className="dropdown-menu-item" to="#">
-                       Disclosure
-                     </Link>
+                     <span className="dropdown-menu-item">Disclosure</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-sign-out-alt menu-icon"></i>
-                     <Link
-                       className="dropdown-menu-item"
-                       to="#"
-                       onClick={logout}
-                     >
+                     <span className="dropdown-menu-item" onClick={logout}>
                        Log Out
-                     </Link>
+                     </span>
                    </li>
                  </ul>
                )}
@@ -270,20 +240,6 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                <Tooltip />
                <Line type="monotone" dataKey="close" stroke="#8884d8" />
              </LineChart>
-           </div>
-
-           <div className="fund-account">
-             <span className="funds">Fund Your Account</span>
-             <p className="funds-message">
-               Your bank account is ready! Fund your Roberthood account to begin
-               trading.
-             </p>
-             <span className="add-funds-message">Add Funds</span>
-           </div>
-
-           <div className="popular-collections">
-             <h4>Popular Collections</h4>
-             <span className="show-more-collections">Show More</span>
            </div>
 
            <div className="news-header">
@@ -354,6 +310,20 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
 }
      
  
+
+// <div className="fund-account">
+//              <span className="funds">Fund Your Account</span>
+//              <p className="funds-message">
+//                Your bank account is ready! Fund your Roberthood account to begin
+//                trading.
+//              </p>
+//              <span className="add-funds-message">Add Funds</span>
+//            </div>
+
+//            <div className="popular-collections">
+//              <h4>Popular Collections</h4>
+//              <span className="show-more-collections">Show More</span>
+//            </div>
 
 //  {
 //    stock ? JSON.stringify(stock) : "";
