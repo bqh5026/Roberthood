@@ -13,6 +13,7 @@ export default ({ currentUser, logout }) => {
   // console.log("currentUser", currentUser); 
   const [chartData, setChartData] = useState([]);
   const [news, setNews] = useState([]);
+  console.log(news); 
   const [show, setShow] = useState(false); 
 
   const [stock, setStock] = useState([]); 
@@ -229,12 +230,15 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                      <span>YTD change:</span> {JSON.stringify(quote.ytd_change)}
                    </li>
                  </ul>
-                 <button className="watchlist_btn" onClick={postDataHandler}>Add to Watchlist</button>
+                 <button className="watchlist_btn" onClick={postDataHandler}>
+                   Add to Watchlist
+                 </button>
                </div>
              ) : (
                <div className="default_quote">
                  <h2>$0.00</h2>
-                 <strong>$0.00(0.00%)</strong> <span className="today">Today</span>
+                 <strong>$0.00(0.00%)</strong>{" "}
+                 <span className="today">Today</span>
                </div>
              )}
            </div>
@@ -253,6 +257,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
              <h4>News</h4>
              <span className="show-more-news">Show More</span>
            </div>
+           <hr></hr>
 
            <div className="news">
              <ul>
@@ -260,7 +265,13 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                  return (
                    <li key={idx} className="news-item">
                      <div>
-                       <i className="fas fa-bolt"></i> {item.source.name}
+                       <i className="fas fa-bolt"></i>
+                       {"\u00A0"}
+                       {"\u00A0"}
+                       <strong>{item.source.name}</strong>
+                       {"\u00A0"}
+                       {"\u00A0"}
+                       {item.publishedAt}
                      </div>
                      <div className="news-title">
                        <div>
@@ -298,11 +309,14 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
              {stock.map((item, idx) => (
                <div key={idx} className="watchlist">
                  <ul className="watchlist_item">
-                  <li>{item.symbol}</li>
-                  <li>{item.latest_price}</li>
-                  <li>{item.change_percent_s}</li>
+                   <li>{item.symbol}</li>
+                   <li>{item.latest_price}</li>
+                   <li>{item.change_percent_s}</li>
                  </ul>
-                 <button className="remove_from_watchlist" onClick={deleteWatchlistItemHandler(item)}>
+                 <button
+                   className="remove_from_watchlist"
+                   onClick={deleteWatchlistItemHandler(item)}
+                 >
                    Remove from Watchlist
                  </button>
                </div>
