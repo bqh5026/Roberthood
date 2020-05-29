@@ -229,7 +229,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                      <span>YTD change:</span> {JSON.stringify(quote.ytd_change)}
                    </li>
                  </ul>
-                 <button onClick={postDataHandler}>Add</button>
+                 <button className="watchlist_btn" onClick={postDataHandler}>Add to Watchlist</button>
                </div>
              ) : (
                <div className="default_quote">
@@ -297,15 +297,13 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
            <div>
              {stock.map((item, idx) => (
                <div key={idx} className="watchlist">
-                 <ul>
-                   <li>
-                     {item.symbol}
-                     {item.latest_price}
-                     {item.change_percent_s}
-                   </li>
+                 <ul className="watchlist_item">
+                  <li>{item.symbol}</li>
+                  <li>{item.latest_price}</li>
+                  <li>{item.change_percent_s}</li>
                  </ul>
-                 <button onClick={deleteWatchlistItemHandler(item)}>
-                   Delele from watchlist
+                 <button className="remove_from_watchlist" onClick={deleteWatchlistItemHandler(item)}>
+                   Remove from Watchlist
                  </button>
                </div>
              ))}

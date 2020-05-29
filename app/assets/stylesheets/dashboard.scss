@@ -101,7 +101,7 @@ input::-webkit-input-placeholder {
 .nav-menu-item {
     color: #171718;
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 700; 
     line-height: 18px;
 }
 
@@ -176,6 +176,11 @@ button {
     margin: 0 auto;
 }
 
+.watchlist_btn {
+    color: #01b403;
+    border: 1px solid #01b403;
+    background: #fff;
+}
 
 // fund account container
 .fund-account {
@@ -232,7 +237,7 @@ button {
 .news-header {
     display: flex;
     font-size: 26px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 30px;
     font-style: normal; 
     justify-content: space-between;
@@ -311,7 +316,7 @@ button {
 
 .watchlist-header {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     color: #171718; 
     line-height: 22px;
     font-style: normal; 
@@ -320,6 +325,20 @@ button {
 .watchlist {
     display: flex;
     flex-direction: column;
+}
+
+.watchlist_item {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px; 
+}
+
+.remove_from_watchlist {
+    color: #01b403;
+    border: 1px solid #01b403; 
+    background: #fff;
+    height: 50px; 
+    border-radius: 5px;
 }
 
 //logout button
