@@ -206,34 +206,37 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          <br />
          <div className="left">
            <div className="Quote">
-              {quote ?  
-                <div>
-                  <ul className="ticker-results">
-                    <li>
-                      <span>Company Name:</span>
-                      {JSON.stringify(quote.company_name)}
-                    </li>
-                    <li>
-                      <span>Ticker:</span>
-                      {JSON.stringify(quote.symbol)}
-                    </li>
-                    <li>
-                      <span>Latest Price:</span>
-                      {JSON.stringify(quote.latest_price)}
-                    </li>
-                    <li>
-                      <span>PE ratio:</span>
-                      {JSON.stringify(quote.pe_ratio)}
-                    </li>
-                    <li>
-                      <span>YTD change:</span>{" "}
-                      {JSON.stringify(quote.ytd_change)}
-                    </li>
-                  </ul>
-                  <button onClick={postDataHandler}>Add</button>
-                </div>
-                : <ul></ul>
-              }
+             {quote ? (
+               <div>
+                 <ul className="ticker-results">
+                   <li>
+                     <span>Company Name:</span>
+                     {JSON.stringify(quote.company_name)}
+                   </li>
+                   <li>
+                     <span>Ticker:</span>
+                     {JSON.stringify(quote.symbol)}
+                   </li>
+                   <li>
+                     <span>Latest Price:</span>
+                     {JSON.stringify(quote.latest_price)}
+                   </li>
+                   <li>
+                     <span>PE ratio:</span>
+                     {JSON.stringify(quote.pe_ratio)}
+                   </li>
+                   <li>
+                     <span>YTD change:</span> {JSON.stringify(quote.ytd_change)}
+                   </li>
+                 </ul>
+                 <button onClick={postDataHandler}>Add</button>
+               </div>
+             ) : (
+               <div className="default_quote">
+                 <h2>$0.00</h2>
+                 <strong>$0.00(0.00%)</strong> <span className="today">Today</span>
+               </div>
+             )}
            </div>
 
            <div className="Chart">

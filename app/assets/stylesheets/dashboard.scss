@@ -98,13 +98,6 @@ input::-webkit-input-placeholder {
     box-shadow: 2px 2px 4px 4px rgba(206, 204, 204, 0.25);
 }
 
-// .search-txt:after {
-//     display: block; 
-//     width: 1px !important;
-//     height: 1px !important;
-//     background-size: contain;
-// }
-
 .nav-menu-item {
     color: #171718;
     font-size: 13px;
@@ -168,6 +161,13 @@ button {
 
 //quote
 
+.default_quote {
+    padding-left: 50px;
+}
+
+.today {
+    color: gray;
+}
 .ticker-results {
     list-style: none; 
 }
