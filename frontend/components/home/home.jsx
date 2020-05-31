@@ -13,15 +13,9 @@ export default () => (
         </div>
 
         <div className="landing-page-menu-items">
-          <span className="landing-page-menu-item">
-            Products
-          </span>
-          <span className="landing-page-menu-item">
-            Learn
-          </span>
-          <span className="landing-page-menu-item">
-            Support
-          </span>
+          <span className="landing-page-menu-item">Products</span>
+          <span className="landing-page-menu-item">Learn</span>
+          <span className="landing-page-menu-item">Support</span>
         </div>
       </div>
 
@@ -42,7 +36,7 @@ export default () => (
     <div className="container-1">
       <div className="content-1">
         <div>
-          <h1 className="signup-message">It's Time to Do Money</h1>
+          <h1 className="signup-message">Investing for Everyone</h1>
           <p className="paragraph-1">
             Roberthood, a pioneer of commission-free investing, gives you more
             ways to make your money work harder.
@@ -51,7 +45,7 @@ export default () => (
             <button className="content-signup-btn">Sign Up</button>
           </Link>
         </div>
-        <div>
+        <div className="cash-management">
           <img className="cash-management-photo" src={cashManagementURL} />
         </div>
       </div>
@@ -64,9 +58,13 @@ export default () => (
       <div className="content-2">
         <h2 className="content-2-header">Break Free from Commission Fees</h2>
         <p className="content-2-body">
-          Make unlimited commission-free trades in stocks, funds, and options
-          with Robinhood Financial. The same goes for buying and selling
-          cryptocurrencies with Robinhood Crypto. Zero commission fees.
+          Make unlimited commission-free trades in stocks, ETFs, and options
+          with Robinhood Financial, as well as buy and sell cryptocurrencies
+          with Robinhood Crypto. See our {" "}
+          <u>
+            <strong>fee schedule </strong>
+          </u>
+          to learn more about cost.
         </p>
         <div className="content-2-footer">
           <i className="fas fa-info-circle"></i>
@@ -131,14 +129,10 @@ export default () => (
         <div className="content-4-box1">
           <ul>
             <li>
-              <span className="learn">
-                Learn
-              </span>
+              <span className="learn">Learn</span>
             </li>
             <li>
-              <span className="manage">
-                Manage
-              </span>
+              <span className="manage">Manage</span>
             </li>
             <li>
               <span className="customize" to="#">
