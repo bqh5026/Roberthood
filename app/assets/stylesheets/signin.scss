@@ -4,23 +4,28 @@
 
 .sign-in-container {
     display: flex;
-    margin: 1rem; 
-    height: 1225px; 
+    // margin: 1rem; 
+    // height: 1225px; 
+    height: 95%;
 }
 
-.sign-in-image {
-    height: 100%;
-    width: 1255px; 
+.image-container {
+    background-image: image-url("sign_in.png");
+    background-position: center;
+    background-size: cover;
+    height: 1300px;
+    // height: 100%;
+    width: 1300px; 
 }
+
 
 .sign-in-form {
-    width: 400px;
-    margin: 20px; 
-    padding: 30px; 
+    width: 1000px;
+    margin-left: 50px; 
 }
 
 .login-form {
-    padding: 5px; 
+    left: 10px; 
 }
 
 .sign-in-header {
@@ -56,7 +61,7 @@
 }
 
 .sign-in-btn {
-    background-color: #21ce99;
+    background-color: #01b403;
     color: #ffffff; 
     border-radius: 5px;
     padding: 5px;
@@ -66,7 +71,7 @@
 }
 
 .sign-in-btn:hover {
-    background-color: #1cb385;
+    background-color: #0b9d16;
 }
 
 .demo-user-btn {
@@ -84,8 +89,27 @@
     line-height: 18px;;
     font-weight: 500;
     font-style: normal;
-    color: #21ce99; 
+    color: #01b403; 
 }
+
+
+// Responsive 
+
+@media screen and (max-width: 971px) {
+    .image-container {
+        display: none;
+    }
+    
+    .break {
+        display: none;
+    }
+}
+
+
+
+
+
+
 
 
 

@@ -29,21 +29,24 @@ class Login extends React.Component {
     return (
       <div>
         <div className="sign-in-container">
-          <div>
-            <img className="sign-in-image" src={signInURL} />
-          </div>
+          <div className="image-container"></div>
 
           <div className="sign-in-form">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
+            <br className="break" />
             <br />
             <br />
             <br />
@@ -78,7 +81,7 @@ class Login extends React.Component {
               <br />
               <Link to="/signup">
                 <span className="retrieval">
-                    Sign up for a new account if not already have one
+                  Sign up for a new account if not already have one
                 </span>
               </Link>
               <br />
@@ -88,22 +91,22 @@ class Login extends React.Component {
               </button>
               <br />
               <br />
-              <div className="demo-user">
-                <form>
-                  <input
-                    type="hidden"
-                    value={(this.state.username = "bqh5026")}
-                  />
-                  <input
-                    type="hidden"
-                    value={(this.state.password = "password")}
-                  />
-                  <button className="demo-user-btn" onClick={this.handleSubmit}>
-                    Demo User
-                  </button>
-                </form>
-              </div>
             </form>
+            <div className="demo-user">
+              <form>
+                <input
+                  type="hidden"
+                  value={(this.state.username = "bqh5026")}
+                />
+                <input
+                  type="hidden"
+                  value={(this.state.password = "password")}
+                />
+                <button className="demo-user-btn" onClick={this.handleSubmit}>
+                  Demo User
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -113,3 +116,5 @@ class Login extends React.Component {
 
 export default Login 
 
+
+  //  <img className="sign-in-image" src={signInURL} />

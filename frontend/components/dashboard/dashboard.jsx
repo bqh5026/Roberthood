@@ -48,7 +48,7 @@ export default ({ currentUser, logout }) => {
     });
 
     $.ajax(`/api/stocks/chart/${searchValue}`).done(res => {
-      // console.log(res);
+      console.log(res);
       setChartData(res);
     });
   };
