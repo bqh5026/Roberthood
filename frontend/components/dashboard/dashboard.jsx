@@ -72,7 +72,7 @@ export default ({ currentUser, logout }) => {
 const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
     // .then(response => console.log(response))
-    .then(response => window.alert("Added to watchlist"))
+    .then(response => window.alert("Added to watchlist. Refresh page to see changes"))
     .catch(error => console.log(error)); 
 }
 
@@ -87,7 +87,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
       //this.props.deleteWatchlistItem(watclistItem.firebaseID)
         .delete(`./${currentUser.username}/${watchlistItem.firebaseID}.json`)
         // .then((response) => console.log(response))
-        .then((response) => window.alert("Removed from watchlist"))
+        .then((response) => window.alert("Removed from watchlist. Refresh page to see changes"))
         .catch((error) => console.log(error)); 
     } 
   )
