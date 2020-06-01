@@ -72,6 +72,7 @@ export default ({ currentUser, logout }) => {
 const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
     // .then(response => console.log(response))
+    .then(response => window.alert("Added to watchlist"))
     .catch(error => console.log(error)); 
 }
 
@@ -85,7 +86,8 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
       axios
       //this.props.deleteWatchlistItem(watclistItem.firebaseID)
         .delete(`./${currentUser.username}/${watchlistItem.firebaseID}.json`)
-        .then((response) => console.log(response))
+        // .then((response) => console.log(response))
+        .then((response) => window.alert("Removed from watchlist"))
         .catch((error) => console.log(error)); 
     } 
   )
@@ -209,23 +211,28 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                <div>
                  <ul className="ticker-results">
                    <li>
-                     <span>Company Name:</span>
-                     {JSON.stringify(quote.company_name)}
+                     <h1>
+                       {JSON.stringify(quote.company_name).replace(/['"]+/g,"")}
+                     </h1>
                    </li>
                    <li>
-                     <span>Ticker:</span>
-                     {JSON.stringify(quote.symbol)}
+                     <span>Ticker:</span>{" "}
+                     {JSON.stringify(quote.symbol).replace(/['"]+/g, "")}
                    </li>
                    <li>
-                     <span>Latest Price:</span>
+                     <span>Latest Price:</span>$
                      {JSON.stringify(quote.latest_price)}
+                   </li>
+                   <li>
+                     ${JSON.stringify(quote.change)}(
+                     {JSON.stringify(quote.change_percent_s).replace(/['"]+/g, "")}) <span className="today">Today </span>
                    </li>
                    <li>
                      <span>PE ratio:</span>
                      {JSON.stringify(quote.pe_ratio)}
                    </li>
                    <li>
-                     <span>YTD change:</span> {JSON.stringify(quote.ytd_change)}
+                     <span>YTD change:</span> {JSON.stringify((quote.ytd_change * 100).toFixed(2)).replace(/['"]+/g, "")}%
                    </li>
                  </ul>
                  <button className="watchlist_btn" onClick={postDataHandler}>
