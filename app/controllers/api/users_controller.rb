@@ -5,6 +5,7 @@ class Api::UsersController < ApplicationController
     def create 
         @user = User.new(user_params)
         if @user.save
+            # flash[:success] = "You have successfully logged in"
             login(@user)
             render "api/users/show"
         else
