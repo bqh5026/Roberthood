@@ -43,7 +43,6 @@ class Login extends React.Component {
         <div className="sign-in-container">
           <div className="image-container"></div>
 
-          <div className="forms">
               <div className="sign-in-form">
                 <br className="break" />
                 <br className="break" />
@@ -105,19 +104,17 @@ class Login extends React.Component {
                   <br />
                   <br />
                 </form>
-              </div>
+                <div className="demo-user">
+                  <form>
+                    <input type="hidden" value="" />
+                    <input type="hidden" value="" />
+                    <button className="demo-user-btn" onClick={this.handleDemo}>
+                      Demo User
+                    </button>
+                  </form>
+                </div>
 
-              <div className="demo-user">
-                <form>
-                  <input type="hidden" value="" />
-                  <input type="hidden" value="" />
-                  <button className="demo-user-btn" onClick={this.handleDemo}>
-                    Demo User
-                  </button>
-                </form>
               </div>
-          </div>
-
 
         </div>
       </div>
