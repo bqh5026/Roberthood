@@ -24,6 +24,11 @@
     margin-left: 50px; 
 }
 
+// .forms {
+//     display: flex;
+//     flex-direction: column;
+// }
+
 .login-form {
     left: 10px; 
 }
@@ -74,6 +79,10 @@
     background-color: #0b9d16;
 }
 
+.demo-user {
+    margin-left: 50px;
+}
+
 .demo-user-btn {
     background-color: black;
     color: #ffffff; 
@@ -88,7 +97,7 @@
     background: #293137
 }
 
-.retrieval {
+.signup_link {
     font-size: 15px; 
     line-height: 18px;;
     font-weight: 500;
