@@ -27,13 +27,13 @@ class Login extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    this.setState({
-      username: 'bqh5026',
-      password: 'password'
-    })
-
-    this.props.login(this.state)
-      .then(() => this.props.history.push('/dashboard'));
+    this.props
+      .login(
+        this.state = {
+          username: "bqh5026",
+          password: 'password'
+        })
+      .then(() => this.props.history.push("/dashboard"));
   }
 
   render() {
@@ -125,15 +125,4 @@ class Login extends React.Component {
 export default Login 
 
 
-  //  <img className="sign-in-image" src={signInURL} />
 
-      // <div className="demo-user">
-      //     <form>
-      //       <input type="hidden" value={(this.state.username = "bqh5026")} />
-      //       <input type="hidden" value={(this.state.password = "password")} />
-      //       <button className="demo-user-btn" onClick={this.handleDemo}>
-      //         Demo User
-      //       </button>
-      //     </form>
-      //   </div>
-  
