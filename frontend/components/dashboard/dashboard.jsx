@@ -39,7 +39,7 @@ export default ({ currentUser, logout }) => {
       // console.log(res.data); 
     }) 
     .catch(error => console.log(error));  
-  }, [setStock]);
+  });
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
@@ -72,7 +72,7 @@ export default ({ currentUser, logout }) => {
 const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
     // .then(response => console.log(response))
-    .then(response => window.alert("Added to watchlist. Refresh page to see changes"))
+    // .then(response => window.alert("Added to watchlist. Refresh page to see changes"))
     .catch(error => console.log(error)); 
 }
 
