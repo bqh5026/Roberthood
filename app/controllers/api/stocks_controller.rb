@@ -28,7 +28,8 @@ class Api::StocksController < ApplicationController
           endpoint: 'https://cloud.iexapis.com/v1'
             )
           # result = client.chart(symbol, "5d")
-          result = client.chart(symbol, "3m")
+          # result = client.chart(symbol, "3m")
+          result = client.chart(symbol, "1d")
           render :json => result
 
     end

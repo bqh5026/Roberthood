@@ -75,6 +75,11 @@ const postDataHandler = () => {
     .catch(error => console.log(error)); 
 }
 
+const buyStockHandler = () => {
+  axios.post(`./${currentUser.username}/portfolio.json`, quote)
+  .then(response => console.log(response))
+  .catch(error => console.log(error)); 
+}
 
 const deleteWatchlistItemHandler = (watchlistItem) => {
   return (
@@ -210,7 +215,10 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                  <ul className="ticker-results">
                    <li>
                      <h1>
-                       {JSON.stringify(quote.company_name).replace(/['"]+/g,"")}
+                       {JSON.stringify(quote.company_name).replace(
+                         /['"]+/g,
+                         ""
+                       )}
                      </h1>
                    </li>
                    <li>
@@ -223,14 +231,22 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    </li>
                    <li>
                      ${JSON.stringify(quote.change)}(
-                     {JSON.stringify(quote.change_percent_s).replace(/['"]+/g, "")}) <span className="today">Today </span>
+                     {JSON.stringify(quote.change_percent_s).replace(
+                       /['"]+/g,
+                       ""
+                     )}
+                     ) <span className="today">Today </span>
                    </li>
                    <li>
                      <span>PE ratio:</span>
                      {JSON.stringify(quote.pe_ratio)}
                    </li>
                    <li>
-                     <span>YTD change:</span> {JSON.stringify((quote.ytd_change * 100).toFixed(2)).replace(/['"]+/g, "")}%
+                     <span>YTD change:</span>{" "}
+                     {JSON.stringify(
+                       (quote.ytd_change * 100).toFixed(2)
+                     ).replace(/['"]+/g, "")}
+                     %
                    </li>
                  </ul>
                  <button className="watchlist_btn" onClick={postDataHandler}>
@@ -258,7 +274,6 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
 
            <div className="news-header">
              <h4>News</h4>
-             <span className="show-more-news">Show More</span>
            </div>
            <hr></hr>
 
@@ -306,25 +321,50 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          </div>
 
          <div className="right">
-           <span className="watchlist-header">Watchlist</span>
-           <hr />
-           <div>
-             {stock.map((item, idx) => (
-               <div key={idx} className="watchlist">
-                 <ul className="watchlist_item">
-                   <li>{item.symbol}</li>
-                   <li>{item.latest_price}</li>
-                   <li>{item.change_percent_s}</li>
-                 </ul>
-                 <button
-                   className="remove_from_watchlist"
-                   onClick={deleteWatchlistItemHandler(item)}
-                 >
-                   Remove from Watchlist
-                 </button>
-               </div>
-             ))}
+
+        {
+        quote ? (
+           <div className="trade">
+             <strong>
+               {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
+             </strong>
+             <hr />
+             <div>Market Price:</div>
+             <br />
+             <div className="market-price">${quote.latest_price.toFixed(2)}</div>
+             <br />
+             <br />
+             <br />
+             <br />
+             <br />
+             <button className="buy-stock" onClick={buyStockHandler}>
+               Buy
+             </button>
            </div>
+            ) : (
+              <div>
+                <span className="watchlist-header">Watchlist</span>
+                <hr />
+                <div>
+                  {stock.map((item, idx) => (
+                    <div key={idx} className="watchlist">
+                      <ul className="watchlist_item">
+                        <li>{item.symbol}</li>
+                        <li>{item.latest_price}</li>
+                        <li>{item.change_percent_s}</li>
+                      </ul>
+                      <button
+                        className="remove_from_watchlist"
+                        onClick={deleteWatchlistItemHandler(item)}
+                      >
+                        Remove from Watchlist
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          }
          </div>
        </div>
      </div>
@@ -353,3 +393,46 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
 
   
   
+
+          // {
+          //   quote ? (
+          //     <div>
+          //       <strong>
+          //         Buy {JSON.stringify(quote.symbol).replace(/['"]+/g, "")}
+          //       </strong>
+          //       <hr />
+          //       <form>
+          //         <label>
+          //           Shares
+          //           <input></input>
+          //         </label>
+          //         <label>
+          //           Market Price
+          //           <input value="${quote.latest_price}"></input>
+          //         </label>
+          //       </form>
+          //     </div>
+          //   ) : (
+          //     <div>
+          //       <span className="watchlist-header">Watchlist</span>
+          //       <hr />
+          //       <div>
+          //         {stock.map((item, idx) => (
+          //           <div key={idx} className="watchlist">
+          //             <ul className="watchlist_item">
+          //               <li>{item.symbol}</li>
+          //               <li>{item.latest_price}</li>
+          //               <li>{item.change_percent_s}</li>
+          //             </ul>
+          //             <button
+          //               className="remove_from_watchlist"
+          //               onClick={deleteWatchlistItemHandler(item)}
+          //             >
+          //               Remove from Watchlist
+          //             </button>
+          //           </div>
+          //         ))}
+          //       </div>
+          //     </div>
+          //   );
+          // }

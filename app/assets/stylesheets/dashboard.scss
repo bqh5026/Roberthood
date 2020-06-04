@@ -243,12 +243,12 @@ button {
     justify-content: space-between;
 }
 
-.show-more-news {
-    font-size: 13px;
-    line-height: 30px;
-    color: #01b403;
-    padding-top: 40px; 
-}
+// .show-more-news {
+//     font-size: 13px;
+//     line-height: 30px;
+//     color: #01b403;
+//     padding-top: 40px; 
+// }
 
 
 .news {
@@ -311,8 +311,8 @@ button {
 .right {
     font-size: 16px;
     padding: 5px; 
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
-    width: 15rem;
+    // box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+    width: 17rem;
 }
 
 .watchlist-header {
@@ -340,6 +340,25 @@ button {
     background: #fff;
     height: 50px; 
     border-radius: 5px;
+}
+
+.trade {
+    height: 300px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.market-price {
+    font-size: 50px;
+}
+.buy-stock {
+    color: #fff; 
+    border-radius: 5px;
+    background: #01b403;
+    height: 45px;
+    width: 90%;
+    text-align: center;
+    margin-left: 10px; 
+    border: none; 
 }
 
 //logout button
