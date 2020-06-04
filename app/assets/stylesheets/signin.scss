@@ -6,16 +6,15 @@
     display: flex;
     // margin: 1rem; 
     // height: 1225px; 
-    height: 95%;
+    // height: 95%;
 }
 
 .image-container {
     background-image: image-url("sign_in.png");
     background-position: center;
     background-size: cover;
-    height: 1300px;
-    // height: 100%;
-    width: 1300px; 
+    height: 1175px;
+    width: 1175px; 
 }
 
 
@@ -78,10 +77,6 @@
 .sign-in-btn:hover {
     background-color: #0b9d16;
 }
-
-// .demo-user {
-//     margin-left: 50px;
-// }
 
 .demo-user-btn {
     background-color: black;
