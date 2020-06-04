@@ -8,6 +8,7 @@ import { Route,
 import LoginContainer from './session/login_container'; 
 import SignupContainer from './session/signup_container';
 import DashboardContainer from './dashboard/dashboard_container'; 
+import Portfolio from './portfolio/portfolio'; 
 import Home from "./home/home";
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
@@ -19,6 +20,7 @@ export default () => (
       <AuthRoute path="/signup" component={SignupContainer} />
       <AuthRoute path="/login" component={LoginContainer} />
       <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+      <ProtectedRoute path="/portfolio" component={Portfolio} />
   </div>
 );
 

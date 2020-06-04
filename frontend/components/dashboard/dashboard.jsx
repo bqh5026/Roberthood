@@ -133,7 +133,9 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          <div>
            <nav className="nav-bar">
              <span className="nav-menu-item">Free Stocks</span>
-             <span className="nav-menu-item">Portfolio</span>
+             <Link to="/portfolio">
+              <span className="nav-menu-item">Portfolio</span>
+             </Link>
              <span className="nav-menu-item">Cash</span>
              <span className="nav-menu-item" to="#">
                Messages
