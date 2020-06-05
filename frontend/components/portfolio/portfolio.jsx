@@ -23,6 +23,18 @@ export default ({ currentUser, logout }) => {
       .catch((error) => console.log(error));
   }, []);
 
+  const sellStockHandler = (stock) => {
+    return (event) => {
+      event.preventDefault();
+      // console.log(watchlistItem);
+      // debugger
+      axios
+        //this.props.deleteWatchlistItem(watclistItem.firebaseID)
+        .delete(`./bqh5026/portfolio/${stock.firebaseID}.json`)
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
+    };
+  };
     
     return (
         <div className="portfolio-wrapper">
@@ -42,7 +54,9 @@ export default ({ currentUser, logout }) => {
                     <li>{item.latest_price}</li>
                     <li>{item.change_percent_s}</li>
                     </ul>
-                    <button className="sell-stock">
+                    <button 
+                        className="sell-stock"
+                        onClick={sellStockHandler(item)}>
                     Sell stock
                     </button>
                 </div>
