@@ -10,8 +10,7 @@ export default ({ currentUser, logout }) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`,
-    })
+      url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
       .then((res) => {
         const portfolio = [];
         for (let stock in res.data) {
@@ -31,7 +30,7 @@ export default ({ currentUser, logout }) => {
       axios
         //this.props.deleteWatchlistItem(watclistItem.firebaseID)
         .delete(`./bqh5026/portfolio/${stock.firebaseID}.json`)
-        .then((response) => console.log(response))
+        .then(window.alert(`${JSON.stringify(stock.symbol).replace(/['"]+/g, "")} sold! Refresh page to see update.`))
         .catch((error) => console.log(error));
     };
   };
