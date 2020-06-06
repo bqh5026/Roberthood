@@ -67,6 +67,12 @@
     height: 40px;
     border-radius: 6px;
     border-width: 0.5px;
+    outline: none;
+}
+
+.signup-input1:focus {
+    border: 1px solid #06c806;
+    // background-color: blue; 
 }
 
 .signup-input2 {
@@ -75,10 +81,15 @@
     font-weight: 100; 
     font-size: 18px;
     line-height: 24px;
-    width: 100%;
+    width: 99%;
     height: 40px;
     border-radius: 6px;
     border-width: 0.5px;
+    outline: none;
+}
+
+.signup-input2:focus {
+    border: 1px solid #06c806;
 }
 
 .retrieval {
@@ -88,16 +99,17 @@
 
 .signup-btn {
     font-size: 18px; 
-    background-color: #21ce99;
+    background-color: #00c806;
     border-radius: 5px;
     color: #ffffff;
     line-height: 24px;
     width: 100%; 
     height: 50px; 
+    border: none;
 }
 
 .signup-btn:hover {
-    background: #1aa178;
+    background: #01b403;
 }
 
 .application {
@@ -110,8 +122,8 @@
 }
 
 .application-continue {
-     cursor: pointer;
-    color: #1ae9aa; 
+    cursor: pointer;
+    color: #00c806; 
 }
 
 
