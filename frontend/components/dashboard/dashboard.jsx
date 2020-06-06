@@ -136,9 +136,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          <div>
            <nav className="nav-bar">
              <span className="nav-menu-item">Free Stocks</span>
-             <Link to="/portfolio">
-              <span className="nav-menu-item">Portfolio</span>
-             </Link>
+             <span className="nav-menu-item">Portfolio</span>
              <span className="nav-menu-item">Cash</span>
              <span className="nav-menu-item" to="#">
                Messages
@@ -165,8 +163,11 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-briefcase menu-icon"></i>
-                     <span className="dropdown-menu-item">Account</span>
+                     <Link to="/account">
+                        <span className="dropdown-menu-item">Account</span>
+                     </Link>
                    </li>
+
                    <li className="dropdown-list">
                      <i className="fas fa-university menu-icon"></i>
                      <span className="dropdown-menu-item">Banking</span>
@@ -326,50 +327,49 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          </div>
 
          <div className="right">
-
-        {
-        quote ? (
-           <div className="trade">
-             <strong>
-               {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
-             </strong>
-             <hr />
-             <div>Market Price:</div>
-             <br />
-             <div className="market-price">${quote.latest_price.toFixed(2)}</div>
-             <br />
-             <br />
-             <br />
-             <br />
-             <br />
-             <button className="buy-stock" onClick={buyStockHandler}>
-               Buy
-             </button>
-           </div>
-            ) : (
-              <div>
-                <span className="watchlist-header">Watchlist</span>
-                <hr />
-                <div>
-                  {stock.map((item, idx) => (
-                    <div key={idx} className="watchlist">
-                      <ul className="watchlist_item">
-                        <li>{item.symbol}</li>
-                        <li>{item.latest_price}</li>
-                        <li>{item.change_percent_s}</li>
-                      </ul>
-                      <button
-                        className="remove_from_watchlist"
-                        onClick={deleteWatchlistItemHandler(item)}
-                      >
-                        Remove from Watchlist
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )
-          }
+           {quote ? (
+             <div className="trade">
+               <strong>
+                 {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
+               </strong>
+               <hr />
+               <div>Market Price:</div>
+               <br />
+               <div className="market-price">
+                 ${quote.latest_price.toFixed(2)}
+               </div>
+               <br />
+               <br />
+               <br />
+               <br />
+               <br />
+               <button className="buy-stock" onClick={buyStockHandler}>
+                 Buy
+               </button>
+             </div>
+           ) : (
+             <div>
+               <span className="watchlist-header">Watchlist</span>
+               <hr />
+               <div>
+                 {stock.map((item, idx) => (
+                   <div key={idx} className="watchlist">
+                     <ul className="watchlist_item">
+                       <li>{item.symbol}</li>
+                       <li>{item.latest_price}</li>
+                       <li>{item.change_percent_s}</li>
+                     </ul>
+                     <button
+                       className="remove_from_watchlist"
+                       onClick={deleteWatchlistItemHandler(item)}
+                     >
+                       Remove from Watchlist
+                     </button>
+                   </div>
+                 ))}
+               </div>
+             </div>
+           )}
          </div>
        </div>
      </div>
