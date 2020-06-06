@@ -156,24 +156,28 @@ class Signup extends React.Component {
               </p>
             </Link>
           </div>
+          <div>
+            <ul className="signup-error-messages">
+              <li>
+                {this.state.first_nameError}
+              </li>
+              <li>
+                {this.state.last_nameError}
+              </li>
+              <li>
+                {this.state.usernameError}
+              </li>
+              <li>
+                {this.state.passwordError}
+              </li>
+            </ul>
+          </div>
           <br />
           <br />
           <br />
           <br />
           <br />
         </form>
-        <div style={{ fontSize: 12, color: "red" }}>
-          {this.state.first_nameError}
-        </div>
-        <div style={{ fontSize: 12, color: "red" }}>
-          {this.state.last_nameError}
-        </div>
-        <div style={{ fontSize: 12, color: "red" }}>
-          {this.state.usernameError}
-        </div>
-        <div style={{ fontSize: 12, color: "red" }}>
-          {this.state.passwordError}
-        </div>
       </div>
     );
   }
