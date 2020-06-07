@@ -71,6 +71,13 @@ export default ({ currentUser, logout }) => {
       setShow(!show);
     };
 
+  const postDataHandler = () => {
+    axios
+      .post(`./${currentUser.username}.json`, quote)
+      // .then(response => console.log(response))
+      .catch((error) => console.log(error));
+  };
+  
   const sellStockHandler = (stock) => {
     return (event) => {
       event.preventDefault();
