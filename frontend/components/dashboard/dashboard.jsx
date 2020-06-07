@@ -88,12 +88,8 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
   return (
     (event) => {
       event.preventDefault();
-      // console.log(watchlistItem);
-      // debugger
       axios
-      //this.props.deleteWatchlistItem(watclistItem.firebaseID)
         .delete(`./${currentUser.username}/${watchlistItem.firebaseID}.json`)
-        // .then((response) => console.log(response))
         .catch((error) => console.log(error)); 
     } 
   )
