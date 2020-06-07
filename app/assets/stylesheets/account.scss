@@ -13,7 +13,7 @@
     position: relative;
 }
 
-.user-nav-bar li {
+.user-nav-bar p {
     position: relative;
     z-index: 1;
     display: inline-block; 
@@ -23,7 +23,7 @@
 
 nav .animation {
     position: absolute;
-    height: 5px;
+    height: 3px;
     bottom: 0;
     z-index: 0;
     background: #00c806;
@@ -32,50 +32,50 @@ nav .animation {
     transition: all .5s ease 0s;
 }
 
-li:nth-child(1){
+p:nth-child(1){
     width: 100px;
 }
-.nav start-account, li:nth-child(1):hover~.animation {
+.nav start-account, p:nth-child(1):hover~.animation {
     width: 55px;
     left: 0; 
 } 
 
-li:nth-child(2){
+p:nth-child(2){
     width: 110px;
 }
-.nav start-banking, li:nth-child(2):hover~.animation {
+.nav start-banking, p:nth-child(2):hover~.animation {
     width: 53px;
     left: 90px; 
 } 
 
-li:nth-child(3){
+p:nth-child(3){
     width: 100px;
 }
-.nav start-history, li:nth-child(3):hover~.animation {
+.nav start-history, p:nth-child(3):hover~.animation {
     width: 48px;
     left: 187px; 
 } 
 
-li:nth-child(4){
+p:nth-child(4){
     width: 160px;
 }
-.nav start-documents, li:nth-child(4):hover~.animation {
+.nav start-documents, p:nth-child(4):hover~.animation {
     width: 75px;
     left: 276px; 
 } 
 
-li:nth-child(5){
+p:nth-child(5){
     width: 100px;
 }
-.nav start-free-stocks, li:nth-child(5):hover~.animation {
+.nav start-free-stocks, p:nth-child(5):hover~.animation {
     width: 78px;
     left: 419px; 
 } 
 
-li:nth-child(6){
+p:nth-child(6){
     width: 100px;
 }
-.nav start-settings, li:nth-child(6):hover~.animation {
+.nav start-settings, p:nth-child(6):hover~.animation {
     width: 50px;
     left: 510px; 
 } 

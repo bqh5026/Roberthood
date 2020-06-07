@@ -194,14 +194,13 @@ export default ({ currentUser, logout }) => {
         <div className="user-account">
           <h1>Ben Hsieh</h1>
           <nav className="user-nav-bar">
-         
-              <li>Account</li>
-              <li>Banking</li>
-              <li>History</li>
-              <li>Documents</li>
-              <li>Free Stocks</li>
-              <li>Settings</li>
-              <div className="animation start-home"></div>
+              <p>Account</p>
+              <p>Banking</p>
+              <p>History</p>
+              <p>Documents</p>
+              <p>Free Stocks</p>
+              <p>Settings</p>
+              <div className="animation start-account"></div>
       
           </nav>
         </div>
@@ -369,20 +368,22 @@ export default ({ currentUser, logout }) => {
           </div>
         </div>
 
-        <div className="portfolio-container">
-          {stock.map((item, idx) => (
-            <div key={idx} className="portfolio">
-              <ul className="portfolio-item">
-                <li>{item.symbol}</li>
-                <li>{item.latest_price}</li>
-                <li>{item.change_percent_s}</li>
-              </ul>
-              <button className="sell-stock" onClick={sellStockHandler(item)}>
-                Sell stock
-              </button>
-            </div>
-          ))}
-        </div>
+        
       </div>
     );
 }
+
+// <div className="portfolio-container">
+//   {stock.map((item, idx) => (
+//     <div key={idx} className="portfolio">
+//       <ul className="portfolio-item">
+//         <li>{item.symbol}</li>
+//         <li>{item.latest_price}</li>
+//         <li>{item.change_percent_s}</li>
+//       </ul>
+//       <button className="sell-stock" onClick={sellStockHandler(item)}>
+//         Sell stock
+//       </button>
+//     </div>
+//   ))}
+// </div>;
