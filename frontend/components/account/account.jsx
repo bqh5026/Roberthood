@@ -194,14 +194,13 @@ export default ({ currentUser, logout }) => {
         <div className="user-account">
           <h1>Ben Hsieh</h1>
           <nav className="user-nav-bar">
-              <p>Account</p>
-              <p>Banking</p>
-              <p>History</p>
-              <p>Documents</p>
-              <p>Free Stocks</p>
-              <p>Settings</p>
-              <div className="animation start-account"></div>
-      
+            <li className="user-nav-item">Account</li>
+            <li className="user-nav-item">Banking</li>
+            <li className="user-nav-item">History</li>
+            <li className="user-nav-item">Documents</li>
+            <li className="user-nav-item">Free Stocks</li>
+            <li className="user-nav-item">Settings</li>
+            <div className="animation start-account"></div>
           </nav>
         </div>
 
@@ -321,12 +320,8 @@ export default ({ currentUser, logout }) => {
               </p>
             </div>
           </div>
-          <div className="right">
-            
-          </div>
+          <div className="right"></div>
         </div>
-
-        
       </div>
     );
 }

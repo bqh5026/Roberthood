@@ -13,7 +13,7 @@
     position: relative;
 }
 
-.user-nav-bar p {
+.user-nav-bar .user-nav-item {
     position: relative;
     z-index: 1;
     display: inline-block; 
@@ -32,50 +32,50 @@ nav .animation {
     transition: all .5s ease 0s;
 }
 
-p:nth-child(1){
+.user-nav-item:nth-child(1){
     width: 100px;
 }
-.nav start-account, p:nth-child(1):hover~.animation {
+.nav start-account, .user-nav-item:nth-child(1):hover~.animation {
     width: 55px;
     left: 0; 
 } 
 
-p:nth-child(2){
+.user-nav-item:nth-child(2){
     width: 110px;
 }
-.nav start-banking, p:nth-child(2):hover~.animation {
+.nav start-banking, .user-nav-item:nth-child(2):hover~.animation {
     width: 53px;
     left: 90px; 
 } 
 
-p:nth-child(3){
+.user-nav-item:nth-child(3){
     width: 100px;
 }
-.nav start-history, p:nth-child(3):hover~.animation {
+.nav start-history, .user-nav-item:nth-child(3):hover~.animation {
     width: 48px;
     left: 187px; 
 } 
 
-p:nth-child(4){
+.user-nav-item:nth-child(4){
     width: 160px;
 }
-.nav start-documents, p:nth-child(4):hover~.animation {
+.nav start-documents, .user-nav-item:nth-child(4):hover~.animation {
     width: 75px;
     left: 276px; 
 } 
 
-p:nth-child(5){
+.user-nav-item:nth-child(5){
     width: 100px;
 }
-.nav start-free-stocks, p:nth-child(5):hover~.animation {
+.nav start-free-stocks, .user-nav-item:nth-child(5):hover~.animation {
     width: 78px;
     left: 419px; 
 } 
 
-p:nth-child(6){
+.user-nav-item:nth-child(6){
     width: 100px;
 }
-.nav start-settings, p:nth-child(6):hover~.animation {
+.nav start-settings, .user-nav-item:nth-child(6):hover~.animation {
     width: 50px;
     left: 510px; 
 } 
