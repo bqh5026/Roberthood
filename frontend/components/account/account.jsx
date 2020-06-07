@@ -130,10 +130,8 @@ export default ({ currentUser, logout }) => {
                 {show && (
                   <ul className="dropdown-menu">
                     <li>
-                      <div>
-                        {currentUser.first_name} {currentUser.last_name}
-                      </div>
-                      <hr />
+                      <div>Ben Hsieh</div>
+                      <hr className="horizontal-bar" />
                     </li>
                     <li className="dropdown-list">
                       <img className="rg-logo" src={roberthoodGoldURL} />
@@ -193,7 +191,23 @@ export default ({ currentUser, logout }) => {
         </div>
 
         <br />
-        <h1>Ben Hsieh</h1>
+        <div className="user-account">
+          <h1>Ben Hsieh</h1>
+          <nav className="user-nav-bar">
+         
+              <li>Account</li>
+              <li>Banking</li>
+              <li>History</li>
+              <li>Documents</li>
+              <li>Free Stocks</li>
+              <li>Settings</li>
+              <div className="animation start-home"></div>
+      
+          </nav>
+        </div>
+
+        <hr />
+
         <div className="content">
           <br />
           <br />
@@ -263,8 +277,8 @@ export default ({ currentUser, logout }) => {
 
             <div className="news-header">
               <h4>News</h4>
+              <hr></hr>
             </div>
-            <hr></hr>
 
             <div className="news">
               <ul>

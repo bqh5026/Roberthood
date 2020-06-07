@@ -1,3 +1,93 @@
+.user-account {
+    display: flex;
+    flex-direction: column;
+    width: 600px; 
+    margin-left: 30%;
+}
+
+.user-nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-inline-start: 0px;
+    position: relative;
+}
+
+.user-nav-bar li {
+    position: relative;
+    z-index: 1;
+    display: inline-block; 
+    // list-style: none; 
+}
+
+
+nav .animation {
+    position: absolute;
+    height: 5px;
+    bottom: 0;
+    z-index: 0;
+    background: #00c806;
+  
+    border-radius: 3px;
+    transition: all .5s ease 0s;
+}
+
+li:nth-child(1){
+    width: 100px;
+}
+.nav start-account, li:nth-child(1):hover~.animation {
+    width: 55px;
+    left: 0; 
+} 
+
+li:nth-child(2){
+    width: 110px;
+}
+.nav start-banking, li:nth-child(2):hover~.animation {
+    width: 53px;
+    left: 90px; 
+} 
+
+li:nth-child(3){
+    width: 100px;
+}
+.nav start-history, li:nth-child(3):hover~.animation {
+    width: 48px;
+    left: 187px; 
+} 
+
+li:nth-child(4){
+    width: 160px;
+}
+.nav start-documents, li:nth-child(4):hover~.animation {
+    width: 75px;
+    left: 276px; 
+} 
+
+li:nth-child(5){
+    width: 100px;
+}
+.nav start-free-stocks, li:nth-child(5):hover~.animation {
+    width: 78px;
+    left: 419px; 
+} 
+
+li:nth-child(6){
+    width: 100px;
+}
+.nav start-settings, li:nth-child(6):hover~.animation {
+    width: 50px;
+    left: 510px; 
+} 
+
+// .line {
+//     width: 58px;
+//     height: 3px;
+//     background-color: #00c806;
+//     margin-left: 39px; 
+//     position: absolute;
+// }
+
 
 .portfolio-container {
     width: 300px;
