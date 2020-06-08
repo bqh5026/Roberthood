@@ -260,64 +260,65 @@ export default ({ currentUser, logout }) => {
                   <button className="watchlist_btn" onClick={postDataHandler}>
                     Add to Watchlist
                   </button>
+                  <div className="Chart">
+                    <LineChart width={800} height={400} data={chartData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="minute" />
+                      <YAxis type="number" domain={["auto", "auto"]} />
+                      <Tooltip />
+                      <Line type="monotone" dataKey="close" stroke="#8884d8" />
+                    </LineChart>
+                  </div>
+                  <div className="news-header">
+                    <h4>News</h4>
+                    <hr></hr>
+                  </div>
+
+                  <div className="news">
+                    <ul>
+                      {news.map((item, idx) => {
+                        return (
+                          <li key={idx} className="news-item">
+                            <div>
+                              <i className="fas fa-bolt"></i>
+                              {"\u00A0"}
+                              {"\u00A0"}
+                              <strong>{item.source.name}</strong>
+                              {"\u00A0"}
+                              {"\u00A0"}
+                              {item.publishedAt}
+                            </div>
+                            <div className="news-title">
+                              <div>
+                                <a
+                                  className="news-title-header"
+                                  href={item.url}
+                                  target="_blank"
+                                >
+                                  {item.title}
+                                </a>
+                              </div>
+                              <div>
+                                <img
+                                  className="news-image"
+                                  src={item.urlToImage}
+                                />
+                              </div>
+                            </div>
+                            <hr />
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </div>
               ) : (
-                <div className="default_quote">
-                  <h2>$0.00</h2>
-                  <strong>$0.00(0.00%)</strong>{" "}
-                  <span className="today">Today</span>
+                <div>
+                  <div>
+                    <h4>Total Account Value</h4>
+                  </div>
                 </div>
               )}
-            </div>
-
-            <div className="Chart">
-              <LineChart width={800} height={400} data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="minute" />
-                <YAxis type="number" domain={["auto", "auto"]} />
-                <Tooltip />
-                <Line type="monotone" dataKey="close" stroke="#8884d8" />
-              </LineChart>
-            </div>
-
-            <div className="news-header">
-              <h4>News</h4>
-              <hr></hr>
-            </div>
-
-            <div className="news">
-              <ul>
-                {news.map((item, idx) => {
-                  return (
-                    <li key={idx} className="news-item">
-                      <div>
-                        <i className="fas fa-bolt"></i>
-                        {"\u00A0"}
-                        {"\u00A0"}
-                        <strong>{item.source.name}</strong>
-                        {"\u00A0"}
-                        {"\u00A0"}
-                        {item.publishedAt}
-                      </div>
-                      <div className="news-title">
-                        <div>
-                          <a
-                            className="news-title-header"
-                            href={item.url}
-                            target="_blank"
-                          >
-                            {item.title}
-                          </a>
-                        </div>
-                        <div>
-                          <img className="news-image" src={item.urlToImage} />
-                        </div>
-                      </div>
-                      <hr />
-                    </li>
-                  );
-                })}
-              </ul>
             </div>
 
             <div className="footer">
