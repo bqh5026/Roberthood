@@ -77,7 +77,7 @@ export default ({ currentUser, logout }) => {
       // .then(response => console.log(response))
       .catch((error) => console.log(error));
   };
-  
+
   const sellStockHandler = (stock) => {
     return (event) => {
       event.preventDefault();
@@ -273,8 +273,8 @@ export default ({ currentUser, logout }) => {
             <div className="Chart">
               <LineChart width={800} height={400} data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis />
+                <XAxis dataKey="minute" />
+                <YAxis type="number" domain={["auto", "auto"]} />
                 <Tooltip />
                 <Line type="monotone" dataKey="close" stroke="#8884d8" />
               </LineChart>

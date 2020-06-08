@@ -160,7 +160,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    <li className="dropdown-list">
                      <i className="fas fa-briefcase menu-icon"></i>
                      <Link to="/account">
-                        <span className="dropdown-menu-item">Account</span>
+                       <span className="dropdown-menu-item">Account</span>
                      </Link>
                    </li>
 
@@ -267,8 +267,8 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
            <div className="Chart">
              <LineChart width={800} height={400} data={chartData}>
                <CartesianGrid strokeDasharray="3 3" />
-               <XAxis dataKey="date" />
-               <YAxis />
+               <XAxis dataKey="minute" />
+               <YAxis type="number" domain={["auto", "auto"]} />
                <Tooltip />
                <Line type="monotone" dataKey="close" stroke="#8884d8" />
              </LineChart>
