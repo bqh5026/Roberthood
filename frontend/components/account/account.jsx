@@ -78,6 +78,14 @@ export default ({ currentUser, logout }) => {
       .catch((error) => console.log(error));
   };
 
+  const buyStockHandler = () => {
+    axios
+      .post(`./bqh5026/portfolio.json`, quote)
+      // .then(response => console.log(response))
+      .then((document.querySelector(".buy-stock").textContent = "Bought"))
+      .catch((error) => console.log(error));
+  };
+
   const sellStockHandler = (stock) => {
     return (event) => {
       event.preventDefault();
@@ -213,12 +221,12 @@ export default ({ currentUser, logout }) => {
 
         <hr />
 
-        <div className="content">
-          <br />
-          <br />
-          <div className="left">
-            <div className="Quote">
-              {quote ? (
+        <br />
+        <br />
+        {quote ? (
+          <div className="account-page">
+            <div className="left">
+              <div className="Quote">
                 <div>
                   <ul className="ticker-results">
                     <li>
@@ -260,76 +268,97 @@ export default ({ currentUser, logout }) => {
                   <button className="watchlist_btn" onClick={postDataHandler}>
                     Add to Watchlist
                   </button>
-                  <div className="Chart">
-                    <LineChart width={800} height={400} data={chartData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="minute" />
-                      <YAxis type="number" domain={["auto", "auto"]} />
-                      <Tooltip />
-                      <Line type="monotone" dataKey="close" stroke="#8884d8" />
-                    </LineChart>
-                  </div>
-                  <div className="news-header">
-                    <h4>News</h4>
-                    <hr></hr>
-                  </div>
+                </div>
+              </div>
 
-                  <div className="news">
-                    <ul>
-                      {news.map((item, idx) => {
-                        return (
-                          <li key={idx} className="news-item">
-                            <div>
-                              <i className="fas fa-bolt"></i>
-                              {"\u00A0"}
-                              {"\u00A0"}
-                              <strong>{item.source.name}</strong>
-                              {"\u00A0"}
-                              {"\u00A0"}
-                              {item.publishedAt}
-                            </div>
-                            <div className="news-title">
-                              <div>
-                                <a
-                                  className="news-title-header"
-                                  href={item.url}
-                                  target="_blank"
-                                >
-                                  {item.title}
-                                </a>
-                              </div>
-                              <div>
-                                <img
-                                  className="news-image"
-                                  src={item.urlToImage}
-                                />
-                              </div>
-                            </div>
-                            <hr />
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <div>
-                    <h4>Total Account Value</h4>
-                  </div>
-                </div>
-              )}
+              <div className="Chart">
+                <LineChart width={800} height={400} data={chartData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="minute" />
+                  <YAxis type="number" domain={["auto", "auto"]} />
+                  <Tooltip />
+                  <Line type="monotone" dataKey="close" stroke="#8884d8" />
+                </LineChart>
+              </div>
+
+              <div className="news-header">
+                <h4>News</h4>
+                <hr></hr>
+              </div>
+
+              <div className="news">
+                <ul>
+                  {news.map((item, idx) => {
+                    return (
+                      <li key={idx} className="news-item">
+                        <div>
+                          <i className="fas fa-bolt"></i>
+                          {"\u00A0"}
+                          {"\u00A0"}
+                          <strong>{item.source.name}</strong>
+                          {"\u00A0"}
+                          {"\u00A0"}
+                          {item.publishedAt}
+                        </div>
+                        <div className="news-title">
+                          <div>
+                            <a
+                              className="news-title-header"
+                              href={item.url}
+                              target="_blank"
+                            >
+                              {item.title}
+                            </a>
+                          </div>
+                          <div>
+                            <img className="news-image" src={item.urlToImage} />
+                          </div>
+                        </div>
+                        <hr />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              <div className="footer">
+                <p className="footer-paragraph">
+                  For more information, see our
+                  <span className="privacy-policy"> Privacy Policy</span>.
+                </p>
+              </div>
             </div>
 
-            <div className="footer">
-              <p className="footer-paragraph">
-                For more information, see our
-                <span className="privacy-policy"> Privacy Policy</span>.
-              </p>
+            <div className="right">
+              <div className="trade">
+                <strong>
+                  {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
+                </strong>
+                <hr />
+                <div>Market Price:</div>
+                <br />
+                <div className="market-price">
+                  ${quote.latest_price.toFixed(2)}
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <button className="buy-stock" onClick={buyStockHandler}>
+                  Buy
+                </button>
+              </div>
             </div>
           </div>
-          <div className="right"></div>
-        </div>
+          
+        ) : (
+          <div>
+            <div>
+              <h4>Total Account Value</h4>
+            </div>
+          </div>
+        )}
       </div>
     );
 }
