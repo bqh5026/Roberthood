@@ -22,7 +22,7 @@
     position: relative;
     z-index: 1;
     display: inline-block; 
-    // list-style: none; 
+    font-weight: 600;
 }
 
 
@@ -87,6 +87,7 @@ nav .animation {
 
 .portfolio-value-header {
     margin-left: 28%;
+    list-style: none;
 }
 
 .portfolio-container {
@@ -103,6 +104,10 @@ nav .animation {
     font-size: 39px;
 }
 
+.stocks-section {
+    font-size: 22px;
+    font-weight: 550;
+}
 .portfolio-item {
     display: flex;
     justify-content: space-between;

@@ -354,28 +354,35 @@ export default ({ currentUser, logout }) => {
             <hr />
 
             <div>
-              <h4 className="portfolio-value-header">Total Portfolio Value</h4>
+              <li className="portfolio-value-header">Total Portfolio Value</li>
               <div className="portfolio-container">
                 {stock.length === 0 ? (
-                  <h1>
-                    <strong className="total-portfolio-value"> $0 </strong>
-                  </h1>
+                  <div>
+                      <strong className="total-portfolio-value"> $0 </strong>
+                  </div>
+          
                 ) : (
-                  stock.map((item, idx) => (
-                    <div key={idx} className="portfolio">
-                      <ul className="portfolio-item">
-                        <li>{item.symbol}</li>
-                        <li>{item.latest_price}</li>
-                        <li>{item.change_percent_s}</li>
-                      </ul>
-                      <button
-                        className="sell-stock"
-                        onClick={sellStockHandler(item)}
-                      >
-                        Sell stock
-                      </button>
-                    </div>
-                  ))
+                  <div>
+                    <br />
+                    <br />
+                    <br />
+                    <span className="stocks-section">Stocks</span>
+                      {stock.map((item, idx) => (
+                        <div key={idx} className="portfolio">
+                          <ul className="portfolio-item">
+                            <li>{item.symbol}</li>
+                            <li>{item.latest_price}</li>
+                            <li>{item.change_percent_s}</li>
+                          </ul>
+                          <button
+                            className="sell-stock"
+                            onClick={sellStockHandler(item)}
+                          >
+                            Sell stock
+                          </button>
+                        </div>
+                      ))}
+                  </div>
                 )}
               </div>
             </div>
