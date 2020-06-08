@@ -18,8 +18,8 @@ export default ({ currentUser, logout }) => {
      const [chartData, setChartData] = useState([]);
      const [news, setNews] = useState([]);
      const [show, setShow] = useState(false); 
-
-    const [stock, setStock] = useState([]);
+     const [portfolioValue, setPortfolioValue] = useState([]);
+     const [stock, setStock] = useState([]);
 
   useEffect(() => {
     if (news.length < 1) {
@@ -35,12 +35,27 @@ export default ({ currentUser, logout }) => {
       method: "GET",
       url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
       .then((res) => {
+        const total = [];
+        for (let stock in res.data) {
+          total.push({ ...res.data[stock], firebaseID: stock })
+        }
+        setPortfolioValue(total);
+        console.log(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
+      .then((res) => {
         const portfolio = [];
         for (let stock in res.data) {
           portfolio.push({ ...res.data[stock], firebaseID: stock })
         }
         setStock(portfolio);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -52,7 +67,7 @@ export default ({ currentUser, logout }) => {
     });
 
     $.ajax(`/api/stocks/chart/${searchValue}`).done((res) => {
-      console.log(res);
+      // console.log(res);
       setChartData(res);
     });
   };
@@ -133,7 +148,9 @@ export default ({ currentUser, logout }) => {
           <div>
             <nav className="nav-bar">
               <span className="nav-menu-item">Free Stocks</span>
-              <span className="nav-menu-item">Portfolio</span>
+              <Link to="/dashboard">
+                <span className="nav-menu-item">Portfolio</span>
+              </Link>
               <span className="nav-menu-item">Cash</span>
               <span className="nav-menu-item" to="#">
                 Messages
@@ -358,30 +375,41 @@ export default ({ currentUser, logout }) => {
               <div className="portfolio-container">
                 {stock.length === 0 ? (
                   <div>
-                      <strong className="total-portfolio-value"> $0 </strong>
+                    <span className="total-portfolio-value">$0</span>
                   </div>
-          
                 ) : (
                   <div>
+                  <br />
+                   {
+                     portfolioValue.map((item, idx) => (
+                       <div>
+                       {item.latest_price + 100}
+                       </div>
+                     ))
+                   }
+                   {
+                     portfolioValue.map(a => a.latest_price).reduce((a, b) => a + b, 0)
+                   }
+                
                     <br />
                     <br />
                     <br />
                     <span className="stocks-section">Stocks</span>
-                      {stock.map((item, idx) => (
-                        <div key={idx} className="portfolio">
-                          <ul className="portfolio-item">
-                            <li>{item.symbol}</li>
-                            <li>{item.latest_price}</li>
-                            <li>{item.change_percent_s}</li>
-                          </ul>
-                          <button
-                            className="sell-stock"
-                            onClick={sellStockHandler(item)}
-                          >
-                            Sell stock
-                          </button>
-                        </div>
-                      ))}
+                    {stock.map((item, idx) => (
+                      <div key={idx} className="portfolio">
+                        <ul className="portfolio-item">
+                          <li>{item.symbol}</li>
+                          <li>{item.latest_price}</li>
+                          <li>{item.change_percent_s}</li>
+                        </ul>
+                        <button
+                          className="sell-stock"
+                          onClick={sellStockHandler(item)}
+                        >
+                          Sell stock
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
@@ -437,3 +465,4 @@ export default ({ currentUser, logout }) => {
 //     </div>
 //   );
 // }
+

@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import Account from './account'; 
 import { logout } from "../../actions/session";
 
-const msp = (state) => ({
-  currentUser: state.session.currentUser,
-});
+const msp = (state) => {
+  debugger
+  return {currentUser: state.session.currentUser}
+};
 
 const mdp = (dispatch) => ({
   logout: () => dispatch(logout()),
