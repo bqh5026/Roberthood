@@ -91,11 +91,16 @@ nav .animation {
 
 .portfolio-container {
     width: 300px;
+    margin-left: 28%;
 }
 
 .portfolio {
     display: flex;
     flex-direction: column;
+}
+
+.total-portfolio-value {
+    font-size: 39px;
 }
 
 .portfolio-item {

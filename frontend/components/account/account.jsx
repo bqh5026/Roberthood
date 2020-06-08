@@ -40,7 +40,7 @@ export default ({ currentUser, logout }) => {
           portfolio.push({ ...res.data[stock], firebaseID: stock })
         }
         setStock(portfolio);
-        // console.log(res.data);
+        console.log(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -338,7 +338,6 @@ export default ({ currentUser, logout }) => {
           </div>
         ) : (
           <div>
-
             <div className="user-account">
               <h1>Ben Hsieh</h1>
               <nav className="user-nav-bar">
@@ -356,6 +355,29 @@ export default ({ currentUser, logout }) => {
 
             <div>
               <h4 className="portfolio-value-header">Total Portfolio Value</h4>
+              <div className="portfolio-container">
+                {stock.length === 0 ? (
+                  <h1>
+                    <strong className="total-portfolio-value"> $0 </strong>
+                  </h1>
+                ) : (
+                  stock.map((item, idx) => (
+                    <div key={idx} className="portfolio">
+                      <ul className="portfolio-item">
+                        <li>{item.symbol}</li>
+                        <li>{item.latest_price}</li>
+                        <li>{item.change_percent_s}</li>
+                      </ul>
+                      <button
+                        className="sell-stock"
+                        onClick={sellStockHandler(item)}
+                      >
+                        Sell stock
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </div>
         )}
@@ -363,20 +385,7 @@ export default ({ currentUser, logout }) => {
     );
 }
 
-// <div className="portfolio-container">
-//   {stock.map((item, idx) => (
-//     <div key={idx} className="portfolio">
-//       <ul className="portfolio-item">
-//         <li>{item.symbol}</li>
-//         <li>{item.latest_price}</li>
-//         <li>{item.change_percent_s}</li>
-//       </ul>
-//       <button className="sell-stock" onClick={sellStockHandler(item)}>
-//         Sell stock
-//       </button>
-//     </div>
-//   ))}
-// </div>;
+
 
 // {
 //   quote ? (
