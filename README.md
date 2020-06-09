@@ -1,24 +1,25 @@
-# README
+# Roberthood
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Users can read up on latest business news, check stock quotes, add ticker to watchlist, and buy and sell stocks in a portfolio.
 
-Things you may want to cover:
+[Live Site](https://roberthood-trading-platform.herokuapp.com/)
 
-* Ruby version
+## Technologies Used
 
-* System dependencies
+* React JS
+* Ruby on Rails
+* IEX API
+* News API
+* Recharts API
+* Ajax
+* HTML3
+* CSS5
+* Firebase Database
 
-* Configuration
+## Future Considerations
 
-* Database creation
+* More comprehensive portfolio view
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
