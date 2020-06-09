@@ -195,7 +195,10 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-sign-out-alt menu-icon"></i>
-                     <span className="dropdown-menu-item" onClick={logout}>
+                     <span
+                       className="dropdown-menu-item logout"
+                       onClick={logout}
+                     >
                        Log Out
                      </span>
                    </li>
