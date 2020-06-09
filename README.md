@@ -18,7 +18,9 @@ Users can read up on latest business news, check stock quotes, add ticker to wat
 
 ## Future Considerations
 
+* Add Python to incorporate predictive search
 * More comprehensive portfolio view
+  
 
 
 
