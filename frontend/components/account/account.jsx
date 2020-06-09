@@ -33,8 +33,7 @@ export default ({ currentUser, logout }) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `https://roberthood-edcdd.firebaseio.com/portfolio/${currentUser.username}.json`})
-      // url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
+      url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`})
       .then((res) => {
         const total = [];
         for (let stock in res.data) {
@@ -49,8 +48,7 @@ export default ({ currentUser, logout }) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `https://roberthood-edcdd.firebaseio.com/portfolio/${currentUser.username}.json`})
-      // url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
+      url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`})
       .then((res) => {
         const portfolio = [];
         for (let stock in res.data) {
@@ -90,14 +88,14 @@ export default ({ currentUser, logout }) => {
 
   const postDataHandler = () => {
     axios
-      .post(`./portfolio/${currentUser.username}.json`, quote)
+      .post(`./portfolios/${currentUser.username}.json`, quote)
       // .then(response => console.log(response))
       .catch((error) => console.log(error));
   };
 
   const buyStockHandler = () => {
     axios
-      .post(`./portfolio/${currentUser.username}.json`, quote)
+      .post(`./portfolios/${currentUser.username}.json`, quote)
       // .then(response => console.log(response))
       .then((document.querySelector(".buy-stock").textContent = "Bought"))
       .catch((error) => console.log(error));
@@ -107,7 +105,7 @@ export default ({ currentUser, logout }) => {
     return (event) => {
       event.preventDefault();
       axios
-        .delete(`./portfolio/${currentUser.username}/${stock.firebaseID}.json`)
+        .delete(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`)
         .then(
           window.alert(
             `${JSON.stringify(stock.symbol).replace(

@@ -76,7 +76,7 @@ const postDataHandler = () => {
 }
 
 const buyStockHandler = () => {
-  axios.post(`./portfolio/${currentUser.username}.json`, quote)
+  axios.post(`./portfolios/${currentUser.username}.json`, quote)
   // .then(response => console.log(response))
   .then(document.querySelector('.buy-stock')
   .textContent = 'Bought'
