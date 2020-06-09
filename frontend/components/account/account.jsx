@@ -33,7 +33,8 @@ export default ({ currentUser, logout }) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
+      url: `https://roberthood-edcdd.firebaseio.com/portfolio/${currentUser.username}.json`})
+      // url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
       .then((res) => {
         const total = [];
         for (let stock in res.data) {
@@ -48,7 +49,8 @@ export default ({ currentUser, logout }) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
+      url: `https://roberthood-edcdd.firebaseio.com/portfolio/${currentUser.username}.json`})
+      // url: `https://roberthood-edcdd.firebaseio.com/bqh5026/portfolio.json`})
       .then((res) => {
         const portfolio = [];
         for (let stock in res.data) {
@@ -88,14 +90,14 @@ export default ({ currentUser, logout }) => {
 
   const postDataHandler = () => {
     axios
-      .post(`./${currentUser.username}.json`, quote)
+      .post(`./portfolio/${currentUser.username}.json`, quote)
       // .then(response => console.log(response))
       .catch((error) => console.log(error));
   };
 
   const buyStockHandler = () => {
     axios
-      .post(`./bqh5026/portfolio.json`, quote)
+      .post(`./portfolio/${currentUser.username}.json`, quote)
       // .then(response => console.log(response))
       .then((document.querySelector(".buy-stock").textContent = "Bought"))
       .catch((error) => console.log(error));
@@ -105,8 +107,15 @@ export default ({ currentUser, logout }) => {
     return (event) => {
       event.preventDefault();
       axios
-        .delete(`./bqh5026/portfolio/${stock.firebaseID}.json`)
-        .then(window.alert(`${JSON.stringify(stock.symbol).replace(/['"]+/g, "")} sold! Refresh page to see update.`))
+        .delete(`./portfolio/${currentUser.username}/${stock.firebaseID}.json`)
+        .then(
+          window.alert(
+            `${JSON.stringify(stock.symbol).replace(
+              /['"]+/g,
+              ""
+            )} sold! Refresh page to see update.`
+          )
+        )
         .catch((error) => console.log(error));
     };
   };
@@ -175,7 +184,7 @@ export default ({ currentUser, logout }) => {
                     </li>
                     <li className="dropdown-list">
                       <i className="fas fa-briefcase menu-icon"></i>
-                      <Link to="/account">
+                      <Link to="/dashboard">
                         <span className="dropdown-menu-item">Account</span>
                       </Link>
                     </li>
@@ -356,7 +365,7 @@ export default ({ currentUser, logout }) => {
         ) : (
           <div>
             <div className="user-account">
-              <h1>Ben Hsieh</h1>
+              <h1>{currentUser.first_name} {currentUser.last_name}</h1>
               <nav className="user-nav-bar">
                 <li className="user-nav-item">Account</li>
                 <li className="user-nav-item">Banking</li>
@@ -380,16 +389,11 @@ export default ({ currentUser, logout }) => {
                 ) : (
                   <div>
                   <br />
-                   {
-                     portfolioValue.map((item, idx) => (
-                       <div>
-                       {item.latest_price + 100}
-                       </div>
-                     ))
-                   }
-                   {
-                     portfolioValue.map(a => a.latest_price).reduce((a, b) => a + b, 0)
-                   }
+                  <div className="total-portfolio-value">
+                    ${
+                      portfolioValue.map(a => a.latest_price).reduce((a, b) => a + b, 0)
+                    }
+                  </div>
                 
                     <br />
                     <br />

@@ -4,7 +4,6 @@ import Account from './account';
 import { logout } from "../../actions/session";
 
 const msp = (state) => {
-  debugger
   return {currentUser: state.session.currentUser}
 };
 
