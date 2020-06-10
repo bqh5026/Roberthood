@@ -389,7 +389,7 @@ export default ({ currentUser, logout }) => {
                   <br />
                   <div className="total-portfolio-value">
                     ${
-                      portfolioValue.map(a => a.latest_price).reduce((a, b) => a + b, 0)
+                      portfolioValue.map(a => a.latest_price).reduce((a, b) => a + b, 0).toFixed(2)
                     }
                   </div>
                 
@@ -401,7 +401,7 @@ export default ({ currentUser, logout }) => {
                       <div key={idx} className="portfolio">
                         <ul className="portfolio-item">
                           <li>{item.symbol}</li>
-                          <li>{item.latest_price}</li>
+                          <li>{item.latest_price.toFixed(2)}</li>
                           <li>{item.change_percent_s}</li>
                         </ul>
                         <button
