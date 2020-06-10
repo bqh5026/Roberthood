@@ -6,16 +6,13 @@ import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts"
 import axios from '../axios-quotes'; 
 
 export default ({ currentUser, logout }) => {
-  // const [username, setUsername] = useState('')
-  // const [last_name, setLastname] = useState('')
-  // const [first_name, setFirstname] = useState('')
   const [searchValue, setSearchValue] = useState('')
   const [quote, setQuote] = useState('')
   // console.log("currentUser", currentUser); 
   const [chartData, setChartData] = useState([]);
   const [news, setNews] = useState([]);
   const [show, setShow] = useState(false); 
-
+  const [portfolioValue, setPortfolioValue] = useState([]);
   const [stock, setStock] = useState([]); 
 
   useEffect(() => {
@@ -26,6 +23,23 @@ export default ({ currentUser, logout }) => {
       });
     }
   });
+
+    useEffect(() => {
+      axios({
+        method: "GET",
+        url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`,
+      })
+        .then((res) => {
+          const total = [];
+          for (let stock in res.data) {
+            total.push({ ...res.data[stock], firebaseID: stock });
+          }
+          setPortfolioValue(total);
+          console.log(res.data);
+        })
+        .catch((error) => console.log(error));
+    }, []);
+
 
   useEffect(() => {
     axios({
@@ -268,8 +282,9 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                </div>
              ) : (
                <div className="default_quote">
-                 <h2>$0.00</h2>
-                 <strong>$0.00(0.00%)</strong>{" "}
+                 <h2>${portfolioValue.map(a => a.latest_price).reduce((a,b) => a + b, 0).toFixed(2)}</h2>
+                 <strong>${portfolioValue.map(a => a.change).reduce((a,b) => a + b, 0).toFixed(2)}
+                 ({(portfolioValue.map(a => a.change_percent).reduce((a, b) => a + b, 0)/portfolioValue.length) * 100}%)</strong>{" "}
                  <span className="today">Today</span>
                </div>
              )}
