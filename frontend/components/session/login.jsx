@@ -6,6 +6,7 @@ const initialState = {
   password: "",
   usernameError: "",
   passwordError: "",
+  credentialsError: ""
 };
 
 class Login extends React.Component {
@@ -25,7 +26,8 @@ class Login extends React.Component {
 
   validate() {
       let usernameError = "";
-      let passwordError = ""
+      let passwordError = "";
+      let credentialsError = "";
 
       if (!this.state.username) {
         usernameError = "Username cannot be blank";
@@ -34,9 +36,13 @@ class Login extends React.Component {
       if (this.state.password.length < 6) {
         passwordError = "Password must have minimim of 6 characters"
       }
+      
+      if (!this.state.currentUser) {
+        credentialsError = "Invalid login credentials";
+      }
 
-      if (usernameError || passwordError) {
-        this.setState({ usernameError, passwordError});
+      if (usernameError || passwordError || credentialsError) {
+        this.setState({ usernameError, passwordError, credentialsError});
         return false; 
       }
 
@@ -123,6 +129,9 @@ class Login extends React.Component {
               />
               <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.passwordError}
+              </div> 
+              <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.credentialsError}
               </div>
               <br />
               <br />
