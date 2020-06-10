@@ -38,7 +38,7 @@ class Login extends React.Component {
       }
       
       if (!this.state.currentUser) {
-        credentialsError = "Invalid login credentials";
+        credentialsError = "Unable to login with provided credentials";
       }
 
       if (usernameError || passwordError || credentialsError) {
@@ -113,6 +113,11 @@ class Login extends React.Component {
                 onChange={this.handleInput("username")}
               />
               <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.usernameError ? (
+                  <i className="fas fa-exclamation-circle fa-fw"></i>
+                ) : (
+                  ""
+                )}
                 {this.state.usernameError}
               </div>
               <br />
@@ -128,10 +133,12 @@ class Login extends React.Component {
                 onChange={this.handleInput("password")}
               />
               <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.passwordError ? (
+                  <i className="fas fa-exclamation-circle fa-fw"></i>
+                ) : (
+                  ""
+                )}
                 {this.state.passwordError}
-              </div> 
-              <div style={{ fontSize: 12, color: "red" }}>
-                {this.state.credentialsError}
               </div>
               <br />
               <br />
@@ -140,6 +147,14 @@ class Login extends React.Component {
                   Sign up for a new account if not already have one
                 </span>
               </Link>
+              <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.credentialsError ? (
+                  <i className="fas fa-exclamation-circle fa-fw"></i>
+                ) : (
+                  ""
+                )}
+                {this.state.credentialsError}
+              </div>
               <br />
               <br />
               <button className="sign-in-btn" onClick={this.handleSubmit}>
