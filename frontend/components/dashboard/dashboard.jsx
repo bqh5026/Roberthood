@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'; 
+import { useHistory } from 'react-router-dom';
 import {Link} from 'react-router-dom'; 
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts";
 
@@ -75,11 +76,18 @@ const postDataHandler = () => {
     .catch(error => console.log(error)); 
 }
 
+const history = useHistory();
+const routeChange = () => {
+  let path = `/account`;
+  history.push(path);
+}; 
+
 const buyStockHandler = () => {
   axios.post(`./portfolios/${currentUser.username}.json`, quote)
   // .then(response => console.log(response))
   .then(document.querySelector('.buy-stock')
   .textContent = 'Bought'
+  .then(routeChange())
   )
   .catch(error => console.log(error)); 
 }
@@ -342,7 +350,10 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                <br />
                <br />
                <br />
-               <button className="buy-stock" onClick={buyStockHandler}>
+               <button
+                 className="buy-stock"
+                 onClick={buyStockHandler}
+               >
                  Buy
                </button>
              </div>
