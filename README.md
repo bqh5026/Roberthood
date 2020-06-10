@@ -16,6 +16,45 @@ Users can read up on latest business news, check stock quotes, add ticker to wat
 * CSS5
 * Firebase Database
 
+One of the technical challenged I faced include providing login errors whe users login with incorrect credentials. The way I solved the issue was to set up states for error as well as mapping the state of current user into the login component. 
+
+```javascript
+
+//login_container.js
+
+const msp = state => ({
+  currentUser: state.session.currentUser
+})
+
+
+//login.jsx
+
+validate() {
+      let usernameError = "";
+      let passwordError = "";
+      let credentialsError = "";
+
+      if (!this.state.username) {
+        usernameError = "Username cannot be blank";
+      }
+
+      if (this.state.password.length < 6) {
+        passwordError = "Password must have minimim of 6 characters"
+      }
+      
+      if (!this.state.currentUser) {
+        credentialsError = "Unable to login with provided credentials";
+      }
+
+      if (usernameError || passwordError || credentialsError) {
+        this.setState({ usernameError, passwordError, credentialsError});
+        return false; 
+      }
+
+      return true; 
+  }
+```
+
 ## Future Considerations
 
 * Add Python to incorporate predictive search
