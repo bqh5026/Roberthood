@@ -84,9 +84,18 @@ export default ({ currentUser, logout }) => {
     )
   }
     
+
+// const reload = () => {
+//   window.location.reload(true);
+// };
+
+// const dashboardRoute = () => {
+//   let path= `/dashboard`;
+//   history.push(path);
+// }
+
 const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
-    // .then(response => console.log(response))
     .catch(error => console.log(error)); 
 }
 
@@ -276,15 +285,30 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                      %
                    </li>
                  </ul>
-                 <button className="watchlist_btn" onClick={postDataHandler}>
-                   Add to Watchlist
-                 </button>
                </div>
              ) : (
                <div className="default_quote">
-                 <h2>${portfolioValue.map(a => a.latest_price).reduce((a,b) => a + b, 0).toFixed(2)}</h2>
-                 <strong>${portfolioValue.map(a => a.change).reduce((a,b) => a + b, 0).toFixed(2)}
-                 ({(portfolioValue.map(a => a.change_percent).reduce((a, b) => a + b, 0)/portfolioValue.length) * 100}%)</strong>{" "}
+                 <h2>
+                   $
+                   {portfolioValue
+                     .map((a) => a.latest_price)
+                     .reduce((a, b) => a + b, 0)
+                     .toFixed(2)}
+                 </h2>
+                 <strong>
+                   $
+                   {portfolioValue
+                     .map((a) => a.change)
+                     .reduce((a, b) => a + b, 0)
+                     .toFixed(2)}
+                   (
+                   {(portfolioValue
+                     .map((a) => a.change_percent)
+                     .reduce((a, b) => a + b, 0) /
+                     portfolioValue.length) *
+                     100}
+                   %)
+                 </strong>{" "}
                  <span className="today">Today</span>
                </div>
              )}
@@ -350,26 +374,29 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
 
          <div className="right">
            {quote ? (
-             <div className="trade">
-               <strong>
-                 {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
-               </strong>
-               <hr />
-               <div>Market Price:</div>
-               <br />
-               <div className="market-price">
-                 ${quote.latest_price.toFixed(2)}
+             <div>
+               <div className="trade">
+                 <strong>
+                   {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
+                 </strong>
+                 <hr />
+                 <div>Market Price:</div>
+                 <br />
+                 <div className="market-price">
+                   ${quote.latest_price.toFixed(2)}
+                 </div>
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <button className="buy-stock" onClick={buyStockHandler}>
+                   Buy
+                 </button>
                </div>
                <br />
-               <br />
-               <br />
-               <br />
-               <br />
-               <button
-                 className="buy-stock"
-                 onClick={buyStockHandler}
-               >
-                 Buy
+               <button className="watchlist_btn" onClick={postDataHandler}>
+                  Add to Watchlist
                </button>
              </div>
            ) : (

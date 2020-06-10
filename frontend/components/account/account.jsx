@@ -43,22 +43,23 @@ export default ({ currentUser, logout }) => {
         console.log(res.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [setStock]);
 
   useEffect(() => {
     axios({
       method: "GET",
-      url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`})
+      url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`,
+    })
       .then((res) => {
         const portfolio = [];
         for (let stock in res.data) {
-          portfolio.push({ ...res.data[stock], firebaseID: stock })
+          portfolio.push({ ...res.data[stock], firebaseID: stock });
         }
         setStock(portfolio);
         // console.log(res.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [setPortfolioValue]);
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
@@ -102,20 +103,22 @@ export default ({ currentUser, logout }) => {
   };
 
   const sellStockHandler = (stock) => {
-    return (event) => {
+    return (
+      (event) => {
       event.preventDefault();
       axios
         .delete(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`)
         .then(
-          window.alert(
-            `${JSON.stringify(stock.symbol).replace(
-              /['"]+/g,
-              ""
-            )} sold! Refresh page to see update.`
-          )
+          // window.alert(
+          //   `${JSON.stringify(stock.symbol).replace(
+          //     /['"]+/g,
+          //     ""
+          //   )} sold! Refresh page to see update.`
+          // )
         )
         .catch((error) => console.log(error));
-    };
+      }
+    )
   };
     
     return (
