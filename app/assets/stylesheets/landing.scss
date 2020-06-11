@@ -6,6 +6,15 @@
 .landing-page-nav-bar {
     display: flex; 
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+    height: 65px; 
+    padding-top: 10px;
+    -webkit-box-shadow: 0 4px 6px -6px #222;
+    -moz-box-shadow: 0 4px 6px -6px #222;
+    box-shadow: 0 4px 6px -6px #222;
 }
 
 .navbar-container-1 {
@@ -51,7 +60,6 @@
 }
 
 .landing-page-menu-item:hover {
-    // color: #18563e; 
     color: #01b403; 
 }
 
