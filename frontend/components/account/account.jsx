@@ -98,7 +98,8 @@ export default ({ currentUser, logout }) => {
     axios
       .post(`./portfolios/${currentUser.username}.json`, quote)
       // .then(response => console.log(response))
-      .then((document.querySelector(".buy-stock").textContent = "Bought"))
+      .then(document.querySelector(".buy-stock").textContent = "Bought")
+      .then(document.querySelector(".buy-stock").disabled=true)
       .catch((error) => console.log(error));
   };
 
@@ -221,7 +222,10 @@ export default ({ currentUser, logout }) => {
                     </li>
                     <li className="dropdown-list">
                       <i className="fas fa-sign-out-alt menu-icon"></i>
-                      <span className="dropdown-menu-item logout" onClick={logout}>
+                      <span
+                        className="dropdown-menu-item logout"
+                        onClick={logout}
+                      >
                         Log Out
                       </span>
                     </li>
@@ -277,9 +281,6 @@ export default ({ currentUser, logout }) => {
                       %
                     </li>
                   </ul>
-                  <button className="watchlist_btn" onClick={postDataHandler}>
-                    Add to Watchlist
-                  </button>
                 </div>
               </div>
 
@@ -361,12 +362,18 @@ export default ({ currentUser, logout }) => {
                   Buy
                 </button>
               </div>
+              <br />
+              <button className="watchlist_btn" onClick={postDataHandler}>
+                Add to Watchlist
+              </button>
             </div>
           </div>
         ) : (
           <div>
             <div className="user-account">
-              <h1>{currentUser.first_name} {currentUser.last_name}</h1>
+              <h1>
+                {currentUser.first_name} {currentUser.last_name}
+              </h1>
               <nav className="user-nav-bar">
                 <li className="user-nav-item">Account</li>
                 <li className="user-nav-item">Banking</li>
@@ -389,13 +396,15 @@ export default ({ currentUser, logout }) => {
                   </div>
                 ) : (
                   <div>
-                  <br />
-                  <div className="total-portfolio-value">
-                    ${
-                      portfolioValue.map(a => a.latest_price).reduce((a, b) => a + b, 0).toFixed(2)
-                    }
-                  </div>
-                
+                    <br />
+                    <div className="total-portfolio-value">
+                      $
+                      {portfolioValue
+                        .map((a) => a.latest_price)
+                        .reduce((a, b) => a + b, 0)
+                        .toFixed(2)}
+                    </div>
+
                     <br />
                     <br />
                     <br />

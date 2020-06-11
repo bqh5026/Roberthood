@@ -271,7 +271,8 @@ background: #01b403;
 }
 
 .content-3 {
-    width: 1800px;
+    // width: 1800px;
+    width: 90%;
 }
 .content-3-box1 {
     width: 60%;
@@ -435,3 +436,23 @@ left: -10%;
 //     height: 400px;
 //     width: 100%; 
 // }
+
+@media (max-width: 1000px) {
+    .container-3-right {
+        display: none;
+    }
+}
+
+@media (max-width: 780px) {
+    .landing-page-menu-item {
+        display: none;
+    }
+
+    .nav-bar-signin {
+        display: none;
+    }
+
+    .nav-bar-signup {
+        display: none;
+    }
+}
