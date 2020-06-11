@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'; 
-import { useHistory } from 'react-router-dom';
-import {Link} from 'react-router-dom'; 
+import { Link, useHistory } from 'react-router-dom';
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts";
 
 import axios from '../axios-quotes'; 

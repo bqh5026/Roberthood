@@ -43,7 +43,7 @@ export default ({ currentUser, logout }) => {
         console.log(res.data);
       })
       .catch((error) => console.log(error));
-  }, [setStock]);
+  }, [stock]);
 
   useEffect(() => {
     axios({
@@ -91,8 +91,19 @@ export default ({ currentUser, logout }) => {
     axios
       .post(`./portfolios/${currentUser.username}.json`, quote)
       // .then(response => console.log(response))
+      .then(
+        (document.querySelector(".watchlist_btn").textContent =
+          "Added to Watchlist")
+      )
+      .then((document.querySelector(".watchlist_btn").disabled = true))
       .catch((error) => console.log(error));
   };
+
+  // const history = useHistory();
+  // const routeChange = () => {
+  //   let path = `/account`;
+  //   history.push(path);
+  // }; 
 
   const buyStockHandler = () => {
     axios
@@ -100,6 +111,7 @@ export default ({ currentUser, logout }) => {
       // .then(response => console.log(response))
       .then(document.querySelector(".buy-stock").textContent = "Bought")
       .then(document.querySelector(".buy-stock").disabled=true)
+      // .then(routeChange())
       .catch((error) => console.log(error));
   };
 
