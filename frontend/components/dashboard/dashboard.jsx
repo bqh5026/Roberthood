@@ -98,6 +98,7 @@ const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
     .then(document.querySelector('.watchlist_btn')
     .textContent = "Remove from Watchlist")
+    .then(document.querySelector('.watchlist_btn').disabled=true)
     .catch(error => console.log(error)); 
 }
 
