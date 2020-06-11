@@ -97,7 +97,7 @@ export default ({ currentUser, logout }) => {
 const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
     .then(document.querySelector('.watchlist_btn')
-    .textContent = "Remove from Watchlist")
+    .textContent = "Added to Watchlist")
     .then(document.querySelector('.watchlist_btn').disabled=true)
     .catch(error => console.log(error)); 
 }
