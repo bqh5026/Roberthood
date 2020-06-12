@@ -309,7 +309,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    {(portfolioValue
                      .map((a) => a.change_percent)
                      .reduce((a, b) => a + b, 0) /
-                     portfolioValue.length) *
+                     portfolioValue.length).toFixed(4) *
                      100}
                    %)
                  </strong>{" "}
