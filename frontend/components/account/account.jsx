@@ -19,7 +19,6 @@ export default ({ currentUser, logout }) => {
      const [news, setNews] = useState([]);
      const [show, setShow] = useState(false); 
      const [portfolioValue, setPortfolioValue] = useState([]);
-     const [stock, setStock] = useState([]);
 
   useEffect(() => {
     if (news.length < 1) {
@@ -43,23 +42,7 @@ export default ({ currentUser, logout }) => {
         console.log(res.data);
       })
       .catch((error) => console.log(error));
-  }, [stock]);
-
-  useEffect(() => {
-    axios({
-      method: "GET",
-      url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`,
-    })
-      .then((res) => {
-        const portfolio = [];
-        for (let stock in res.data) {
-          portfolio.push({ ...res.data[stock], firebaseID: stock });
-        }
-        setStock(portfolio);
-        // console.log(res.data);
-      })
-      .catch((error) => console.log(error));
-  }, [setPortfolioValue]);
+  }, []);
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
@@ -402,26 +385,24 @@ export default ({ currentUser, logout }) => {
             <div>
               <li className="portfolio-value-header">Total Portfolio Value</li>
               <div className="portfolio-container">
-                {stock.length === 0 ? (
-                  <div>
-                    <span className="total-portfolio-value">$0</span>
-                  </div>
-                ) : (
+        
                   <div>
                     <br />
                     <div className="total-portfolio-value">
                       $
-                      {portfolioValue
+                      {
+                        portfolioValue
                         .map((a) => a.latest_price)
                         .reduce((a, b) => a + b, 0)
-                        .toFixed(2)}
+                        .toFixed(2)
+                      }
                     </div>
 
                     <br />
                     <br />
                     <br />
                     <span className="stocks-section">Stocks</span>
-                    {stock.map((item, idx) => (
+                    {portfolioValue.map((item, idx) => (
                       <div key={idx} className="portfolio">
                         <ul className="portfolio-item">
                           <li>{item.symbol}</li>
@@ -437,7 +418,7 @@ export default ({ currentUser, logout }) => {
                       </div>
                     ))}
                   </div>
-                )}
+             
               </div>
             </div>
           </div>
