@@ -34,7 +34,7 @@ export default ({ currentUser, logout }) => {
             total.push({ ...res.data[stock], firebaseID: stock });
           }
           setPortfolioValue(total);
-          console.log(res.data);
+          // console.log(res.data);
         })
         .catch((error) => console.log(error));
     }, []);
@@ -307,11 +307,10 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                      .toFixed(2)}
                    (
                    {(portfolioValue
-                     .map((a) => a.change_percent)
-                     .reduce((a, b) => a + b, 0) /
-                     portfolioValue.length).toFixed(4) *
-                     100}
-                   %)
+                     .map((a) => parseInt(a.change_percent_s))
+                     .reduce((a, b) => a + b, 0) / portfolioValue.length 
+                      ).toFixed(2)}
+                   %)       
                  </strong>{" "}
                  <span className="today">Today</span>
                </div>

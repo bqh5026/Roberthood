@@ -14,7 +14,7 @@ import axios from '../axios-quotes';
 export default ({ currentUser, logout }) => {
     const [searchValue, setSearchValue] = useState("");
     const [quote, setQuote] = useState("");
-    console.log("currentUser", currentUser); 
+    // console.log("currentUser", currentUser); 
      const [chartData, setChartData] = useState([]);
      const [news, setNews] = useState([]);
      const [show, setShow] = useState(false); 
@@ -39,7 +39,7 @@ export default ({ currentUser, logout }) => {
           total.push({ ...res.data[stock], firebaseID: stock })
         }
         setPortfolioValue(total);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -105,12 +105,12 @@ export default ({ currentUser, logout }) => {
       axios
         .delete(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`)
         .then(
-          // window.alert(
-          //   `${JSON.stringify(stock.symbol).replace(
-          //     /['"]+/g,
-          //     ""
-          //   )} sold! Refresh page to see update.`
-          // )
+          window.alert(
+            `${JSON.stringify(stock.symbol).replace(
+              /['"]+/g,
+              ""
+            )} sold! Refresh page to see update.`
+          )
         )
         .catch((error) => console.log(error));
       }
