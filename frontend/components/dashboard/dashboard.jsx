@@ -4,6 +4,7 @@ import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts"
 
 import axios from '../axios-quotes'; 
 
+
 export default ({ currentUser, logout }) => {
   const [searchValue, setSearchValue] = useState('')
   const [quote, setQuote] = useState('')
