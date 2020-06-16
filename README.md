@@ -54,6 +54,7 @@ validate() {
       return true; 
   }
 ```
+![Roberthood validation](https://user-images.githubusercontent.com/43966507/84723731-451f1500-af54-11ea-81ca-c48cc107b61c.gif)
 
 ## Future Considerations
 
