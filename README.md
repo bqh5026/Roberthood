@@ -57,8 +57,10 @@ validate() {
 
 ## Future Considerations
 
-* Add Python to incorporate predictive search
+* Incorporate predictive search
 * More comprehensive portfolio view
+* Ability to convert cash into and out of stocks
+* Ability to handle shares
   
 
 
