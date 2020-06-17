@@ -6,7 +6,7 @@ import axios from '../axios-quotes';
 
 
 export default ({ currentUser, logout }) => {
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState('qqq')
   const [quote, setQuote] = useState('')
   // console.log("currentUser", currentUser); 
   const [chartData, setChartData] = useState([]);
@@ -167,7 +167,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
            <nav className="nav-bar">
              <span className="nav-menu-item">Free Stocks</span>
              <Link to="/signup">
-                <span className="nav-menu-item">Portfolio</span>
+               <span className="nav-menu-item">Portfolio</span>
              </Link>
              <span className="nav-menu-item">Cash</span>
              <span className="nav-menu-item" to="#">
@@ -251,7 +251,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          <br />
          <div className="left">
            <div className="Quote">
-             {quote ? (
+             {(searchValue !== 'qqq') ? (
                <div>
                  <ul className="ticker-results">
                    <li>
@@ -307,11 +307,12 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                      .reduce((a, b) => a + b, 0)
                      .toFixed(2)}
                    (
-                   {(portfolioValue
-                     .map((a) => parseInt(a.change_percent_s))
-                     .reduce((a, b) => a + b, 0) / portfolioValue.length 
-                      ).toFixed(2)}
-                   %)       
+                   {(
+                     portfolioValue
+                       .map((a) => parseInt(a.change_percent_s))
+                       .reduce((a, b) => a + b, 0) / portfolioValue.length
+                   ).toFixed(2)}
+                   %)
                  </strong>{" "}
                  <span className="today">Today</span>
                </div>
@@ -377,7 +378,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          </div>
 
          <div className="right">
-           {quote ? (
+           {(searchValue !== 'qqq') ? (
              <div>
                <div className="trade">
                  <strong>
@@ -400,7 +401,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                </div>
                <br />
                <button className="watchlist_btn" onClick={postDataHandler}>
-                  Add to Watchlist
+                 Add to Watchlist
                </button>
              </div>
            ) : (
