@@ -63,7 +63,7 @@ export default ({ currentUser, logout }) => {
     });
 
     $.ajax(`/api/stocks/chart/${searchValue}`).done(res => {
-      console.log(res);
+      // console.log(res);
       setChartData(res);
     });
   };
@@ -155,7 +155,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                  onChange={(event) => {
                    handleOnChange(event);
                  }}
-                //  value={searchValue}
+                 //  value={searchValue}
                  onKeyPress={handleKeyPress}
                  alt="search"
                />
@@ -251,7 +251,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          <br />
          <div className="left">
            <div className="Quote">
-             {(searchValue !== 'qqq') ? (
+             {searchValue !== "qqq" ? (
                <div>
                  <ul className="ticker-results">
                    <li>
@@ -320,7 +320,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
            </div>
 
            <div className="Chart">
-             <LineChart width={800} height={400} data={chartData}>
+             <LineChart width={800} height={400} data={chartData}>     
                <CartesianGrid strokeDasharray="3 3" />
                <XAxis dataKey="minute" />
                <YAxis type="number" domain={["auto", "auto"]} />
@@ -378,7 +378,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
          </div>
 
          <div className="right">
-           {(searchValue !== 'qqq') ? (
+           {searchValue !== "qqq" ? (
              <div>
                <div className="trade">
                  <strong>
