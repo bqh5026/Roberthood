@@ -155,7 +155,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                  onChange={(event) => {
                    handleOnChange(event);
                  }}
-                 value={searchValue}
+                //  value={searchValue}
                  onKeyPress={handleKeyPress}
                  alt="search"
                />
