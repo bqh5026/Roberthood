@@ -153,14 +153,14 @@ export default ({ currentUser, logout }) => {
 
           <div>
             <nav className="nav-bar">
-              <span className="nav-menu-item">Free Stocks</span>
+              {/* <span className="nav-menu-item">Free Stocks</span> */}
               <Link to="/dashboard">
                 <span className="nav-menu-item">Portfolio</span>
               </Link>
-              <span className="nav-menu-item">Cash</span>
+              {/* <span className="nav-menu-item">Cash</span>
               <span className="nav-menu-item" to="#">
                 Messages
-              </span>
+                </span> */}
               <div className="dropdown">
                 <button className="nav-menu-item dropdown" onClick={operation}>
                   Account
@@ -171,21 +171,21 @@ export default ({ currentUser, logout }) => {
                       <div>Ben Hsieh</div>
                       <hr className="horizontal-bar" />
                     </li>
-                    <li className="dropdown-list">
+                    {/* <li className="dropdown-list">
                       <img className="rg-logo" src={roberthoodGoldURL} />
                       <span className="gold">Roberthood Gold</span>
                     </li>
                     <li className="dropdown-list">
                       <i className="fas fa-gift menu-icon"></i>
                       <span className="dropdown-menu-item">Free Stock</span>
-                    </li>
+                </li> */} 
                     <li className="dropdown-list">
                       <i className="fas fa-briefcase menu-icon"></i>
                       <Link to="/dashboard">
                         <span className="dropdown-menu-item">Account</span>
                       </Link>
                     </li>
-
+              {/*
                     <li className="dropdown-list">
                       <i className="fas fa-university menu-icon"></i>
                       <span className="dropdown-menu-item">Banking</span>
@@ -214,7 +214,7 @@ export default ({ currentUser, logout }) => {
                     <li className="dropdown-list">
                       <i className="far fa-file-pdf menu-icon"></i>
                       <span className="dropdown-menu-item">Disclosure</span>
-                    </li>
+              </li> */}
                     <li className="dropdown-list">
                       <i className="fas fa-sign-out-alt menu-icon"></i>
                       <span

@@ -165,14 +165,15 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
 
          <div>
            <nav className="nav-bar">
-             <span className="nav-menu-item">Free Stocks</span>
+             {/* <span className="nav-menu-item">Free Stocks</span>*/}
              <Link to="/signup">
                <span className="nav-menu-item">Portfolio</span>
              </Link>
-             <span className="nav-menu-item">Cash</span>
+             {/*<span className="nav-menu-item">Cash</span>
              <span className="nav-menu-item" to="#">
                Messages
-             </span>
+             </span>{" "}
+             */}
              <div className="dropdown">
                <button className="nav-menu-item dropdown" onClick={operation}>
                  Account
@@ -185,21 +186,22 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                      </div>
                      <hr />
                    </li>
-                   <li className="dropdown-list">
+                   {/* <li className="dropdown-list">
                      <img className="rg-logo" src={roberthoodGoldURL} />
                      <span className="gold">Roberthood Gold</span>
                    </li>
                    <li className="dropdown-list">
                      <i className="fas fa-gift menu-icon"></i>
                      <span className="dropdown-menu-item">Free Stock</span>
-                   </li>
+                   </li> */}
+
                    <li className="dropdown-list">
                      <i className="fas fa-briefcase menu-icon"></i>
                      <Link to="/account">
                        <span className="dropdown-menu-item">Account</span>
                      </Link>
                    </li>
-
+                   {/* 
                    <li className="dropdown-list">
                      <i className="fas fa-university menu-icon"></i>
                      <span className="dropdown-menu-item">Banking</span>
@@ -228,7 +230,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    <li className="dropdown-list">
                      <i className="far fa-file-pdf menu-icon"></i>
                      <span className="dropdown-menu-item">Disclosure</span>
-                   </li>
+                   </li> */}
                    <li className="dropdown-list">
                      <i className="fas fa-sign-out-alt menu-icon"></i>
                      <span
@@ -320,7 +322,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
            </div>
 
            <div className="Chart">
-             <LineChart width={800} height={400} data={chartData}>     
+             <LineChart width={800} height={400} data={chartData}>
                <CartesianGrid strokeDasharray="3 3" />
                <XAxis dataKey="minute" />
                <YAxis type="number" domain={["auto", "auto"]} />
@@ -370,10 +372,10 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
            </div>
 
            <div className="footer">
-             <p className="footer-paragraph">
+             {/* <p className="footer-paragraph">
                For more information, see our
                <span className="privacy-policy"> Privacy Policy</span>.
-             </p>
+              </p> */}
            </div>
          </div>
 
