@@ -185,8 +185,19 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                {show && (
                  <ul className="dropdown-menu">
                    <li>
-                     <div>
-                       {currentUser.first_name} {currentUser.last_name}
+                     <div className="user-information">
+                       <strong>
+                        {currentUser.first_name} {currentUser.last_name}
+                       </strong>
+                       <div className="dropdown-portfolio-value">
+                          <h4>
+                            ${portfolioValue
+                              .map((a) => a.latest_price)
+                              .reduce((a, b) => a + b, 0)
+                              .toFixed(2)}
+                          </h4>
+                          <span>Portfolio Value</span>
+                       </div>
                      </div>
                      <hr />
                    </li>
@@ -200,8 +211,8 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    </li> */}
 
                    <li className="dropdown-list">
-                     <i class="fab fa-angellist"></i>
-                     <span className="dropdown-menu-item menu-icon">
+                     <i class="fab fa-angellist menu-icon"></i>
+                     <span className="dropdown-menu-item">
                        AngelList
                      </span>
                    </li>
