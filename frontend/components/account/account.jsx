@@ -154,6 +154,15 @@ export default ({ currentUser, logout }) => {
           <div>
             <nav className="nav-bar">
               {/* <span className="nav-menu-item">Free Stocks</span> */}
+              <a href="https://angel.co/u/ben-hsieh-6">
+                <span className="nav-menu-item">AngelList</span>
+              </a>
+              <a href="https://github.com/benhsieh-dev">
+                <span className="nav-menu-item">GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+                <span className="nav-menu-item">Linkedin</span>{" "}
+              </a>
               <Link to="/dashboard">
                 <span className="nav-menu-item">Portfolio</span>
               </Link>
@@ -178,15 +187,32 @@ export default ({ currentUser, logout }) => {
                     <li className="dropdown-list">
                       <i className="fas fa-gift menu-icon"></i>
                       <span className="dropdown-menu-item">Free Stock</span>
-                </li> */} 
+                </li> */}
+
+                    <li className="dropdown-list">
+                      <i class="fab fa-angellist menu-icon"></i>
+                      <span className="dropdown-menu-item">AngelList</span>
+                    </li>
+                    <li className="dropdown-list">
+                      <i class="fab fa-github menu-icon"></i>
+                      <a href="">
+                        <span className="dropdown-menu-item">GitHub</span>
+                      </a>
+                    </li>
+                    <li className="dropdown-list">
+                      <i class="fab fa-linkedin-in menu-icon"></i>
+                      <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+                        <span className="dropdown-menu-item">Linkedin</span>
+                      </a>
+                    </li>
                     <li className="dropdown-list">
                       <i className="fas fa-briefcase menu-icon"></i>
                       <Link to="/dashboard">
                         <span className="dropdown-menu-item">Account</span>
                       </Link>
                     </li>
-              {/*
-                    <li className="dropdown-list">
+
+                    {/* <li className="dropdown-list">
                       <i className="fas fa-university menu-icon"></i>
                       <span className="dropdown-menu-item">Banking</span>
                     </li>
@@ -375,7 +401,7 @@ export default ({ currentUser, logout }) => {
                 <li className="user-nav-item">GitHub</li>
                 <li className="user-nav-item">LinkedIn</li>
                 <li className="user-nav-item">Personal Site</li>
-                { /* <li className="user-nav-item">Settings</li> */}
+                {/* <li className="user-nav-item">Settings</li> */}
                 <div className="animation start-account"></div>
               </nav>
             </div>
@@ -385,40 +411,36 @@ export default ({ currentUser, logout }) => {
             <div>
               <li className="portfolio-value-header">Total Portfolio Value</li>
               <div className="portfolio-container">
-        
-                  <div>
-                    <br />
-                    <div className="total-portfolio-value">
-                      $
-                      {
-                        portfolioValue
-                        .map((a) => a.latest_price)
-                        .reduce((a, b) => a + b, 0)
-                        .toFixed(2)
-                      }
-                    </div>
-
-                    <br />
-                    <br />
-                    <br />
-                    <span className="stocks-section">Stocks</span>
-                    {portfolioValue.map((item, idx) => (
-                      <div key={idx} className="portfolio">
-                        <ul className="portfolio-item">
-                          <li>{item.symbol}</li>
-                          <li>{item.latest_price.toFixed(2)}</li>
-                          <li>{item.change_percent_s}</li>
-                        </ul>
-                        <button
-                          className="sell-stock"
-                          onClick={sellStockHandler(item)}
-                        >
-                          Sell stock
-                        </button>
-                      </div>
-                    ))}
+                <div>
+                  <br />
+                  <div className="total-portfolio-value">
+                    $
+                    {portfolioValue
+                      .map((a) => a.latest_price)
+                      .reduce((a, b) => a + b, 0)
+                      .toFixed(2)}
                   </div>
-             
+
+                  <br />
+                  <br />
+                  <br />
+                  <span className="stocks-section">Stocks</span>
+                  {portfolioValue.map((item, idx) => (
+                    <div key={idx} className="portfolio">
+                      <ul className="portfolio-item">
+                        <li>{item.symbol}</li>
+                        <li>{item.latest_price.toFixed(2)}</li>
+                        <li>{item.change_percent_s}</li>
+                      </ul>
+                      <button
+                        className="sell-stock"
+                        onClick={sellStockHandler(item)}
+                      >
+                        Sell stock
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
