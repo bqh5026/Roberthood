@@ -14,7 +14,7 @@ export default () => (
 
         <div className="landing-page-menu-items">
           <a href="https://angel.co/u/ben-hsieh-6">
-            <span className="landing-page-menu-item">Angelist</span>
+            <span className="landing-page-menu-item">AngelList</span>
           </a>
           <a href="https://github.com/benhsieh-dev">
             <span className="landing-page-menu-item">GitHub</span>

@@ -165,15 +165,19 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
 
          <div>
            <nav className="nav-bar">
-             {/* <span className="nav-menu-item">Free Stocks</span>*/}
+             <a href="https://angel.co/u/ben-hsieh-6">
+               <span className="nav-menu-item">AngelList</span>
+             </a>
+             <a href="https://github.com/benhsieh-dev">
+               <span className="nav-menu-item">GitHub</span>
+             </a>
+             <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+               <span className="nav-menu-item">Linkedin</span>{" "}
+             </a>
+
              <Link to="/signup">
                <span className="nav-menu-item">Portfolio</span>
              </Link>
-             {/*<span className="nav-menu-item">Cash</span>
-             <span className="nav-menu-item" to="#">
-               Messages
-             </span>{" "}
-             */}
              <div className="dropdown">
                <button className="nav-menu-item dropdown" onClick={operation}>
                  Account
@@ -194,6 +198,25 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                      <i className="fas fa-gift menu-icon"></i>
                      <span className="dropdown-menu-item">Free Stock</span>
                    </li> */}
+
+                   <li className="dropdown-list">
+                     <i class="fab fa-angellist"></i>
+                     <span className="dropdown-menu-item menu-icon">
+                       AngelList
+                     </span>
+                   </li>
+                   <li className="dropdown-list">
+                     <i class="fab fa-github menu-icon"></i>
+                     <a href="">
+                       <span className="dropdown-menu-item">GitHub</span>
+                     </a>
+                   </li>
+                   <li className="dropdown-list">
+                     <i class="fab fa-linkedin-in menu-icon"></i>
+                     <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+                       <span className="dropdown-menu-item">Linkedin</span>
+                     </a>
+                   </li>
 
                    <li className="dropdown-list">
                      <i className="fas fa-briefcase menu-icon"></i>
