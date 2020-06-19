@@ -12,11 +12,11 @@ export default () => (
           </Link>
         </div>
 
-        <div className="landing-page-menu-items">
+        {/* <div className="landing-page-menu-items">
           <span className="landing-page-menu-item">Products</span>
           <span className="landing-page-menu-item">Learn</span>
           <span className="landing-page-menu-item">Support</span>
-        </div>
+        </div> */}
       </div>
 
       <div className="navbar-container-2">
@@ -60,15 +60,16 @@ export default () => (
         <p className="content-2-body">
           Make unlimited commission-free trades in stocks, ETFs, and options
           with Robinhood Financial, as well as buy and sell cryptocurrencies
-          with Robinhood Crypto. See our {" "}
+          with Robinhood Crypto.{" "}
+          {/* See our {" "}
           <u>
             <strong>fee schedule </strong>
           </u>
-          to learn more about cost.
+          to learn more about cost. */}
         </p>
         <div className="content-2-footer">
-          <i className="fas fa-info-circle"></i>
-          <p> Commissions Disclosure</p>
+          {/*<i className="fas fa-info-circle"></i>
+          <p> Commissions Disclosure</p> */}
         </div>
       </div>
     </div>
@@ -102,14 +103,14 @@ export default () => (
               <div className="content-3-box2C">
                 <h3>Trade in Real Time</h3>
                 <p>
-                  Investing in fractional shares is real-time and, as always,
-                  commission-free.
+                  Trades placed during market hours are executed at that time,
+                  so you’ll always know the share price.
                 </p>
               </div>
             </div>
 
             <div className="content-3-search">
-              <button>Get Early Access</button>
+              {/* <button>Get Early Access</button> */}
             </div>
           </div>
         </div>
@@ -126,7 +127,7 @@ export default () => (
 
     <div className="container-4">
       <div className="content-4">
-        <div className="content-4-box1">
+        {/* <div className="content-4-box1">
           <ul>
             <li>
               <span className="learn">Learn</span>
@@ -144,6 +145,7 @@ export default () => (
         <div>
           <img className="learn-image" src={learnAsYouGrowURL} />
         </div>
+        */ }
         <div className="social-media">
           <a
             class="sm-icon"
