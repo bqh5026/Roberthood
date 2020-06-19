@@ -371,11 +371,11 @@ export default ({ currentUser, logout }) => {
               </h1>
               <nav className="user-nav-bar">
                 <li className="user-nav-item">Account</li>
-                <li className="user-nav-item">Banking</li>
-                <li className="user-nav-item">History</li>
-                <li className="user-nav-item">Documents</li>
-                <li className="user-nav-item">Free Stocks</li>
-                <li className="user-nav-item">Settings</li>
+                <li className="user-nav-item">Angel List</li>
+                <li className="user-nav-item">GitHub</li>
+                <li className="user-nav-item">LinkedIn</li>
+                <li className="user-nav-item">Personal Site</li>
+                { /* <li className="user-nav-item">Settings</li> */}
                 <div className="animation start-account"></div>
               </nav>
             </div>
