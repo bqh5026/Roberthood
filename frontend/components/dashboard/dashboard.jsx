@@ -187,16 +187,17 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                    <li>
                      <div className="user-information">
                        <strong>
-                        {currentUser.first_name} {currentUser.last_name}
+                         {currentUser.first_name} {currentUser.last_name}
                        </strong>
                        <div className="dropdown-portfolio-value">
-                          <h4>
-                            ${portfolioValue
-                              .map((a) => a.latest_price)
-                              .reduce((a, b) => a + b, 0)
-                              .toFixed(2)}
-                          </h4>
-                          <span>Portfolio Value</span>
+                         <h4>
+                           $
+                           {portfolioValue
+                             .map((a) => a.latest_price)
+                             .reduce((a, b) => a + b, 0)
+                             .toFixed(2)}
+                         </h4>
+                         <span>Portfolio Value</span>
                        </div>
                      </div>
                      <hr />
@@ -212,13 +213,13 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
 
                    <li className="dropdown-list">
                      <i class="fab fa-angellist menu-icon"></i>
-                     <span className="dropdown-menu-item">
-                       AngelList
-                     </span>
+                     <a href="https://angel.co/u/ben-hsieh-6">
+                      <span className="dropdown-menu-item">AngelList</span>
+                     </a>
                    </li>
                    <li className="dropdown-list">
                      <i class="fab fa-github menu-icon"></i>
-                     <a href="">
+                     <a href="https://github.com/benhsieh-dev">
                        <span className="dropdown-menu-item">GitHub</span>
                      </a>
                    </li>
