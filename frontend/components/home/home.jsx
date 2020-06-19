@@ -12,11 +12,17 @@ export default () => (
           </Link>
         </div>
 
-        {/* <div className="landing-page-menu-items">
-          <span className="landing-page-menu-item">Products</span>
-          <span className="landing-page-menu-item">Learn</span>
-          <span className="landing-page-menu-item">Support</span>
-        </div> */}
+        <div className="landing-page-menu-items">
+          <a href="https://angel.co/u/ben-hsieh-6">
+            <span className="landing-page-menu-item">Angelist</span>
+          </a>
+          <a href="https://github.com/benhsieh-dev">
+            <span className="landing-page-menu-item">GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+            <span className="landing-page-menu-item">Linkedin</span>
+          </a>
+        </div>
       </div>
 
       <div className="navbar-container-2">
@@ -145,7 +151,7 @@ export default () => (
         <div>
           <img className="learn-image" src={learnAsYouGrowURL} />
         </div>
-        */ }
+        */}
         <div className="social-media">
           <a
             class="sm-icon"
@@ -156,10 +162,11 @@ export default () => (
           </a>
           <a
             class="sm-icon"
-            href="https://www.facebook.com/beenchi.hsieh"
+            href="https://github.com/benhsieh-dev"
             target="_blank"
           >
-            <i class="fab fa-facebook-f fa-5x"></i>
+            {/* <i class="fab fa-facebook-f fa-5x"></i> */}
+            <i class="fab fa-github fa-5x"></i>
           </a>
           <a
             class="sm-icon"
