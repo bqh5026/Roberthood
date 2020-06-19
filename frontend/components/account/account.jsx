@@ -191,11 +191,13 @@ export default ({ currentUser, logout }) => {
 
                     <li className="dropdown-list">
                       <i class="fab fa-angellist menu-icon"></i>
-                      <span className="dropdown-menu-item">AngelList</span>
+                      <a href="https://angel.co/u/ben-hsieh-6">
+                        <span className="dropdown-menu-item">AngelList</span>
+                      </a>
                     </li>
                     <li className="dropdown-list">
                       <i class="fab fa-github menu-icon"></i>
-                      <a href="">
+                      <a href="https://github.com/benhsieh-dev">
                         <span className="dropdown-menu-item">GitHub</span>
                       </a>
                     </li>
@@ -397,10 +399,20 @@ export default ({ currentUser, logout }) => {
               </h1>
               <nav className="user-nav-bar">
                 <li className="user-nav-item">Account</li>
-                <li className="user-nav-item">Angel List</li>
-                <li className="user-nav-item">GitHub</li>
-                <li className="user-nav-item">LinkedIn</li>
-                <li className="user-nav-item">Personal Site</li>
+                <li className="user-nav-item user-anchor-link">
+                  <a href="https://angel.co/u/ben-hsieh-6">Angel List </a>
+                </li>
+                <li className="user-nav-item user-anchor-link">
+                  <a href="https://github.com/benhsieh-dev">GitHub </a>
+                </li>
+                <li className="user-nav-item user-anchor-link">
+                  <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+                    LinkedIn
+                  </a>
+                </li>
+                <li className="user-nav-item user-anchor-link">
+                  <a href="https://benhsieh-dev.github.io/">Personal Site</a>
+                </li>
                 {/* <li className="user-nav-item">Settings</li> */}
                 <div className="animation start-account"></div>
               </nav>

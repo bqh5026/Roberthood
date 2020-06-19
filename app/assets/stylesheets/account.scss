@@ -41,6 +41,14 @@ nav .animation {
     transition: all .5s ease 0s;
 }
 
+.user-anchor-link > a {
+    color: #171718;
+    font-size: 16px;
+    font-weight: 700; 
+    // line-height: 18px;
+}
+
+
 .user-nav-item:nth-child(1){
     width: 100px;
 }
