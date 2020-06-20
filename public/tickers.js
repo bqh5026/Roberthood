@@ -1,4 +1,4 @@
-const TickerSymbols = [
+export const TickerSymbols = [
   { symbol: "A", name: "Agilent Technologies Inc." },
   { symbol: "AA", name: "Alcoa Corporation" },
   { symbol: "AAAU", name: "Perth Mint Physical Gold" },
@@ -13204,4 +13204,4 @@ const TickerSymbols = [
   { symbol: "QTUMUSDT", name: "Qtum USD" },
 ];
 
-exports.TickerSymbols = TickerSymbols;
+// exports.TickerSymbols = TickerSymbols;

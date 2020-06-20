@@ -11,6 +11,8 @@ import {
 
 import axios from '../axios-quotes';
 
+import { TickerSymbols } from '../../../public/tickers';
+
 export default ({ currentUser, logout }) => {
     const [searchValue, setSearchValue] = useState("");
     const [quote, setQuote] = useState("");
@@ -457,53 +459,26 @@ export default ({ currentUser, logout }) => {
             </div>
           </div>
         )}
+        <div>
+          <ul>
+            {TickerSymbols.map((name) => {
+              if (searchValue.length !== 0) {
+                if (
+                  name.symbol
+                    .toLowerCase()
+                    .startsWith(searchValue.toLowerCase())
+                ) {
+                  return <li key={name.symbol}>{name.symbol}</li>;
+                } else {
+                  return null;
+                }
+              }
+            })}
+          </ul>
+        </div>
       </div>
     );
 }
 
 
-
-// {
-//   quote ? (
-//     <div className="trade">
-//       <strong>
-//         {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
-//       </strong>
-//       <hr />
-//       <div>Market Price:</div>
-//       <br />
-//       <div className="market-price">${quote.latest_price.toFixed(2)}</div>
-//       <br />
-//       <br />
-//       <br />
-//       <br />
-//       <br />
-//       <button className="buy-stock" onClick={buyStockHandler}>
-//         Buy
-//       </button>
-//     </div>
-//   ) : (
-//     <div>
-//       <span className="watchlist-header">Watchlist</span>
-//       <hr />
-//       <div>
-//         {stock.map((item, idx) => (
-//           <div key={idx} className="watchlist">
-//             <ul className="watchlist_item">
-//               <li>{item.symbol}</li>
-//               <li>{item.latest_price}</li>
-//               <li>{item.change_percent_s}</li>
-//             </ul>
-//             <button
-//               className="remove_from_watchlist"
-//               onClick={deleteWatchlistItemHandler(item)}
-//             >
-//               Remove from Watchlist
-//             </button>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
 
