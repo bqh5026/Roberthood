@@ -391,10 +391,10 @@ export default ({ currentUser, logout }) => {
               </div>
 
               <div className="footer">
-                <p className="footer-paragraph">
+                {/* <p className="footer-paragraph">
                   For more information, see our
                   <span className="privacy-policy"> Privacy Policy</span>.
-                </p>
+                </p> */}
               </div>
             </div>
 
