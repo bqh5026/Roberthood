@@ -118,6 +118,11 @@ export default ({ currentUser, logout }) => {
       }
     )
   };
+
+  const predictiveSearch = (item) => {
+    setSearchValue(item.symbol);
+    search();
+  };
     
     return (
       <div>
@@ -155,7 +160,8 @@ export default ({ currentUser, logout }) => {
                 <div className="auto-suggestions">
                   {/* {searchValue ? <strong>Stocks</strong> : ""} */}
                   <ul>
-                    {TickerSymbols.map((name) => {
+                    {
+                      TickerSymbols.map((name) => {
                       if (searchValue.length !== 0) {
                         if (
                           name.symbol
@@ -163,7 +169,7 @@ export default ({ currentUser, logout }) => {
                             .startsWith(searchValue.toLowerCase())
                         ) {
                           return (
-                            <li key={name.symbol}>
+                            <li key={name.symbol} onClick={()=>predictiveSearch(name)}>
                               <strong style={{paddingRight: '3rem'}}>{name.symbol}</strong>{name.name}
                             </li>
                           );

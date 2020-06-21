@@ -43,6 +43,11 @@
     width: 400px;
 }
 
+.auto-suggestions > ul > li:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+
 // account nav menu 
 nav .animation {
     position: absolute;
