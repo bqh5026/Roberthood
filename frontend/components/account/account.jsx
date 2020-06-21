@@ -122,6 +122,7 @@ export default ({ currentUser, logout }) => {
   const predictiveSearch = (item) => {
     setSearchValue(item.symbol);
     search();
+    setSearchValue('');
   };
     
     return (
