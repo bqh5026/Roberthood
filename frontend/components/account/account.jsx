@@ -131,25 +131,43 @@ export default ({ currentUser, logout }) => {
                 />
               </Link>
             </div>
-
-            <div className="search-box">
-              <form>
-                <button onClick={search} className="search-btn">
-                  <i className="fas fa-search"></i>
-                </button>
-                <input
-                  className="search-txt"
-                  type="text"
-                  name=""
-                  placeholder="Search"
-                  onChange={(event) => {
-                    handleOnChange(event);
-                  }}
-                  value={searchValue}
-                  onKeyPress={handleKeyPress}
-                  alt="search"
-                />
-              </form>
+            <div className="predictive-search">
+                <div className="search-box">
+                  <form>
+                    <button onClick={search} className="search-btn">
+                      <i className="fas fa-search"></i>
+                    </button>
+                    <input
+                      className="search-txt"
+                      type="text"
+                      name=""
+                      placeholder="Search"
+                      onChange={(event) => {
+                        handleOnChange(event);
+                      }}
+                      value={searchValue}
+                      onKeyPress={handleKeyPress}
+                      alt="search"
+                    />
+                  </form>
+                </div>
+                <div>
+                  <ul>
+                    {TickerSymbols.map((name) => {
+                      if (searchValue.length !== 0) {
+                        if (
+                          name.symbol
+                            .toLowerCase()
+                            .startsWith(searchValue.toLowerCase())
+                        ) {
+                          return <li key={name.symbol}>{name.symbol}</li>;
+                        } else {
+                          return null;
+                        }
+                      }
+                    })}
+                  </ul>
+                </div>
             </div>
           </div>
 
@@ -459,23 +477,6 @@ export default ({ currentUser, logout }) => {
             </div>
           </div>
         )}
-        <div>
-          <ul>
-            {TickerSymbols.map((name) => {
-              if (searchValue.length !== 0) {
-                if (
-                  name.symbol
-                    .toLowerCase()
-                    .startsWith(searchValue.toLowerCase())
-                ) {
-                  return <li key={name.symbol}>{name.symbol}</li>;
-                } else {
-                  return null;
-                }
-              }
-            })}
-          </ul>
-        </div>
       </div>
     );
 }

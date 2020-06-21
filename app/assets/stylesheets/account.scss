@@ -28,8 +28,14 @@
     display: inline-block; 
     font-weight: 600;
 }
+//account page search box
 
+.predictive-search {
+    display: flex;
+    flex-direction: column;
+}
 
+// account nav menu 
 nav .animation {
     position: absolute;
     height: 3px;
