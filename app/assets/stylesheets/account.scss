@@ -35,6 +35,14 @@
     flex-direction: column;
 }
 
+.auto-suggestions {
+    top: 5%;
+    position: absolute;
+    background: #fff;
+    z-index: 2;
+    width: 400px;
+}
+
 // account nav menu 
 nav .animation {
     position: absolute;

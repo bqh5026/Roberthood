@@ -145,13 +145,15 @@ export default ({ currentUser, logout }) => {
                       onChange={(event) => {
                         handleOnChange(event);
                       }}
-                      value={searchValue}
+                      value={searchValue          
+                      }
                       onKeyPress={handleKeyPress}
                       alt="search"
                     />
                   </form>
                 </div>
-                <div>
+                <div className="auto-suggestions">
+                  {/* {searchValue ? <strong>Stocks</strong> : ""} */}
                   <ul>
                     {TickerSymbols.map((name) => {
                       if (searchValue.length !== 0) {
@@ -160,7 +162,11 @@ export default ({ currentUser, logout }) => {
                             .toLowerCase()
                             .startsWith(searchValue.toLowerCase())
                         ) {
-                          return <li key={name.symbol}>{name.symbol}</li>;
+                          return (
+                            <li key={name.symbol}>
+                              <strong style={{paddingRight: '3rem'}}>{name.symbol}</strong>{name.name}
+                            </li>
+                          );
                         } else {
                           return null;
                         }
