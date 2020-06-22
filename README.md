@@ -14,6 +14,7 @@ Users can read up on latest business news, check stock quotes, add ticker to wat
 * Ajax
 * HTML3
 * CSS5
+* Open graph tags
 * Firebase Database
 
 One of the technical challenged I faced include providing login errors whe users login with incorrect credentials. The way I solved the issue was to set up states for error as well as mapping the state of current user into the login component. 
