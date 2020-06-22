@@ -57,9 +57,10 @@ validate() {
 ```
 ![Roberthood validation](https://user-images.githubusercontent.com/43966507/84723731-451f1500-af54-11ea-81ca-c48cc107b61c.gif)
 
+Another technical challenge was incorporating predictive search in search box. 
+
 ## Future Considerations
 
-* Incorporate predictive search
 * More comprehensive portfolio view
 * Ability to convert cash into and out of stocks
 * Ability to handle shares

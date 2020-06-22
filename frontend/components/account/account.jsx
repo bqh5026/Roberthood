@@ -44,7 +44,7 @@ export default ({ currentUser, logout }) => {
         // console.log(res.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [portfolioValue]);
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
@@ -106,14 +106,14 @@ export default ({ currentUser, logout }) => {
       event.preventDefault();
       axios
         .delete(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`)
-        .then(
-          window.alert(
-            `${JSON.stringify(stock.symbol).replace(
-              /['"]+/g,
-              ""
-            )} sold! Refresh page to see update.`
-          )
-        )
+        // .then(
+        //   window.alert(
+        //     `${JSON.stringify(stock.symbol).replace(
+        //       /['"]+/g,
+        //       ""
+        //     )} sold! Refresh page to see update.`
+        //   )
+        // )
         .catch((error) => console.log(error));
       }
     )
@@ -121,7 +121,11 @@ export default ({ currentUser, logout }) => {
 
   const predictiveSearch = (item) => {
     setSearchValue(item.symbol);
-    search();
+    search(); 
+    // search().then(res => {
+    //   return res.slice(0, 5)
+    // })
+    ;
     setSearchValue('');
   };
     
