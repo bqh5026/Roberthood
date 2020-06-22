@@ -4,6 +4,7 @@ import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts"
 
 import axios from '../axios-quotes'; 
 
+import { TickerSymbols } from '../../../public/tickers.js';
 
 export default ({ currentUser, logout }) => {
   const [searchValue, setSearchValue] = useState('qqq')
@@ -129,6 +130,12 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
   )
 }
  
+const predictiveSearch = (item) => {
+    setSearchValue(item.symbol);
+    search();
+    setSearchValue("");
+  };
+
    return (
      <div>
        <div className="header">
@@ -141,26 +148,52 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
                />
              </Link>
            </div>
-
-           <div className="search-box">
-             <form>
-               <button onClick={search} className="search-btn">
-                 <i className="fas fa-search"></i>
-               </button>
-               <input
-                 className="search-txt"
-                 type="text"
-                 name=""
-                 placeholder="Search"
-                 onChange={(event) => {
-                   handleOnChange(event);
-                 }}
-                 //  value={searchValue}
-                 onKeyPress={handleKeyPress}
-                 alt="search"
-               />
-             </form>
+           
+           <div className="dashboard-search-container">
+              <div className="search-box">
+                <form>
+                  <button onClick={search} className="search-btn">
+                    <i className="fas fa-search"></i>
+                  </button>
+                  <input
+                    className="search-txt"
+                    type="text"
+                    name=""
+                    placeholder="Search"
+                    onChange={(event) => {
+                      handleOnChange(event);
+                    }}
+                    //  value={searchValue}
+                    onKeyPress={handleKeyPress}
+                    alt="search"
+                  />
+                </form>
+              </div>
+                <div className="dashboard-search-suggestions">
+                        {/* {searchValue ? <strong>Stocks</strong> : ""} */}
+                        <ul>
+                          {
+                            TickerSymbols.map((name) => {
+                            if (searchValue.length !== 0 && searchValue!=='qqq') {
+                              if (
+                                name.symbol
+                                  .toLowerCase()
+                                  .startsWith(searchValue.toLowerCase())
+                              ) {
+                                return (
+                                  <li key={name.symbol} onClick={()=>predictiveSearch(name)}>
+                                    <strong style={{paddingRight: '3rem'}}>{name.symbol}</strong>{name.name}
+                                  </li>
+                                );
+                              } else {
+                                return null;
+                              }
+                            }
+                          })}
+                        </ul>
+                </div>
            </div>
+
          </div>
 
          <div>

@@ -97,6 +97,20 @@ input::-webkit-input-placeholder {
     box-shadow: 2px 2px 4px 4px rgba(206, 204, 204, 0.25);
 }
 
+.dashboard-search-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-search-suggestions {
+    position: absolute;
+    background: #fff;
+    width: 400px;
+    top: 50px;
+    z-index: 1;
+    // margin-left: 20%; 
+}
+
 .nav-menu-item {
     color: #171718;
     font-size: 13px;
