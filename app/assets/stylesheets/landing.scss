@@ -507,6 +507,7 @@ left: -10%;
         height: 40rem; 
     }
 
+
     .content-3-box2 {
         display: flex;
         flex-direction: column;
@@ -534,6 +535,13 @@ left: -10%;
     }
 }
 @media (max-width: 510px) {
+    .landing-page-menu-items {
+    // margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    // width: 400px;
+    width: 10rem;
+    }
     .container-2 {
         height: 40rem;
     }
@@ -543,6 +551,16 @@ left: -10%;
     .container-2 {
         height: 45rem;
     }
+   
+    .content-3-box1 {
+        width: 80%;
+        margin-left: 10%; 
+    }
+
+    .content-3-box2 {
+    width: 80%; 
+    margin-left: 10%; 
+} 
 
 // Social media icons
 
