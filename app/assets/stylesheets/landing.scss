@@ -66,7 +66,8 @@
 .navbar-container-2 {
     display: flex; 
     justify-content: space-around;
-    width: 250px;
+    // width: 250px;
+    width: 16rem;
 }
 
 .signin-btn {
@@ -94,7 +95,8 @@
     border-radius: 30px;
     line-height: 24px;
     // width: 88px;  
-    width: 138px;  
+    // width: 138px;  
+    width: 8.5rem;  
     font-weight: 700; 
     // transition: color 300ms ease-in-out;
     position: relative;
@@ -148,6 +150,7 @@ background: #01b403;
 
 .signup-message {
     font-size: 62px;
+    font-weight: 550;
 }
 
  .paragraph-1 {
@@ -155,7 +158,8 @@ background: #01b403;
     font-size: 28px;
     font-style: normal;
     line-height: 36px;
-    width: 450px;
+    // width: 450px;
+    width: 90%;
  }
 
  .cash-management {
@@ -166,6 +170,7 @@ background: #01b403;
 
 .cash-management-photo {
     height: 575px;
+    // height: 40%;
     // margin: 0 auto; 
 }
 
@@ -218,23 +223,28 @@ background: #01b403;
 //content-2
 
 .container-2 {
-    height: 350px; 
+    // height: 350px; 
+    height: 21rem; 
     border-bottom: 1px solid #000;
 }
-.content-2-header {
+
+.content-2-full {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     color: #040d14;
+}
+.content-2-header {  
     font-size: 36px;
-    font-weight: 700;
-    line-height: 40px;
+    font-weight: 500;
+    // line-height: 40px;
 }
 .content-2-body {
-    text-align: center;
-    color: #040d14;
     font-size: 16px;
     font-weight: 300;
     line-height: 30px;
-    width: 560px; 
+    // width: 560px; 
+    width: 23%; 
     padding-left: 39%;
 }
 
@@ -260,7 +270,9 @@ background: #01b403;
     // background: #F5F8FA;
     background: #fff;
     width: 100%;
-    height: 500px; 
+    // height: 500px; 
+    height: 30rem; 
+    padding-top: 3rem;
 }
 
 .container-3-full {
@@ -277,33 +289,36 @@ background: #01b403;
 }
 .content-3-box1 {
     width: 60%;
-    margin-left: 500px;
+    margin-left: 29%;
 }
 .content-3-header {
     color: #040d14;
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 40px;
 }
 
 .content-3-box2 {
-    margin-left: 500px;
+    // margin-left: 500px;
+    margin-left: 29%;
     display: flex; 
     width: 55%;
 }
 
 .content-3-box2A {
-    width: 310px; 
-    margin-right: 60px;
+    width: 23%; 
+    // margin-right: 60px;
+    margin-right: 5%;
 } 
 
 .content-3-box2B {
-    width: 310px; 
-    margin-right: 60px;
+    width: 23%; 
+    // margin-right: 60px;
+    margin-right: 5%;
 } 
 
 .content-3-box2C {
-    width: 310px; 
+    width: 23%; 
 } 
 
 // .content-3-search {
@@ -311,7 +326,7 @@ background: #01b403;
 // }
 
 .abstract_image {
-    height: 500px; 
+    height: 430px; 
 }
 
 //container-4
@@ -322,43 +337,43 @@ background: #01b403;
     padding-bottom: 70px
 }
 
-.content-4 {
-    display: flex;
-    justify-content: center;
-}
+// .content-4 {
+//     display: flex;
+//     justify-content: center;
+// }
 
-.content-4-box1 {
-    color: ivory; 
-    display: flex;
-    align-items: flex-start;
-}
+// .content-4-box1 {
+//     color: ivory; 
+//     display: flex;
+//     align-items: flex-start;
+// }
 
-.learn {
-    font-style: normal;
-    font-weight: 600;
-    font-size:34px;
-    line-height: 36px;
-}
-.learn-image {
-    // height: 250px;
-    // width: 450px;
-    height: 500px;
-    width: 950px;
-}
+// .learn {
+//     font-style: normal;
+//     font-weight: 600;
+//     font-size:34px;
+//     line-height: 36px;
+// }
+// .learn-image {
+//     // height: 250px;
+//     // width: 450px;
+//     height: 500px;
+//     width: 950px;
+// }
 
-.manage {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 36px;
-}
+// .manage {
+//     font-style: normal;
+//     font-weight: 300;
+//     font-size: 24px;
+//     line-height: 36px;
+// }
 
-.customize {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 36px;
-}
+// .customize {
+//     font-style: normal;
+//     font-weight: 300;
+//     font-size: 24px;
+//     line-height: 36px;
+// }
 
 // Social media icons
 
@@ -372,10 +387,13 @@ background: #01b403;
 
 .sm-icon {
     display: inline-block;
-    width: 90px;
-    height: 90px;
+    // width: 90px;
+    width: 5.5rem;
+    // height: 90px;
+    height: 5.5rem;
     background: #f1f1f1;
-    margin: 10px;
+    // margin: 10px;
+    margin: 0.8rem;
     border-radius: 30%;
     box-shadow: 0 5px 15px -5px #00000070;
     color: #3498db;
@@ -384,10 +402,13 @@ background: #01b403;
 }
 
 .sm-icon i {
-    line-height: 90px;
-    font-size: 26px;
+    // line-height: 90px;
+    line-height: 5.5rem;
+    // font-size: 26px;
+    font-size: 1.6rem;
     transition: 0.2s linear;
-    margin-left: 33px;
+    // margin-left: 33px;
+    margin-left: 2rem;
 }
 
 .sm-icon:hover i {
@@ -439,22 +460,86 @@ left: -10%;
 //     width: 100%; 
 // }
 
-// @media (max-width: 1000px) {
-//     .container-3-right {
-//         display: none;
-//     }
-// }
+@media (max-width: 1724px) {
+    .cash-management-photo {
+        display: none; 
+    }
+    
+     .abstract_image {
+        display: none;
+    }
+}
 
-// @media (max-width: 780px) {
-//     .landing-page-menu-item {
-//         display: none;
-//     }
+@media (max-width: 1427px) {  
+     .abstract_image {
+        display: none;
+    }
+}
 
-//     .nav-bar-signin {
-//         display: none;
-//     }
+@media (max-width: 980px) {
+    .container-2 {
+        height: 25rem;
+    }
+}
 
-//     .nav-bar-signup {
-//         display: none;
-//     }
-// }
+@media (max-width: 780px) {
+    .landing-page-menu-item {
+        display: none;
+    }
+
+    .nav-bar-signin {
+        display: none;
+    }
+
+    .nav-bar-signup {
+        display: none;
+    }
+}
+
+@media (max-width: 690px) {
+    .container-2 {
+        height: 30rem;
+    }
+
+    .container-3 {
+        height: 40rem; 
+    }
+
+    .content-3-box2 {
+        display: flex;
+        flex-direction: column;
+    }
+    .content-3-box2A {
+    width: 100%; 
+    // margin-right: 60px;
+    margin-right: 5%;
+    } 
+
+    .content-3-box2B {
+        width: 100%; 
+        // margin-right: 60px;
+        margin-right: 5%;
+    } 
+
+    .content-3-box2C {
+        width: 100%; 
+    } 
+}
+
+@media (max-width: 550px) {
+    .container-2 {
+        height: 35rem;
+    }
+}
+@media (max-width: 510px) {
+    .container-2 {
+        height: 40rem;
+    }
+}
+
+@media (max-width: 460px) {
+    .container-2 {
+        height: 45rem;
+    }
+}
+

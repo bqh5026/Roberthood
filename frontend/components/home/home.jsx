@@ -62,17 +62,19 @@ export default () => (
       <br />
       <br />
       <div className="content-2">
-        <h2 className="content-2-header">Break Free from Commission Fees</h2>
-        <p className="content-2-body">
-          Make unlimited commission-free trades in stocks, ETFs, and options
-          with Robinhood Financial, as well as buy and sell cryptocurrencies
-          with Robinhood Crypto.{" "}
-          {/* See our {" "}
-          <u>
-            <strong>fee schedule </strong>
-          </u>
-          to learn more about cost. */}
-        </p>
+        <div className="content-2-full">
+          <h2 className="content-2-header">Break Free from Commission Fees</h2>
+          <p className="content-2-body">
+            Make unlimited commission-free trades in stocks, ETFs, and options
+            with Robinhood Financial, as well as buy and sell cryptocurrencies
+            with Robinhood Crypto.{" "}
+            {/* See our {" "}
+            <u>
+              <strong>fee schedule </strong>
+            </u>
+            to learn more about cost. */}
+          </p>
+        </div>
         <div className="content-2-footer">
           {/*<i className="fas fa-info-circle"></i>
           <p> Commissions Disclosure</p> */}
@@ -132,8 +134,8 @@ export default () => (
     </div>
 
     <div className="container-4">
-      <div className="content-4">
-        {/* <div className="content-4-box1">
+      <div className="content-4"> 
+           {/* <div className="content-4-box1">
           <ul>
             <li>
               <span className="learn">Learn</span>
@@ -176,8 +178,10 @@ export default () => (
             <i class="fab fa-linkedin-in fa-5x"></i>
           </a>
         </div>
+
       </div>
     </div>
+
   </div>
 );
 
