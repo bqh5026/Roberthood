@@ -134,8 +134,8 @@ export default () => (
     </div>
 
     <div className="container-4">
-      <div className="content-4"> 
-           {/* <div className="content-4-box1">
+      {/* div className="content-4"> 
+           <div className="content-4-box1">
           <ul>
             <li>
               <span className="learn">Learn</span>
@@ -179,7 +179,7 @@ export default () => (
           </a>
         </div>
 
-      </div>
+      {/* </div> */}
     </div>
 
   </div>

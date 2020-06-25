@@ -24,7 +24,8 @@
 .landing-page-logo {
     display: flex;
     justify-content: space-between;
-    width: 155px; 
+    // width: 155px; 
+    width: 9.6rem; 
 }
 
 .roberthood {
@@ -50,7 +51,8 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
-    width: 400px;
+    // width: 400px;
+    width: 30rem;
 }
 
 .landing-page-menu-item {
@@ -541,5 +543,77 @@ left: -10%;
     .container-2 {
         height: 45rem;
     }
+
+// Social media icons
+
+    .social-media {
+        // margin-top: 20px; 
+        margin-top: 1rem; 
+        transform: translateY(25%);
+        transform: translateX(25%);
+        // width: 100%;
+        // text-align: center;
+    }
+
+    .sm-icon {
+        display: inline-block;
+        // width: 90px;
+        width: 4.5rem;
+        // height: 90px;
+        height: 4.5rem;
+        background: #f1f1f1;
+        // margin: 10px;
+        margin: 0.6rem;
+        border-radius: 30%;
+        box-shadow: 0 5px 15px -5px #00000070;
+        color: #3498db;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .sm-icon i {
+        // line-height: 90px;
+        line-height: 4.5rem;
+        // font-size: 26px;
+        font-size: 1.2rem;
+        transition: 0.2s linear;
+        // margin-left: 33px;
+        margin-left: 1.8rem;
+    }
+
+    .sm-icon:hover i {
+        transform: scale(1.3); 
+        color: #f1f1f1; 
+    }
+
+    .sm-icon::before {
+        content: "";
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        background: #3498db;
+        transform: rotate(45deg);
+        left: -110%;
+        top: 90%;
+    }
+
+    .sm-icon:hover::before {
+        animation: aaa 0.7s 1;
+        top: -10%;
+        left: -10%;
+    }
+    @keyframes aaa {
+        0% {
+            left: -110%;
+            top: 90%;
+        } 50% {
+        left: 10%;
+        top: -30%;
+    } 100% {
+        top: -10%;
+    left: -10%;
+    }
+    }
+
 }
 
