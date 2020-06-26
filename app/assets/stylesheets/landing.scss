@@ -511,23 +511,15 @@ left: -10%;
 
     .menu-btn {
         display: inline-block;
-        padding-top: 1rem; 
-        // width: 80px;
-        // height: 80px;
-        // cursor: pointer;
-        // transition: all .5s ease-in-out;
-        // border: 3px solid pink; 
+        padding-top: 1rem;    
     }
 
-    // .mmenu-btn_burger {
-    //     display: inline-block;
-    //     width: 50px;
-    //     height: 6px;
-    //     background: pink;
-    //     border-radius: 5px;
-    //     box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
-    //     transition: all .5s ease-in-out;
-    // }
+    .burger-menu-dropdown {
+        background: #fff;
+        margin-right: 2rem; 
+    }
+
+
 }
 
 @media (max-width: 690px) {
