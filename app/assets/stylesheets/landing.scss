@@ -392,8 +392,10 @@ background: #01b403;
 
 .social-media {
     margin-top: 20px; 
-    transform: translateY(25%);
-    transform: translateX(25%);
+    padding-left: 25%;
+    padding-bottom: 25%;
+    // transform: translateY(25%);
+    // transform: translateX(25%);
     // width: 100%;
     // text-align: center;
 }
