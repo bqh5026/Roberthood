@@ -35,6 +35,7 @@
     color: #000;
     position: relative;
     bottom: 15px;
+    // overflow: hidden;
 }
 
 .roberthood:hover {
@@ -72,6 +73,10 @@
     width: 16rem;
 }
 
+.menu-btn {
+    display: none;
+}
+
 .signin-btn {
     height: 50px;
     text-align: center;
@@ -102,6 +107,7 @@
     font-weight: 700; 
     // transition: color 300ms ease-in-out;
     position: relative;
+    // overflow: hidden;
     // z-index: 1;
     border: none; 
 }
@@ -133,6 +139,11 @@ background: #01b403;
 //     border-radius: 10px;
 //     left: 0; 
 // } 
+
+// hamberger menu
+    .menu-btn_burger {
+        display: none;
+    }
 
 //content-1
 
@@ -401,6 +412,7 @@ background: #01b403;
     color: #3498db;
     overflow: hidden;
     position: relative;
+
 }
 
 .sm-icon i {
@@ -484,7 +496,7 @@ left: -10%;
     }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 875px) {
     .landing-page-menu-item {
         display: none;
     }
@@ -496,9 +508,34 @@ left: -10%;
     .nav-bar-signup {
         display: none;
     }
+
+    .menu-btn {
+        display: inline-block;
+        padding-top: 1rem; 
+        // width: 80px;
+        // height: 80px;
+        // cursor: pointer;
+        // transition: all .5s ease-in-out;
+        // border: 3px solid pink; 
+    }
+
+    // .mmenu-btn_burger {
+    //     display: inline-block;
+    //     width: 50px;
+    //     height: 6px;
+    //     background: pink;
+    //     border-radius: 5px;
+    //     box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+    //     transition: all .5s ease-in-out;
+    // }
 }
 
 @media (max-width: 690px) {
+
+    .landing-page-menu-items {
+        display: none;
+    }
+
     .container-2 {
         height: 30rem;
     }

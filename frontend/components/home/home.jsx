@@ -37,6 +37,14 @@ export default () => (
           </Link>
         </div>
       </div>
+      {/* responsive web design   
+      <div className="menu-btn">
+        <div className="menu-btn_burger"></div>
+      </div>
+      */}
+      <div className="menu-btn">
+        <i class="fas fa-bars fa-2x"></i>
+      </div>
     </nav>
 
     <div className="container-1">
@@ -154,34 +162,33 @@ export default () => (
           <img className="learn-image" src={learnAsYouGrowURL} />
         </div>
         */}
-        <div className="social-media">
-          <a
-            class="sm-icon"
-            href="https://angel.co/u/ben-hsieh-6"
-            target="_blank"
-          >
-            <i class="fab fa-angellist fa-5x"></i>
-          </a>
-          <a
-            class="sm-icon"
-            href="https://github.com/benhsieh-dev"
-            target="_blank"
-          >
-            {/* <i class="fab fa-facebook-f fa-5x"></i> */}
-            <i class="fab fa-github fa-5x"></i>
-          </a>
-          <a
-            class="sm-icon"
-            href="https://www.linkedin.com/in/ben-hsieh-05522542/"
-            target="_blank"
-          >
-            <i class="fab fa-linkedin-in fa-5x"></i>
-          </a>
-        </div>
+      <div className="social-media">
+        <a
+          class="sm-icon"
+          href="https://angel.co/u/ben-hsieh-6"
+          target="_blank"
+        >
+          <i class="fab fa-angellist fa-5x"></i>
+        </a>
+        <a
+          class="sm-icon"
+          href="https://github.com/benhsieh-dev"
+          target="_blank"
+        >
+          {/* <i class="fab fa-facebook-f fa-5x"></i> */}
+          <i class="fab fa-github fa-5x"></i>
+        </a>
+        <a
+          class="sm-icon"
+          href="https://www.linkedin.com/in/ben-hsieh-05522542/"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin-in fa-5x"></i>
+        </a>
+      </div>
 
       {/* </div> */}
     </div>
-
   </div>
 );
 
