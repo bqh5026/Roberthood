@@ -55,21 +55,15 @@ const operation = () => {
         <div className="menu-btn">
           <i className="fas fa-bars fa-2x" onClick={operation}></i>
             {show && (<ul className="burger-menu-dropdown">
-              {/* <li>
-                <Link className="nav-bar-signin" to="/login">
-                  <button className="signin-btn">Sign In</button>
-                </Link>
+              <li>
+                <Link to="/login">
+                  <h4>Sign In</h4>
+                </Link>    
               </li>
               <li>
-                <Link className="nav-bar-signup" to="/signup">
-                  <button className="splash-signup-btn">Sign Up</button>
+                <Link to="/signup">
+                  <h4>Sign Up</h4>
                 </Link>
-              </li> */}
-              <li>
-                <h4>Sign In</h4>
-              </li>
-              <li>
-                <h4>Sign Up</h4>
               </li>
             </ul>
             )}
