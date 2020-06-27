@@ -579,7 +579,7 @@ left: -10%;
     }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 465px) {
     .container-2 {
         height: 45rem;
     }
@@ -599,10 +599,11 @@ left: -10%;
     .social-media {
         // margin-top: 20px; 
         margin-top: 1rem; 
-        transform: translateY(25%);
-        transform: translateX(25%);
+        // transform: translateY(25%);
+        // transform: translateX(25%);
         // width: 100%;
         // text-align: center;
+        padding-left: 1rem;
     }
 
     .sm-icon {
@@ -664,6 +665,25 @@ left: -10%;
     left: -10%;
     }
     }
+
+}
+
+@media (max-width: 370px) {
+
+    .signup-message {
+        font-size: 3rem;
+    }
+
+    .paragraph-1 {
+        font-size: 1.5rem;
+    }
+
+    .landing-page-menu-items {
+        width: 5rem;
+    }
+    // .social-media {
+    //     padding-left: 0.25rem;
+    // }
 
 }
 
