@@ -95,6 +95,8 @@ This issue was resolved by creating a custom function and passing it a ticker sy
 
 ```
 
+![Predictive Search](https://user-images.githubusercontent.com/43966507/85936194-30347100-b8c6-11ea-9ac3-22d104c4f7a5.gif)
+
 ## Future Considerations
 
 * More comprehensive portfolio view
