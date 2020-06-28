@@ -59,6 +59,42 @@ validate() {
 
 Another technical challenge was incorporating predictive search in search box. 
 
+This issue was resolved by creating a custom function and passing it a ticker symbol that goes through a list of 8000+ names company name list to return a positive match on the ticker. 
+
+```javascript 
+
+  const predictiveSearch = (item) => {
+    setSearchValue(item.symbol);
+    search(); 
+    ;
+    setSearchValue('');
+  };
+
+  <div className="auto-suggestions">
+      <ul>
+        {
+          TickerSymbols.map((name) => {
+          if (searchValue.length !== 0) {
+            if (
+              name.symbol
+                .toLowerCase()
+                .startsWith(searchValue.toLowerCase())
+            ) {
+              return (
+                <li key={name.symbol} onClick={()=>predictiveSearch(name)}>
+                  <strong style={{paddingRight: '3rem'}}>{name.symbol}</strong>{name.name}
+                </li>
+              );
+            } else {
+              return null;
+            }
+          }
+        })}
+      </ul>
+</div>
+
+```
+
 ## Future Considerations
 
 * More comprehensive portfolio view

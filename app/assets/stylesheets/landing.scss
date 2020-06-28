@@ -521,9 +521,16 @@ left: -10%;
 
     .burger-menu-dropdown {
         background: #fff;
-        margin-right: 2%; 
+        // margin-right: 2%; 
         position: relative;
-        right: 2rem;
+        right: 10rem;
+        width: 10rem; 
+        height: 10rem; 
+    }
+
+    .burger-menu-items {
+        font-size: 2rem;
+        color: black; 
     }
 
 

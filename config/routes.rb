@@ -10,4 +10,5 @@ namespace :api, defaults: {format: :json} do
 end
 
   root "static_pages#root"
+    # get "/us/en" => "static_pages#root"
 end
