@@ -76,9 +76,9 @@ class Signup extends React.Component {
         <form className="signup-form">
           <div className="signup-navbar">
             <Link to="/">
-              <img className="signup-logo" src={roberthoodHatURL} />
+              <span className="signup-title">{' '}Roberthood</span><img className="signup-logo" src={roberthoodHatURL} />
             </Link>
-            <Link className="active" to="#">
+            {/* <Link className="active" to="#">
               Account
             </Link>
             <Link className="signup-navbar-item" to="#">
@@ -92,7 +92,7 @@ class Signup extends React.Component {
             </Link>
             <Link className="signup-navbar-item" to="#">
               Submit
-            </Link>
+            </Link> */} 
           </div>
           <hr />
 
