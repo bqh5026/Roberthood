@@ -144,3 +144,38 @@
     font-size: 18px;
     color: red; 
 }
+
+//responsive web design
+
+@media (max-width: 1025px) {
+
+    .signup-form {
+        width: 80%;
+        margin: 0 auto; 
+    }
+
+    .firstname-lastname {
+        display: flex;
+        flex-direction: column;
+        width: 100%;  
+    }
+
+    .signup-input1 {
+        width: 99%;
+        margin: 2.5rem 0px 0px; 
+    }
+}
+
+@media (max-width: 320px) {
+
+    .signup-title {
+        font-size: 1.75rem;
+    }
+    .signup-header {
+        font-size: 2rem;
+    }
+
+    .signup-subheader {
+        font-size: 1.5rem;
+    }
+}
