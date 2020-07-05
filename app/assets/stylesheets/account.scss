@@ -48,6 +48,27 @@
     cursor: pointer;
 }
 
+// trade 
+
+.account-stock-purchase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.account-purchase-shares {
+    width: 5rem; 
+    height: 2rem;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.account-purchase-shares:focus {
+    border: 0.5px solid #00c806; 
+    overflow: hidden;
+    outline: none;
+}
+
+
 // account nav menu 
 nav .animation {
     position: absolute;

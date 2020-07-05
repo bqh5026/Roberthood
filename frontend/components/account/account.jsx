@@ -48,7 +48,7 @@ export default ({ currentUser, logout }) => {
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
-      // console.log(res);
+      console.log(res);
       setQuote(res);
     });
 
@@ -405,9 +405,14 @@ export default ({ currentUser, logout }) => {
             <div className="right">
               <div className="trade">
                 <strong>
-                  {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
+              {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/ }
+                Buy {quote.symbol.toUpperCase()}
                 </strong>
                 <hr />
+                <div className="account-stock-purchase">
+                  Shares <input className="account-purchase-shares" type="number" placeholder="0" min="0" step="1" />
+                </div>
+                <br />
                 <div>Market Price:</div>
                 <br />
                 <div className="market-price">
@@ -497,6 +502,3 @@ export default ({ currentUser, logout }) => {
       </div>
     );
 }
-
-
-

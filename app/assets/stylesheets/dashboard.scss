@@ -374,8 +374,10 @@ button {
 }
 
 .trade {
-    height: 300px;
+    // height: 300px;
+    height: 21rem;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+    padding: 1rem; 
 }
 
 .market-price {
