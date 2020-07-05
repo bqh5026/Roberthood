@@ -408,11 +408,11 @@ export default ({ currentUser, logout }) => {
               {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/ }
                 Buy {quote.symbol.toUpperCase()}
                 </strong>
-                <hr />
                 <div className="account-stock-purchase">
                   Shares <input className="account-purchase-shares" type="number" placeholder="0" min="0" step="1" />
                 </div>
                 <br />
+                <hr />
                 <div>Market Price:</div>
                 <br />
                 <div className="market-price">

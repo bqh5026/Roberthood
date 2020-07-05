@@ -148,52 +148,56 @@ const predictiveSearch = (item) => {
                />
              </Link>
            </div>
-           
-           <div className="dashboard-search-container">
-              <div className="search-box">
-                <form>
-                  <button onClick={search} className="search-btn">
-                    <i className="fas fa-search"></i>
-                  </button>
-                  <input
-                    className="search-txt"
-                    type="text"
-                    name=""
-                    placeholder="Search"
-                    onChange={(event) => {
-                      handleOnChange(event);
-                    }}
-                    //  value={searchValue}
-                    onKeyPress={handleKeyPress}
-                    alt="search"
-                  />
-                </form>
-              </div>
-                <div className="dashboard-search-suggestions">
-                        {/* {searchValue ? <strong>Stocks</strong> : ""} */}
-                        <ul>
-                          {
-                            TickerSymbols.map((name) => {
-                            if (searchValue.length !== 0 && searchValue!=='qqq') {
-                              if (
-                                name.symbol
-                                  .toLowerCase()
-                                  .startsWith(searchValue.toLowerCase())
-                              ) {
-                                return (
-                                  <li key={name.symbol} onClick={()=>predictiveSearch(name)}>
-                                    <strong style={{paddingRight: '3rem'}}>{name.symbol}</strong>{name.name}
-                                  </li>
-                                );
-                              } else {
-                                return null;
-                              }
-                            }
-                          })}
-                        </ul>
-                </div>
-           </div>
 
+           <div className="dashboard-search-container">
+             <div className="search-box">
+               <form>
+                 <button onClick={search} className="search-btn">
+                   <i className="fas fa-search"></i>
+                 </button>
+                 <input
+                   className="search-txt"
+                   type="text"
+                   name=""
+                   placeholder="Search"
+                   onChange={(event) => {
+                     handleOnChange(event);
+                   }}
+                   //  value={searchValue}
+                   onKeyPress={handleKeyPress}
+                   alt="search"
+                 />
+               </form>
+             </div>
+             <div className="dashboard-search-suggestions">
+               {/* {searchValue ? <strong>Stocks</strong> : ""} */}
+               <ul>
+                 {TickerSymbols.map((name) => {
+                   if (searchValue.length !== 0 && searchValue !== "qqq") {
+                     if (
+                       name.symbol
+                         .toLowerCase()
+                         .startsWith(searchValue.toLowerCase())
+                     ) {
+                       return (
+                         <li
+                           key={name.symbol}
+                           onClick={() => predictiveSearch(name)}
+                         >
+                           <strong style={{ paddingRight: "3rem" }}>
+                             {name.symbol}
+                           </strong>
+                           {name.name}
+                         </li>
+                       );
+                     } else {
+                       return null;
+                     }
+                   }
+                 })}
+               </ul>
+             </div>
+           </div>
          </div>
 
          <div>
@@ -247,7 +251,7 @@ const predictiveSearch = (item) => {
                    <li className="dropdown-list">
                      <i class="fab fa-angellist menu-icon"></i>
                      <a href="https://angel.co/u/ben-hsieh-6">
-                      <span className="dropdown-menu-item">AngelList</span>
+                       <span className="dropdown-menu-item">AngelList</span>
                      </a>
                    </li>
                    <li className="dropdown-list">
@@ -452,8 +456,20 @@ const predictiveSearch = (item) => {
              <div>
                <div className="trade">
                  <strong>
-                   {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
+                   {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/}
+                   Buy {quote.symbol.toUpperCase()}
                  </strong>
+                 <div className="dashboard-stock-purchase">
+                   Shares
+                   <input
+                     className="dashboard-purchase-shares"
+                     type="number"
+                     placeholder="0"
+                     min="0"
+                     step="1"
+                   />
+                 </div>
+                 <br />
                  <hr />
                  <div>Market Price:</div>
                  <br />

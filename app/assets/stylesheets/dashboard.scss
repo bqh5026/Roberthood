@@ -244,6 +244,25 @@ button {
     font-style: normal; 
 }
 
+//trade 
+
+.dashboard-stock-purchase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashboard-purchase-shares {
+    width: 5rem; 
+    height: 2rem;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.dashboard-purchase-shares:focus {
+    border: 0.5px solid #00c806; 
+    overflow: hidden;
+    outline: none;
+}
 
 // collections container
 
