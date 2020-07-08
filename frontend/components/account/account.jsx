@@ -74,12 +74,9 @@ export default ({ currentUser, logout }) => {
 
   const postDataHandler = () => {
     axios
-      .post(`./portfolios/${currentUser.username}.json`, quote)
-      // .then(response => console.log(response))
-      .then(
-        (document.querySelector(".watchlist_btn").textContent =
-          "Added to Watchlist")
-      )
+      .post(`./${currentUser.username}.json`, quote)
+      .then(document.querySelector(".watchlist_btn")
+      .textContent = "Added to Watchlist")
       .then((document.querySelector(".watchlist_btn").disabled = true))
       .catch((error) => console.log(error));
   };
@@ -106,14 +103,6 @@ export default ({ currentUser, logout }) => {
       event.preventDefault();
       axios
         .delete(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`)
-        // .then(
-        //   window.alert(
-        //     `${JSON.stringify(stock.symbol).replace(
-        //       /['"]+/g,
-        //       ""
-        //     )} sold! Refresh page to see update.`
-        //   )
-        // )
         .catch((error) => console.log(error));
       }
     )
