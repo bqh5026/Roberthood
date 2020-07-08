@@ -471,13 +471,25 @@ export default ({ currentUser, logout }) => {
                   <br />
                   <br />
                   <span className="stocks-section">Stocks</span>
+                  <br />
                   {portfolioValue.map((item, idx) => (
                     <div key={idx} className="portfolio">
-                      <ul className="portfolio-item">
-                        <li>{item.Company.symbol}</li>
-                        <li>{item.Company.latest_price.toFixed(2)}</li>
-                        <li>{item.Company.change_percent_s}</li>
-                      </ul>
+                      <table className="portfolio-item">
+                        <tr>
+                          <td>Name</td>
+                          <td>Symbol</td>
+                          <td>Shares</td>
+                          <td>Price</td>
+                          <td>Day's Percentge Change</td>
+                        </tr>
+                        <tr>
+                          <td>{item.Company.company_name}</td>
+                          <td>{item.Company.symbol}</td>
+                          <td>{item.Quantity}</td>
+                          <td>{item.Company.latest_price.toFixed(2)}</td>
+                          <td>{item.Company.change_percent_s}</td>
+                        </tr>
+                      </table>
                       <button
                         className="sell-stock"
                         onClick={sellStockHandler(item)}
