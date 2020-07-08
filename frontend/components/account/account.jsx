@@ -92,7 +92,7 @@ export default ({ currentUser, logout }) => {
     const total = shares * quote.latest_price; 
     console.log(total); 
     axios
-      .post(`./portfolios/${currentUser.username}.json`, quote)
+      .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares})
       // .then(response => console.log(response))
       .then(document.querySelector(".buy-stock").textContent = "Bought")
       .then(document.querySelector(".buy-stock").disabled=true)
