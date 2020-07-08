@@ -92,7 +92,7 @@ export default ({ currentUser, logout }) => {
     const total = shares * quote.latest_price; 
     console.log(total); 
     axios
-      .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares})
+      .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
       // .then(response => console.log(response))
       .then(document.querySelector(".buy-stock").textContent = "Bought")
       .then(document.querySelector(".buy-stock").disabled=true)
@@ -462,7 +462,7 @@ export default ({ currentUser, logout }) => {
                   <div className="total-portfolio-value">
                     $
                     {portfolioValue
-                      .map((a) => a.Company.latest_price)
+                      .map((a) => a.Total)
                       .reduce((a, b) => a + b, 0)
                       .toFixed(2)}
                   </div>
