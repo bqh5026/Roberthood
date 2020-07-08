@@ -484,34 +484,36 @@ export default ({ currentUser, logout }) => {
                   <br />
                   <span className="stocks-section">Stocks</span>
                   <br />
-                  {portfolioValue.map((item, idx) => (
-                    <div key={idx} className="portfolio">
-                      <table className="portfolio-item">
-                        <tr>
-                          <td>Name</td>
-                          <td>Symbol</td>
-                          <td>Shares</td>
-                          <td>Price</td>
-                          <td>Day's Percentge Change</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <strong>{item.Company.company_name}</strong>
-                          </td>
-                          <td>{item.Company.symbol}</td>
-                          <td>{item.Quantity}</td>
-                          <td>{item.Company.latest_price.toFixed(2)}</td>
-                          <td>{item.Company.change_percent_s}</td>
-                        </tr>
-                      </table>
-                      <button
-                        className="sell-stock"
-                        onClick={sellStockHandler(item)}
-                      >
-                        Sell stock
-                      </button>
-                    </div>
-                  ))}
+                  <div className="portfolio">
+                    <table className="portfolio-item">
+                      <tr>
+                        <td>Name</td>
+                        <td>Symbol</td>
+                        <td>Shares</td>
+                        <td>Price</td>
+                        <td>Day's Percentge Change</td>
+                      </tr>
+                      {portfolioValue.map((item, idx) => (
+                        <div key={idx}>
+                          <tr>
+                            <td>
+                              <strong>{item.Company.company_name}</strong>
+                            </td>
+                            <td>{item.Company.symbol}</td>
+                            <td>{item.Quantity}</td>
+                            <td>{item.Company.latest_price.toFixed(2)}</td>
+                            <td>{item.Company.change_percent_s}</td>
+                          </tr>
+                          <button
+                            className="sell-stock"
+                            onClick={sellStockHandler(item)}
+                          >
+                            Sell stock
+                          </button>
+                        </div>
+                      ))}
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
