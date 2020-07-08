@@ -89,10 +89,8 @@ export default ({ currentUser, logout }) => {
   // }; 
 
   const buyStockHandler = () => {
-    // const purchasedShares = this.refs.shares;
-    // const purchasedShares = useRef('shares');
-    // console.log(purchasedShares.value); 
-    console.log(shares); 
+    const total = shares * quote.latest_price; 
+    console.log(total); 
     axios
       .post(`./portfolios/${currentUser.username}.json`, quote)
       // .then(response => console.log(response))
