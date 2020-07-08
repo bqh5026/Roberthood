@@ -487,7 +487,7 @@ export default ({ currentUser, logout }) => {
                   <br />
                   <div className="portfolio">
                     <table className="portfolio-item">
-                      <tr>
+                      <tr className="portfolio-header">
                         <td>Name</td>
                         <td>Symbol</td>
                         <td>Shares</td>
@@ -506,17 +506,18 @@ export default ({ currentUser, logout }) => {
                             <td>{item.Company.latest_price.toFixed(2)}</td>
                             <td>{item.Company.change_percent_s}</td>
                           </tr>
+
                           <button
                             className="sell-stock"
                             onClick={sellStockHandler(item)}
                           >
                             Sell stock
                           </button>
+                          <br />
                         </div>
                       ))}
                     </table>
                   </div>
-
                 </div>
               </div>
             </div>

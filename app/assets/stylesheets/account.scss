@@ -150,6 +150,13 @@ nav .animation {
 .portfolio {
     display: flex;
     flex-direction: column;
+    width: 100rem; 
+}
+
+.portfolio-header {
+    width: 60rem;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .total-portfolio-value {
@@ -166,11 +173,13 @@ nav .animation {
     // justify-content: space-between;
     flex-direction: column;
     // padding-right: 30px; 
-    width: 240rem; 
 }
 
 .shares-information {
-    width: 25rem;
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .sell-stock {
@@ -179,5 +188,5 @@ nav .animation {
     background: #fff;
     height: 50px; 
     border-radius: 5px;
-    width: 100%;
+    width: 50%;
 }
