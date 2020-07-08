@@ -90,7 +90,7 @@ export default ({ currentUser, logout }) => {
 
   const buyStockHandler = () => {
     const total = shares * quote.latest_price; 
-    console.log(total); 
+    // console.log(total); 
     axios
       .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
       // .then(response => console.log(response))
@@ -134,49 +134,53 @@ export default ({ currentUser, logout }) => {
               </Link>
             </div>
             <div className="predictive-search">
-                <div className="search-box">
-                  <form>
-                    <button onClick={search} className="search-btn">
-                      <i className="fas fa-search"></i>
-                    </button>
-                    <input
-                      className="search-txt"
-                      type="text"
-                      name=""
-                      placeholder="Search"
-                      onChange={(event) => {
-                        handleOnChange(event);
-                      }}
-                      value={searchValue          
+              <div className="search-box">
+                <form>
+                  <button onClick={search} className="search-btn">
+                    <i className="fas fa-search"></i>
+                  </button>
+                  <input
+                    className="search-txt"
+                    type="text"
+                    name=""
+                    placeholder="Search"
+                    onChange={(event) => {
+                      handleOnChange(event);
+                    }}
+                    value={searchValue}
+                    onKeyPress={handleKeyPress}
+                    alt="search"
+                  />
+                </form>
+              </div>
+              <div className="auto-suggestions">
+                {/* {searchValue ? <strong>Stocks</strong> : ""} */}
+                <ul>
+                  {TickerSymbols.map((name) => {
+                    if (searchValue.length !== 0) {
+                      if (
+                        name.symbol
+                          .toLowerCase()
+                          .startsWith(searchValue.toLowerCase())
+                      ) {
+                        return (
+                          <li
+                            key={name.symbol}
+                            onClick={() => predictiveSearch(name)}
+                          >
+                            <strong style={{ paddingRight: "3rem" }}>
+                              {name.symbol}
+                            </strong>
+                            {name.name}
+                          </li>
+                        );
+                      } else {
+                        return null;
                       }
-                      onKeyPress={handleKeyPress}
-                      alt="search"
-                    />
-                  </form>
-                </div>
-                <div className="auto-suggestions">
-                  {/* {searchValue ? <strong>Stocks</strong> : ""} */}
-                  <ul>
-                    {
-                      TickerSymbols.map((name) => {
-                      if (searchValue.length !== 0) {
-                        if (
-                          name.symbol
-                            .toLowerCase()
-                            .startsWith(searchValue.toLowerCase())
-                        ) {
-                          return (
-                            <li key={name.symbol} onClick={()=>predictiveSearch(name)}>
-                              <strong style={{paddingRight: '3rem'}}>{name.symbol}</strong>{name.name}
-                            </li>
-                          );
-                        } else {
-                          return null;
-                        }
-                      }
-                    })}
-                  </ul>
-                </div>
+                    }
+                  })}
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -397,13 +401,21 @@ export default ({ currentUser, logout }) => {
             <div className="right">
               <div className="trade">
                 <strong>
-              {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/ }
-                Buy {quote.symbol.toUpperCase()}
+                  {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/}
+                  Buy {quote.symbol.toUpperCase()}
                 </strong>
                 <div className="account-stock-purchase">
-                  Shares <input value={shares} className="account-purchase-shares" type="number" min="0" step="1" onChange={e => setShares(e.target.value)}></input>
+                  Shares{" "}
+                  <input
+                    value={shares}
+                    className="account-purchase-shares"
+                    type="number"
+                    min="0"
+                    step="1"
+                    onChange={(e) => setShares(e.target.value)}
+                  ></input>
                 </div>
-                <br /> 
+                <br />
                 <hr />
                 <div>Market Price:</div>
                 <br />
@@ -483,7 +495,9 @@ export default ({ currentUser, logout }) => {
                           <td>Day's Percentge Change</td>
                         </tr>
                         <tr>
-                          <td>{item.Company.company_name}</td>
+                          <td>
+                            <strong>{item.Company.company_name}</strong>
+                          </td>
                           <td>{item.Company.symbol}</td>
                           <td>{item.Quantity}</td>
                           <td>{item.Company.latest_price.toFixed(2)}</td>
