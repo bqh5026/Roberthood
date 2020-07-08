@@ -162,10 +162,15 @@ nav .animation {
     font-weight: 550;
 }
 .portfolio-item {
-    // display: flex;
+    display: flex;
     // justify-content: space-between;
+    flex-direction: column;
     // padding-right: 30px; 
-    width: 30rem; 
+    width: 240rem; 
+}
+
+.shares-information {
+    width: 25rem;
 }
 
 .sell-stock {
@@ -174,4 +179,5 @@ nav .animation {
     background: #fff;
     height: 50px; 
     border-radius: 5px;
+    width: 100%;
 }

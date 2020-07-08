@@ -484,6 +484,7 @@ export default ({ currentUser, logout }) => {
                   <br />
                   <span className="stocks-section">Stocks</span>
                   <br />
+                  <br />
                   <div className="portfolio">
                     <table className="portfolio-item">
                       <tr>
@@ -493,8 +494,9 @@ export default ({ currentUser, logout }) => {
                         <td>Price</td>
                         <td>Day's Percentge Change</td>
                       </tr>
+                      <hr />
                       {portfolioValue.map((item, idx) => (
-                        <div key={idx}>
+                        <div key={idx} className="shares-information">
                           <tr>
                             <td>
                               <strong>{item.Company.company_name}</strong>
@@ -514,6 +516,7 @@ export default ({ currentUser, logout }) => {
                       ))}
                     </table>
                   </div>
+
                 </div>
               </div>
             </div>
