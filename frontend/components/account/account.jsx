@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Link } from 'react-router-dom';
 import {
   LineChart,
@@ -21,6 +21,7 @@ export default ({ currentUser, logout }) => {
      const [news, setNews] = useState([]);
      const [show, setShow] = useState(false); 
      const [portfolioValue, setPortfolioValue] = useState([]);
+     const [shares, setShares] = useState(0); 
 
   useEffect(() => {
     if (news.length < 1) {
@@ -88,6 +89,10 @@ export default ({ currentUser, logout }) => {
   // }; 
 
   const buyStockHandler = () => {
+    // const purchasedShares = this.refs.shares;
+    // const purchasedShares = useRef('shares');
+    // console.log(purchasedShares.value); 
+    console.log(shares); 
     axios
       .post(`./portfolios/${currentUser.username}.json`, quote)
       // .then(response => console.log(response))
@@ -398,9 +403,9 @@ export default ({ currentUser, logout }) => {
                 Buy {quote.symbol.toUpperCase()}
                 </strong>
                 <div className="account-stock-purchase">
-                  Shares <input className="account-purchase-shares" type="number" placeholder="0" min="0" step="1" />
+                  Shares <input value={shares} className="account-purchase-shares" type="number" min="0" step="1" onChange={e => setShares(e.target.value)}></input>
                 </div>
-                <br />
+                <br /> 
                 <hr />
                 <div>Market Price:</div>
                 <br />
