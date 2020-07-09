@@ -370,20 +370,20 @@ const predictiveSearch = (item) => {
                  <h2>
                    $
                    {portfolioValue
-                     .map((a) => a.latest_price)
+                     .map((a) => a.Total)
                      .reduce((a, b) => a + b, 0)
                      .toFixed(2)}
                  </h2>
                  <strong>
                    $
                    {portfolioValue
-                     .map((a) => a.change)
+                     .map((a) => a.Company.change)
                      .reduce((a, b) => a + b, 0)
                      .toFixed(2)}
                    (
                    {(
                      portfolioValue
-                       .map((a) => parseInt(a.change_percent_s))
+                       .map((a) => parseInt(a.Company.change_percent_s))
                        .reduce((a, b) => a + b, 0) / portfolioValue.length
                    ).toFixed(2)}
                    %)

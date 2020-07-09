@@ -91,13 +91,17 @@ export default ({ currentUser, logout }) => {
   const buyStockHandler = () => {
     const total = shares * quote.latest_price; 
     // console.log(total); 
-    axios
-      .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
-      // .then(response => console.log(response))
-      .then(document.querySelector(".buy-stock").textContent = "Bought")
-      .then(document.querySelector(".buy-stock").disabled=true)
-      // .then(routeChange())
-      .catch((error) => console.log(error));
+    if (shares >= 1) {
+      axios
+        .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
+        // .then(response => console.log(response))
+        .then(document.querySelector(".buy-stock").textContent = "Bought")
+        .then(document.querySelector(".buy-stock").disabled=true)
+        // .then(routeChange())
+        .catch((error) => console.log(error));
+    } else {
+      window.alert("Please enter valid number of shares")
+    }
   };
 
   const sellStockHandler = (stock) => {
@@ -503,7 +507,7 @@ export default ({ currentUser, logout }) => {
                             </td>
                             <td>{item.Company.symbol}</td>
                             <td>{item.Quantity}</td>
-                            <td>{item.Company.latest_price.toFixed(2)}</td>
+                            <td>${item.Company.latest_price.toFixed(2)}</td>
                             <td>{item.Company.change_percent_s}</td>
                           </tr>
 
