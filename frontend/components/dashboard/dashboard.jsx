@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect, useRef } from 'react'; 
 import { Link, useHistory } from 'react-router-dom';
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, YAxis } from "recharts";
 
@@ -15,6 +15,7 @@ export default ({ currentUser, logout }) => {
   const [show, setShow] = useState(false); 
   const [portfolioValue, setPortfolioValue] = useState([]);
   const [stock, setStock] = useState([]); 
+  const [shares, setShares] = useState(0);
 
   useEffect(() => {
     if (news.length < 1) {
@@ -110,14 +111,22 @@ const routeChange = () => {
 }; 
 
 const buyStockHandler = () => {
-  axios.post(`./portfolios/${currentUser.username}.json`, quote)
-  // .then(response => console.log(response))
-  .then(document.querySelector('.buy-stock')
-  .textContent = 'Bought'
-  .then(routeChange())
-  )
-  .catch(error => console.log(error)); 
-}
+  const total = shares * quote.latest_price; 
+    console.log(total);
+  if (shares >= 1) {
+    axios
+      .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
+      // .then(response => console.log(response))
+      .then(
+        (document.querySelector(".buy-stock").textContent = "Bought".then(
+          routeChange()
+        ))
+      )
+      .catch((error) => console.log(error)); 
+  } else {
+    window.alert("Please enter valid number of shares")
+  }
+};
 
 const deleteWatchlistItemHandler = (watchlistItem) => {
   return (
@@ -462,11 +471,13 @@ const predictiveSearch = (item) => {
                  <div className="dashboard-stock-purchase">
                    Shares
                    <input
+                     value={shares}
                      className="dashboard-purchase-shares"
                      type="number"
                      placeholder="0"
                      min="0"
                      step="1"
+                     onChange={(e) => setShares(e.target.value)}
                    />
                  </div>
                  <br />
