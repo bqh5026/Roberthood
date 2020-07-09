@@ -154,7 +154,7 @@ nav .animation {
 }
 
 .portfolio-header {
-    width: 60rem;
+    width: 50rem;
     display: flex;
     justify-content: space-evenly;
 }
@@ -178,15 +178,20 @@ nav .animation {
 .shares-information {
     width: 50rem;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    // flex-direction: column;
+    justify-content: space-between;
+}
+
+.company-details {
+    width: 40rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .sell-stock {
-    color: #01b403;
-    border: 1px solid #01b403; 
-    background: #fff;
-    height: 50px; 
+    color: #fff;
+    background: #01b403;
+    height: 1.25rem; 
     border-radius: 5px;
-    width: 50%;
+    width: 5rem;
 }

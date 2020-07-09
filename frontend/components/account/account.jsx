@@ -497,7 +497,7 @@ export default ({ currentUser, logout }) => {
                       <hr />
                       {portfolioValue.map((item, idx) => (
                         <div key={idx} className="shares-information">
-                          <tr>
+                          <tr className="company-details">
                             <td>
                               <strong>{item.Company.company_name}</strong>
                             </td>
