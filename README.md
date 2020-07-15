@@ -7,7 +7,9 @@ Users can read up on latest business news, check stock quotes, add ticker to wat
 ## Technologies Used
 
 * React JS
+* Redux JS
 * Ruby on Rails
+* Node JS
 * IEX API
 * News API
 * Recharts API
