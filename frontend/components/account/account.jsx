@@ -96,25 +96,15 @@ export default ({ currentUser, logout }) => {
         if (stock.Company.symbol === quote.symbol) {
           // debugger
           axios
-            .patch(
-              `./portfolios/${
-                currentUser.username/stock.firebaseID
-              }/Quantity.json`,
-              { Quantity: parseInt(stock.Quantity) + parseInt(shares) }
-            )
-            // .patch(
-            //   `./portfolios/${
-            //     currentUser.username
-            //   }.json`,
-            //   { Quantity: parseInt(stock.Quantity) + parseInt(shares) }
-            // )
+            .patch(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`, {
+              Quantity: parseInt(stock.Quantity) + parseInt(shares),
+            })
+
             .then((document.querySelector(".buy-stock").textContent = "Bought"))
             .then((document.querySelector(".buy-stock").disabled = true));
             // console.log(JSON.stringify(currentUser.username/stock.firebaseID));
           return
-        } else {
-          console.log('False');
-        }
+        } 
     }
 
     if (shares >= 1) {
