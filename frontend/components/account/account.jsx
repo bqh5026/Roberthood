@@ -91,6 +91,32 @@ export default ({ currentUser, logout }) => {
   const buyStockHandler = () => {
     const total = shares * quote.latest_price; 
     // console.log(total); 
+    // console.log(quote.symbol);
+    for (const stock of portfolioValue) {
+        if (stock.Company.symbol === quote.symbol) {
+          // debugger
+          axios
+            // .patch(
+            //   `./portfolios/${
+            //     currentUser.username/stock.firebaseID
+            //   }/Quantity.json`,
+            //   { Quantity: parseInt(stock.Quantity) + parseInt(shares) }
+            // )
+            .patch(
+              `./portfolios/${
+                currentUser.username
+              }.json`,
+              { Quantity: parseInt(stock.Quantity) + parseInt(shares) }
+            )
+            .then((document.querySelector(".buy-stock").textContent = "Bought"))
+            .then((document.querySelector(".buy-stock").disabled = true));
+            // console.log(JSON.stringify(currentUser.username/stock.firebaseID));
+          return
+        } else {
+          console.log('False');
+        }
+    }
+
     if (shares >= 1) {
       axios
         .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
@@ -480,7 +506,10 @@ export default ({ currentUser, logout }) => {
                     {portfolioValue
                       .map((a) => a.Total)
                       .reduce((a, b) => a + b, 0)
-                      .toFixed(2)}
+                      .toFixed(2)
+                      .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")  
+                    }
+              
                   </div>
 
                   <br />
