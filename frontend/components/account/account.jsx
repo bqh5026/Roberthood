@@ -90,19 +90,14 @@ export default ({ currentUser, logout }) => {
 
   const buyStockHandler = () => {
     const total = shares * quote.latest_price; 
-    // console.log(total); 
-    // console.log(quote.symbol);
     for (const stock of portfolioValue) {
         if (stock.Company.symbol === quote.symbol) {
-          // debugger
           axios
             .patch(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`, {
               Quantity: parseInt(stock.Quantity) + parseInt(shares),
             })
-
             .then((document.querySelector(".buy-stock").textContent = "Bought"))
             .then((document.querySelector(".buy-stock").disabled = true));
-            // console.log(JSON.stringify(currentUser.username/stock.firebaseID));
           return
         } 
     }

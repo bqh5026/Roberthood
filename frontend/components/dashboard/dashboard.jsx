@@ -111,17 +111,29 @@ const routeChange = () => {
 }; 
 
 const buyStockHandler = () => {
+  // debugger
   const total = shares * quote.latest_price; 
-    // console.log(total);
+    for (const stock of portfolioValue) {
+        if (stock.Company.symbol === quote.symbol) {
+          axios
+            .patch(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`, {
+              Quantity: parseInt(stock.Quantity) + parseInt(shares),
+            })
+            .then((document.querySelector(".buy-stock").textContent = "Bought"))
+            .then((document.querySelector(".buy-stock").disabled = true));
+          return
+        } 
+        // else {
+        //   console.log("False");
+        // }
+    }
+
   if (shares >= 1) {
     axios
       .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
       // .then(response => console.log(response))
-      .then(
-        (document.querySelector(".buy-stock").textContent = "Bought".then(
-          routeChange()
-        ))
-      )
+      .then(document.querySelector(".buy-stock").textContent = "Bought")
+      .then(routeChange())
       .catch((error) => console.log(error)); 
   } else {
     window.alert("Please enter valid number of shares")
