@@ -112,7 +112,7 @@ const routeChange = () => {
 
 const buyStockHandler = () => {
   const total = shares * quote.latest_price; 
-    console.log(total);
+    // console.log(total);
   if (shares >= 1) {
     axios
       .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
@@ -381,7 +381,8 @@ const predictiveSearch = (item) => {
                    {portfolioValue
                      .map((a) => a.Total)
                      .reduce((a, b) => a + b, 0)
-                     .toFixed(2)}
+                     .toFixed(2)
+                     .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                  </h2>
                  <strong>
                    $
