@@ -102,8 +102,8 @@ This issue was resolved by creating a custom function and passing it a ticker sy
 ## Future Considerations
 
 * More comprehensive portfolio view
-* Ability to convert cash into and out of stocks
-* Ability to handle shares
+* Ability to convert virtual cash into and out of virtual stocks
+
   
 
 
