@@ -251,9 +251,11 @@ const predictiveSearch = (item) => {
                          <h4>
                            $
                            {portfolioValue
-                             .map((a) => a.latest_price)
+                             .map((a) => a.Total)
                              .reduce((a, b) => a + b, 0)
-                             .toFixed(2)}
+                             .toFixed(2)
+                             .toString()
+                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                          </h4>
                          <span>Portfolio Value</span>
                        </div>
@@ -394,7 +396,8 @@ const predictiveSearch = (item) => {
                      .map((a) => a.Total)
                      .reduce((a, b) => a + b, 0)
                      .toFixed(2)
-                     .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                     .toString()
+                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                  </h2>
                  <strong>
                    $

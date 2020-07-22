@@ -384,6 +384,10 @@ button {
     padding-right: 30px; 
 }
 
+.watchlist_item:hover {
+    background-color: lightgrey;
+}
+
 .remove_from_watchlist {
     color: #01b403;
     border: 1px solid #01b403; 
