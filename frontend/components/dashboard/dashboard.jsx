@@ -272,19 +272,19 @@ const predictiveSearch = (item) => {
                    </li> */}
 
                    <li className="dropdown-list">
-                     <i class="fab fa-angellist menu-icon"></i>
+                     <i className="fab fa-angellist menu-icon"></i>
                      <a href="https://angel.co/u/ben-hsieh-6">
                        <span className="dropdown-menu-item">AngelList</span>
                      </a>
                    </li>
                    <li className="dropdown-list">
-                     <i class="fab fa-github menu-icon"></i>
+                     <i className="fab fa-github menu-icon"></i>
                      <a href="https://github.com/benhsieh-dev">
                        <span className="dropdown-menu-item">GitHub</span>
                      </a>
                    </li>
                    <li className="dropdown-list">
-                     <i class="fab fa-linkedin-in menu-icon"></i>
+                     <i className="fab fa-linkedin-in menu-icon"></i>
                      <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
                        <span className="dropdown-menu-item">Linkedin</span>
                      </a>
@@ -512,10 +512,22 @@ const predictiveSearch = (item) => {
                    Buy
                  </button>
                </div>
-               <br />
+               <br /> 
+                {/* stock.map((watchlistItem) => {
+                   if (watchlistItem.symbol === quote.symbol) {
+                     return (
+                       <button
+                         className="watchlist_btn"
+                         onClick={deleteWatchlistItemHandler}
+                       >
+                         Remove from Watchlist
+                       </button>
+                     );
+                   }
+                 }) */}
                <button className="watchlist_btn" onClick={postDataHandler}>
                  Add to Watchlist
-               </button>
+                </button> 
              </div>
            ) : (
              <div>
