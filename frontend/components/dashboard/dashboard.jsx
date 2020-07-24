@@ -139,6 +139,25 @@ const buyStockHandler = () => {
     window.alert("Please enter valid number of shares")
   }
 };
+// const watchlistChecker = () => {
+//   stock.map((watchlistItem) => {
+//         if (watchlistItem.symbol === quote.symbol) {
+//           return (
+//             <button
+//               className="watchlist_btn"
+//               onClick={deleteWatchlistItemHandler}
+//             >
+//               Remove from Watchlist
+//             </button>
+//           );
+//         } 
+//       });
+//       return (
+//         <button className="watchlist_btn" onClick={postDataHandler}>
+//           Add to Watchlist
+//         </button>
+//       )
+// }
 
 const deleteWatchlistItemHandler = (watchlistItem) => {
   return (
