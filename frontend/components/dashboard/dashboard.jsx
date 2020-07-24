@@ -410,7 +410,7 @@ const predictiveSearch = (item) => {
                      portfolioValue
                        .map((a) => parseInt(a.Company.change_percent_s))
                        .reduce((a, b) => a + b, 0) / portfolioValue.length
-                   ).toFixed(2)}
+                   ).toFixed(2), 0}
                    %)
                  </strong>{" "}
                  <span className="today">Today</span>
