@@ -16,6 +16,7 @@ export default ({ currentUser, logout }) => {
   const [portfolioValue, setPortfolioValue] = useState([]);
   const [stock, setStock] = useState([]); 
   const [shares, setShares] = useState(0);
+  const [watchItem, setWatchItem] = useState('false');
 
   useEffect(() => {
     if (news.length < 1) {
@@ -429,7 +430,7 @@ const predictiveSearch = (item) => {
                      portfolioValue
                        .map((a) => parseInt(a.Company.change_percent_s))
                        .reduce((a, b) => a + b, 0) / portfolioValue.length
-                   ).toFixed(2), 0}
+                   ).toFixed(2)}
                    %)
                  </strong>{" "}
                  <span className="today">Today</span>
@@ -531,9 +532,11 @@ const predictiveSearch = (item) => {
                    Buy
                  </button>
                </div>
-               <br /> 
-                {/* stock.map((watchlistItem) => {
+               <br />
+
+               {/* stock.map((watchlistItem) => {
                    if (watchlistItem.symbol === quote.symbol) {
+                     setWatchItem('true');
                      return (
                        <button
                          className="watchlist_btn"
@@ -543,10 +546,25 @@ const predictiveSearch = (item) => {
                        </button>
                      );
                    }
-                 }) */}
+                  })
+                */}
+               {/* () => {
+                  if (watchItem === 'true') {
+                    setWatchItem('false'); 
+                    return (
+                      <button
+                        className="watchlist_btn"
+                        onClick={postDataHandler}
+                      >
+                        Add to Watchlist
+                      </button>
+                    );
+                    }
+                  }
+                */}
                <button className="watchlist_btn" onClick={postDataHandler}>
                  Add to Watchlist
-                </button> 
+               </button>
              </div>
            ) : (
              <div>
