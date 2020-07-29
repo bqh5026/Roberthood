@@ -16,7 +16,7 @@ export default ({ currentUser, logout }) => {
   const [portfolioValue, setPortfolioValue] = useState([]);
   const [stock, setStock] = useState([]); 
   const [shares, setShares] = useState(0);
-  const [watchItem, setWatchItem] = useState('false');
+  // const [watchItem, setWatchItem] = useState('false');
 
   useEffect(() => {
     if (news.length < 1) {
@@ -112,7 +112,6 @@ const routeChange = () => {
 }; 
 
 const buyStockHandler = () => {
-  // debugger
   const total = shares * quote.latest_price; 
     for (const stock of portfolioValue) {
         if (stock.Company.symbol === quote.symbol) {
@@ -124,9 +123,6 @@ const buyStockHandler = () => {
             .then((document.querySelector(".buy-stock").disabled = true));
           return
         } 
-        // else {
-        //   console.log("False");
-        // }
     }
 
   if (shares >= 1) {
@@ -140,8 +136,39 @@ const buyStockHandler = () => {
     window.alert("Please enter valid number of shares")
   }
 };
+
+const watchlistChecker = () => {
+  // console.log(stock);
+  stock.map((watchlistItem) => {
+    if (watchlistItem.symbol === quote.symbol) {
+      return (
+        <button className="watchlist_btn" onClick={deleteWatchlistItemHandler}>
+          Remove from Watchlist
+        </button>
+      );
+    }
+  });
+  return (
+    <button className="watchlist_btn" onClick={postDataHandler}>
+       Add to Watchlist
+    </button>
+  );
+}
+
 // const watchlistChecker = () => {
-//   stock.map((watchlistItem) => {
+//   useEffect(() => {
+//     axios
+//       .get(
+//         `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`
+//       )
+//       .then((res) => {
+//         const watchlist = [];
+//         for (let stock in res.data) {
+//           watchlist.push({ ...res.data[stock], firebaseID: stock });
+//         }
+//         setStock(watchlist);
+//         // console.log(res.data);
+//       }).then(stock.map((watchlistItem) => {
 //         if (watchlistItem.symbol === quote.symbol) {
 //           return (
 //             <button
@@ -152,12 +179,12 @@ const buyStockHandler = () => {
 //             </button>
 //           );
 //         } 
-//       });
-//       return (
+//       })).then((
 //         <button className="watchlist_btn" onClick={postDataHandler}>
 //           Add to Watchlist
 //         </button>
-//       )
+//       ))
+//   })    
 // }
 
 const deleteWatchlistItemHandler = (watchlistItem) => {
@@ -533,7 +560,6 @@ const predictiveSearch = (item) => {
                  </button>
                </div>
                <br />
-
                {/* stock.map((watchlistItem) => {
                    if (watchlistItem.symbol === quote.symbol) {
                      setWatchItem('true');
@@ -562,9 +588,88 @@ const predictiveSearch = (item) => {
                     }
                   }
                 */}
-               <button className="watchlist_btn" onClick={postDataHandler}>
+               {/* newFunction(watchlistChecker) */}
+               {watchlistChecker()}
+               
+              {/* (() => {
+                 stock.map((watchlistItem) => {
+                   if (watchlistItem.symbol === quote.symbol) {
+                     return (
+                       <button
+                         className="watchlist_btn"
+                         onClick={deleteWatchlistItemHandler}
+                       >
+                         Remove from Watchlist
+                       </button>
+                     );
+                   }
+                 });
+                 return (
+                   <button className="watchlist_btn" onClick={postDataHandler}>
+                     Add to Watchlist
+                 </button> 
+                 ); 
+               })() */}
+            
+
+               {/* (() => { useEffect(() => {
+                 axios
+                   .get(
+                     `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`
+                   )
+                   .then((res) => {
+                     const watchlist = [];
+                     for (let stock in res.data) {
+                       watchlist.push({
+                         ...res.data[stock],
+                         firebaseID: stock,
+                       });
+                     }
+                     setStock(watchlist);
+                     // console.log(res.data);
+                   })
+                   .then(
+                     stock.map((watchlistItem) => {
+                       if (watchlistItem.symbol === quote.symbol) {
+                         return (
+                           <button
+                             className="watchlist_btn"
+                             onClick={deleteWatchlistItemHandler}
+                           >
+                             Remove from Watchlist
+                           </button>
+                         );
+                       }
+                     })
+                   )
+                   .then(
+                     <button
+                       className="watchlist_btn"
+                       onClick={postDataHandler}
+                     >
+                       Add to Watchlist
+                     </button>
+                   );
+               })})() */}
+               {/*
+                  stock.map(watchlistItem => {
+                    if (watchlistItem.symbol === quote.symbol) {
+                      return (
+                       <button
+                         className="watchlist_btn"
+                         onClick={deleteWatchlistItemHandler}
+                       >
+                         Remove from Watchlist
+                       </button>
+                     );
+                    }
+                  })
+                  */
+               }
+
+               {/* <button className="watchlist_btn" onClick={postDataHandler}>
                  Add to Watchlist
-               </button>
+              </button> */}
              </div>
            ) : (
              <div>
@@ -597,6 +702,10 @@ const predictiveSearch = (item) => {
      
  
 
+
+// function newFunction(watchlistChecker) {
+//   return watchlistChecker();
+// }
 // <div className="fund-account">
 //              <span className="funds">Fund Your Account</span>
 //              <p className="funds-message">
