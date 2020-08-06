@@ -16,7 +16,7 @@ export default ({ currentUser, logout }) => {
   const [portfolioValue, setPortfolioValue] = useState([]);
   const [stock, setStock] = useState([]); 
   const [shares, setShares] = useState(0);
-  // const [watchItem, setWatchItem] = useState('false');
+  // const [watchItem, setWatchItem] = useState(false);
 
   useEffect(() => {
     if (news.length < 1) {
@@ -138,54 +138,22 @@ const buyStockHandler = () => {
 };
 
 const watchlistChecker = () => {
-  // console.log(stock);
-  stock.map((watchlistItem) => {
+  for(let watchlistItem of stock){
     if (watchlistItem.symbol === quote.symbol) {
       return (
-        <button className="watchlist_btn" onClick={deleteWatchlistItemHandler}>
+        <button className="watchlist_btn" onClick={deleteWatchlistItemHandler(watchlistItem)}>
           Remove from Watchlist
         </button>
       );
     }
-  });
+  }
+
   return (
     <button className="watchlist_btn" onClick={postDataHandler}>
-       Add to Watchlist
+      Add to Watchlist
     </button>
   );
 }
-
-// const watchlistChecker = () => {
-//   useEffect(() => {
-//     axios
-//       .get(
-//         `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`
-//       )
-//       .then((res) => {
-//         const watchlist = [];
-//         for (let stock in res.data) {
-//           watchlist.push({ ...res.data[stock], firebaseID: stock });
-//         }
-//         setStock(watchlist);
-//         // console.log(res.data);
-//       }).then(stock.map((watchlistItem) => {
-//         if (watchlistItem.symbol === quote.symbol) {
-//           return (
-//             <button
-//               className="watchlist_btn"
-//               onClick={deleteWatchlistItemHandler}
-//             >
-//               Remove from Watchlist
-//             </button>
-//           );
-//         } 
-//       })).then((
-//         <button className="watchlist_btn" onClick={postDataHandler}>
-//           Add to Watchlist
-//         </button>
-//       ))
-//   })    
-// }
 
 const deleteWatchlistItemHandler = (watchlistItem) => {
   return (
@@ -560,116 +528,7 @@ const predictiveSearch = (item) => {
                  </button>
                </div>
                <br />
-               {/* stock.map((watchlistItem) => {
-                   if (watchlistItem.symbol === quote.symbol) {
-                     setWatchItem('true');
-                     return (
-                       <button
-                         className="watchlist_btn"
-                         onClick={deleteWatchlistItemHandler}
-                       >
-                         Remove from Watchlist
-                       </button>
-                     );
-                   }
-                  })
-                */}
-               {/* () => {
-                  if (watchItem === 'true') {
-                    setWatchItem('false'); 
-                    return (
-                      <button
-                        className="watchlist_btn"
-                        onClick={postDataHandler}
-                      >
-                        Add to Watchlist
-                      </button>
-                    );
-                    }
-                  }
-                */}
-               {/* newFunction(watchlistChecker) */}
                {watchlistChecker()}
-               
-              {/* (() => {
-                 stock.map((watchlistItem) => {
-                   if (watchlistItem.symbol === quote.symbol) {
-                     return (
-                       <button
-                         className="watchlist_btn"
-                         onClick={deleteWatchlistItemHandler}
-                       >
-                         Remove from Watchlist
-                       </button>
-                     );
-                   }
-                 });
-                 return (
-                   <button className="watchlist_btn" onClick={postDataHandler}>
-                     Add to Watchlist
-                 </button> 
-                 ); 
-               })() */}
-            
-
-               {/* (() => { useEffect(() => {
-                 axios
-                   .get(
-                     `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`
-                   )
-                   .then((res) => {
-                     const watchlist = [];
-                     for (let stock in res.data) {
-                       watchlist.push({
-                         ...res.data[stock],
-                         firebaseID: stock,
-                       });
-                     }
-                     setStock(watchlist);
-                     // console.log(res.data);
-                   })
-                   .then(
-                     stock.map((watchlistItem) => {
-                       if (watchlistItem.symbol === quote.symbol) {
-                         return (
-                           <button
-                             className="watchlist_btn"
-                             onClick={deleteWatchlistItemHandler}
-                           >
-                             Remove from Watchlist
-                           </button>
-                         );
-                       }
-                     })
-                   )
-                   .then(
-                     <button
-                       className="watchlist_btn"
-                       onClick={postDataHandler}
-                     >
-                       Add to Watchlist
-                     </button>
-                   );
-               })})() */}
-               {/*
-                  stock.map(watchlistItem => {
-                    if (watchlistItem.symbol === quote.symbol) {
-                      return (
-                       <button
-                         className="watchlist_btn"
-                         onClick={deleteWatchlistItemHandler}
-                       >
-                         Remove from Watchlist
-                       </button>
-                     );
-                    }
-                  })
-                  */
-               }
-
-               {/* <button className="watchlist_btn" onClick={postDataHandler}>
-                 Add to Watchlist
-              </button> */}
              </div>
            ) : (
              <div>
