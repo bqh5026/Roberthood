@@ -560,9 +560,6 @@ const predictiveSearch = (item) => {
  
 
 
-// function newFunction(watchlistChecker) {
-//   return watchlistChecker();
-// }
 // <div className="fund-account">
 //              <span className="funds">Fund Your Account</span>
 //              <p className="funds-message">

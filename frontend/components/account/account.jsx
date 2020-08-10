@@ -21,6 +21,7 @@ export default ({ currentUser, logout }) => {
      const [news, setNews] = useState([]);
      const [show, setShow] = useState(false); 
      const [portfolioValue, setPortfolioValue] = useState([]);
+     const [stock, setStock] = useState([]);
      const [shares, setShares] = useState(0); 
 
   useEffect(() => {
@@ -46,6 +47,22 @@ export default ({ currentUser, logout }) => {
       })
       .catch((error) => console.log(error));
   }, [portfolioValue]);
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `https://roberthood-edcdd.firebaseio.com/${currentUser.username}.json`,
+    })
+      .then((res) => {
+        const watchlist = [];
+        for (let stock in res.data) {
+          watchlist.push({ ...res.data[stock], firebaseID: stock });
+        }
+        setStock(watchlist);
+        // console.log(res.data);
+      })
+      .catch((error) => console.log(error));
+  });
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
@@ -78,7 +95,7 @@ export default ({ currentUser, logout }) => {
       .post(`./${currentUser.username}.json`, quote)
       .then(document.querySelector(".watchlist_btn")
       .textContent = "Added to Watchlist")
-      .then((document.querySelector(".watchlist_btn").disabled = true))
+      // .then((document.querySelector(".watchlist_btn").disabled = true))
       .catch((error) => console.log(error));
   };
 
@@ -124,6 +141,36 @@ export default ({ currentUser, logout }) => {
         .catch((error) => console.log(error));
       }
     )
+  };
+
+  const watchlistChecker = () => {
+    for (let watchlistItem of stock) {
+      if (watchlistItem.symbol === quote.symbol) {
+        return (
+          <button
+            className="watchlist_btn"
+            onClick={deleteWatchlistItemHandler(watchlistItem)}
+          >
+            Remove from Watchlist
+          </button>
+        );
+      }
+    }
+
+    return (
+      <button className="watchlist_btn" onClick={postDataHandler}>
+        Add to Watchlist
+      </button>
+    );
+  };
+
+  const deleteWatchlistItemHandler = (watchlistItem) => {
+    return (event) => {
+      event.preventDefault();
+      axios
+        .delete(`./${currentUser.username}/${watchlistItem.firebaseID}.json`)
+        .catch((error) => console.log(error));
+    };
   };
 
   const predictiveSearch = (item) => {
@@ -445,12 +492,15 @@ export default ({ currentUser, logout }) => {
                 <button className="buy-stock" onClick={buyStockHandler}>
                   Buy
                 </button>
+                <br />
+                <br />
+                <br />
+                <br />
+                {watchlistChecker()}
               </div>
               <br />
-              <button className="watchlist_btn" onClick={postDataHandler}>
-                Add to Watchlist
-              </button>
             </div>
+            <br />
           </div>
         ) : (
           <div>
@@ -492,9 +542,8 @@ export default ({ currentUser, logout }) => {
                       .map((a) => a.Total)
                       .reduce((a, b) => a + b, 0)
                       .toFixed(2)
-                      .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")  
-                    }
-              
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
 
                   <br />
