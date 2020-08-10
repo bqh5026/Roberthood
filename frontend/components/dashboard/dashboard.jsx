@@ -16,7 +16,6 @@ export default ({ currentUser, logout }) => {
   const [portfolioValue, setPortfolioValue] = useState([]);
   const [stock, setStock] = useState([]); 
   const [shares, setShares] = useState(0);
-  // const [watchItem, setWatchItem] = useState(false);
 
   useEffect(() => {
     if (news.length < 1) {
@@ -101,7 +100,6 @@ const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
     .then(document.querySelector('.watchlist_btn')
     .textContent = "Added to Watchlist")
-    .then(document.querySelector('.watchlist_btn').disabled=true)
     .catch(error => console.log(error)); 
 }
 
