@@ -495,7 +495,7 @@ const predictiveSearch = (item) => {
          <div className="right">
            {searchValue !== "qqq" ? (
              <div>
-               <div className="trade">
+               <div className="dashboard-trade">
                  <strong>
                    {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/}
                    Buy {quote.symbol.toUpperCase()}

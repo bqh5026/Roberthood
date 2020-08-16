@@ -463,7 +463,7 @@ export default ({ currentUser, logout }) => {
             </div>
 
             <div className="right">
-              <div className="trade">
+              <div className="account-trade">
                 <strong>
                   {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/}
                   Buy {quote.symbol.toUpperCase()}
