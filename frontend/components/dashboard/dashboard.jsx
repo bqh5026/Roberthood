@@ -492,7 +492,7 @@ const predictiveSearch = (item) => {
            </div>
          </div>
 
-         <div className="right">
+         <div className="dashboard-right">
            {searchValue !== "qqq" ? (
              <div>
                <div className="dashboard-trade">

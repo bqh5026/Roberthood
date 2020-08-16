@@ -462,7 +462,7 @@ export default ({ currentUser, logout }) => {
               </div>
             </div>
 
-            <div className="right">
+            <div className="account-right">
               <div className="account-trade">
                 <strong>
                   {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/}
