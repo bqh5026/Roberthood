@@ -23,6 +23,7 @@ export default ({ currentUser, logout }) => {
      const [portfolioValue, setPortfolioValue] = useState([]);
      const [stock, setStock] = useState([]);
      const [shares, setShares] = useState(0); 
+     const [sharesError, setSharesError] = useState(null);
 
   useEffect(() => {
     if (news.length < 1) {
@@ -124,11 +125,12 @@ export default ({ currentUser, logout }) => {
         .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
         // .then(response => console.log(response))
         .then(document.querySelector(".buy-stock").textContent = "Bought")
+        .then(setSharesError(null))
         .then(document.querySelector(".buy-stock").disabled=true)
         // .then(routeChange())
         .catch((error) => console.log(error));
     } else {
-      window.alert("Please enter valid number of shares")
+      setSharesError("Please enter valid number of shares.");
     }
   };
 
@@ -492,6 +494,11 @@ export default ({ currentUser, logout }) => {
                 <button className="buy-stock" onClick={buyStockHandler}>
                   Buy
                 </button>
+                <br />
+                <br />
+                <div className="account-purchase-shares-error">
+                  {sharesError}
+                </div>
                 <br />
                 <br />
                 <br />
