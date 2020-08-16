@@ -16,6 +16,7 @@ export default ({ currentUser, logout }) => {
   const [portfolioValue, setPortfolioValue] = useState([]);
   const [stock, setStock] = useState([]); 
   const [shares, setShares] = useState(0);
+  const [sharesError, setSharesError] = useState(null);
 
   useEffect(() => {
     if (news.length < 1) {
@@ -127,11 +128,13 @@ const buyStockHandler = () => {
     axios
       .post(`./portfolios/${currentUser.username}.json`, {Company: quote, Quantity: shares, Total: total})
       // .then(response => console.log(response))
+      .then(setSharesError(null))
       .then(document.querySelector(".buy-stock").textContent = "Bought")
       .then(routeChange())
       .catch((error) => console.log(error)); 
   } else {
-    window.alert("Please enter valid number of shares")
+    // window.alert("Please enter valid number of shares")
+    setSharesError("Please enter valid number of shares.");
   }
 };
 
@@ -524,6 +527,11 @@ const predictiveSearch = (item) => {
                  <button className="buy-stock" onClick={buyStockHandler}>
                    Buy
                  </button>
+                 <br />
+                 <br />
+                 <div className="dashboard-purchase-shares-error">
+                    {sharesError}
+                 </div>
                </div>
                <br />
                {watchlistChecker()}
