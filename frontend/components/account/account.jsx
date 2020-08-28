@@ -98,7 +98,6 @@ export default ({ currentUser, logout }) => {
       .post(`./${currentUser.username}.json`, quote)
       .then(document.querySelector(".watchlist_btn")
       .textContent = "Added to Watchlist")
-      // .then((document.querySelector(".watchlist_btn").disabled = true))
       .catch((error) => console.log(error));
   };
 
