@@ -9,6 +9,7 @@ import LoginContainer from './session/login_container';
 import SignupContainer from './session/signup_container';
 import DashboardContainer from './dashboard/dashboard_container'; 
 import AccountContainer from './account/account_container';
+import StocksContainer from './stocks/stocks_container';
 import Home from "./home/home";
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
@@ -21,20 +22,12 @@ export default () => (
       <AuthRoute path="/login" component={LoginContainer} />
       <ProtectedRoute path="/dashboard" component={DashboardContainer} />
       <ProtectedRoute path="/account" component={AccountContainer} />
+      <ProtectedRoute path="/stocks" component={StocksContainer} />
+      {/* <ProtectedRoute path="/stocks/:ticker" component={StocksContainer} /> */}
   </div>
 );
 
 
-// <Route exact path="/" render={(this.props.currentUser ? <Home /> : <Redirect to="/login" />)} />
-
-  //  <Route path="/" component={NavBarContainer} />;
-  // <header>
-  //   <Route
-  //     exact
-  //     path={["/", "/login", "/signup"]}
-  //     component={NavBarContainer}
-  //   />
-  // </header>;
 
 
    

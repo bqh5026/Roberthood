@@ -133,7 +133,6 @@ const buyStockHandler = () => {
       .then(routeChange())
       .catch((error) => console.log(error)); 
   } else {
-    // window.alert("Please enter valid number of shares")
     setSharesError("Please enter valid number of shares.");
   }
 };

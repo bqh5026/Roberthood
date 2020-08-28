@@ -571,15 +571,18 @@ export default ({ currentUser, logout }) => {
                       <hr />
                       {portfolioValue.map((item, idx) => (
                         <div key={idx} className="shares-information">
-                          <tr className="company-details">
-                            <td>
-                              <strong>{item.Company.company_name}</strong>
-                            </td>
-                            <td>{item.Company.symbol}</td>
-                            <td>{item.Quantity}</td>
-                            <td>${item.Company.latest_price.toFixed(2)}</td>
-                            <td>{item.Company.change_percent_s}</td>
-                          </tr>
+                          <Link to={`/stocks`}>
+                          {/* <Link to={`/stocks/${this.props.ticker}`}> */}
+                            <tr className="company-details">
+                              <td>
+                                <strong>{item.Company.company_name}</strong>
+                              </td>
+                              <td>{item.Company.symbol}</td>
+                              <td>{item.Quantity}</td>
+                              <td>${item.Company.latest_price.toFixed(2)}</td>
+                              <td>{item.Company.change_percent_s}</td>
+                            </tr>
+                          </Link>
 
                           <button
                             className="sell-stock"
