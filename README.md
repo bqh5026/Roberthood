@@ -8,6 +8,7 @@ Users can read up on latest business news, check stock quotes, add ticker to wat
 
 * React JS
 * Redux JS
+* React Router DOM
 * Ruby on Rails
 * Node JS
 * IEX API
