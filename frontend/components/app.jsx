@@ -22,8 +22,7 @@ export default () => (
       <AuthRoute path="/login" component={LoginContainer} />
       <ProtectedRoute path="/dashboard" component={DashboardContainer} />
       <ProtectedRoute path="/account" component={AccountContainer} />
-      <ProtectedRoute path="/stocks" component={StocksContainer} />
-      {/* <ProtectedRoute path="/stocks/:ticker" component={StocksContainer} /> */}
+      <ProtectedRoute path="/stocks/:ticker" component={StocksContainer} />
   </div>
 );
 

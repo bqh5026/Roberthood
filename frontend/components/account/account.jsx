@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useRef} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { Link, useParams } from 'react-router-dom';
 import {
   LineChart,
   Line,
@@ -25,6 +25,8 @@ export default ({ currentUser, logout }) => {
      const [shares, setShares] = useState(0); 
      const [sharesError, setSharesError] = useState(null);
 
+     const ticker = useParams();
+     
   useEffect(() => {
     if (news.length < 1) {
       search();
@@ -571,8 +573,7 @@ export default ({ currentUser, logout }) => {
                       <hr />
                       {portfolioValue.map((item, idx) => (
                         <div key={idx} className="shares-information">
-                          <Link to={`/stocks`}>
-                          {/* <Link to={`/stocks/${this.props.ticker}`}> */}
+                          <Link to={`/stocks/${ticker}`}>
                             <tr className="company-details">
                               <td>
                                 <strong>{item.Company.company_name}</strong>
