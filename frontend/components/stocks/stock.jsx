@@ -331,16 +331,29 @@ export default ({currentUser, logout}) => {
             <br />
             <br />
             <br />
-          
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div>
+              <h1>Stocks Page Under Construction</h1>
+            </div>
+
+
           </div>
         );
 
-    // return (
-    //   <div>
-    //     <h1>Stocks Page Under Construction</h1>
-    //     <p>{ticker}</p>
-    //   </div>
-    // );
+ 
+     
 }
 
   // {
