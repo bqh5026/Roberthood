@@ -346,6 +346,7 @@ export default ({currentUser, logout}) => {
 
             <div>
               <h1>Stocks Page Under Construction</h1>
+              <p>{JSON.stringify(quote.company_name)}</p>
             </div>
 
 
