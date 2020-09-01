@@ -327,7 +327,6 @@ export default ({currentUser, logout}) => {
                 </nav>
               </div>
             </div>
-
             <br />
             <br />
             <br />
@@ -343,13 +342,24 @@ export default ({currentUser, logout}) => {
             <br />
             <br />
             <br />
-
             <div>
               <h1>Stocks Page Under Construction</h1>
-              <p>{JSON.stringify(quote.company_name)}</p>
+              <h2>{JSON.stringify(quote.company_name)}</h2>
+              <p>
+                ${JSON.stringify(quote.latest_price)}
+                <br />${JSON.stringify(quote.change)}(
+                {JSON.stringify(quote.change_percent_s)}) Today
+              </p>
             </div>
-
-
+            <div className="Chart">
+              <LineChart width={800} height={400} data={chartData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="minute" />
+                  <YAxis type="number" domain={["auto", "auto"]} />
+                  <Tooltip />
+                  <Line type="monotone" dataKey="close" stroke="#8884d8" />
+              </LineChart>
+            </div>
           </div>
         );
 
@@ -396,15 +406,7 @@ export default ({currentUser, logout}) => {
   //         </div>
   //       </div>
 
-  //       <div className="Chart">
-  //         <LineChart width={800} height={400} data={chartData}>
-  //           <CartesianGrid strokeDasharray="3 3" />
-  //           <XAxis dataKey="minute" />
-  //           <YAxis type="number" domain={["auto", "auto"]} />
-  //           <Tooltip />
-  //           <Line type="monotone" dataKey="close" stroke="#8884d8" />
-  //         </LineChart>
-  //       </div>
+ 
 
   //       <div className="news-header">
   //         <h4>News</h4>
