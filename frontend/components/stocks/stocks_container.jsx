@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Stocks from './stock';
+import Stocks from './stocks';
 import { logout } from '../../actions/session.js';
 
 const msp = (state) => {

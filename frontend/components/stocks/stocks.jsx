@@ -342,24 +342,68 @@ export default ({currentUser, logout}) => {
             <br />
             <br />
             <br />
-            <div>
-              <h1>Stocks Page Under Construction</h1>
-              <h2>{JSON.stringify(quote.company_name)}</h2>
-              <p>
-                ${JSON.stringify(quote.latest_price)}
-                <br />${JSON.stringify(quote.change)}(
-                {JSON.stringify(quote.change_percent_s)}) Today
-              </p>
+            <div className="account-page">
+              <div className="stocks-left">
+                <div>
+                  <h2>{JSON.stringify(quote.company_name)}</h2>
+                  <p>
+                    ${JSON.stringify(quote.latest_price)}
+                    <br />${JSON.stringify(quote.change)}(
+                    {JSON.stringify(quote.change_percent_s)}) Today
+                  </p>
+                </div>
+                <div className="Chart">
+                  <LineChart width={800} height={400} data={chartData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="minute" />
+                      <YAxis type="number" domain={["auto", "auto"]} />
+                      <Tooltip />
+                      <Line type="monotone" dataKey="close" stroke="#8884d8" />
+                  </LineChart>
+                </div>
+              </div>
+
+              <div className="account-right">
+                <div className="account-trade">
+                  <strong>Buy {quote.symbol}</strong>
+                  <div className="account-stock-purchase">
+                    Shares{" "}
+                    <input
+                      value={shares}
+                      className="account-purchase-shares"
+                      type="number"
+                      min="0"
+                      step="1"
+                      onChange={(e) => setShares(e.target.value)}
+                    ></input>
+                  </div>
+                  <br />
+                  <hr />
+                  <div>Market Price:</div>
+                  <br />
+                  <div className="market-price">${quote.latest_price}</div>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <button className="buy-stock" onClick={buyStockHandler}>
+                    Buy
+                  </button>
+                  <br />
+                  <br />
+                  <div className="account-purchase-shares-error">{sharesError}</div>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  {watchlistChecker()}
+                </div>
+                <br />
             </div>
-            <div className="Chart">
-              <LineChart width={800} height={400} data={chartData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="minute" />
-                  <YAxis type="number" domain={["auto", "auto"]} />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="close" stroke="#8884d8" />
-              </LineChart>
+          
             </div>
+
           </div>
         );
 
@@ -368,8 +412,7 @@ export default ({currentUser, logout}) => {
 }
 
   // {
-  //   <div className="account-page">
-  //     <div className="left">
+
   //       <div className="Quote">
   //         <div>
   //           <ul className="ticker-results">
@@ -451,44 +494,4 @@ export default ({currentUser, logout}) => {
   //       <div className="footer"></div>
   //     </div>
 
-  //     <div className="account-right">
-  //       <div className="account-trade">
-  //         <strong>Buy {quote.symbol.toUpperCase()}</strong>
-  //         <div className="account-stock-purchase">
-  //           Shares{" "}
-  //           <input
-  //             value={shares}
-  //             className="account-purchase-shares"
-  //             type="number"
-  //             min="0"
-  //             step="1"
-  //             onChange={(e) => setShares(e.target.value)}
-  //           ></input>
-  //         </div>
-  //         <br />
-  //         <hr />
-  //         <div>Market Price:</div>
-  //         <br />
-  //         <div className="market-price">${quote.latest_price.toFixed(2)}</div>
-  //         <br />
-  //         <br />
-  //         <br />
-  //         <br />
-  //         <br />
-  //         <button className="buy-stock" onClick={buyStockHandler}>
-  //           Buy
-  //         </button>
-  //         <br />
-  //         <br />
-  //         <div className="account-purchase-shares-error">{sharesError}</div>
-  //         <br />
-  //         <br />
-  //         <br />
-  //         <br />
-  //         {watchlistChecker()}
-  //       </div>
-  //       <br />
-  //     </div>
-  //     <br />
-  //   </div>;
   // }
