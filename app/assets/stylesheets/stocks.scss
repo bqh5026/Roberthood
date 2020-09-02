@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.stocks-page {
+    margin-left: 25%;
+    display: flex;
+}
+
 .stocks-company-name {
     font-size: 2.5rem; 
 }
@@ -9,4 +15,12 @@
 .stocks-left {
     display: flex;
     flex-direction: column;
+}
+
+.stocks-right {
+    margin-left: 3rem; 
+}
+
+.stocks-trade {
+    width: 15rem;
 }

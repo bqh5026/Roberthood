@@ -50,7 +50,7 @@ export default ({currentUser, logout}) => {
              total.push({ ...res.data[stock], firebaseID: stock });
            }
            setPortfolioValue(total);
-           // console.log(res.data);
+          //  console.log(res.data);
          })
          .catch((error) => console.log(error));
      }, [portfolioValue]);
@@ -342,7 +342,7 @@ export default ({currentUser, logout}) => {
             <br />
             <br />
             <br />
-            <div className="account-page">
+            <div className="stocks-page">
               <div className="stocks-left">
                 <div>
                   <h2>{JSON.stringify(quote.company_name)}</h2>
@@ -363,9 +363,9 @@ export default ({currentUser, logout}) => {
                 </div>
               </div>
 
-              <div className="account-right">
-                <div className="account-trade">
-                  <strong>Buy {quote.symbol}</strong>
+              <div className="stocks-right">
+                <div className="stocks-trade">
+                  <strong>Sell {quote.symbol}</strong>
                   <div className="account-stock-purchase">
                     Shares{" "}
                     <input
@@ -387,8 +387,8 @@ export default ({currentUser, logout}) => {
                   <br />
                   <br />
                   <br />
-                  <button className="buy-stock" onClick={buyStockHandler}>
-                    Buy
+                  <button className="buy-stock" onClick={sellStockHandler}>
+                    Sell
                   </button>
                   <br />
                   <br />
