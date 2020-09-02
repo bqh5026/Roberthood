@@ -26,7 +26,9 @@ export default ({currentUser, logout}) => {
    const [portfolioValue, setPortfolioValue] = useState([]);
    const [stock, setStock] = useState([]);
    const [shares, setShares] = useState(0);
+   const [availableShares, setAvailableShares] = useState(0);
    const [sharesError, setSharesError] = useState(null);
+
 
   
 
@@ -73,7 +75,7 @@ export default ({currentUser, logout}) => {
 
      const search = () => {
        $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
-         console.log(res);
+        //  console.log(res);
          setQuote(res);
        });
 
@@ -146,15 +148,34 @@ export default ({currentUser, logout}) => {
          }
        };
 
-      const sellStockHandler = (stock) => {
-           return (event) => {
-             event.preventDefault();
-             axios
-               .delete(
-                 `./portfolios/${currentUser.username}/${stock.firebaseID}.json`
-               )
-               .catch((error) => console.log(error));
-           };
+        useEffect(() => {
+           for (const stock of portfolioValue) {
+             console.log(stock);
+             if (stock.Company.symbol === quote.symbol)
+               setAvailableShares(parseInt(stock.Quantity));
+           }
+         }, [availableShares]);
+
+      const sellStockHandler = () => {
+        const total = shares * quote.latest_price;
+          for (const stock of portfolioValue) {
+            if (stock.Company.symbol === quote.symbol && shares <= stock.Quantity) {
+              axios
+                .patch(
+                  `./portfolios/${currentUser.username}/${stock.firebaseID}.json`,
+                  {
+                    Quantity: parseInt(stock.Quantity) - parseInt(shares),
+                  }
+                )
+                .then(
+                  (document.querySelector(".stocks-sell-stock").textContent = "Sold")
+                )
+                .then((document.querySelector(".stocks-sell-stock").disabled = true));
+                return;  
+            } else {
+              setSharesError("Please enter valid number of shares.");
+            }
+          }
          };
 
       const watchlistChecker = () => {
@@ -387,10 +408,16 @@ export default ({currentUser, logout}) => {
                   <br />
                   <br />
                   <br />
-                  <button className="buy-stock" onClick={sellStockHandler}>
+                  <button className="stocks-sell-stock" onClick={sellStockHandler}>
                     Sell
                   </button>
                   <br />
+                  <hr />
+                  <br />
+                  <br />
+                  <div className='available-shares'>
+                  {availableShares} Shares Available - Sell All
+                  </div>
                   <br />
                   <div className="account-purchase-shares-error">{sharesError}</div>
                   <br />
