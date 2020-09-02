@@ -588,7 +588,7 @@ export default ({ currentUser, logout }) => {
                             className="sell-stock"
                             onClick={sellStockHandler(item)}
                           >
-                            Sell stock
+                            Sell All
                           </button>
                           <br />
                         </div>

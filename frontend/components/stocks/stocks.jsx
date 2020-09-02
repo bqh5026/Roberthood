@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import {
   LineChart,
   Line,
@@ -30,6 +30,11 @@ export default ({currentUser, logout}) => {
    const [sharesError, setSharesError] = useState(null);
 
 
+  const history = useHistory();
+  const routeChange = () => {
+     let path = `/account`;
+     history.push(path);
+   }; 
   
 
    useEffect(() => {
@@ -159,7 +164,10 @@ export default ({currentUser, logout}) => {
       const sellStockHandler = () => {
         const total = shares * quote.latest_price;
           for (const stock of portfolioValue) {
-            if (stock.Company.symbol === quote.symbol && shares <= stock.Quantity) {
+            if (
+              stock.Company.symbol === quote.symbol &&
+              shares <= stock.Quantity
+            ) {
               axios
                 .patch(
                   `./portfolios/${currentUser.username}/${stock.firebaseID}.json`,
@@ -168,13 +176,19 @@ export default ({currentUser, logout}) => {
                   }
                 )
                 .then(
-                  (document.querySelector(".stocks-sell-stock").textContent = "Sold")
+                  (document.querySelector(".stocks-sell-stock").textContent =
+                    "Sold")
                 )
-                .then((document.querySelector(".stocks-sell-stock").disabled = true));
-                return;  
-            } else {
-              setSharesError("Please enter valid number of shares.");
+                .then(
+                  (document.querySelector(".stocks-sell-stock").disabled = true)
+                )
+                .then(routeChange());
+                return;
             }
+
+            // else {
+              // setSharesError("Please enter valid number of shares.");
+            // }
           }
          };
 
@@ -416,13 +430,10 @@ export default ({currentUser, logout}) => {
                   <br />
                   <br />
                   <div className='available-shares'>
-                  {availableShares} Shares Available - Sell All
+                  {/* {availableShares} Shares Available - Sell All */}
                   </div>
                   <br />
                   <div className="account-purchase-shares-error">{sharesError}</div>
-                  <br />
-                  <br />
-                  <br />
                   <br />
                   {watchlistChecker()}
                 </div>
