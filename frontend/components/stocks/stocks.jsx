@@ -153,13 +153,102 @@ export default ({currentUser, logout}) => {
          }
        };
 
-        useEffect(() => {
-           for (const stock of portfolioValue) {
-             console.log(stock);
-             if (stock.Company.symbol === quote.symbol)
-               setAvailableShares(parseInt(stock.Quantity));
-           }
-         }, [availableShares]);
+      // useEffect(() => {
+      //     const checkAvailableShares = () => {
+      //       console.log(portfolioValue); 
+      //       console.log(currentUser); 
+      //       for (const stock of portfolioValue) {
+      //         if (stock.Company.symbol === quote.symbol)
+      //           setAvailableShares(parseInt(stock.Quantity));
+      //       }
+      //     };
+      //     checkAvailableShares(); 
+      // }, [availableShares])
+    
+      // const checkAvailableShares = () => {
+      //   console.log(portfolioValue);
+      // }
+
+      // const checkAvailableShares = () => {
+      //       // console.log(portfolioValue); 
+      //       // console.log(currentUser); 
+      //       console.log('hello');
+      //       // console.log(stock);
+      //       // console.log(quote);
+      //       // for (const item of stock) {
+      //       //   if (item.Company.symbol === quote.symbol)
+      //       //     setAvailableShares(parseInt(stock.Quantity));
+      //       // }
+      //     }
+          
+      // useEffect(() => {
+      //   return () => checkAvailableShares()
+      // }, [availableShares])
+
+      useEffect(() => {
+        console.log('hello');
+        console.log(stock);
+        console.log(JSON.stringify(quote)); 
+        for (const item of stock) {
+          if (item.Company.symbol === quote.symbol)
+            setAvailableShares(parseInt(stock.Quantity));
+        }
+      }, [availableShares])
+
+      // useEffect(() => {
+      //   const checkAvailableShares = () => {
+      //     for (const stock of portfolioValue) {
+      //       //  console.log(stock.Company.symbol);
+      //        if (stock.Company.symbol === quote.symbol)
+      //          setAvailableShares(parseInt(stock.Quantity));
+      //      }
+      //   };
+      //   checkAvailableShares();
+
+      // }, [availableShares])
+
+      // useEffect(() => {
+      //   console.log(portfolioValue);
+      //   const fetchFunc = async () => {
+      //     const response = await fetch(
+      //       `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`
+      //     );
+      //     const portfolioJson = await response.json();
+      //     for (const stock of portfolioJson) {      
+      //          if (stock.Company.symbol === quote.symbol)
+      //            setAvailableShares(parseInt(stock.Quantity));
+      //      }
+      //   };
+      //   fetchFunc(); 
+      // }, [availableShares])
+
+      // useEffect(() => {
+      //   console.log(JSON.stringify(quote));
+      // }, [availableShares])
+
+    //   useEffect(() => {
+    //      axios({
+    //      method: "GET",
+    //      url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`,
+    //    })
+    //      .then((res) => {
+    //        const total = [];
+    //        for (let stock in res.data) {
+    //          total.push({ ...res.data[stock], firebaseID: stock });
+    //        }
+    //        setPortfolioValue(total);
+    //       //  console.log(res.data);
+    //      })
+    //      .then(() => {
+    //        for (const stock of portfolioValue) {
+    //        //  console.log(stock.Company.symbol);
+    //         if (stock.Company.symbol === quote.symbol)
+    //           setAvailableShares(parseInt(stock.Quantity));
+    //           console.log(availableShares); 
+    //       }}
+    //      )
+    //      .catch((error) => console.log(error));
+    //  }, [availableShares]);
 
       const sellStockHandler = () => {
         const total = shares * quote.latest_price;
@@ -430,7 +519,8 @@ export default ({currentUser, logout}) => {
                   <br />
                   <br />
                   <div className='available-shares'>
-                  {/* {availableShares} Shares Available - Sell All */}
+                  {/* checkAvailableShares() */}
+                  {availableShares} Shares Available - Sell All
                   </div>
                   <br />
                   <div className="account-purchase-shares-error">{sharesError}</div>
