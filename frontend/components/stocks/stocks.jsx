@@ -153,7 +153,7 @@ export default ({currentUser, logout}) => {
            setSharesError("Please enter valid number of shares.");
          }
        };
-       
+
       useEffect(() => {
         checkAvailableShares();
       })
@@ -459,7 +459,7 @@ export default ({currentUser, logout}) => {
                   <br />
                   <div className="available-shares">
                     {/* checkAvailableShares() */}
-                    {availableShares} Shares Available - Sell All
+                    {availableShares} {(availableShares <= 1) ? "Share" : "Shares"} Available - Sell All
                   </div>
                   <br />
                   <div className="account-purchase-shares-error">
