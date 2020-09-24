@@ -88,6 +88,7 @@ export default ({currentUser, logout}) => {
          // console.log(res);
          setChartData(res);
        });
+       setSearchValue(''); 
      };
 
      const handleOnChange = (event) => {
@@ -153,37 +154,6 @@ export default ({currentUser, logout}) => {
          }
        };
 
-      // useEffect(() => {
-      //     const checkAvailableShares = () => {
-      //       console.log(portfolioValue); 
-      //       console.log(currentUser); 
-      //       for (const stock of portfolioValue) {
-      //         if (stock.Company.symbol === quote.symbol)
-      //           setAvailableShares(parseInt(stock.Quantity));
-      //       }
-      //     };
-      //     checkAvailableShares(); 
-      // }, [availableShares])
-    
-      // const checkAvailableShares = () => {
-      //   console.log(portfolioValue);
-      // }
-
-      // const checkAvailableShares = () => {
-      //       // console.log(portfolioValue); 
-      //       // console.log(currentUser); 
-      //       console.log('hello');
-      //       // console.log(stock);
-      //       // console.log(quote);
-      //       // for (const item of stock) {
-      //       //   if (item.Company.symbol === quote.symbol)
-      //       //     setAvailableShares(parseInt(stock.Quantity));
-      //       // }
-      //     }
-          
-      // useEffect(() => {
-      //   return () => checkAvailableShares()
-      // }, [availableShares])
 
       useEffect(() => {
         console.log('hello');
@@ -195,60 +165,6 @@ export default ({currentUser, logout}) => {
         }
       }, [availableShares])
 
-      // useEffect(() => {
-      //   const checkAvailableShares = () => {
-      //     for (const stock of portfolioValue) {
-      //       //  console.log(stock.Company.symbol);
-      //        if (stock.Company.symbol === quote.symbol)
-      //          setAvailableShares(parseInt(stock.Quantity));
-      //      }
-      //   };
-      //   checkAvailableShares();
-
-      // }, [availableShares])
-
-      // useEffect(() => {
-      //   console.log(portfolioValue);
-      //   const fetchFunc = async () => {
-      //     const response = await fetch(
-      //       `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`
-      //     );
-      //     const portfolioJson = await response.json();
-      //     for (const stock of portfolioJson) {      
-      //          if (stock.Company.symbol === quote.symbol)
-      //            setAvailableShares(parseInt(stock.Quantity));
-      //      }
-      //   };
-      //   fetchFunc(); 
-      // }, [availableShares])
-
-      // useEffect(() => {
-      //   console.log(JSON.stringify(quote));
-      // }, [availableShares])
-
-    //   useEffect(() => {
-    //      axios({
-    //      method: "GET",
-    //      url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`,
-    //    })
-    //      .then((res) => {
-    //        const total = [];
-    //        for (let stock in res.data) {
-    //          total.push({ ...res.data[stock], firebaseID: stock });
-    //        }
-    //        setPortfolioValue(total);
-    //       //  console.log(res.data);
-    //      })
-    //      .then(() => {
-    //        for (const stock of portfolioValue) {
-    //        //  console.log(stock.Company.symbol);
-    //         if (stock.Company.symbol === quote.symbol)
-    //           setAvailableShares(parseInt(stock.Quantity));
-    //           console.log(availableShares); 
-    //       }}
-    //      )
-    //      .catch((error) => console.log(error));
-    //  }, [availableShares]);
 
       const sellStockHandler = () => {
         const total = shares * quote.latest_price;
@@ -274,10 +190,6 @@ export default ({currentUser, logout}) => {
                 .then(routeChange());
                 return;
             }
-
-            // else {
-              // setSharesError("Please enter valid number of shares.");
-            // }
           }
          };
 
@@ -539,87 +451,4 @@ export default ({currentUser, logout}) => {
      
 }
 
-  // {
-
-  //       <div className="Quote">
-  //         <div>
-  //           <ul className="ticker-results">
-  //             <li>
-  //               <h1>
-  //                 {JSON.stringify(quote.company_name).replace(/['"]+/g, "")}
-  //               </h1>
-  //             </li>
-  //             <li>
-  //               <span>Ticker:</span>{" "}
-  //               {JSON.stringify(quote.symbol).replace(/['"]+/g, "")}
-  //             </li>
-  //             <li>
-  //               <span>Latest Price:</span>${JSON.stringify(quote.latest_price)}
-  //             </li>
-  //             <li>
-  //               ${JSON.stringify(quote.change)}(
-  //               {JSON.stringify(quote.change_percent_s).replace(/['"]+/g, "")}){" "}
-  //               <span className="today">Today </span>
-  //             </li>
-  //             <li>
-  //               <span>PE ratio:</span>
-  //               {JSON.stringify(quote.pe_ratio)}
-  //             </li>
-  //             <li>
-  //               <span>YTD change:</span>{" "}
-  //               {JSON.stringify((quote.ytd_change * 100).toFixed(2)).replace(
-  //                 /['"]+/g,
-  //                 ""
-  //               )}
-  //               %
-  //             </li>
-  //           </ul>
-  //         </div>
-  //       </div>
-
  
-
-  //       <div className="news-header">
-  //         <h4>News</h4>
-  //         <hr></hr>
-  //       </div>
-
-  //       <div className="news">
-  //         <ul>
-  //           {news.map((item, idx) => {
-  //             return (
-  //               <li key={idx} className="news-item">
-  //                 <div>
-  //                   <i className="fas fa-bolt"></i>
-  //                   {"\u00A0"}
-  //                   {"\u00A0"}
-  //                   <strong>{item.source.name}</strong>
-  //                   {"\u00A0"}
-  //                   {"\u00A0"}
-  //                   {item.publishedAt}
-  //                 </div>
-  //                 <div className="news-title">
-  //                   <div>
-  //                     <a
-  //                       className="news-title-header"
-  //                       href={item.url}
-  //                       target="_blank"
-  //                     >
-  //                       {item.title}
-  //                     </a>
-  //                   </div>
-  //                   <div>
-  //                     <img className="news-image" src={item.urlToImage} />
-  //                   </div>
-  //                 </div>
-  //                 <hr />
-  //               </li>
-  //             );
-  //           })}
-  //         </ul>
-  //       </div>
-
-  //       <div className="footer"></div>
-  //     </div>
-
-  // }

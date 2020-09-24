@@ -277,14 +277,6 @@ const predictiveSearch = (item) => {
                      </div>
                      <hr />
                    </li>
-                   {/* <li className="dropdown-list">
-                     <img className="rg-logo" src={roberthoodGoldURL} />
-                     <span className="gold">Roberthood Gold</span>
-                   </li>
-                   <li className="dropdown-list">
-                     <i className="fas fa-gift menu-icon"></i>
-                     <span className="dropdown-menu-item">Free Stock</span>
-                   </li> */}
 
                    <li className="dropdown-list">
                      <i className="fab fa-angellist menu-icon"></i>
@@ -311,36 +303,6 @@ const predictiveSearch = (item) => {
                        <span className="dropdown-menu-item">Account</span>
                      </Link>
                    </li>
-                   {/* 
-                   <li className="dropdown-list">
-                     <i className="fas fa-university menu-icon"></i>
-                     <span className="dropdown-menu-item">Banking</span>
-                   </li>
-                   <li className="dropdown-list">
-                     <i className="fas fa-history menu-icon"></i>
-                     <span className="dropdown-menu-item">History</span>
-                   </li>
-                   <li className="dropdown-list">
-                     <i className="fas fa-file-alt menu-icon"></i>
-                     <span className="dropdown-menu-item">Documents</span>
-                   </li>
-                   <li className="dropdown-list">
-                     <i className="fas fa-cog menu-icon"></i>
-                     <span className="dropdown-menu-item">Settings</span>
-                   </li>
-                   <hr />
-                   <li className="dropdown-list">
-                     <i className="far fa-life-ring menu-icon"></i>
-                     <span className="dropdown-menu-item">Help Center</span>
-                   </li>
-                   <li className="dropdown-list">
-                     <i className="fas fa-comment-dots menu-icon"></i>
-                     <span className="dropdown-menu-item">Contact Us</span>
-                   </li>
-                   <li className="dropdown-list">
-                     <i className="far fa-file-pdf menu-icon"></i>
-                     <span className="dropdown-menu-item">Disclosure</span>
-                   </li> */}
                    <li className="dropdown-list">
                      <i className="fas fa-sign-out-alt menu-icon"></i>
                      <span
@@ -484,10 +446,6 @@ const predictiveSearch = (item) => {
            </div>
 
            <div className="footer">
-             {/* <p className="footer-paragraph">
-               For more information, see our
-               <span className="privacy-policy"> Privacy Policy</span>.
-              </p> */}
            </div>
          </div>
 
@@ -567,66 +525,7 @@ const predictiveSearch = (item) => {
  
 
 
-// <div className="fund-account">
-//              <span className="funds">Fund Your Account</span>
-//              <p className="funds-message">
-//                Your bank account is ready! Fund your Roberthood account to begin
-//                trading.
-//              </p>
-//              <span className="add-funds-message">Add Funds</span>
-//            </div>
 
-//            <div className="popular-collections">
-//              <h4>Popular Collections</h4>
-//              <span className="show-more-collections">Show More</span>
-//            </div>
-
-//  {
-//    stock ? JSON.stringify(stock) : "";
-//  }
 
   
   
-
-          // {
-          //   quote ? (
-          //     <div>
-          //       <strong>
-          //         Buy {JSON.stringify(quote.symbol).replace(/['"]+/g, "")}
-          //       </strong>
-          //       <hr />
-          //       <form>
-          //         <label>
-          //           Shares
-          //           <input></input>
-          //         </label>
-          //         <label>
-          //           Market Price
-          //           <input value="${quote.latest_price}"></input>
-          //         </label>
-          //       </form>
-          //     </div>
-          //   ) : (
-          //     <div>
-          //       <span className="watchlist-header">Watchlist</span>
-          //       <hr />
-          //       <div>
-          //         {stock.map((item, idx) => (
-          //           <div key={idx} className="watchlist">
-          //             <ul className="watchlist_item">
-          //               <li>{item.symbol}</li>
-          //               <li>{item.latest_price}</li>
-          //               <li>{item.change_percent_s}</li>
-          //             </ul>
-          //             <button
-          //               className="remove_from_watchlist"
-          //               onClick={deleteWatchlistItemHandler(item)}
-          //             >
-          //               Remove from Watchlist
-          //             </button>
-          //           </div>
-          //         ))}
-          //       </div>
-          //     </div>
-          //   );
-          // }

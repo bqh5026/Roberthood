@@ -264,10 +264,6 @@ export default ({ currentUser, logout }) => {
               <Link to="/dashboard">
                 <span className="nav-menu-item">Portfolio</span>
               </Link>
-              {/* <span className="nav-menu-item">Cash</span>
-              <span className="nav-menu-item" to="#">
-                Messages
-                </span> */}
               <div className="dropdown">
                 <button className="nav-menu-item dropdown" onClick={operation}>
                   Account
@@ -278,15 +274,6 @@ export default ({ currentUser, logout }) => {
                       <div>Ben Hsieh</div>
                       <hr className="horizontal-bar" />
                     </li>
-                    {/* <li className="dropdown-list">
-                      <img className="rg-logo" src={roberthoodGoldURL} />
-                      <span className="gold">Roberthood Gold</span>
-                    </li>
-                    <li className="dropdown-list">
-                      <i className="fas fa-gift menu-icon"></i>
-                      <span className="dropdown-menu-item">Free Stock</span>
-                </li> */}
-
                     <li className="dropdown-list">
                       <i class="fab fa-angellist menu-icon"></i>
                       <a href="https://angel.co/u/ben-hsieh-6">
@@ -311,36 +298,6 @@ export default ({ currentUser, logout }) => {
                         <span className="dropdown-menu-item">Account</span>
                       </Link>
                     </li>
-
-                    {/* <li className="dropdown-list">
-                      <i className="fas fa-university menu-icon"></i>
-                      <span className="dropdown-menu-item">Banking</span>
-                    </li>
-                    <li className="dropdown-list">
-                      <i className="fas fa-history menu-icon"></i>
-                      <span className="dropdown-menu-item">History</span>
-                    </li>
-                    <li className="dropdown-list">
-                      <i className="fas fa-file-alt menu-icon"></i>
-                      <span className="dropdown-menu-item">Documents</span>
-                    </li>
-                    <li className="dropdown-list">
-                      <i className="fas fa-cog menu-icon"></i>
-                      <span className="dropdown-menu-item">Settings</span>
-                    </li>
-                    <hr />
-                    <li className="dropdown-list">
-                      <i className="far fa-life-ring menu-icon"></i>
-                      <span className="dropdown-menu-item">Help Center</span>
-                    </li>
-                    <li className="dropdown-list">
-                      <i className="fas fa-comment-dots menu-icon"></i>
-                      <span className="dropdown-menu-item">Contact Us</span>
-                    </li>
-                    <li className="dropdown-list">
-                      <i className="far fa-file-pdf menu-icon"></i>
-                      <span className="dropdown-menu-item">Disclosure</span>
-              </li> */}
                     <li className="dropdown-list">
                       <i className="fas fa-sign-out-alt menu-icon"></i>
                       <span
@@ -456,10 +413,6 @@ export default ({ currentUser, logout }) => {
               </div>
 
               <div className="footer">
-                {/* <p className="footer-paragraph">
-                  For more information, see our
-                  <span className="privacy-policy"> Privacy Policy</span>.
-                </p> */}
               </div>
             </div>
 
@@ -532,7 +485,6 @@ export default ({ currentUser, logout }) => {
                 <li className="user-nav-item user-anchor-link">
                   <a href="https://benhsieh-dev.github.io/">Personal Site</a>
                 </li>
-                {/* <li className="user-nav-item">Settings</li> */}
                 <div className="animation start-account"></div>
               </nav>
             </div>
