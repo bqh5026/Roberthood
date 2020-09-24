@@ -153,18 +153,16 @@ export default ({currentUser, logout}) => {
            setSharesError("Please enter valid number of shares.");
          }
        };
-
-
+       
       useEffect(() => {
-        console.log('hello');
-        console.log(stock);
-        console.log(JSON.stringify(quote)); 
-        for (const item of stock) {
-          if (item.Company.symbol === quote.symbol)
-            setAvailableShares(parseInt(stock.Quantity));
-        }
-      }, [availableShares])
+        checkAvailableShares();
+      })
 
+      const checkAvailableShares = () => {
+        portfolioValue.forEach(stock => {
+          if (stock.Company.symbol === quote.symbol) setAvailableShares(stock.Quantity); 
+        })
+      }
 
       const sellStockHandler = () => {
         const total = shares * quote.latest_price;
