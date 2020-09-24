@@ -191,6 +191,17 @@ export default ({currentUser, logout}) => {
           }
          };
 
+      const sellAllHandler = (stock) => {
+          return (event) => {
+            event.preventDefault();
+            axios
+              .delete(
+                `./portfolios/${currentUser.username}/${stock.firebaseID}.json`
+              )
+              .catch((error) => console.log(error));
+          };
+        };
+
       const watchlistChecker = () => {
            for (let watchlistItem of stock) {
              if (watchlistItem.symbol === quote.symbol) {
@@ -342,7 +353,7 @@ export default ({currentUser, logout}) => {
                         </li>
                         <li className="dropdown-list">
                           <i className="fas fa-briefcase menu-icon"></i>
-                          <Link to="/dashboard">
+                          <Link to="/account">
                             <span className="dropdown-menu-item">Account</span>
                           </Link>
                         </li>
@@ -420,7 +431,6 @@ export default ({currentUser, logout}) => {
                     })}
                   </ul>
                 </div>
-
               </div>
 
               <div className="stocks-right">
@@ -459,7 +469,9 @@ export default ({currentUser, logout}) => {
                   <br />
                   <div className="available-shares">
                     {/* checkAvailableShares() */}
-                    {availableShares} {(availableShares <= 1) ? "Share" : "Shares"} Available - Sell All
+                    {availableShares}{" "}
+                    {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
+                    <button onClick={sellAllHandler(quote.symbol)}>Sell All</button>
                   </div>
                   <br />
                   <div className="account-purchase-shares-error">
