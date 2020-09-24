@@ -365,19 +365,6 @@ export default ({currentUser, logout}) => {
             </div>
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
             <div className="stocks-page">
               <div className="stocks-left">
                 <div>
@@ -390,13 +377,52 @@ export default ({currentUser, logout}) => {
                 </div>
                 <div className="Chart">
                   <LineChart width={800} height={400} data={chartData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="minute" />
-                      <YAxis type="number" domain={["auto", "auto"]} />
-                      <Tooltip />
-                      <Line type="monotone" dataKey="close" stroke="#8884d8" />
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="minute" />
+                    <YAxis type="number" domain={["auto", "auto"]} />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="close" stroke="#8884d8" />
                   </LineChart>
                 </div>
+
+                <div className="news">
+                  <ul>
+                    {news.map((item, idx) => {
+                      return (
+                        <li key={idx} className="news-item">
+                          <div>
+                            <i className="fas fa-bolt"></i>
+                            {"\u00A0"}
+                            {"\u00A0"}
+                            <strong>{item.source.name}</strong>
+                            {"\u00A0"}
+                            {"\u00A0"}
+                            {item.publishedAt}
+                          </div>
+                          <div className="news-title">
+                            <div>
+                              <a
+                                className="news-title-header"
+                                href={item.url}
+                                target="_blank"
+                              >
+                                {item.title}
+                              </a>
+                            </div>
+                            <div>
+                              <img
+                                className="news-image"
+                                src={item.urlToImage}
+                              />
+                            </div>
+                          </div>
+                          <hr />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
               </div>
 
               <div className="stocks-right">
@@ -423,27 +449,30 @@ export default ({currentUser, logout}) => {
                   <br />
                   <br />
                   <br />
-                  <button className="stocks-sell-stock" onClick={sellStockHandler}>
+                  <button
+                    className="stocks-sell-stock"
+                    onClick={sellStockHandler}
+                  >
                     Sell
                   </button>
                   <br />
                   <hr />
                   <br />
                   <br />
-                  <div className='available-shares'>
-                  {/* checkAvailableShares() */}
-                  {availableShares} Shares Available - Sell All
+                  <div className="available-shares">
+                    {/* checkAvailableShares() */}
+                    {availableShares} Shares Available - Sell All
                   </div>
                   <br />
-                  <div className="account-purchase-shares-error">{sharesError}</div>
+                  <div className="account-purchase-shares-error">
+                    {sharesError}
+                  </div>
                   <br />
                   {watchlistChecker()}
                 </div>
                 <br />
+              </div>
             </div>
-          
-            </div>
-
           </div>
         );
 
