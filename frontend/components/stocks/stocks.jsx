@@ -248,6 +248,7 @@ export default ({currentUser, logout}) => {
            if (stock.Company.symbol === quote.symbol) {
              return (
                <button
+                 className="sell-all-shares-btn"
                  onClick={sellAllHandler(stock)}
                >
                  Sell All
@@ -323,7 +324,6 @@ export default ({currentUser, logout}) => {
 
               <div>
                 <nav className="nav-bar">
-                  {/* <span className="nav-menu-item">Free Stocks</span> */}
                   <a href="https://angel.co/u/ben-hsieh-6">
                     <span className="nav-menu-item">AngelList</span>
                   </a>
@@ -487,7 +487,7 @@ export default ({currentUser, logout}) => {
                   <br />
                   <div className="available-shares">
                     {availableShares}{" "}
-                    {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
+                    {availableShares <= 1 ? "Share" : "Shares"} Available - {'\xa0'}
                     {sellAllStocksHandler()}
                   </div>
                   <br />
