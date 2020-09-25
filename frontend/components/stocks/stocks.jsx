@@ -191,17 +191,6 @@ export default ({currentUser, logout}) => {
           }
          };
 
-      const sellAllHandler = (stock) => {
-          return (event) => {
-            event.preventDefault();
-            axios
-              .delete(
-                `./portfolios/${currentUser.username}/${stock.firebaseID}.json`
-              )
-              .catch((error) => console.log(error));
-          };
-        };
-
       const watchlistChecker = () => {
            for (let watchlistItem of stock) {
              if (watchlistItem.symbol === quote.symbol) {
@@ -234,11 +223,40 @@ export default ({currentUser, logout}) => {
         };
       };
 
+      const sellAllHandler = (stock) => {
+          return (event) => {
+            event.preventDefault();
+            axios
+              .delete(
+                `./portfolios/${currentUser.username}/${stock.firebaseID}.json`
+              )
+              .then(routeChange())
+              .catch((error) => console.log(error));
+          };
+        
+        };
+
         const predictiveSearch = (item) => {
           setSearchValue(item.symbol);
           search();
           setSearchValue("");
         };
+
+      const sellAllStocksHandler = () => {
+         for (let stock of portfolioValue) {
+           console.log(stock.Company.symbol); 
+           if (stock.Company.symbol === quote.symbol) {
+             return (
+               <button
+                 onClick={sellAllHandler(stock)}
+               >
+                 Sell All
+               </button>
+             );
+           }
+         }
+
+      }
     
 
         return (
@@ -468,10 +486,9 @@ export default ({currentUser, logout}) => {
                   <br />
                   <br />
                   <div className="available-shares">
-                    {/* checkAvailableShares() */}
                     {availableShares}{" "}
                     {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
-                    <button onClick={sellAllHandler(quote.symbol)}>Sell All</button>
+                    {sellAllStocksHandler()}
                   </div>
                   <br />
                   <div className="account-purchase-shares-error">
