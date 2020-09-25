@@ -19,7 +19,6 @@ export default ({currentUser, logout}) => {
 
    const [searchValue, setSearchValue] = useState(ticker);
    const [quote, setQuote] = useState("");
-   // console.log("currentUser", currentUser);
    const [chartData, setChartData] = useState([]);
    const [news, setNews] = useState([]);
    const [show, setShow] = useState(false);
@@ -57,7 +56,6 @@ export default ({currentUser, logout}) => {
              total.push({ ...res.data[stock], firebaseID: stock });
            }
            setPortfolioValue(total);
-          //  console.log(res.data);
          })
          .catch((error) => console.log(error));
      }, [portfolioValue]);
@@ -73,19 +71,16 @@ export default ({currentUser, logout}) => {
              watchlist.push({ ...res.data[stock], firebaseID: stock });
            }
            setStock(watchlist);
-           // console.log(res.data);
          })
          .catch((error) => console.log(error));
      });
 
      const search = () => {
        $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
-        //  console.log(res);
          setQuote(res);
        });
 
        $.ajax(`/api/stocks/chart/${searchValue}`).done((res) => {
-         // console.log(res);
          setChartData(res);
        });
        setSearchValue(''); 
@@ -141,13 +136,11 @@ export default ({currentUser, logout}) => {
                Quantity: shares,
                Total: total,
              })
-             // .then(response => console.log(response))
              .then(
                (document.querySelector(".buy-stock").textContent = "Bought")
              )
              .then(setSharesError(null))
              .then((document.querySelector(".buy-stock").disabled = true))
-             // .then(routeChange())
              .catch((error) => console.log(error));
          } else {
            setSharesError("Please enter valid number of shares.");
@@ -395,7 +388,7 @@ export default ({currentUser, logout}) => {
             <div className="stocks-page">
               <div className="stocks-left">
                 <div>
-                  <h2>{JSON.stringify(quote.company_name)}</h2>
+                  <h2>{quote.company_name}</h2>
                   <p>
                     ${JSON.stringify(quote.latest_price)}
                     <br />${JSON.stringify(quote.change)}(
