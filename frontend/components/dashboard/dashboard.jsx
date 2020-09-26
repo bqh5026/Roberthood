@@ -30,7 +30,7 @@ export default ({ currentUser, logout }) => {
         setChartData(res);
       });
       $.ajax(`/api/stocks/quote/${quote}`).done((res) => {
-          console.log(res);
+          // console.log(res);
           setQuote(res);
         });
   }, []);
@@ -101,10 +101,6 @@ export default ({ currentUser, logout }) => {
 //   window.location.reload(true);
 // };
 
-// const dashboardRoute = () => {
-//   let path= `/dashboard`;
-//   history.push(path);
-// }
 
 const postDataHandler = () => {
   axios.post(`./${currentUser.username}.json`, quote)
