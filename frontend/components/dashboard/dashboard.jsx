@@ -33,7 +33,7 @@ export default ({ currentUser, logout }) => {
           console.log(res);
           setQuote(res);
         });
-  }, [quote]);
+  }, []);
 
     useEffect(() => {
       axios({
@@ -349,7 +349,7 @@ const predictiveSearch = (item) => {
                    </h1>
                  </li>
                  <li>
-                   <span>Ticker:</span> {JSON.stringify(quote.symbol)}
+                   <span>Ticker:</span> {quote.symbol}
                  </li>
                  <li>
                    <span>Latest Price:</span>$
@@ -359,10 +359,12 @@ const predictiveSearch = (item) => {
                    ${JSON.stringify(quote.change)}({quote.change_percent_s}){" "}
                    <span className="today">Today </span>
                  </li>
+                 {/* 
                  <li>
                    <span>PE ratio:</span>
                    {quote.pe_ration ? JSON.stringify(quote.pe_ratio) : "N/A"}
                  </li>
+                 */}
                  <li>
                    <span>YTD change:</span>{" "}
                    {(quote.ytd_change * 100).toFixed(2)}%
