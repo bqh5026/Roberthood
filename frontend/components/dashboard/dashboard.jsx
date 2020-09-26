@@ -7,8 +7,8 @@ import axios from '../axios-quotes';
 import { TickerSymbols } from '../../../public/tickers.js';
 
 export default ({ currentUser, logout }) => {
-  const [searchValue, setSearchValue] = useState('qqq')
-  const [quote, setQuote] = useState('')
+  const [searchValue, setSearchValue] = useState('')
+  const [quote, setQuote] = useState('qqq')
   // console.log("currentUser", currentUser); 
   const [chartData, setChartData] = useState([]);
   const [news, setNews] = useState([]);
@@ -20,12 +20,20 @@ export default ({ currentUser, logout }) => {
 
   useEffect(() => {
     if (news.length < 1) {
-      search(); 
+      // search(); 
       $.ajax('/api/news/new').done(res => {
         setNews(news.concat(res.articles));
       });
     }
-  });
+      $.ajax(`/api/stocks/chart/${quote}`).done((res) => {
+        // console.log(res);
+        setChartData(res);
+      });
+      $.ajax(`/api/stocks/quote/${quote}`).done((res) => {
+          console.log(res);
+          setQuote(res);
+        });
+  }, [quote]);
 
     useEffect(() => {
       axios({
@@ -61,7 +69,7 @@ export default ({ currentUser, logout }) => {
 
   const search = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
-      // console.log(res); 
+      console.log(res); 
       setQuote(res); 
     });
 
@@ -69,6 +77,7 @@ export default ({ currentUser, logout }) => {
       // console.log(res);
       setChartData(res);
     });
+    routeChangeStocksPage(`/stocks/${searchValue}`);
   };
 
   const handleOnChange = event => {
@@ -109,6 +118,11 @@ const routeChange = () => {
   let path = `/account`;
   history.push(path);
 }; 
+
+const routeChangeStocksPage = (ticker) => {
+  let path = ticker;
+  history.push(path);
+}
 
 const buyStockHandler = () => {
   const total = shares * quote.latest_price; 
@@ -209,7 +223,8 @@ const predictiveSearch = (item) => {
                {/* {searchValue ? <strong>Stocks</strong> : ""} */}
                <ul>
                  {TickerSymbols.map((name) => {
-                   if (searchValue.length !== 0 && searchValue !== "qqq") {
+                   {/* if (searchValue.length !== 0 && searchValue !== "qqq") { */} 
+                   if (searchValue.length !== 0) {
                      if (
                        name.symbol
                          .toLowerCase()
@@ -325,74 +340,35 @@ const predictiveSearch = (item) => {
          <br />
          <div className="left">
            <div className="Quote">
-             {searchValue !== "qqq" ? (
-               <div>
-                 <ul className="ticker-results">
-                   <li>
-                     <h1>
-                       {JSON.stringify(quote.company_name).replace(
-                         /['"]+/g,
-                         ""
-                       )}
-                     </h1>
-                   </li>
-                   <li>
-                     <span>Ticker:</span>{" "}
-                     {JSON.stringify(quote.symbol).replace(/['"]+/g, "")}
-                   </li>
-                   <li>
-                     <span>Latest Price:</span>$
-                     {JSON.stringify(quote.latest_price)}
-                   </li>
-                   <li>
-                     ${JSON.stringify(quote.change)}(
-                     {JSON.stringify(quote.change_percent_s).replace(
-                       /['"]+/g,
-                       ""
-                     )}
-                     ) <span className="today">Today </span>
-                   </li>
-                   <li>
-                     <span>PE ratio:</span>
-                     {JSON.stringify(quote.pe_ratio)}
-                   </li>
-                   <li>
-                     <span>YTD change:</span>{" "}
-                     {JSON.stringify(
-                       (quote.ytd_change * 100).toFixed(2)
-                     ).replace(/['"]+/g, "")}
-                     %
-                   </li>
-                 </ul>
-               </div>
-             ) : (
-               <div className="default_quote">
-                 <h2>
-                   $
-                   {portfolioValue
-                     .map((a) => a.Total)
-                     .reduce((a, b) => a + b, 0)
-                     .toFixed(2)
-                     .toString()
-                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                 </h2>
-                 <strong>
-                   $
-                   {portfolioValue
-                     .map((a) => a.Company.change)
-                     .reduce((a, b) => a + b, 0)
-                     .toFixed(2)}
-                   (
-                   {(
-                     portfolioValue
-                       .map((a) => parseInt(a.Company.change_percent_s))
-                       .reduce((a, b) => a + b, 0) / portfolioValue.length
-                   ).toFixed(2)}
-                   %)
-                 </strong>{" "}
-                 <span className="today">Today</span>
-               </div>
-             )}
+             <div>
+               <ul className="ticker-results">
+                 <li>
+                   <h1>
+                     {/* console.log(quote) */}
+                     {quote.company_name}
+                   </h1>
+                 </li>
+                 <li>
+                   <span>Ticker:</span> {JSON.stringify(quote.symbol)}
+                 </li>
+                 <li>
+                   <span>Latest Price:</span>$
+                   {JSON.stringify(quote.latest_price)}
+                 </li>
+                 <li>
+                   ${JSON.stringify(quote.change)}({quote.change_percent_s}){" "}
+                   <span className="today">Today </span>
+                 </li>
+                 <li>
+                   <span>PE ratio:</span>
+                   {quote.pe_ration ? JSON.stringify(quote.pe_ratio) : "N/A"}
+                 </li>
+                 <li>
+                   <span>YTD change:</span>{" "}
+                   {(quote.ytd_change * 100).toFixed(2)}%
+                 </li>
+               </ul>
+             </div>
            </div>
 
            <div className="Chart">
@@ -445,77 +421,31 @@ const predictiveSearch = (item) => {
              </ul>
            </div>
 
-           <div className="footer">
-           </div>
+           <div className="footer"></div>
          </div>
 
          <div className="dashboard-right">
-           {searchValue !== "qqq" ? (
+           <div>
+             <span className="watchlist-header">Watchlist</span>
+             <hr />
              <div>
-               <div className="dashboard-trade">
-                 <strong>
-                   {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/}
-                   Buy {quote.symbol.toUpperCase()}
-                 </strong>
-                 <div className="dashboard-stock-purchase">
-                   Shares
-                   <input
-                     value={shares}
-                     className="dashboard-purchase-shares"
-                     type="number"
-                     placeholder="0"
-                     min="0"
-                     step="1"
-                     onChange={(e) => setShares(e.target.value)}
-                   />
+               {stock.map((item, idx) => (
+                 <div key={idx} className="watchlist">
+                   <ul className="watchlist_item">
+                     <li>{item.symbol}</li>
+                     <li>{item.latest_price}</li>
+                     <li>{item.change_percent_s}</li>
+                   </ul>
+                   <button
+                     className="remove_from_watchlist"
+                     onClick={deleteWatchlistItemHandler(item)}
+                   >
+                     Remove from Watchlist
+                   </button>
                  </div>
-                 <br />
-                 <hr />
-                 <div>Market Price:</div>
-                 <br />
-                 <div className="market-price">
-                   ${quote.latest_price.toFixed(2)}
-                 </div>
-                 <br />
-                 <br />
-                 <br />
-                 <br />
-                 <br />
-                 <button className="buy-stock" onClick={buyStockHandler}>
-                   Buy
-                 </button>
-                 <br />
-                 <br />
-                 <div className="dashboard-purchase-shares-error">
-                    {sharesError}
-                 </div>
-               </div>
-               <br />
-               {watchlistChecker()}
+               ))}
              </div>
-           ) : (
-             <div>
-               <span className="watchlist-header">Watchlist</span>
-               <hr />
-               <div>
-                 {stock.map((item, idx) => (
-                   <div key={idx} className="watchlist">
-                     <ul className="watchlist_item">
-                       <li>{item.symbol}</li>
-                       <li>{item.latest_price}</li>
-                       <li>{item.change_percent_s}</li>
-                     </ul>
-                     <button
-                       className="remove_from_watchlist"
-                       onClick={deleteWatchlistItemHandler(item)}
-                     >
-                       Remove from Watchlist
-                     </button>
-                   </div>
-                 ))}
-               </div>
-             </div>
-           )}
+           </div>
          </div>
        </div>
      </div>
