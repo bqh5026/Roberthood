@@ -35,10 +35,14 @@ export default ({currentUser, logout}) => {
      history.push(path);
    }; 
   
+  const routeChangeStocksPage = (ticker) => {
+    let path = ticker;
+    history.push(path);
+  };
 
    useEffect(() => {
        if (news.length < 1) {
-         search();
+         stocksSearch();
          $.ajax("/api/news/new").done((res) => {
            setNews(news.concat(res.articles));
          });
@@ -75,7 +79,7 @@ export default ({currentUser, logout}) => {
          .catch((error) => console.log(error));
      });
 
-     const search = () => {
+     const stocksSearch = () => {
        $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
          setQuote(res);
        });
@@ -83,7 +87,7 @@ export default ({currentUser, logout}) => {
        $.ajax(`/api/stocks/chart/${searchValue}`).done((res) => {
          setChartData(res);
        });
-       setSearchValue(''); 
+       routeChangeStocksPage(`/stocks/${searchValue}`);
      };
 
      const handleOnChange = (event) => {
@@ -92,7 +96,7 @@ export default ({currentUser, logout}) => {
 
      const handleKeyPress = (event) => {
        if (event.key === "Enter") {
-         search();
+         stocksSearch();
        }
      };
 
@@ -231,7 +235,7 @@ export default ({currentUser, logout}) => {
 
         const predictiveSearch = (item) => {
           setSearchValue(item.symbol);
-          search();
+          stocksSearch();
           setSearchValue("");
         };
 
@@ -268,7 +272,7 @@ export default ({currentUser, logout}) => {
                 <div className="predictive-search">
                   <div className="search-box">
                     <form>
-                      <button onClick={search} className="search-btn">
+                      <button onClick={stocksSearch} className="search-btn">
                         <i className="fas fa-search"></i>
                       </button>
                       <input

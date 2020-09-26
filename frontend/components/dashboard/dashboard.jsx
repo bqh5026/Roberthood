@@ -67,7 +67,7 @@ export default ({ currentUser, logout }) => {
     .catch(error => console.log(error));  
   });
 
-  const search = () => {
+  const dashboardSearch = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done(res => {
       console.log(res); 
       setQuote(res); 
@@ -77,7 +77,7 @@ export default ({ currentUser, logout }) => {
       // console.log(res);
       setChartData(res);
     });
-    routeChangeStocksPage(`/stocks/${searchValue}`);
+    routeChangeDashboardStocksPage(`/stocks/${searchValue}`);
   };
 
   const handleOnChange = event => {
@@ -86,7 +86,7 @@ export default ({ currentUser, logout }) => {
 
   const handleKeyPress = event => {
     if(event.key === 'Enter') {
-      search();
+      dashboardSearch();
     }
   }
 
@@ -119,7 +119,7 @@ const routeChange = () => {
   history.push(path);
 }; 
 
-const routeChangeStocksPage = (ticker) => {
+const routeChangeDashboardStocksPage = (ticker) => {
   let path = ticker;
   history.push(path);
 }
@@ -182,7 +182,7 @@ const deleteWatchlistItemHandler = (watchlistItem) => {
  
 const predictiveSearch = (item) => {
     setSearchValue(item.symbol);
-    search();
+    dashboardSearch();
     setSearchValue("");
   };
 
@@ -202,7 +202,7 @@ const predictiveSearch = (item) => {
            <div className="dashboard-search-container">
              <div className="search-box">
                <form>
-                 <button onClick={search} className="search-btn">
+                 <button onClick={dashboardSearch} className="search-btn">
                    <i className="fas fa-search"></i>
                  </button>
                  <input
