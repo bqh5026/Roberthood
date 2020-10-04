@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
     skip_before_action :verify_authenticity_token
 
+  before_action :set_title
+
 
   private
 
@@ -33,6 +35,10 @@ class ApplicationController < ActionController::Base
 
   def require_logged_in
     redirect_to new_api_session_url unless logged_in?
+  end
+
+  def set_title
+    @page_title = "Roberthood"
   end
 end
 

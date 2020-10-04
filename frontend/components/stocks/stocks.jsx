@@ -449,51 +449,104 @@ export default ({currentUser, logout}) => {
               </div>
 
               <div className="stocks-right">
-                <div className="stocks-trade">
-                  <strong>Sell {quote.symbol}</strong>
-                  <div className="account-stock-purchase">
-                    Shares{" "}
-                    <input
-                      value={shares}
-                      className="account-purchase-shares"
-                      type="number"
-                      min="0"
-                      step="1"
-                      onChange={(e) => setShares(e.target.value)}
-                    ></input>
+                {availableShares === 0 ? (
+                  <div className="stocks-trade">
+                    <strong>Buy {quote.symbol}</strong>
+                    <div className="account-stock-purchase">
+                      Shares{" "}
+                      <input
+                        value={shares}
+                        className="account-purchase-shares"
+                        type="number"
+                        min="0"
+                        step="1"
+                        onChange={(e) => setShares(e.target.value)}
+                      ></input>
+                    </div>
+
+                    <br />
+                    <hr />
+                    <div>Market Price:</div>
+                    <br />
+                    <div className="market-price">${quote.latest_price}</div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <button
+                      className="stocks-sell-stock"
+                      onClick={buyStockHandler}
+                    >
+                      Buy
+                    </button>
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <div className="available-shares">
+                      {availableShares}{" "}
+                      {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
+                      {"\xa0"}
+                      {sellAllStocksHandler()}
+                    </div>
+                    <br />
+                    <div className="account-purchase-shares-error">
+                      {sharesError}
+                    </div>
+                    <br />
+                    {watchlistChecker()}
                   </div>
-                  <br />
-                  <hr />
-                  <div>Market Price:</div>
-                  <br />
-                  <div className="market-price">${quote.latest_price}</div>
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <button
-                    className="stocks-sell-stock"
-                    onClick={sellStockHandler}
-                  >
-                    Sell
-                  </button>
-                  <br />
-                  <hr />
-                  <br />
-                  <br />
-                  <div className="available-shares">
-                    {availableShares}{" "}
-                    {availableShares <= 1 ? "Share" : "Shares"} Available - {'\xa0'}
-                    {sellAllStocksHandler()}
+                ) : (
+                  <div className="stocks-trade">
+                    <strong>Sell {quote.symbol}</strong>
+                    <div className="account-stock-purchase">
+                      Shares{" "}
+                      <input
+                        value={shares}
+                        className="account-purchase-shares"
+                        type="number"
+                        min="0"
+                        step="1"
+                        onChange={(e) => setShares(e.target.value)}
+                      ></input>
+                    </div>
+
+                    <br />
+                    <hr />
+                    <div>Market Price:</div>
+                    <br />
+                    <div className="market-price">${quote.latest_price}</div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <button
+                      className="stocks-sell-stock"
+                      onClick={sellStockHandler}
+                    >
+                      Sell
+                    </button>
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <div className="available-shares">
+                      {availableShares}{" "}
+                      {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
+                      {"\xa0"}
+                      {sellAllStocksHandler()}
+                    </div>
+                    <br />
+                    <div className="account-purchase-shares-error">
+                      {sharesError}
+                    </div>
+                    <br />
+                    {watchlistChecker()}
                   </div>
-                  <br />
-                  <div className="account-purchase-shares-error">
-                    {sharesError}
-                  </div>
-                  <br />
-                  {watchlistChecker()}
-                </div>
+                )}
+
                 <br />
               </div>
             </div>
