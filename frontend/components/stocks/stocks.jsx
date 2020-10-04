@@ -486,7 +486,7 @@ export default ({currentUser, logout}) => {
                     <br />
                     <div className="available-shares">
                       {availableShares}{" "}
-                      {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
+                      {availableShares <= 1 ? "Share" : "Shares"} Available
                       {"\xa0"}
                       {sellAllStocksHandler()}
                     </div>
