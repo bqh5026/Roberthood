@@ -233,7 +233,7 @@ export default ({currentUser, logout}) => {
         
         };
 
-        const predictiveSearch = (item) => {
+        const stocksPredictiveSearch = (item) => {
           setSearchValue(item.symbol);
           stocksSearch();
           setSearchValue("");
@@ -301,7 +301,7 @@ export default ({currentUser, logout}) => {
                             return (
                               <li
                                 key={name.symbol}
-                                onClick={() => predictiveSearch(name)}
+                                onClick={() => stocksPredictiveSearch(name)}
                               >
                                 <strong style={{ paddingRight: "3rem" }}>
                                   {name.symbol}
