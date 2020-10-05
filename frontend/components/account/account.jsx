@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import {
   LineChart,
   Line,
@@ -27,14 +27,13 @@ export default ({ currentUser, logout }) => {
 
      const ticker = useParams();
      
-  useEffect(() => {
-    if (news.length < 1) {
-      search();
-      $.ajax("/api/news/new").done((res) => {
-        setNews(news.concat(res.articles));
-      });
-    }
-  });
+  // useEffect(() => {
+  //   if (news.length < 1) {
+  //     $.ajax("/api/news/new").done((res) => {
+  //       setNews(news.concat(res.articles));
+  //     });
+  //   }
+  // });
 
   useEffect(() => {
     axios({
@@ -67,7 +66,7 @@ export default ({ currentUser, logout }) => {
       .catch((error) => console.log(error));
   });
 
-  const search = () => {
+  const accountSearch = () => {
     $.ajax(`/api/stocks/quote/${searchValue}`).done((res) => {
       console.log(res);
       setQuote(res);
@@ -77,6 +76,7 @@ export default ({ currentUser, logout }) => {
       // console.log(res);
       setChartData(res);
     });
+    routeChangeAccountStocksPage(`/stocks/${searchValue}`);
   };
 
   const handleOnChange = (event) => {
@@ -85,7 +85,7 @@ export default ({ currentUser, logout }) => {
 
   const handleKeyPress = (event) => {
       if (event.key === "Enter") {
-        search();
+        accountSearch();
       }
     };
 
@@ -101,11 +101,11 @@ export default ({ currentUser, logout }) => {
       .catch((error) => console.log(error));
   };
 
-  // const history = useHistory();
-  // const routeChange = () => {
-  //   let path = `/account`;
-  //   history.push(path);
-  // }; 
+  const history = useHistory();
+  const routeChangeAccountStocksPage = (ticker) => {
+    let path = ticker;
+    history.push(path);
+  }; 
 
   const buyStockHandler = () => {
     const total = shares * quote.latest_price; 
@@ -178,10 +178,7 @@ export default ({ currentUser, logout }) => {
 
   const predictiveSearch = (item) => {
     setSearchValue(item.symbol);
-    search(); 
-    // search().then(res => {
-    //   return res.slice(0, 5)
-    // })
+    accountSearch(); 
     ;
     setSearchValue('');
   };
@@ -201,7 +198,7 @@ export default ({ currentUser, logout }) => {
             <div className="predictive-search">
               <div className="search-box">
                 <form>
-                  <button onClick={search} className="search-btn">
+                  <button onClick={accountSearch} className="search-btn">
                     <i className="fas fa-search"></i>
                   </button>
                   <input
