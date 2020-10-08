@@ -470,14 +470,15 @@ export default ({currentUser, logout}) => {
                     <hr />
                     <div>Market Price:</div>
                     <br />
-                    <div className="market-price">${quote.latest_price}</div>
+                    <div className="market-price">${parseInt(quote.latest_price).toFixed(2)}</div>
+                    {console.log(typeof(quote.latest_price))}
                     <br />
                     <br />
                     <br />
                     <br />
                     <br />
                     <button
-                      className="stocks-sell-stock"
+                      className="buy-stock"
                       onClick={buyStockHandler}
                     >
                       Buy
@@ -502,7 +503,7 @@ export default ({currentUser, logout}) => {
                 ) : (
                   <Tabs
                     defaultIndex={1}
-                    onSelect={(index) => console.log(index)}
+                    // onSelect={(index) => console.log(index)}
                   >
                     <TabList className="tabs-list">
                       <Tab className='buy-stock-tab'>
@@ -540,7 +541,7 @@ export default ({currentUser, logout}) => {
                         <br />
                         <br />
                         <button
-                          className="stocks-sell-stock"
+                          className="buy-stock"
                           onClick={buyStockHandler}
                         >
                           Buy
