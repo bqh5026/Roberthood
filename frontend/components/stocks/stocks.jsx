@@ -9,6 +9,8 @@ import {
   YAxis,
 } from "recharts";
 
+import { Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+
 import axios from "../axios-quotes";
 
 import { TickerSymbols } from "../../../public/tickers";
@@ -498,20 +500,17 @@ export default ({currentUser, logout}) => {
                     {watchlistChecker()}
                   </div>
                 ) : (
-                  <div className="container">
-                    <div>
-                      <ul className="tab-trigger">
-                        <li>
-                          <label for="tab1">Buy COST</label>
-                        </li>
-                        <li>
-                          <label for="tab2">Sell COST</label>
-                        </li>
-                      </ul>
-                    </div>
+                  <Tabs
+                    defaultIndex={1}
+                    onSelect={(index) => console.log(index)}
+                  >
+                    <TabList>
+                      <Tab>Buy COST</Tab>   
+                      <Tab>Sell COST</Tab>
+                    </TabList>
 
-                    <div className="tab-container-wrap">
-                      <input type="radio" id="tab1" name="1" />
+              
+                    <TabPanel>   
                       <div className="stocks-trade">
                         <strong>Buy {quote.symbol}</strong>
                         <div className="account-stock-purchase">
@@ -530,9 +529,7 @@ export default ({currentUser, logout}) => {
                         <hr />
                         <div>Market Price:</div>
                         <br />
-                        <div className="market-price">
-                          ${quote.latest_price}
-                        </div>
+                        <div className="market-price">${quote.latest_price}</div>
                         <br />
                         <br />
                         <br />
@@ -554,8 +551,9 @@ export default ({currentUser, logout}) => {
                         <br />
                         {watchlistChecker()}
                       </div>
+                    </TabPanel>
 
-                      <input type="radio" id="tab2" name="1" />
+                    <TabPanel>
                       <div className="stocks-trade">
                         <strong>Sell {quote.symbol}</strong>
                         <div className="account-stock-purchase">
@@ -574,9 +572,7 @@ export default ({currentUser, logout}) => {
                         <hr />
                         <div>Market Price:</div>
                         <br />
-                        <div className="market-price">
-                          ${quote.latest_price}
-                        </div>
+                        <div className="market-price">${quote.latest_price}</div>
                         <br />
                         <br />
                         <br />
@@ -594,8 +590,8 @@ export default ({currentUser, logout}) => {
                         <br />
                         <div className="available-shares">
                           {availableShares}{" "}
-                          {availableShares <= 1 ? "Share" : "Shares"} Available
-                          - {"\xa0"}
+                          {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
+                          {"\xa0"}
                           {sellAllStocksHandler()}
                         </div>
                         <br />
@@ -605,8 +601,8 @@ export default ({currentUser, logout}) => {
                         <br />
                         {watchlistChecker()}
                       </div>
-                    </div>
-                  </div>
+                    </TabPanel>
+                  </Tabs>
                 )}
 
                 <br />
