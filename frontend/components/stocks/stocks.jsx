@@ -498,52 +498,114 @@ export default ({currentUser, logout}) => {
                     {watchlistChecker()}
                   </div>
                 ) : (
-                  <div className="stocks-trade">
-                    <strong>Sell {quote.symbol}</strong>
-                    <div className="account-stock-purchase">
-                      Shares{" "}
-                      <input
-                        value={shares}
-                        className="account-purchase-shares"
-                        type="number"
-                        min="0"
-                        step="1"
-                        onChange={(e) => setShares(e.target.value)}
-                      ></input>
+                  <div className="container">
+                    <div>
+                      <ul className="tab-trigger">
+                        <li>
+                          <label for="tab1">Buy COST</label>
+                        </li>
+                        <li>
+                          <label for="tab2">Sell COST</label>
+                        </li>
+                      </ul>
                     </div>
 
-                    <br />
-                    <hr />
-                    <div>Market Price:</div>
-                    <br />
-                    <div className="market-price">${quote.latest_price}</div>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <button
-                      className="stocks-sell-stock"
-                      onClick={sellStockHandler}
-                    >
-                      Sell
-                    </button>
-                    <br />
-                    <hr />
-                    <br />
-                    <br />
-                    <div className="available-shares">
-                      {availableShares}{" "}
-                      {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
-                      {"\xa0"}
-                      {sellAllStocksHandler()}
+                    <div className="tab-container-wrap">
+                      <input type="radio" id="tab1" name="1" />
+                      <div className="stocks-trade">
+                        <strong>Buy {quote.symbol}</strong>
+                        <div className="account-stock-purchase">
+                          Shares{" "}
+                          <input
+                            value={shares}
+                            className="account-purchase-shares"
+                            type="number"
+                            min="0"
+                            step="1"
+                            onChange={(e) => setShares(e.target.value)}
+                          ></input>
+                        </div>
+
+                        <br />
+                        <hr />
+                        <div>Market Price:</div>
+                        <br />
+                        <div className="market-price">
+                          ${quote.latest_price}
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <button
+                          className="stocks-sell-stock"
+                          onClick={buyStockHandler}
+                        >
+                          Buy
+                        </button>
+                        <br />
+                        <hr />
+                        <br />
+                        <br />
+                        <div className="account-purchase-shares-error">
+                          {sharesError}
+                        </div>
+                        <br />
+                        {watchlistChecker()}
+                      </div>
+
+                      <input type="radio" id="tab2" name="1" />
+                      <div className="stocks-trade">
+                        <strong>Sell {quote.symbol}</strong>
+                        <div className="account-stock-purchase">
+                          Shares{" "}
+                          <input
+                            value={shares}
+                            className="account-purchase-shares"
+                            type="number"
+                            min="0"
+                            step="1"
+                            onChange={(e) => setShares(e.target.value)}
+                          ></input>
+                        </div>
+
+                        <br />
+                        <hr />
+                        <div>Market Price:</div>
+                        <br />
+                        <div className="market-price">
+                          ${quote.latest_price}
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <button
+                          className="stocks-sell-stock"
+                          onClick={sellStockHandler}
+                        >
+                          Sell
+                        </button>
+                        <br />
+                        <hr />
+                        <br />
+                        <br />
+                        <div className="available-shares">
+                          {availableShares}{" "}
+                          {availableShares <= 1 ? "Share" : "Shares"} Available
+                          - {"\xa0"}
+                          {sellAllStocksHandler()}
+                        </div>
+                        <br />
+                        <div className="account-purchase-shares-error">
+                          {sharesError}
+                        </div>
+                        <br />
+                        {watchlistChecker()}
+                      </div>
                     </div>
-                    <br />
-                    <div className="account-purchase-shares-error">
-                      {sharesError}
-                    </div>
-                    <br />
-                    {watchlistChecker()}
                   </div>
                 )}
 
