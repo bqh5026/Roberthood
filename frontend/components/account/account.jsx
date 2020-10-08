@@ -154,7 +154,7 @@ export default ({ currentUser, logout }) => {
             className="watchlist_btn"
             onClick={deleteWatchlistItemHandler(watchlistItem)}
           >
-            Remove from Watchlist
+            - Remove from Lists
           </button>
         );
       }
@@ -162,7 +162,7 @@ export default ({ currentUser, logout }) => {
 
     return (
       <button className="watchlist_btn" onClick={postDataHandler}>
-        Add to Watchlist
+        + Add to Lists
       </button>
     );
   };

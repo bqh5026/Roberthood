@@ -125,7 +125,7 @@ const watchlistChecker = () => {
     if (watchlistItem.symbol === quote.symbol) {
       return (
         <button className="watchlist_btn" onClick={deleteWatchlistItemHandler(watchlistItem)}>
-          Remove from Watchlist
+          - Remove from Lists
         </button>
       );
     }
@@ -133,7 +133,7 @@ const watchlistChecker = () => {
 
   return (
     <button className="watchlist_btn" onClick={postDataHandler}>
-      Add to Watchlist
+      + Add to Lists
     </button>
   );
 }

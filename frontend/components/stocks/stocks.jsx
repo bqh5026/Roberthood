@@ -206,7 +206,7 @@ export default ({currentUser, logout}) => {
 
            return (
              <button className="watchlist_btn" onClick={postDataHandler}>
-               Add to Watchlist
+               + Add to Lists
              </button>
            );
          };
@@ -504,15 +504,17 @@ export default ({currentUser, logout}) => {
                     defaultIndex={1}
                     onSelect={(index) => console.log(index)}
                   >
-                    <TabList>
-                      <Tab>Buy COST</Tab>   
-                      <Tab>Sell COST</Tab>
+                    <TabList className="tabs-list">
+                      <Tab className='buy-stock-tab'>
+                        <strong>Buy {quote.symbol}</strong>
+                      </Tab>
+                      <Tab className='sell-stock-tab'>
+                        <strong>Sell {quote.symbol}</strong>
+                      </Tab>
                     </TabList>
 
-              
-                    <TabPanel>   
+                    <TabPanel>
                       <div className="stocks-trade">
-                        <strong>Buy {quote.symbol}</strong>
                         <div className="account-stock-purchase">
                           Shares{" "}
                           <input
@@ -529,7 +531,9 @@ export default ({currentUser, logout}) => {
                         <hr />
                         <div>Market Price:</div>
                         <br />
-                        <div className="market-price">${quote.latest_price}</div>
+                        <div className="market-price">
+                          ${quote.latest_price}
+                        </div>
                         <br />
                         <br />
                         <br />
@@ -555,7 +559,6 @@ export default ({currentUser, logout}) => {
 
                     <TabPanel>
                       <div className="stocks-trade">
-                        <strong>Sell {quote.symbol}</strong>
                         <div className="account-stock-purchase">
                           Shares{" "}
                           <input
@@ -572,7 +575,9 @@ export default ({currentUser, logout}) => {
                         <hr />
                         <div>Market Price:</div>
                         <br />
-                        <div className="market-price">${quote.latest_price}</div>
+                        <div className="market-price">
+                          ${quote.latest_price}
+                        </div>
                         <br />
                         <br />
                         <br />
@@ -590,8 +595,8 @@ export default ({currentUser, logout}) => {
                         <br />
                         <div className="available-shares">
                           {availableShares}{" "}
-                          {availableShares <= 1 ? "Share" : "Shares"} Available -{" "}
-                          {"\xa0"}
+                          {availableShares <= 1 ? "Share" : "Shares"} Available
+                          - {"\xa0"}
                           {sellAllStocksHandler()}
                         </div>
                         <br />
