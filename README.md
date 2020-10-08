@@ -16,6 +16,7 @@ Users can read up on latest business news, check stock quotes, add ticker to wat
 * Recharts API
 * Ajax
 * Axios
+* React Tabs
 * HTML3
 * CSS5
 * Open graph tags
