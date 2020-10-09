@@ -1,28 +1,29 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import { Provider } from 'react-redux';
-import { Route,
-         Switch,
-         Redirect
-} from "react-router-dom";
-// import NavBarContainer from './nav_bar/nav_bar_container';
-import LoginContainer from './session/login_container'; 
-import SignupContainer from './session/signup_container';
-import DashboardContainer from './dashboard/dashboard_container'; 
-import AccountContainer from './account/account_container';
-import StocksContainer from './stocks/stocks_container';
-import Home from "./home/home";
+
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
+
+const LoginContainer = lazy(() => import("./session/login_container"));
+const SignupContainer = lazy(() => import("./session/signup_container"));
+const DashboardContainer = lazy(() =>
+  import("./dashboard/dashboard_container")
+);
+const AccountContainer = lazy(() => import("./account/account_container"));
+const StocksContainer = lazy(() => import("./stocks/stocks_container"));
+const Home = lazy(() => import("./home/home"));
 
 
 
 export default () => (
   <div>
-      <AuthRoute exact path="/" component={Home} />
-      <AuthRoute path="/signup" component={SignupContainer} />
-      <AuthRoute path="/login" component={LoginContainer} />
-      <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-      <ProtectedRoute path="/account" component={AccountContainer} />
-      <ProtectedRoute path="/stocks/:ticker" component={StocksContainer} />
+      <Suspense fallback={<div>Error loading page</div>}>
+        <AuthRoute exact path="/" component={Home} />
+        <AuthRoute path="/signup" component={SignupContainer} />
+        <AuthRoute path="/login" component={LoginContainer} />
+        <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+        <ProtectedRoute path="/account" component={AccountContainer} />
+        <ProtectedRoute path="/stocks/:ticker" component={StocksContainer} />
+      </Suspense>
   </div>
 );
 
