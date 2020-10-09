@@ -60,14 +60,19 @@
     font-weight: 700;
 }
 
-// .buy-stock-tab::selection {
-//     background-color:  #01b403;
-//     color: #fff;
+// .buy-stock-tab:active {
+//     border-bottom: 2px solid #01b403;
+// }
+.buy-stock-tab:hover {
+    border-bottom: 2px solid #01b403;
+}
+
+// .sell-stock-tab:active {
+//     border-bottom: 2px solid #01b403;
 // }
 
-// .sell-stock-tab::selection {
-//     background-color:  #01b403;
-//     color: #fff;
-// }
+.sell-stock-tab:hover {
+    border-bottom: 2px solid #01b403;
+}
 
 
