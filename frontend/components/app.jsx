@@ -1,5 +1,4 @@
 import React, {lazy, Suspense} from 'react';
-import { Provider } from 'react-redux';
 
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
