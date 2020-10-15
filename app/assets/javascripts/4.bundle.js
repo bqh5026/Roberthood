@@ -91,6 +91,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       setSharesError = _useState18[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    document.title = 'Portfolio | Roberthood';
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (news.length < 1) {
       // search(); 
       $.ajax('/api/news/new').done(function (res) {

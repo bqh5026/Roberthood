@@ -99,6 +99,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   // });
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    document.title = 'Account | Robinhood';
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     Object(_axios_quotes__WEBPACK_IMPORTED_MODULE_3__["default"])({
       method: "GET",
       url: "https://roberthood-edcdd.firebaseio.com/portfolios/".concat(currentUser.username, ".json")

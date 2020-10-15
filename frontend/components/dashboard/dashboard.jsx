@@ -19,6 +19,10 @@ export default ({ currentUser, logout }) => {
   const [sharesError, setSharesError] = useState(null);
 
   useEffect(() => {
+    document.title = 'Portfolio | Roberthood'; 
+  })
+
+  useEffect(() => {
     if (news.length < 1) {
       // search(); 
       $.ajax('/api/news/new').done(res => {

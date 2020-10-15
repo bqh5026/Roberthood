@@ -114,6 +114,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    document.title = "".concat(ticker.toUpperCase(), " - $").concat(parseInt(quote.latest_price).toFixed(2), " | Roberthood");
+  });
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (news.length < 1) {
       stocksSearch();
       $.ajax("/api/news/new").done(function (res) {

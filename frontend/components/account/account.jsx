@@ -36,6 +36,10 @@ export default ({ currentUser, logout }) => {
   // });
 
   useEffect(() => {
+    document.title = 'Account | Robinhood'; 
+  })
+
+  useEffect(() => {
     axios({
       method: "GET",
       url: `https://roberthood-edcdd.firebaseio.com/portfolios/${currentUser.username}.json`})

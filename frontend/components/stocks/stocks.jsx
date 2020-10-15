@@ -42,6 +42,9 @@ export default ({currentUser, logout}) => {
     history.push(path);
   };
 
+  useEffect(() => {
+    document.title = `${ticker.toUpperCase()} - $${parseInt(quote.latest_price).toFixed(2)} | Roberthood`
+  })
    useEffect(() => {
        if (news.length < 1) {
          stocksSearch();
