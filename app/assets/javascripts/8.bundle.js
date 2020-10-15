@@ -36,6 +36,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     setShow(!show);
   };
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    document.title = 'Commission-free Stock Trading & Investing App | Roberthood';
+  });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
     className: "landing-page-nav-bar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

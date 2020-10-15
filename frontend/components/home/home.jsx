@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'; 
 
 
@@ -10,6 +10,10 @@ const [show, setShow] = useState(false);
 const operation = () => {
   setShow(!show);
 };
+
+useEffect(() => {
+  document.title = 'Commission-free Stock Trading & Investing App | Roberthood'
+})
 
   return (
     <div>
