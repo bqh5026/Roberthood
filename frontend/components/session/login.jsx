@@ -18,6 +18,10 @@ class Login extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+  componentDidMount() {
+    document.title = "Log In | Roberthood"; 
+  }
+
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });

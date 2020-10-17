@@ -64,6 +64,11 @@ var Login = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Login, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.title = "Log In | Roberthood";
+    }
+  }, {
     key: "handleInput",
     value: function handleInput(type) {
       var _this2 = this;
