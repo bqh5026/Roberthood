@@ -196,7 +196,9 @@ const predictiveSearch = (item) => {
                {/* {searchValue ? <strong>Stocks</strong> : ""} */}
                <ul>
                  {TickerSymbols.map((name) => {
-                   {/* if (searchValue.length !== 0 && searchValue !== "qqq") { */} 
+                   {
+                     /* if (searchValue.length !== 0 && searchValue !== "qqq") { */
+                   }
                    if (searchValue.length !== 0) {
                      if (
                        name.symbol
@@ -289,6 +291,12 @@ const predictiveSearch = (item) => {
                      <i className="fas fa-briefcase menu-icon"></i>
                      <Link to="/account">
                        <span className="dropdown-menu-item">Account</span>
+                     </Link>
+                   </li>
+                   <li className="dropdown-list">
+                     <i class="fas fa-university menu-icon"></i>
+                     <Link to="/banking">
+                       <span className="dropdown-menu-item">Banking</span>
                      </Link>
                    </li>
                    <li className="dropdown-list">
