@@ -295,8 +295,14 @@ export default ({ currentUser, logout }) => {
                     </li>
                     <li className="dropdown-list">
                       <i className="fas fa-briefcase menu-icon"></i>
-                      <Link to="/dashboard">
+                      <Link to="/account">
                         <span className="dropdown-menu-item">Account</span>
+                      </Link>
+                    </li>
+                    <li className="dropdown-list">
+                      <i class="fas fa-university menu-icon"></i>
+                      <Link to="/account/banking">
+                        <span className="dropdown-menu-item">Banking</span>
                       </Link>
                     </li>
                     <li className="dropdown-list">
@@ -413,8 +419,7 @@ export default ({ currentUser, logout }) => {
                 </ul>
               </div>
 
-              <div className="footer">
-              </div>
+              <div className="footer"></div>
             </div>
 
             <div className="account-right">
