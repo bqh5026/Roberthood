@@ -12,8 +12,6 @@ export default ({ currentUser, logout }) => {
   const [show, setShow] = useState(false);
   const [portfolioValue, setPortfolioValue] = useState([]);
   const [stock, setStock] = useState([]);
-  const [shares, setShares] = useState(0);
-  const [sharesError, setSharesError] = useState(null);
 
   const ticker = useParams();
 
@@ -80,94 +78,10 @@ export default ({ currentUser, logout }) => {
     setShow(!show);
   };
 
-  const postDataHandler = () => {
-    axios
-      .post(`./${currentUser.username}.json`, quote)
-      .then(
-        (document.querySelector(".watchlist_btn").textContent =
-          "Added to Watchlist")
-      )
-      .catch((error) => console.log(error));
-  };
-
   const history = useHistory();
   const routeChangeAccountStocksPage = (ticker) => {
     let path = ticker;
     history.push(path);
-  };
-
-  const buyStockHandler = () => {
-    const total = shares * quote.latest_price;
-    for (const stock of portfolioValue) {
-      if (stock.Company.symbol === quote.symbol) {
-        axios
-          .patch(
-            `./portfolios/${currentUser.username}/${stock.firebaseID}.json`,
-            {
-              Quantity: parseInt(stock.Quantity) + parseInt(shares),
-            }
-          )
-          .then((document.querySelector(".buy-stock").textContent = "Bought"))
-          .then((document.querySelector(".buy-stock").disabled = true));
-        return;
-      }
-    }
-
-    if (shares >= 1) {
-      axios
-        .post(`./portfolios/${currentUser.username}.json`, {
-          Company: quote,
-          Quantity: shares,
-          Total: total,
-        })
-        // .then(response => console.log(response))
-        .then((document.querySelector(".buy-stock").textContent = "Bought"))
-        .then(setSharesError(null))
-        .then((document.querySelector(".buy-stock").disabled = true))
-        // .then(routeChange())
-        .catch((error) => console.log(error));
-    } else {
-      setSharesError("Please enter valid number of shares.");
-    }
-  };
-
-  const sellStockHandler = (stock) => {
-    return (event) => {
-      event.preventDefault();
-      axios
-        .delete(`./portfolios/${currentUser.username}/${stock.firebaseID}.json`)
-        .catch((error) => console.log(error));
-    };
-  };
-
-  const watchlistChecker = () => {
-    for (let watchlistItem of stock) {
-      if (watchlistItem.symbol === quote.symbol) {
-        return (
-          <button
-            className="watchlist_btn"
-            onClick={deleteWatchlistItemHandler(watchlistItem)}
-          >
-            - Remove from Lists
-          </button>
-        );
-      }
-    }
-
-    return (
-      <button className="watchlist_btn" onClick={postDataHandler}>
-        + Add to Lists
-      </button>
-    );
-  };
-
-  const deleteWatchlistItemHandler = (watchlistItem) => {
-    return (event) => {
-      event.preventDefault();
-      axios
-        .delete(`./${currentUser.username}/${watchlistItem.firebaseID}.json`)
-        .catch((error) => console.log(error));
-    };
   };
 
   const predictiveSearch = (item) => {
@@ -317,7 +231,12 @@ export default ({ currentUser, logout }) => {
             {currentUser.first_name} {currentUser.last_name}
           </h1>
           <nav className="user-nav-bar">
-            <li className="user-nav-item">Account</li>
+            <li className="user-nav-item user-anchor-link">
+              <a href="/">Account</a>
+            </li>
+            <li className="user-nav-item user-nav-item user-anchor-link">
+              Banking
+            </li>
             <li className="user-nav-item user-anchor-link">
               <a href="https://angel.co/u/ben-hsieh-6">Angel List </a>
             </li>
@@ -334,27 +253,6 @@ export default ({ currentUser, logout }) => {
             </li>
             <div className="animation start-account"></div>
           </nav>
-        </div>
-
-        <hr />
-
-        <div>
-          <li className="portfolio-value-header">Total Portfolio Value</li>
-          <div className="portfolio-container">
-            <div>
-              <br />
-              <div className="total-portfolio-value">
-                $
-                {portfolioValue
-                  .map((a) => a.Total)
-                  .reduce((a, b) => a + b, 0)
-                  .toFixed(2)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-              </div>
-        
-            </div>
-          </div>
         </div>
       </div>
       )
