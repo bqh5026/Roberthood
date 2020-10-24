@@ -1,9 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import Banking from "./banking";
+import { logout } from "../../actions/session";
 
-export default ({ currentUser, logout}) => {
-  return (
-    <div>
-      <h1>Baking Page</h1>
-    </div>
-  )
-}
+const msp = (state) => {
+  return { currentUser: state.session.currentUser };
+};
+
+const mdp = (dispatch) => ({
+  logout: () => dispatch(logout()),
+});
+
+export default connect(msp, mdp)(Banking);

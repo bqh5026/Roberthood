@@ -1,13 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  CartesianGrid,
-  Tooltip,
-  YAxis,
-} from "recharts";
 
 import axios from '../axios-quotes';
 
@@ -17,24 +9,14 @@ export default ({ currentUser, logout }) => {
     const [searchValue, setSearchValue] = useState("");
     const [quote, setQuote] = useState("");
     // console.log("currentUser", currentUser); 
-     const [chartData, setChartData] = useState([]);
-     const [news, setNews] = useState([]);
-     const [show, setShow] = useState(false); 
-     const [portfolioValue, setPortfolioValue] = useState([]);
-     const [stock, setStock] = useState([]);
-     const [shares, setShares] = useState(0); 
-     const [sharesError, setSharesError] = useState(null);
+    const [show, setShow] = useState(false); 
+    const [portfolioValue, setPortfolioValue] = useState([]);
+    const [stock, setStock] = useState([]);
+    const [shares, setShares] = useState(0); 
+    const [sharesError, setSharesError] = useState(null);
 
-     const ticker = useParams();
+    const ticker = useParams();
      
-  // useEffect(() => {
-  //   if (news.length < 1) {
-  //     $.ajax("/api/news/new").done((res) => {
-  //       setNews(news.concat(res.articles));
-  //     });
-  //   }
-  // });
-
   useEffect(() => {
     document.title = 'Account | Robinhood'; 
   })
@@ -252,7 +234,6 @@ export default ({ currentUser, logout }) => {
 
           <div>
             <nav className="nav-bar">
-              {/* <span className="nav-menu-item">Free Stocks</span> */}
               <a href="https://angel.co/u/ben-hsieh-6">
                 <span className="nav-menu-item">AngelList</span>
               </a>
@@ -324,152 +305,7 @@ export default ({ currentUser, logout }) => {
         <br />
         <br />
         <br />
-        {quote ? (
-          <div className="account-page">
-            <div className="left">
-              <div className="Quote">
-                <div>
-                  <ul className="ticker-results">
-                    <li>
-                      <h1>
-                        {JSON.stringify(quote.company_name).replace(
-                          /['"]+/g,
-                          ""
-                        )}
-                      </h1>
-                    </li>
-                    <li>
-                      <span>Ticker:</span>{" "}
-                      {JSON.stringify(quote.symbol).replace(/['"]+/g, "")}
-                    </li>
-                    <li>
-                      <span>Latest Price:</span>$
-                      {JSON.stringify(quote.latest_price)}
-                    </li>
-                    <li>
-                      ${JSON.stringify(quote.change)}(
-                      {JSON.stringify(quote.change_percent_s).replace(
-                        /['"]+/g,
-                        ""
-                      )}
-                      ) <span className="today">Today </span>
-                    </li>
-                    <li>
-                      <span>PE ratio:</span>
-                      {JSON.stringify(quote.pe_ratio)}
-                    </li>
-                    <li>
-                      <span>YTD change:</span>{" "}
-                      {JSON.stringify(
-                        (quote.ytd_change * 100).toFixed(2)
-                      ).replace(/['"]+/g, "")}
-                      %
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="Chart">
-                <LineChart width={800} height={400} data={chartData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="minute" />
-                  <YAxis type="number" domain={["auto", "auto"]} />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="close" stroke="#8884d8" />
-                </LineChart>
-              </div>
-
-              <div className="news-header">
-                <h4>News</h4>
-                <hr></hr>
-              </div>
-
-              <div className="news">
-                <ul>
-                  {news.map((item, idx) => {
-                    return (
-                      <li key={idx} className="news-item">
-                        <div>
-                          <i className="fas fa-bolt"></i>
-                          {"\u00A0"}
-                          {"\u00A0"}
-                          <strong>{item.source.name}</strong>
-                          {"\u00A0"}
-                          {"\u00A0"}
-                          {item.publishedAt}
-                        </div>
-                        <div className="news-title">
-                          <div>
-                            <a
-                              className="news-title-header"
-                              href={item.url}
-                              target="_blank"
-                            >
-                              {item.title}
-                            </a>
-                          </div>
-                          <div>
-                            <img className="news-image" src={item.urlToImage} />
-                          </div>
-                        </div>
-                        <hr />
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
-              <div className="footer"></div>
-            </div>
-
-            <div className="account-right">
-              <div className="account-trade">
-                <strong>
-                  {/* JSON.stringify(quote.company_name).replace(/['"]+/g, "")*/}
-                  Buy {quote.symbol.toUpperCase()}
-                </strong>
-                <div className="account-stock-purchase">
-                  Shares{" "}
-                  <input
-                    value={shares}
-                    className="account-purchase-shares"
-                    type="number"
-                    min="0"
-                    step="1"
-                    onChange={(e) => setShares(e.target.value)}
-                  ></input>
-                </div>
-                <br />
-                <hr />
-                <div>Market Price:</div>
-                <br />
-                <div className="market-price">
-                  ${quote.latest_price.toFixed(2)}
-                </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <button className="buy-stock" onClick={buyStockHandler}>
-                  Buy
-                </button>
-                <br />
-                <br />
-                <div className="account-purchase-shares-error">
-                  {sharesError}
-                </div>
-                <br />
-                <br />
-                <br />
-                <br />
-                {watchlistChecker()}
-              </div>
-              <br />
-            </div>
-            <br />
-          </div>
-        ) : (
+    
           <div>
             <div className="user-account">
               <h1>
@@ -557,7 +393,8 @@ export default ({ currentUser, logout }) => {
               </div>
             </div>
           </div>
-        )}
+        )
+
       </div>
     );
 }

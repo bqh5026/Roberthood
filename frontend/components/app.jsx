@@ -22,7 +22,7 @@ export default () => (
           <AuthRoute path="/signup" component={SignupContainer} />
           <AuthRoute path="/login" component={LoginContainer} />
           <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-          <ProtectedRoute path="/account" exact component={AccountContainer} />
+          <ProtectedRoute path="/account" component={AccountContainer} />
           <ProtectedRoute path="/account/banking" component={BankingContainer} />
           <ProtectedRoute path="/stocks/:ticker" component={StocksContainer} />
         </Switch>
