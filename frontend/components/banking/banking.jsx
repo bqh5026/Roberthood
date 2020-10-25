@@ -231,10 +231,12 @@ export default ({ currentUser, logout }) => {
             {currentUser.first_name} {currentUser.last_name}
           </h1>
           <nav className="user-nav-bar">
+            <Link to="/account">
+              <li className="user-nav-item banking-link">
+                Account
+              </li>
+            </Link>
             <li className="user-nav-item user-anchor-link">
-              <a href="/">Account</a>
-            </li>
-            <li className="user-nav-item user-nav-item user-anchor-link">
               Banking
             </li>
             <li className="user-nav-item user-anchor-link">
