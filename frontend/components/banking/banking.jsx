@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, NavLink, useParams, useHistory } from "react-router-dom";
 
 import axios from "../axios-quotes";
 
@@ -231,29 +231,24 @@ export default ({ currentUser, logout }) => {
             {currentUser.first_name} {currentUser.last_name}
           </h1>
           <nav className="user-nav-bar">
-            <Link to="/account">
-              <li className="user-nav-item banking-link">
+            <Link to="/account" className="banking-page-link"> 
                 Account
-              </li>
             </Link>
-            <li className="user-nav-item user-anchor-link">
-              Banking
-            </li>
-            <li className="user-nav-item user-anchor-link">
-              <a href="https://angel.co/u/ben-hsieh-6">Angel List </a>
-            </li>
-            <li className="user-nav-item user-anchor-link">
-              <a href="https://github.com/benhsieh-dev">GitHub </a>
-            </li>
-            <li className="user-nav-item user-anchor-link">
-              <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+            <Link to="/account/banking" className="banking-page-link"> 
+                Banking
+            </Link>
+            <Link to="https://angel.co/u/ben-hsieh-6" className="banking-page-link">
+                Angel List
+            </Link>
+            <Link to="https://github.com/benhsieh-dev" className="banking-page-link">
+                GitHub
+            </Link>
+            <Link to="https://www.linkedin.com/in/ben-hsieh-05522542/" className="banking-page-link">
                 LinkedIn
-              </a>
-            </li>
-            <li className="user-nav-item user-anchor-link">
-              <a href="https://benhsieh-dev.github.io/">Personal Site</a>
-            </li>
-            <div className="animation start-account"></div>
+            </Link>
+            <Link to="https://benhsieh-dev.github.io/" className="banking-page-link">
+                Personal Site
+            </Link>
           </nav>
         </div>
       </div>
