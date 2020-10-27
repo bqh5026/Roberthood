@@ -310,24 +310,36 @@ export default ({ currentUser, logout }) => {
               {currentUser.first_name} {currentUser.last_name}
             </h1>
             <nav className="user-nav-bar">
-              <li className="account-page-link">Account</li>
+              <NavLink to="/account" className="account-page-link">
+                Account
+              </NavLink>
               <NavLink to="/account/banking" className="account-page-link">
                 Banking
               </NavLink>
-              <li className="account-page-link">
-                <a href="https://angel.co/u/ben-hsieh-6">Angel List </a>
-              </li>
-              <li className="account-page-link">
-                <a href="https://github.com/benhsieh-dev">GitHub </a>
-              </li>
-              <li className="account-page-link">
-                <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
-                  LinkedIn
-                </a>
-              </li>
-              <li className="account-page-link">
-                <a href="https://benhsieh-dev.github.io/">Personal Site</a>
-              </li>
+              <a
+                href="https://angel.co/u/ben-hsieh-6"
+                className="account-page-link"
+              >
+                Angel List
+              </a>
+              <a
+                href="https://github.com/benhsieh-dev"
+                className="account-page-link"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ben-hsieh-05522542/"
+                className="account-page-link"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://benhsieh-dev.github.io/"
+                className="account-page-link"
+              >
+                Personal Site
+              </a>
             </nav>
           </div>
 
