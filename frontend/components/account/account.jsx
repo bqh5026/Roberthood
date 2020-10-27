@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useHistory, NavLink } from 'react-router-dom';
 
 import axios from '../axios-quotes';
 
@@ -301,100 +301,99 @@ export default ({ currentUser, logout }) => {
             </nav>
           </div>
         </div>
+        <br />
+        <br />
+        <br />
+        <div>
+          <div className="user-account">
+            <h1>
+              {currentUser.first_name} {currentUser.last_name}
+            </h1>
+            <nav className="user-nav-bar">
+              <li className="account-page-link">Account</li>
+              <NavLink to="/account/banking" className="account-page-link">
+                Banking
+              </NavLink>
+              <li className="account-page-link">
+                <a href="https://angel.co/u/ben-hsieh-6">Angel List </a>
+              </li>
+              <li className="account-page-link">
+                <a href="https://github.com/benhsieh-dev">GitHub </a>
+              </li>
+              <li className="account-page-link">
+                <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+                  LinkedIn
+                </a>
+              </li>
+              <li className="account-page-link">
+                <a href="https://benhsieh-dev.github.io/">Personal Site</a>
+              </li>
+            </nav>
+          </div>
 
-        <br />
-        <br />
-        <br />
-    
+          <hr />
+
           <div>
-            <div className="user-account">
-              <h1>
-                {currentUser.first_name} {currentUser.last_name}
-              </h1>
-              <nav className="user-nav-bar">
-                <li className="user-nav-item">Account</li>
-                <li className="user-nav-item user-anchor-link">
-                  <a href="https://angel.co/u/ben-hsieh-6">Angel List </a>
-                </li>
-                <li className="user-nav-item user-anchor-link">
-                  <a href="https://github.com/benhsieh-dev">GitHub </a>
-                </li>
-                <li className="user-nav-item user-anchor-link">
-                  <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
-                    LinkedIn
-                  </a>
-                </li>
-                <li className="user-nav-item user-anchor-link">
-                  <a href="https://benhsieh-dev.github.io/">Personal Site</a>
-                </li>
-                <div className="animation start-account"></div>
-              </nav>
-            </div>
+            <li className="portfolio-value-header">Total Portfolio Value</li>
+            <div className="portfolio-container">
+              <div>
+                <br />
+                <div className="total-portfolio-value">
+                  $
+                  {portfolioValue
+                    .map((a) => a.Total)
+                    .reduce((a, b) => a + b, 0)
+                    .toFixed(2)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </div>
 
-            <hr />
+                <br />
+                <br />
+                <br />
+                <span className="stocks-section">Stocks</span>
+                <br />
+                <br />
+                <div className="portfolio">
+                  <table className="portfolio-item">
+                    <tr className="portfolio-header">
+                      <td>Name</td>
+                      <td>Symbol</td>
+                      <td>Shares</td>
+                      <td>Price</td>
+                      <td>Day's Percentge Change</td>
+                    </tr>
+                    <hr />
+                    {portfolioValue.map((item, idx) => (
+                      <div key={idx} className="shares-information">
+                        <Link to={`/stocks/${item.Company.symbol}`}>
+                          <tr className="company-details">
+                            <td>
+                              <strong>{item.Company.company_name}</strong>
+                            </td>
+                            <td>{item.Company.symbol}</td>
+                            <td>{item.Quantity}</td>
+                            <td>${item.Company.latest_price.toFixed(2)}</td>
+                            <td>{item.Company.change_percent_s}</td>
+                          </tr>
+                        </Link>
 
-            <div>
-              <li className="portfolio-value-header">Total Portfolio Value</li>
-              <div className="portfolio-container">
-                <div>
-                  <br />
-                  <div className="total-portfolio-value">
-                    $
-                    {portfolioValue
-                      .map((a) => a.Total)
-                      .reduce((a, b) => a + b, 0)
-                      .toFixed(2)
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                  </div>
-
-                  <br />
-                  <br />
-                  <br />
-                  <span className="stocks-section">Stocks</span>
-                  <br />
-                  <br />
-                  <div className="portfolio">
-                    <table className="portfolio-item">
-                      <tr className="portfolio-header">
-                        <td>Name</td>
-                        <td>Symbol</td>
-                        <td>Shares</td>
-                        <td>Price</td>
-                        <td>Day's Percentge Change</td>
-                      </tr>
-                      <hr />
-                      {portfolioValue.map((item, idx) => (
-                        <div key={idx} className="shares-information">
-                          <Link to={`/stocks/${item.Company.symbol}`}>
-                            <tr className="company-details">
-                              <td>
-                                <strong>{item.Company.company_name}</strong>
-                              </td>
-                              <td>{item.Company.symbol}</td>
-                              <td>{item.Quantity}</td>
-                              <td>${item.Company.latest_price.toFixed(2)}</td>
-                              <td>{item.Company.change_percent_s}</td>
-                            </tr>
-                          </Link>
-
-                          <button
-                            className="sell-stock"
-                            onClick={sellStockHandler(item)}
-                          >
-                            Sell All
-                          </button>
-                          <br />
-                        </div>
-                      ))}
-                    </table>
-                  </div>
+                        <button
+                          className="sell-stock"
+                          onClick={sellStockHandler(item)}
+                        >
+                          Sell All
+                        </button>
+                        <br />
+                      </div>
+                    ))}
+                  </table>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         )
-
       </div>
     );
 }

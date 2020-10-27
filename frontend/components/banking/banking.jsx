@@ -237,18 +237,18 @@ export default ({ currentUser, logout }) => {
             <Link to="/account/banking" className="banking-page-link"> 
                 Banking
             </Link>
-            <Link to="https://angel.co/u/ben-hsieh-6" className="banking-page-link">
+            <a href="https://angel.co/u/ben-hsieh-6" className="banking-page-link">
                 Angel List
-            </Link>
-            <Link to="https://github.com/benhsieh-dev" className="banking-page-link">
+            </a>
+            <a href="https://github.com/benhsieh-dev" className="banking-page-link">
                 GitHub
-            </Link>
-            <Link to="https://www.linkedin.com/in/ben-hsieh-05522542/" className="banking-page-link">
+            </a>
+            <a href="https://www.linkedin.com/in/ben-hsieh-05522542/" className="banking-page-link">
                 LinkedIn
-            </Link>
-            <Link to="https://benhsieh-dev.github.io/" className="banking-page-link">
+            </a>
+            <a href="https://benhsieh-dev.github.io/" className="banking-page-link">
                 Personal Site
-            </Link>
+            </a>
           </nav>
         </div>
       </div>
