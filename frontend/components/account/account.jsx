@@ -319,24 +319,28 @@ export default ({ currentUser, logout }) => {
               <a
                 href="https://angel.co/u/ben-hsieh-6"
                 className="account-page-link"
+                target="_blank"
               >
                 Angel List
               </a>
               <a
                 href="https://github.com/benhsieh-dev"
                 className="account-page-link"
+                target="_blank"
               >
                 GitHub
               </a>
               <a
                 href="https://www.linkedin.com/in/ben-hsieh-05522542/"
                 className="account-page-link"
+                target="_blank"
               >
                 LinkedIn
               </a>
               <a
                 href="https://benhsieh-dev.github.io/"
                 className="account-page-link"
+                target="_blank"
               >
                 Personal Site
               </a>

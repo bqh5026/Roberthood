@@ -231,23 +231,39 @@ export default ({ currentUser, logout }) => {
             {currentUser.first_name} {currentUser.last_name}
           </h1>
           <nav className="user-nav-bar">
-            <Link to="/account" className="banking-page-link"> 
-                Account
+            <Link to="/account" className="banking-page-link">
+              Account
             </Link>
-            <Link to="/account/banking" className="banking-page-link"> 
-                Banking
+            <Link to="/account/banking" className="banking-page-link">
+              Banking
             </Link>
-            <a href="https://angel.co/u/ben-hsieh-6" className="banking-page-link">
-                Angel List
+            <a
+              href="https://angel.co/u/ben-hsieh-6"
+              className="banking-page-link"
+              target="_blank"
+            >
+              Angel List
             </a>
-            <a href="https://github.com/benhsieh-dev" className="banking-page-link">
-                GitHub
+            <a
+              href="https://github.com/benhsieh-dev"
+              className="banking-page-link"
+              target="_blank"
+            >
+              GitHub
             </a>
-            <a href="https://www.linkedin.com/in/ben-hsieh-05522542/" className="banking-page-link">
-                LinkedIn
+            <a
+              href="https://www.linkedin.com/in/ben-hsieh-05522542/"
+              className="banking-page-link"
+              target="_blank"
+            >
+              LinkedIn
             </a>
-            <a href="https://benhsieh-dev.github.io/" className="banking-page-link">
-                Personal Site
+            <a
+              href="https://benhsieh-dev.github.io/"
+              className="banking-page-link"
+              target="_blank"
+            >
+              Personal Site
             </a>
           </nav>
         </div>

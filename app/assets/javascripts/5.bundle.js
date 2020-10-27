@@ -280,16 +280,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     className: "banking-page-link"
   }, "Banking"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://angel.co/u/ben-hsieh-6",
-    className: "banking-page-link"
+    className: "banking-page-link",
+    target: "_blank"
   }, "Angel List"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://github.com/benhsieh-dev",
-    className: "banking-page-link"
+    className: "banking-page-link",
+    target: "_blank"
   }, "GitHub"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/ben-hsieh-05522542/",
-    className: "banking-page-link"
+    className: "banking-page-link",
+    target: "_blank"
   }, "LinkedIn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://benhsieh-dev.github.io/",
-    className: "banking-page-link"
+    className: "banking-page-link",
+    target: "_blank"
   }, "Personal Site")))), ")");
 });
 

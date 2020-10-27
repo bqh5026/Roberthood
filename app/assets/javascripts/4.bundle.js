@@ -382,16 +382,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     className: "account-page-link"
   }, "Banking"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://angel.co/u/ben-hsieh-6",
-    className: "account-page-link"
+    className: "account-page-link",
+    target: "_blank"
   }, "Angel List"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://github.com/benhsieh-dev",
-    className: "account-page-link"
+    className: "account-page-link",
+    target: "_blank"
   }, "GitHub"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/ben-hsieh-05522542/",
-    className: "account-page-link"
+    className: "account-page-link",
+    target: "_blank"
   }, "LinkedIn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://benhsieh-dev.github.io/",
-    className: "account-page-link"
+    className: "account-page-link",
+    target: "_blank"
   }, "Personal Site"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "portfolio-value-header"
   }, "Total Portfolio Value"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
