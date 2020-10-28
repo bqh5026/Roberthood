@@ -267,8 +267,26 @@ export default ({ currentUser, logout }) => {
             </a>
           </nav>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <form className="banking-page-transfer-form">
+          <label> From
+            <input></input>
+          </label>
+          <label> To
+            <input></input>
+          </label>
+          <label> Amount
+            <input></input>
+          </label>
+          <br/>
+          <button>Submit</button>
+        </form>
       </div>
-      )
     </div>
   );
 };

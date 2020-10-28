@@ -7,3 +7,10 @@
 .banking-page-link:hover {
   color: #00c806;
 }
+
+.banking-page-transfer-form {
+  display: flex;
+  flex-direction: column;
+  width: 10%; 
+  margin: 0 auto; 
+}
