@@ -281,7 +281,7 @@ export default ({ currentUser, logout }) => {
             <input></input>
           </label>
           <label> Amount
-            <input></input>
+            <input placeholder="$0.00"></input>
           </label>
           <br/>
           <button>Submit</button>
