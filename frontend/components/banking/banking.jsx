@@ -274,16 +274,27 @@ export default ({ currentUser, logout }) => {
         <br />
         <br />
         <form className="banking-page-transfer-form">
-          <label> From
+          <h3>Transfer</h3>
+          <hr />
+          <label>
+            {" "}
+            From
             <input></input>
           </label>
-          <label> To
+          <br />
+          <label>
+            {" "}
+            To
             <input></input>
           </label>
-          <label> Amount
+          <br />
+          <label>
+            {" "}
+            Amount
             <input placeholder="$0.00"></input>
           </label>
-          <br/>
+          <br />
+          <br />
           <button>Submit</button>
         </form>
       </div>
