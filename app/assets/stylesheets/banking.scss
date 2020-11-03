@@ -27,10 +27,18 @@
   border: none; 
 }
 
+.banking-page-input {
+  float: right;
+}
+
 .banking-page-input:hover {
   border: 1px solid #00c806; 
   border-radius: 2px;
   height: 16px;
+}
+
+.banking-page-amount {
+  float: right;
 }
 
 .banking-page-amount:focus {
@@ -45,3 +53,4 @@
   flex-direction: column;
   justify-content: space-between;
 }
+

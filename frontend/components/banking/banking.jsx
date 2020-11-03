@@ -289,7 +289,11 @@ export default ({ currentUser, logout }) => {
             <br />
             <label>
               Amount
-              <input type="number" className="banking-page-amount" placeholder="$0.00"></input>
+              <input
+                type="number"
+                className="banking-page-amount"
+                placeholder="$0.00"
+              ></input>
             </label>
           </div>
           <br />
