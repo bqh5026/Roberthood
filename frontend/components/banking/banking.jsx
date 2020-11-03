@@ -295,7 +295,7 @@ export default ({ currentUser, logout }) => {
           </label>
           <br />
           <br />
-          <button>Submit</button>
+          <button className="banking-page-btn">Submit</button>
         </form>
       </div>
     </div>
