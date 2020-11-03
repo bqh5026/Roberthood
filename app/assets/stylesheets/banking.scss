@@ -26,3 +26,22 @@
   border-radius: 3px;
   border: none; 
 }
+
+.banking-page-input:hover {
+  border: 1px solid #00c806; 
+  border-radius: 2px;
+  height: 16px;
+}
+
+.banking-page-amount:focus {
+  outline: 1px solid #00c806;
+  border: none;
+  border-radius: 2px;
+  height: 16px;
+}
+
+.banking-page-input-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

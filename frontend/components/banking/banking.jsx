@@ -276,23 +276,22 @@ export default ({ currentUser, logout }) => {
         <form className="banking-page-transfer-form">
           <h3>Transfer</h3>
           <hr />
-          <label>
-            {" "}
-            From
-            <input></input>
-          </label>
-          <br />
-          <label>
-            {" "}
-            To
-            <input></input>
-          </label>
-          <br />
-          <label>
-            {" "}
-            Amount
-            <input placeholder="$0.00"></input>
-          </label>
+          <div className="banking-page-input-fields">
+            <label>
+              From
+              <input className="banking-page-input"></input>
+            </label>
+            <br />
+            <label>
+              To
+              <input className="banking-page-input"></input>
+            </label>
+            <br />
+            <label>
+              Amount
+              <input type="number" className="banking-page-amount" placeholder="$0.00"></input>
+            </label>
+          </div>
           <br />
           <br />
           <button className="banking-page-btn">Submit</button>
