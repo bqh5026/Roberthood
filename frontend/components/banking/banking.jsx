@@ -286,7 +286,7 @@ export default ({ currentUser, logout }) => {
             </label>
             <br />
             <label for="to">
-              From
+              To
               <select id="to" name="to" className="banking-page-input">
                 <option value="Cathay Bank">Roberthood</option>
                 <option value="Cathay Bank">Cathay Bank</option>

@@ -310,7 +310,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     value: "Cathay Bank"
   }, "Roberthood"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     "for": "to"
-  }, "From", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+  }, "To", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     id: "to",
     name: "to",
     className: "banking-page-input"
