@@ -155,13 +155,16 @@ export default ({ currentUser, logout }) => {
 
         <div>
           <nav className="nav-bar">
-            <a href="https://angel.co/u/ben-hsieh-6">
+            <a href="https://angel.co/u/ben-hsieh-6" target="_blank">
               <span className="nav-menu-item">AngelList</span>
             </a>
-            <a href="https://github.com/benhsieh-dev">
+            <a href="https://github.com/benhsieh-dev" target="_blank">
               <span className="nav-menu-item">GitHub</span>
             </a>
-            <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+            <a
+              href="https://www.linkedin.com/in/ben-hsieh-05522542/"
+              target="_blank"
+            >
               <span className="nav-menu-item">Linkedin</span>{" "}
             </a>
             <Link to="/dashboard">
@@ -179,19 +182,22 @@ export default ({ currentUser, logout }) => {
                   </li>
                   <li className="dropdown-list">
                     <i class="fab fa-angellist menu-icon"></i>
-                    <a href="https://angel.co/u/ben-hsieh-6">
+                    <a href="https://angel.co/u/ben-hsieh-6" target="_blank">
                       <span className="dropdown-menu-item">AngelList</span>
                     </a>
                   </li>
                   <li className="dropdown-list">
                     <i class="fab fa-github menu-icon"></i>
-                    <a href="https://github.com/benhsieh-dev">
+                    <a href="https://github.com/benhsieh-dev" target="_blank">
                       <span className="dropdown-menu-item">GitHub</span>
                     </a>
                   </li>
                   <li className="dropdown-list">
                     <i class="fab fa-linkedin-in menu-icon"></i>
-                    <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+                    <a
+                      href="https://www.linkedin.com/in/ben-hsieh-05522542/"
+                      target="_blank"
+                    >
                       <span className="dropdown-menu-item">Linkedin</span>
                     </a>
                   </li>
