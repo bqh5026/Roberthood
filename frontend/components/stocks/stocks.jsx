@@ -326,13 +326,16 @@ export default ({currentUser, logout}) => {
 
               <div>
                 <nav className="nav-bar">
-                  <a href="https://angel.co/u/ben-hsieh-6">
+                  <a href="https://angel.co/u/ben-hsieh-6" target="_blank">
                     <span className="nav-menu-item">AngelList</span>
                   </a>
-                  <a href="https://github.com/benhsieh-dev">
+                  <a href="https://github.com/benhsieh-dev" target="_blank">
                     <span className="nav-menu-item">GitHub</span>
                   </a>
-                  <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+                  <a
+                    href="https://www.linkedin.com/in/ben-hsieh-05522542/"
+                    target="_blank"
+                  >
                     <span className="nav-menu-item">Linkedin</span>{" "}
                   </a>
                   <Link to="/dashboard">
@@ -353,7 +356,10 @@ export default ({currentUser, logout}) => {
                         </li>
                         <li className="dropdown-list">
                           <i class="fab fa-angellist menu-icon"></i>
-                          <a href="https://angel.co/u/ben-hsieh-6">
+                          <a
+                            href="https://angel.co/u/ben-hsieh-6"
+                            target="_blank"
+                          >
                             <span className="dropdown-menu-item">
                               AngelList
                             </span>
@@ -361,13 +367,19 @@ export default ({currentUser, logout}) => {
                         </li>
                         <li className="dropdown-list">
                           <i class="fab fa-github menu-icon"></i>
-                          <a href="https://github.com/benhsieh-dev">
+                          <a
+                            href="https://github.com/benhsieh-dev"
+                            target="_blank"
+                          >
                             <span className="dropdown-menu-item">GitHub</span>
                           </a>
                         </li>
                         <li className="dropdown-list">
                           <i class="fab fa-linkedin-in menu-icon"></i>
-                          <a href="https://www.linkedin.com/in/ben-hsieh-05522542/">
+                          <a
+                            href="https://www.linkedin.com/in/ben-hsieh-05522542/"
+                            target="_blank"
+                          >
                             <span className="dropdown-menu-item">Linkedin</span>
                           </a>
                         </li>
@@ -473,17 +485,16 @@ export default ({currentUser, logout}) => {
                     <hr />
                     <div>Market Price:</div>
                     <br />
-                    <div className="market-price">${parseInt(quote.latest_price).toFixed(2)}</div>
-                    {console.log(typeof(quote.latest_price))}
+                    <div className="market-price">
+                      ${parseInt(quote.latest_price).toFixed(2)}
+                    </div>
+                    {console.log(typeof quote.latest_price)}
                     <br />
                     <br />
                     <br />
                     <br />
                     <br />
-                    <button
-                      className="buy-stock"
-                      onClick={buyStockHandler}
-                    >
+                    <button className="buy-stock" onClick={buyStockHandler}>
                       Buy
                     </button>
                     <br />
@@ -509,10 +520,10 @@ export default ({currentUser, logout}) => {
                     // onSelect={(index) => console.log(index)}
                   >
                     <TabList className="tabs-list">
-                      <Tab className='buy-stock-tab'>
+                      <Tab className="buy-stock-tab">
                         <strong>Buy {quote.symbol}</strong>
                       </Tab>
-                      <Tab className='sell-stock-tab'>
+                      <Tab className="sell-stock-tab">
                         <strong>Sell {quote.symbol}</strong>
                       </Tab>
                     </TabList>
@@ -543,10 +554,7 @@ export default ({currentUser, logout}) => {
                         <br />
                         <br />
                         <br />
-                        <button
-                          className="buy-stock"
-                          onClick={buyStockHandler}
-                        >
+                        <button className="buy-stock" onClick={buyStockHandler}>
                           Buy
                         </button>
                         <br />
