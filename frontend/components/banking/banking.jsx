@@ -277,14 +277,20 @@ export default ({ currentUser, logout }) => {
           <h3>Transfer</h3>
           <hr />
           <div className="banking-page-input-fields">
-            <label>
+            <label for="from">
               From
-              <input className="banking-page-input"></input>
+              <select id="from" name="from" className="banking-page-input">
+                <option value="Cathay Bank">Cathay Bank</option>
+                <option value="Cathay Bank">Roberthood</option>
+              </select>
             </label>
             <br />
-            <label>
-              To
-              <input className="banking-page-input"></input>
+            <label for="to">
+              From
+              <select id="to" name="to" className="banking-page-input">
+                <option value="Cathay Bank">Roberthood</option>
+                <option value="Cathay Bank">Cathay Bank</option>
+              </select>
             </label>
             <br />
             <label>
@@ -297,7 +303,7 @@ export default ({ currentUser, logout }) => {
             </label>
           </div>
           <br />
-          <br />       
+          <br />
           <button className="banking-page-btn">Submit</button>
         </form>
       </div>
