@@ -15,6 +15,9 @@ export default ({ currentUser, logout }) => {
 
   const ticker = useParams();
 
+  const [fromAccountState, setFromAccountState] = useState("Cathay Bank");
+  const [toAccountState, setToAccountState] = useState("Roberthood");
+
   useEffect(() => {
     document.title = "Account | Robinhood";
   });
@@ -283,20 +286,66 @@ export default ({ currentUser, logout }) => {
           <h3>Transfer</h3>
           <hr />
           <div className="banking-page-input-fields">
-            <label for="from">
+            <label htmlFor="from">
               From
-              <select id="from" name="from" className="banking-page-input">
-                <option value="Cathay Bank">Cathay Bank</option>
-                <option value="Cathay Bank">Roberthood</option>
-              </select>
+              {toAccountState === "Roberthood" ? (
+                <select
+                  id="from"
+                  name="from"
+                  className="banking-page-input"
+                  onChange={(e) => {
+                    const selectedFromAccount = e.target.value;
+                    setFromAccountState(selectedFromAccount);
+                  }}
+                >
+                  <option value="Cathay Bank">Cathay Bank</option>
+                  <option value="Roberthood">Roberthood</option>
+                </select>
+              ) : (
+                <select
+                  id="from"
+                  name="from"
+                  className="banking-page-input"
+                  onChange={(e) => {
+                    const selectedFromAccount = e.target.value;
+                    setFromAccountState(selectedFromAccount);
+                  }}
+                >
+                  <option value="Roberthood">Roberthood</option>
+                  <option value="Cathay Bank">Cathay Bank</option>
+                </select>
+              )}
             </label>
             <br />
-            <label for="to">
+            <label htmlFor="to">
               To
-              <select id="to" name="to" className="banking-page-input">
-                <option value="Cathay Bank">Roberthood</option>
-                <option value="Cathay Bank">Cathay Bank</option>
-              </select>
+              {fromAccountState === "Cathay Bank" ? (
+                <select
+                  id="to"
+                  name="to"
+                  className="banking-page-input"
+                  onChange={(e) => {
+                    const selectedToAccount = e.target.value;
+                    setToAccountState(selectedToAccount);
+                  }}
+                >
+                  <option value="Roberthood">Roberthood</option>
+                  <option value="Cathay Bank">Cathay Bank</option>
+                </select>
+              ) : (
+                <select
+                  id="to"
+                  name="to"
+                  className="banking-page-input"
+                  onChange={(e) => {
+                    const selectedToAccount = e.target.value;
+                    setToAccountState(selectedToAccount);
+                  }}
+                >
+                  <option value="Cathay Bank">Cathay Bank</option>
+                  <option value="Roberthood">Roberthood</option>
+                </select>
+              )}
             </label>
             <br />
             <label>

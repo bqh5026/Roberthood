@@ -67,6 +67,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       setStock = _useState10[1];
 
   var ticker = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["useParams"])();
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("Cathay Bank"),
+      _useState12 = _slicedToArray(_useState11, 2),
+      fromAccountState = _useState12[0],
+      setFromAccountState = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("Roberthood"),
+      _useState14 = _slicedToArray(_useState13, 2),
+      toAccountState = _useState14[0],
+      setToAccountState = _useState14[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     document.title = "Account | Robinhood";
   });
@@ -305,26 +316,58 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Transfer"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "banking-page-input-fields"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "from"
-  }, "From", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    htmlFor: "from"
+  }, "From", toAccountState === "Roberthood" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     id: "from",
     name: "from",
-    className: "banking-page-input"
+    className: "banking-page-input",
+    onChange: function onChange(e) {
+      var selectedFromAccount = e.target.value;
+      setFromAccountState(selectedFromAccount);
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "Cathay Bank"
   }, "Cathay Bank"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Cathay Bank"
-  }, "Roberthood"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "to"
-  }, "To", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    id: "to",
-    name: "to",
-    className: "banking-page-input"
+    value: "Roberthood"
+  }, "Roberthood")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "from",
+    name: "from",
+    className: "banking-page-input",
+    onChange: function onChange(e) {
+      var selectedFromAccount = e.target.value;
+      setFromAccountState(selectedFromAccount);
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "Cathay Bank"
+    value: "Roberthood"
   }, "Roberthood"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "Cathay Bank"
-  }, "Cathay Bank"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Amount", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, "Cathay Bank"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "to"
+  }, "To", fromAccountState === "Cathay Bank" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "to",
+    name: "to",
+    className: "banking-page-input",
+    onChange: function onChange(e) {
+      var selectedToAccount = e.target.value;
+      setToAccountState(selectedToAccount);
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Roberthood"
+  }, "Roberthood"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Cathay Bank"
+  }, "Cathay Bank")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    id: "to",
+    name: "to",
+    className: "banking-page-input",
+    onChange: function onChange(e) {
+      var selectedToAccount = e.target.value;
+      setToAccountState(selectedToAccount);
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Cathay Bank"
+  }, "Cathay Bank"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Roberthood"
+  }, "Roberthood"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Amount", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "number",
     className: "banking-page-amount",
     placeholder: "$0.00"
