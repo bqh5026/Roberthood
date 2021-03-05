@@ -14,6 +14,7 @@ function _interopRequireDefault(obj) {
 }
 
 module.exports = _interopRequireDefault;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
@@ -22,9 +23,7 @@ module.exports = _interopRequireDefault;
   !*** ./node_modules/balanced-match/index.js ***!
   \**********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
+/***/ (function(module, exports) {
 
 module.exports = balanced;
 function balanced(a, b, str) {
@@ -307,7 +306,7 @@ module.exports = function (it) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.11' };
+var core = module.exports = { version: '2.6.12' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -1111,7 +1110,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 })('versions', []).push({
   version: core.version,
   mode: __webpack_require__(/*! ./_library */ "./node_modules/core-js/modules/_library.js") ? 'pure' : 'global',
-  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
 
 
@@ -3716,8 +3715,8 @@ function color(format) {
   format = (format + "").trim().toLowerCase();
   return (m = reHex.exec(format)) ? (l = m[1].length, m = parseInt(m[1], 16), l === 6 ? rgbn(m) // #ff0000
       : l === 3 ? new Rgb((m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), ((m & 0xf) << 4) | (m & 0xf), 1) // #f00
-      : l === 8 ? new Rgb(m >> 24 & 0xff, m >> 16 & 0xff, m >> 8 & 0xff, (m & 0xff) / 0xff) // #ff000000
-      : l === 4 ? new Rgb((m >> 12 & 0xf) | (m >> 8 & 0xf0), (m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), (((m & 0xf) << 4) | (m & 0xf)) / 0xff) // #f000
+      : l === 8 ? rgba(m >> 24 & 0xff, m >> 16 & 0xff, m >> 8 & 0xff, (m & 0xff) / 0xff) // #ff000000
+      : l === 4 ? rgba((m >> 12 & 0xf) | (m >> 8 & 0xf0), (m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), (((m & 0xf) << 4) | (m & 0xf)) / 0xff) // #f000
       : null) // invalid hex
       : (m = reRgbInteger.exec(format)) ? new Rgb(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
       : (m = reRgbPercent.exec(format)) ? new Rgb(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
@@ -4241,7 +4240,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function(x) {
-  return x = Object(_formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Math.abs(x)), x ? x[1] : NaN;
+  return x = Object(_formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["formatDecimalParts"])(Math.abs(x)), x ? x[1] : NaN;
 });
 
 
@@ -4251,15 +4250,22 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./node_modules/d3-format/src/formatDecimal.js ***!
   \*****************************************************/
-/*! exports provided: default */
+/*! exports provided: default, formatDecimalParts */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatDecimalParts", function() { return formatDecimalParts; });
+/* harmony default export */ __webpack_exports__["default"] = (function(x) {
+  return Math.abs(x = Math.round(x)) >= 1e21
+      ? x.toLocaleString("en").replace(/,/g, "")
+      : x.toString(10);
+});
+
 // Computes the decimal coefficient and exponent of the specified number x with
 // significant digits p, where x is positive and p is in [1, 21] or undefined.
-// For example, formatDecimal(1.23) returns ["123", 0].
-/* harmony default export */ __webpack_exports__["default"] = (function(x, p) {
+// For example, formatDecimalParts(1.23) returns ["123", 0].
+function formatDecimalParts(x, p) {
   if ((i = (x = p ? x.toExponential(p - 1) : x.toExponential()).indexOf("e")) < 0) return null; // NaN, ±Infinity
   var i, coefficient = x.slice(0, i);
 
@@ -4269,7 +4275,7 @@ __webpack_require__.r(__webpack_exports__);
     coefficient.length > 1 ? coefficient[0] + coefficient.slice(2) : coefficient,
     +x.slice(i + 1)
   ];
-});
+}
 
 
 /***/ }),
@@ -4341,7 +4347,7 @@ __webpack_require__.r(__webpack_exports__);
 var prefixExponent;
 
 /* harmony default export */ __webpack_exports__["default"] = (function(x, p) {
-  var d = Object(_formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["default"])(x, p);
+  var d = Object(_formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["formatDecimalParts"])(x, p);
   if (!d) return x + "";
   var coefficient = d[0],
       exponent = d[1],
@@ -4350,7 +4356,7 @@ var prefixExponent;
   return i === n ? coefficient
       : i > n ? coefficient + new Array(i - n + 1).join("0")
       : i > 0 ? coefficient.slice(0, i) + "." + coefficient.slice(i)
-      : "0." + new Array(1 - i).join("0") + Object(_formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["default"])(x, Math.max(0, p + i - 1))[0]; // less than 1y!
+      : "0." + new Array(1 - i).join("0") + Object(_formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["formatDecimalParts"])(x, Math.max(0, p + i - 1))[0]; // less than 1y!
 });
 
 
@@ -4369,7 +4375,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function(x, p) {
-  var d = Object(_formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["default"])(x, p);
+  var d = Object(_formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["formatDecimalParts"])(x, p);
   if (!d) return x + "";
   var coefficient = d[0],
       exponent = d[1];
@@ -4476,8 +4482,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _formatPrefixAuto_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formatPrefixAuto.js */ "./node_modules/d3-format/src/formatPrefixAuto.js");
-/* harmony import */ var _formatRounded_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formatRounded.js */ "./node_modules/d3-format/src/formatRounded.js");
+/* harmony import */ var _formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formatDecimal.js */ "./node_modules/d3-format/src/formatDecimal.js");
+/* harmony import */ var _formatPrefixAuto_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formatPrefixAuto.js */ "./node_modules/d3-format/src/formatPrefixAuto.js");
+/* harmony import */ var _formatRounded_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formatRounded.js */ "./node_modules/d3-format/src/formatRounded.js");
+
 
 
 
@@ -4485,14 +4493,14 @@ __webpack_require__.r(__webpack_exports__);
   "%": function(x, p) { return (x * 100).toFixed(p); },
   "b": function(x) { return Math.round(x).toString(2); },
   "c": function(x) { return x + ""; },
-  "d": function(x) { return Math.round(x).toString(10); },
+  "d": _formatDecimal_js__WEBPACK_IMPORTED_MODULE_0__["default"],
   "e": function(x, p) { return x.toExponential(p); },
   "f": function(x, p) { return x.toFixed(p); },
   "g": function(x, p) { return x.toPrecision(p); },
   "o": function(x) { return Math.round(x).toString(8); },
-  "p": function(x, p) { return Object(_formatRounded_js__WEBPACK_IMPORTED_MODULE_1__["default"])(x * 100, p); },
-  "r": _formatRounded_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  "s": _formatPrefixAuto_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+  "p": function(x, p) { return Object(_formatRounded_js__WEBPACK_IMPORTED_MODULE_2__["default"])(x * 100, p); },
+  "r": _formatRounded_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+  "s": _formatPrefixAuto_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   "X": function(x) { return Math.round(x).toString(16).toUpperCase(); },
   "x": function(x) { return Math.round(x).toString(16); }
 });
@@ -10803,6 +10811,8 @@ function formatLocale(locale) {
     "d": formatDayOfMonth,
     "e": formatDayOfMonth,
     "f": formatMicroseconds,
+    "g": formatYearISO,
+    "G": formatFullYearISO,
     "H": formatHour24,
     "I": formatHour12,
     "j": formatDayOfYear,
@@ -10836,6 +10846,8 @@ function formatLocale(locale) {
     "d": formatUTCDayOfMonth,
     "e": formatUTCDayOfMonth,
     "f": formatUTCMicroseconds,
+    "g": formatUTCYearISO,
+    "G": formatUTCFullYearISO,
     "H": formatUTCHour24,
     "I": formatUTCHour12,
     "j": formatUTCDayOfYear,
@@ -10869,6 +10881,8 @@ function formatLocale(locale) {
     "d": parseDayOfMonth,
     "e": parseDayOfMonth,
     "f": parseMicroseconds,
+    "g": parseYear,
+    "G": parseFullYear,
     "H": parseHour24,
     "I": parseHour24,
     "j": parseDayOfYear,
@@ -11290,9 +11304,13 @@ function formatWeekNumberSunday(d, p) {
   return pad(d3_time__WEBPACK_IMPORTED_MODULE_0__["timeSunday"].count(Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["timeYear"])(d) - 1, d), p, 2);
 }
 
-function formatWeekNumberISO(d, p) {
+function dISO(d) {
   var day = d.getDay();
-  d = (day >= 4 || day === 0) ? Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["timeThursday"])(d) : d3_time__WEBPACK_IMPORTED_MODULE_0__["timeThursday"].ceil(d);
+  return (day >= 4 || day === 0) ? Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["timeThursday"])(d) : d3_time__WEBPACK_IMPORTED_MODULE_0__["timeThursday"].ceil(d);
+}
+
+function formatWeekNumberISO(d, p) {
+  d = dISO(d);
   return pad(d3_time__WEBPACK_IMPORTED_MODULE_0__["timeThursday"].count(Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["timeYear"])(d), d) + (Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["timeYear"])(d).getDay() === 4), p, 2);
 }
 
@@ -11308,7 +11326,18 @@ function formatYear(d, p) {
   return pad(d.getFullYear() % 100, p, 2);
 }
 
+function formatYearISO(d, p) {
+  d = dISO(d);
+  return pad(d.getFullYear() % 100, p, 2);
+}
+
 function formatFullYear(d, p) {
+  return pad(d.getFullYear() % 10000, p, 4);
+}
+
+function formatFullYearISO(d, p) {
+  var day = d.getDay();
+  d = (day >= 4 || day === 0) ? Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["timeThursday"])(d) : d3_time__WEBPACK_IMPORTED_MODULE_0__["timeThursday"].ceil(d);
   return pad(d.getFullYear() % 10000, p, 4);
 }
 
@@ -11364,9 +11393,13 @@ function formatUTCWeekNumberSunday(d, p) {
   return pad(d3_time__WEBPACK_IMPORTED_MODULE_0__["utcSunday"].count(Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["utcYear"])(d) - 1, d), p, 2);
 }
 
-function formatUTCWeekNumberISO(d, p) {
+function UTCdISO(d) {
   var day = d.getUTCDay();
-  d = (day >= 4 || day === 0) ? Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["utcThursday"])(d) : d3_time__WEBPACK_IMPORTED_MODULE_0__["utcThursday"].ceil(d);
+  return (day >= 4 || day === 0) ? Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["utcThursday"])(d) : d3_time__WEBPACK_IMPORTED_MODULE_0__["utcThursday"].ceil(d);
+}
+
+function formatUTCWeekNumberISO(d, p) {
+  d = UTCdISO(d);
   return pad(d3_time__WEBPACK_IMPORTED_MODULE_0__["utcThursday"].count(Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["utcYear"])(d), d) + (Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["utcYear"])(d).getUTCDay() === 4), p, 2);
 }
 
@@ -11382,7 +11415,18 @@ function formatUTCYear(d, p) {
   return pad(d.getUTCFullYear() % 100, p, 2);
 }
 
+function formatUTCYearISO(d, p) {
+  d = UTCdISO(d);
+  return pad(d.getUTCFullYear() % 100, p, 2);
+}
+
 function formatUTCFullYear(d, p) {
+  return pad(d.getUTCFullYear() % 10000, p, 4);
+}
+
+function formatUTCFullYearISO(d, p) {
+  var day = d.getUTCDay();
+  d = (day >= 4 || day === 0) ? Object(d3_time__WEBPACK_IMPORTED_MODULE_0__["utcThursday"])(d) : d3_time__WEBPACK_IMPORTED_MODULE_0__["utcThursday"].ceil(d);
   return pad(d.getUTCFullYear() % 10000, p, 4);
 }
 
@@ -12214,16 +12258,16 @@ var years = year.range;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;/*! decimal.js-light v2.5.0 https://github.com/MikeMcl/decimal.js-light/LICENCE */
+var __WEBPACK_AMD_DEFINE_RESULT__;/*! decimal.js-light v2.5.1 https://github.com/MikeMcl/decimal.js-light/LICENCE */
 ;(function (globalScope) {
   'use strict';
 
 
   /*
-   *  decimal.js-light v2.5.0
+   *  decimal.js-light v2.5.1
    *  An arbitrary-precision Decimal type for JavaScript.
    *  https://github.com/MikeMcl/decimal.js-light
-   *  Copyright (c) 2018 Michael Mclaughlin <M8ch88l@gmail.com>
+   *  Copyright (c) 2020 Michael Mclaughlin <M8ch88l@gmail.com>
    *  MIT Expat Licence
    */
 
@@ -12714,7 +12758,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! decimal.js-light v2.5.0 https://github.com
       e = mathfloor((e + 1) / 2) - (e < 0 || e % 2);
 
       if (s == 1 / 0) {
-        n = '1e' + e;
+        n = '5e' + e;
       } else {
         n = s.toExponential();
         n = n.slice(0, n.indexOf('e') + 1) + e;
@@ -14352,6 +14396,7 @@ function EventEmitter() {
   EventEmitter.init.call(this);
 }
 module.exports = EventEmitter;
+module.exports.once = once;
 
 // Backwards-compat with node 0.10.x
 EventEmitter.EventEmitter = EventEmitter;
@@ -14741,6 +14786,56 @@ function unwrapListeners(arr) {
     ret[i] = arr[i].listener || arr[i];
   }
   return ret;
+}
+
+function once(emitter, name) {
+  return new Promise(function (resolve, reject) {
+    function errorListener(err) {
+      emitter.removeListener(name, resolver);
+      reject(err);
+    }
+
+    function resolver() {
+      if (typeof emitter.removeListener === 'function') {
+        emitter.removeListener('error', errorListener);
+      }
+      resolve([].slice.call(arguments));
+    };
+
+    eventTargetAgnosticAddListener(emitter, name, resolver, { once: true });
+    if (name !== 'error') {
+      addErrorHandlerIfEventEmitter(emitter, errorListener, { once: true });
+    }
+  });
+}
+
+function addErrorHandlerIfEventEmitter(emitter, handler, flags) {
+  if (typeof emitter.on === 'function') {
+    eventTargetAgnosticAddListener(emitter, 'error', handler, flags);
+  }
+}
+
+function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
+  if (typeof emitter.on === 'function') {
+    if (flags.once) {
+      emitter.once(name, listener);
+    } else {
+      emitter.on(name, listener);
+    }
+  } else if (typeof emitter.addEventListener === 'function') {
+    // EventTarget does not have `error` event semantics like Node
+    // EventEmitters, we do not listen for `error` events here.
+    emitter.addEventListener(name, function wrapListener(arg) {
+      // IE does not have builtin `{ once: true }` support so we
+      // have to do it manually.
+      if (flags.once) {
+        emitter.removeEventListener(name, wrapListener);
+      }
+      listener(arg);
+    });
+  } else {
+    throw new TypeError('The "emitter" argument must be of type EventEmitter. Received type ' + typeof emitter);
+  }
 }
 
 
@@ -16458,7 +16553,8 @@ var Stack = __webpack_require__(/*! ./_Stack */ "./node_modules/lodash/_Stack.js
     isMap = __webpack_require__(/*! ./isMap */ "./node_modules/lodash/isMap.js"),
     isObject = __webpack_require__(/*! ./isObject */ "./node_modules/lodash/isObject.js"),
     isSet = __webpack_require__(/*! ./isSet */ "./node_modules/lodash/isSet.js"),
-    keys = __webpack_require__(/*! ./keys */ "./node_modules/lodash/keys.js");
+    keys = __webpack_require__(/*! ./keys */ "./node_modules/lodash/keys.js"),
+    keysIn = __webpack_require__(/*! ./keysIn */ "./node_modules/lodash/keysIn.js");
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -17903,12 +17999,14 @@ module.exports = baseMatchesProperty;
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayMap = __webpack_require__(/*! ./_arrayMap */ "./node_modules/lodash/_arrayMap.js"),
+    baseGet = __webpack_require__(/*! ./_baseGet */ "./node_modules/lodash/_baseGet.js"),
     baseIteratee = __webpack_require__(/*! ./_baseIteratee */ "./node_modules/lodash/_baseIteratee.js"),
     baseMap = __webpack_require__(/*! ./_baseMap */ "./node_modules/lodash/_baseMap.js"),
     baseSortBy = __webpack_require__(/*! ./_baseSortBy */ "./node_modules/lodash/_baseSortBy.js"),
     baseUnary = __webpack_require__(/*! ./_baseUnary */ "./node_modules/lodash/_baseUnary.js"),
     compareMultiple = __webpack_require__(/*! ./_compareMultiple */ "./node_modules/lodash/_compareMultiple.js"),
-    identity = __webpack_require__(/*! ./identity */ "./node_modules/lodash/identity.js");
+    identity = __webpack_require__(/*! ./identity */ "./node_modules/lodash/identity.js"),
+    isArray = __webpack_require__(/*! ./isArray */ "./node_modules/lodash/isArray.js");
 
 /**
  * The base implementation of `_.orderBy` without param guards.
@@ -17920,8 +18018,21 @@ var arrayMap = __webpack_require__(/*! ./_arrayMap */ "./node_modules/lodash/_ar
  * @returns {Array} Returns the new sorted array.
  */
 function baseOrderBy(collection, iteratees, orders) {
+  if (iteratees.length) {
+    iteratees = arrayMap(iteratees, function(iteratee) {
+      if (isArray(iteratee)) {
+        return function(value) {
+          return baseGet(value, iteratee.length === 1 ? iteratee[0] : iteratee);
+        }
+      }
+      return iteratee;
+    });
+  } else {
+    iteratees = [identity];
+  }
+
   var index = -1;
-  iteratees = arrayMap(iteratees.length ? iteratees : [identity], baseUnary(baseIteratee));
+  iteratees = arrayMap(iteratees, baseUnary(baseIteratee));
 
   var result = baseMap(collection, function(value, key, collection) {
     var criteria = arrayMap(iteratees, function(iteratee) {
@@ -18309,6 +18420,36 @@ function baseToString(value) {
 }
 
 module.exports = baseToString;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseTrim.js":
+/*!******************************************!*\
+  !*** ./node_modules/lodash/_baseTrim.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var trimmedEndIndex = __webpack_require__(/*! ./_trimmedEndIndex */ "./node_modules/lodash/_trimmedEndIndex.js");
+
+/** Used to match leading whitespace. */
+var reTrimStart = /^\s+/;
+
+/**
+ * The base implementation of `_.trim`.
+ *
+ * @private
+ * @param {string} string The string to trim.
+ * @returns {string} Returns the trimmed string.
+ */
+function baseTrim(string) {
+  return string
+    ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, '')
+    : string;
+}
+
+module.exports = baseTrim;
 
 
 /***/ }),
@@ -19249,10 +19390,11 @@ function equalArrays(array, other, bitmask, customizer, equalFunc, stack) {
   if (arrLength != othLength && !(isPartial && othLength > arrLength)) {
     return false;
   }
-  // Assume cyclic values are equal.
-  var stacked = stack.get(array);
-  if (stacked && stack.get(other)) {
-    return stacked == other;
+  // Check that cyclic values are equal.
+  var arrStacked = stack.get(array);
+  var othStacked = stack.get(other);
+  if (arrStacked && othStacked) {
+    return arrStacked == other && othStacked == array;
   }
   var index = -1,
       result = true,
@@ -19478,10 +19620,11 @@ function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
       return false;
     }
   }
-  // Assume cyclic values are equal.
-  var stacked = stack.get(object);
-  if (stacked && stack.get(other)) {
-    return stacked == other;
+  // Check that cyclic values are equal.
+  var objStacked = stack.get(object);
+  var othStacked = stack.get(other);
+  if (objStacked && othStacked) {
+    return objStacked == other && othStacked == object;
   }
   var result = true;
   stack.set(object, other);
@@ -21708,6 +21851,36 @@ module.exports = toSource;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_trimmedEndIndex.js":
+/*!*************************************************!*\
+  !*** ./node_modules/lodash/_trimmedEndIndex.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/** Used to match a single whitespace character. */
+var reWhitespace = /\s/;
+
+/**
+ * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
+ * character of `string`.
+ *
+ * @private
+ * @param {string} string The string to inspect.
+ * @returns {number} Returns the index of the last non-whitespace character.
+ */
+function trimmedEndIndex(string) {
+  var index = string.length;
+
+  while (index-- && reWhitespace.test(string.charAt(index))) {}
+  return index;
+}
+
+module.exports = trimmedEndIndex;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/constant.js":
 /*!*****************************************!*\
   !*** ./node_modules/lodash/constant.js ***!
@@ -22110,6 +22283,10 @@ var arrayFilter = __webpack_require__(/*! ./_arrayFilter */ "./node_modules/loda
  * // The `_.property` iteratee shorthand.
  * _.filter(users, 'active');
  * // => objects for ['barney']
+ *
+ * // Combining several predicates using `_.overEvery` or `_.overSome`.
+ * _.filter(users, _.overSome([{ 'age': 36 }, ['age', 40]]));
+ * // => objects for ['fred', 'barney']
  */
 function filter(collection, predicate) {
   var func = isArray(collection) ? arrayFilter : baseFilter;
@@ -24138,15 +24315,15 @@ var baseFlatten = __webpack_require__(/*! ./_baseFlatten */ "./node_modules/loda
  * var users = [
  *   { 'user': 'fred',   'age': 48 },
  *   { 'user': 'barney', 'age': 36 },
- *   { 'user': 'fred',   'age': 40 },
+ *   { 'user': 'fred',   'age': 30 },
  *   { 'user': 'barney', 'age': 34 }
  * ];
  *
  * _.sortBy(users, [function(o) { return o.user; }]);
- * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+ * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 30]]
  *
  * _.sortBy(users, ['user', 'age']);
- * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
+ * // => objects for [['barney', 34], ['barney', 36], ['fred', 30], ['fred', 48]]
  */
 var sortBy = baseRest(function(collection, iteratees) {
   if (collection == null) {
@@ -24460,14 +24637,12 @@ module.exports = toInteger;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(/*! ./isObject */ "./node_modules/lodash/isObject.js"),
+var baseTrim = __webpack_require__(/*! ./_baseTrim */ "./node_modules/lodash/_baseTrim.js"),
+    isObject = __webpack_require__(/*! ./isObject */ "./node_modules/lodash/isObject.js"),
     isSymbol = __webpack_require__(/*! ./isSymbol */ "./node_modules/lodash/isSymbol.js");
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
-
-/** Used to match leading and trailing whitespace. */
-var reTrim = /^\s+|\s+$/g;
 
 /** Used to detect bad signed hexadecimal string values. */
 var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
@@ -24518,7 +24693,7 @@ function toNumber(value) {
   if (typeof value != 'string') {
     return value === 0 ? value : +value;
   }
-  value = value.replace(reTrim, '');
+  value = baseTrim(value);
   var isBinary = reIsBinary.test(value);
   return (isBinary || reIsOctal.test(value))
     ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
@@ -24669,28 +24844,30 @@ module.exports=Mexp;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
 var Mexp = __webpack_require__(/*! ./math_function.js */ "./node_modules/math-expression-evaluator/src/math_function.js")
-function inc (arr, val) {
+function inc(arr, val) {
   for (var i = 0; i < arr.length; i++) {
     arr[i] += val
   }
   return arr
 }
-var token = ['sin', 'cos', 'tan', 'pi', '(', ')', 'P', 'C',
+var token = ['sin', 'cos', 'tan', 'pi', '(', ')', 'P', 'C', ' ',
   'asin', 'acos', 'atan', '7', '8', '9', 'int',
   'cosh', 'acosh', 'ln', '^', 'root', '4', '5', '6', '/', '!',
   'tanh', 'atanh', 'Mod', '1', '2', '3', '*',
   'sinh', 'asinh', 'e', 'log', '0', '.', '+', '-', ',', 'Sigma', 'n', 'Pi', 'pow']
-var show = ['sin', 'cos', 'tan', '&pi;', '(', ')', 'P', 'C',
+var show = ['sin', 'cos', 'tan', '&pi;', '(', ')', 'P', 'C', ' ',
   'asin', 'acos', 'atan', '7', '8', '9', 'Int',
   'cosh', 'acosh', ' ln', '^', 'root', '4', '5', '6', '&divide;', '!',
   'tanh', 'atanh', ' Mod ', '1', '2', '3', '&times;',
   'sinh', 'asinh', 'e', ' log', '0', '.', '+', '-', ',', '&Sigma;', 'n', '&Pi;', 'pow']
-var eva = [Mexp.math.sin, Mexp.math.cos, Mexp.math.tan, 'PI', '(', ')', Mexp.math.P, Mexp.math.C,
-  Mexp.math.asin, Mexp.math.acos, Mexp.math.atan, '7', '8', '9', Math.floor,
-  Mexp.math.cosh, Mexp.math.acosh, Math.log, Math.pow, Math.sqrt, '4', '5', '6', Mexp.math.div, Mexp.math.fact,
-  Mexp.math.tanh, Mexp.math.atanh, Mexp.math.mod, '1', '2', '3', Mexp.math.mul,
-  Mexp.math.sinh, Mexp.math.asinh, 'E', Mexp.math.log, '0', '.', Mexp.math.add, Mexp.math.sub, ',', Mexp.math.sigma, 'n', Mexp.math.Pi, Math.pow]
+var eva = [Mexp.math.sin, Mexp.math.cos, Mexp.math.tan, 'PI', '(', ')', Mexp.math.P, Mexp.math.C, ' '.anchor,
+Mexp.math.asin, Mexp.math.acos, Mexp.math.atan, '7', '8', '9', Math.floor,
+Mexp.math.cosh, Mexp.math.acosh, Math.log, Math.pow, Math.sqrt, '4', '5', '6', Mexp.math.div, Mexp.math.fact,
+Mexp.math.tanh, Mexp.math.atanh, Mexp.math.mod, '1', '2', '3', Mexp.math.mul,
+Mexp.math.sinh, Mexp.math.asinh, 'E', Mexp.math.log, '0', '.', Mexp.math.add, Mexp.math.sub, ',', Mexp.math.sigma, 'n', Mexp.math.Pi, Math.pow]
 var preced = {
   0: 11,
   1: 0,
@@ -24705,9 +24882,10 @@ var preced = {
   10: 10,
   11: 0,
   12: 11,
-  13: 0
+  13: 0,
+  14: -1 // will be filtered after lexer
 } // stores precedence by types
-var type = [0, 0, 0, 3, 4, 5, 10, 10,
+var type = [0, 0, 0, 3, 4, 5, 10, 10, 14,
   0, 0, 0, 1, 1, 1, 0,
   0, 0, 0, 10, 0, 1, 1, 1, 2, 7,
   0, 0, 2, 1, 1, 1, 2,
@@ -24725,7 +24903,7 @@ var type = [0, 0, 0, 3, 4, 5, 10, 10,
 9 : binary operator like +,-
 10: binary operator like P C or ^
 11: ,
-12: function with , seperated three parameters
+12: function with , seperated three parameters and third parameter is a string that will be mexp string
 13: variable of Sigma function
 */
 var type0 = {
@@ -24737,7 +24915,8 @@ var type0 = {
   8: true,
   9: true,
   12: true,
-  13: true
+  13: true,
+  14: true
 } // type2:true,type4:true,type9:true,type11:true,type21:true,type22
 var type1 = {
   0: true,
@@ -24779,14 +24958,14 @@ var type6 = {
 }
 var newAr = [
   [],
-  ['1', '2', '3', '7', '8', '9', '4', '5', '6', '+', '-', '*', '/', '(', ')', '^', '!', 'P', 'C', 'e', '0', '.', ',', 'n'],
+  ['1', '2', '3', '7', '8', '9', '4', '5', '6', '+', '-', '*', '/', '(', ')', '^', '!', 'P', 'C', 'e', '0', '.', ',', 'n', ' '],
   ['pi', 'ln', 'Pi'],
   ['sin', 'cos', 'tan', 'Del', 'int', 'Mod', 'log', 'pow'],
   ['asin', 'acos', 'atan', 'cosh', 'root', 'tanh', 'sinh'],
   ['acosh', 'atanh', 'asinh', 'Sigma']
 ]
 
-function match (str1, str2, i, x) {
+function match(str1, str2, i, x) {
   for (var f = 0; f < x; f++) {
     if (str1[i + f] !== str2[f]) {
       return false
@@ -24800,14 +24979,11 @@ Mexp.addToken = function (tokens) {
     var temp = -1
 
     // newAr is a specially designed data structure index of 1d array = length of tokens
-
-    if (x < newAr.length) { // match to check if token is really huge and not existing
-    // if not checked it will break in next line as undefined index
-      for (var y = 0; y < newAr[x].length; y++) {
-        if (tokens[i].token === newAr[x][y]) {
-          temp = token.indexOf(newAr[x][y])
-          break
-        }
+    newAr[x] = newAr[x] || [];
+    for (var y = 0; y < newAr[x].length; y++) {
+      if (tokens[i].token === newAr[x][y]) {
+        temp = token.indexOf(newAr[x][y])
+        break
       }
     }
     if (temp === -1) {
@@ -24819,7 +24995,7 @@ Mexp.addToken = function (tokens) {
       newAr[tokens[i].token.length].push(tokens[i].token)
       eva.push(tokens[i].value)
       show.push(tokens[i].show)
-    } else {
+    } else { // overwrite
       token[temp] = tokens[i].token
       type[temp] = tokens[i].type
       eva[temp] = tokens[i].value
@@ -24827,8 +25003,47 @@ Mexp.addToken = function (tokens) {
     }
   }
 }
+
+function tokenize(string) {
+  var nodes = [];
+  var length = string.length;
+  var key, x, y;
+  for (var i = 0; i < length; i++) {
+    if (i < length - 1 && string[i] === ' ' && string[i + 1] === ' ') {
+      continue
+    }
+    key = ''
+    for (x = (string.length - i > (newAr.length - 2) ? newAr.length - 1 : string.length - i); x > 0; x--) {
+      if (newAr[x] === undefined) continue;
+      for (y = 0; y < newAr[x].length; y++) {
+        if (match(string, newAr[x][y], i, x)) {
+          key = newAr[x][y]
+          y = newAr[x].length
+          x = 0
+        }
+      }
+    }
+    i += key.length - 1
+    if (key === '') {
+      throw (new Mexp.Exception('Can\'t understand after ' + string.slice(i)))
+    }
+    var index = token.indexOf(key);
+    nodes.push({
+      index: index,
+      token: key,
+      type: type[index],
+      eval: eva[index],
+      precedence: preced[type[index]],
+      show: show[index]
+    })
+  }
+  return nodes;
+}
+
 Mexp.lex = function (inp, tokens) {
   'use strict'
+
+
   var changeSignObj = {
     value: Mexp.math.changeSign,
     type: 0,
@@ -24848,50 +25063,44 @@ Mexp.lex = function (inp, tokens) {
     show: '('
   }
   var str = [openingParObj]
+
   var ptc = [] // Parenthesis to close at the beginning is after one token
   var inpStr = inp
-  var key
   var allowed = type0
   var bracToClose = 0
   var asterick = empty
   var prevKey = ''
-  var i, x, y
+  var i;
   if (typeof tokens !== 'undefined') {
     Mexp.addToken(tokens)
   }
   var obj = {}
-  for (i = 0; i < inpStr.length; i++) {
-    if (inpStr[i] === ' ') {
+  var nodes = tokenize(inpStr);
+  for (i = 0; i < nodes.length; i++) {
+    var node = nodes[i];
+    if (node.type === 14) {
+      if (i > 0 &&
+        i < nodes.length - 1 &&
+        nodes[i + 1].type === 1 &&
+        (nodes[i - 1].type === 1 || nodes[i - 1].type === 6))
+        throw new Mexp.Exception('Unexpected Space')
       continue
     }
-    key = ''
-    for (x = (inpStr.length - i > (newAr.length - 2) ? newAr.length - 1 : inpStr.length - i); x > 0; x--) {
-      if (newAr[x] === undefined) continue;
-      for (y = 0; y < newAr[x].length; y++) {
-        if (match(inpStr, newAr[x][y], i, x)) {
-          key = newAr[x][y]
-          y = newAr[x].length
-          x = 0
-        }
-      }
-    }
-    i += key.length - 1
-    if (key === '') {
-      throw (new Mexp.Exception('Can\'t understand after ' + inpStr.slice(i)))
-    }
-    var index = token.indexOf(key)
-    var cToken = key
-    var cType = type[index]
-    var cEv = eva[index]
-    var cPre = preced[cType]
-    var cShow = show[index]
+
+    var index = node.index
+    var cToken = node.token
+    var cType = node.type
+    var cEv = node.eval
+    var cPre = node.precedence
+    var cShow = node.show
     var pre = str[str.length - 1]
     var j
     for (j = ptc.length; j--;) { // loop over ptc
       if (ptc[j] === 0) {
         if ([0, 2, 3, 4, 5, 9, 11, 12, 13].indexOf(cType) !== -1) {
           if (allowed[cType] !== true) {
-            throw (new Mexp.Exception(key + ' is not allowed after ' + prevKey))
+            console.log(inp, node, nodes, allowed)
+            throw (new Mexp.Exception(cToken + ' is not allowed after ' + prevKey))
           }
           str.push(closingParObj)
           allowed = type1
@@ -24901,14 +25110,14 @@ Mexp.lex = function (inp, tokens) {
       } else break
     }
     if (allowed[cType] !== true) {
-      throw (new Mexp.Exception(key + ' is not allowed after ' + prevKey))
+      throw (new Mexp.Exception(cToken + ' is not allowed after ' + prevKey))
     }
     if (asterick[cType] === true) {
       cType = 2
       cEv = Mexp.math.mul
       cShow = '&times;'
       cPre = 3
-      i = i - key.length
+      i = i - cToken.length
     }
     obj = {
       value: cEv,
@@ -24954,6 +25163,7 @@ Mexp.lex = function (inp, tokens) {
       allowed = type1
       asterick = type3Asterick
       str.push(obj)
+      inc(ptc, 1)
     } else if (cType === 6) {
       if (pre.hasDec) {
         throw (new Mexp.Exception('Two decimals are not allowed in one number'))
@@ -25031,7 +25241,7 @@ Mexp.lex = function (inp, tokens) {
       str.push(obj)
     }
     inc(ptc, -1)
-    prevKey = key
+    prevKey = cToken
   }
   for (j = ptc.length; j--;) { // loop over ptc
     if (ptc[j] === 0) {
@@ -25060,7 +25270,9 @@ module.exports = Mexp
   !*** ./node_modules/math-expression-evaluator/src/math_function.js ***!
   \*********************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 var Mexp = function (parsed) {
   this.value = parsed
@@ -25204,55 +25416,55 @@ module.exports = Mexp
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    var Mexp=__webpack_require__(/*! ./lexer.js */ "./node_modules/math-expression-evaluator/src/lexer.js");
+var Mexp = __webpack_require__(/*! ./lexer.js */ "./node_modules/math-expression-evaluator/src/lexer.js");
 
-	Mexp.prototype.toPostfix = function () {
-		'use strict';
-		var post=[],elem,popped,prep,pre,ele;
-    	var stack=[{value:"(",type:4,pre:0}];
-		var arr=this.value;
-		for (var i=1; i < arr.length; i++) {
-			if(arr[i].type===1||arr[i].type===3||arr[i].type===13){	//if token is number,constant,or n(which is also a special constant in our case)
-				if(arr[i].type===1)
-					arr[i].value=Number(arr[i].value);
-				post.push(arr[i]);
-			}
-			else if(arr[i].type===4){
-				stack.push(arr[i]);
-			}
-			else if(arr[i].type===5){
-				while((popped=stack.pop()).type!==4){
-					post.push(popped);
-				}
-			}
-			else if(arr[i].type===11){
-				while((popped=stack.pop()).type!==4){
-					post.push(popped);
-				}
-				stack.push(popped);
-			}
-			else {
-				elem=arr[i];
-				pre=elem.pre;
-				ele=stack[stack.length-1];
-				prep=ele.pre;
-				var flag=ele.value=='Math.pow'&&elem.value=='Math.pow';
-				if(pre>prep)stack.push(elem);
-				else {
-					while(prep>=pre&&!flag||flag&&pre<prep){
-						popped=stack.pop();
-						ele=stack[stack.length-1];
-						post.push(popped);
-						prep=ele.pre;
-						flag=elem.value=='Math.pow'&&ele.value=='Math.pow';
-					}
-					stack.push(elem);
-				}
+Mexp.prototype.toPostfix = function () {
+	'use strict';
+	var post = [], elem, popped, prep, pre, ele;
+	var stack = [{ value: "(", type: 4, pre: 0 }];
+	var arr = this.value;
+	for (var i = 1; i < arr.length; i++) {
+		if (arr[i].type === 1 || arr[i].type === 3 || arr[i].type === 13) {	//if token is number,constant,or n(which is also a special constant in our case)
+			if (arr[i].type === 1)
+				arr[i].value = Number(arr[i].value);
+			post.push(arr[i]);
+		}
+		else if (arr[i].type === 4) {
+			stack.push(arr[i]);
+		}
+		else if (arr[i].type === 5) {
+			while ((popped = stack.pop()).type !== 4) {
+				post.push(popped);
 			}
 		}
-		return new Mexp(post);
-	};
-    module.exports=Mexp;
+		else if (arr[i].type === 11) {
+			while ((popped = stack.pop()).type !== 4) {
+				post.push(popped);
+			}
+			stack.push(popped);
+		}
+		else {
+			elem = arr[i];
+			pre = elem.pre;
+			ele = stack[stack.length - 1];
+			prep = ele.pre;
+			var flag = ele.value == 'Math.pow' && elem.value == 'Math.pow';
+			if (pre > prep) stack.push(elem);
+			else {
+				while (prep >= pre && !flag || flag && pre < prep) {
+					popped = stack.pop();
+					ele = stack[stack.length - 1];
+					post.push(popped);
+					prep = ele.pre;
+					flag = elem.value == 'Math.pow' && ele.value == 'Math.pow';
+				}
+				stack.push(elem);
+			}
+		}
+	}
+	return new Mexp(post);
+};
+module.exports = Mexp;
 
 /***/ }),
 
@@ -25319,7 +25531,6 @@ Mexp.prototype.postfixEval = function (UserDefined) {
 			pop1=stack.pop();
 			pop2=stack.pop();
 			if(typeof pop2.type==="undefined"){
-                console.log(pop2);
 				pop2=pop2.concat(pop1);
 				pop2.push(arr[i]);
 				stack.push(pop2);
@@ -25350,7 +25561,7 @@ Mexp.prototype.postfixEval = function (UserDefined) {
 		}
 	}
 	if (stack.length>1) {
-		throw(new Mexp.exception("Uncaught Syntax error"));
+		throw(new Mexp.Exception("Uncaught Syntax error"));
 	}
 	return stack[0].value>1000000000000000?"Infinity":parseFloat(stack[0].value.toFixed(15));
 };
@@ -26010,10 +26221,17 @@ function (_PureComponent) {
       }
 
       if (!isActive) {
-        // eslint-disable-next-line react/no-did-update-set-state
-        this.setState({
+        var newState = {
           style: attributeName ? _defineProperty({}, attributeName, this.props.to) : this.props.to
-        });
+        };
+
+        if (this.state && this.state.style) {
+          if (attributeName && this.state.style[attributeName] !== this.props.to || !attributeName && this.state.style !== this.props.to) {
+            // eslint-disable-next-line react/no-did-update-set-state
+            this.setState(newState);
+          }
+        }
+
         return;
       }
 
@@ -26031,11 +26249,19 @@ function (_PureComponent) {
         this.stopJSAnimation();
       }
 
-      var from = isTriggered || shouldReAnimate ? this.props.from : prevProps.to; // eslint-disable-next-line react/no-did-update-set-state
+      var from = isTriggered || shouldReAnimate ? this.props.from : prevProps.to;
 
-      this.setState({
-        style: attributeName ? _defineProperty({}, attributeName, from) : from
-      });
+      if (this.state && this.state.style) {
+        var _newState = {
+          style: attributeName ? _defineProperty({}, attributeName, from) : from
+        };
+
+        if (attributeName && this.state.style[attributeName] !== from || !attributeName && this.state.style !== from) {
+          // eslint-disable-next-line react/no-did-update-set-state
+          this.setState(_newState);
+        }
+      }
+
       this.runAnimation(_objectSpread({}, this.props, {
         from: from,
         begin: 0
@@ -48783,7 +49009,7 @@ function shallowEqual(a, b) {
 /**
  * Module dependencies
  */
-var balanced = __webpack_require__(/*! balanced-match */ "./node_modules/reduce-css-calc/node_modules/balanced-match/index.js")
+var balanced = __webpack_require__(/*! balanced-match */ "./node_modules/balanced-match/index.js")
 var reduceFunctionCall = __webpack_require__(/*! reduce-function-call */ "./node_modules/reduce-function-call/index.js")
 var mexp = __webpack_require__(/*! math-expression-evaluator */ "./node_modules/math-expression-evaluator/src/formula_evaluator.js")
 
@@ -48948,75 +49174,6 @@ function getUnitsInExpression(expression) {
 
 /***/ }),
 
-/***/ "./node_modules/reduce-css-calc/node_modules/balanced-match/index.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/reduce-css-calc/node_modules/balanced-match/index.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = balanced;
-function balanced(a, b, str) {
-  if (a instanceof RegExp) a = maybeMatch(a, str);
-  if (b instanceof RegExp) b = maybeMatch(b, str);
-
-  var r = range(a, b, str);
-
-  return r && {
-    start: r[0],
-    end: r[1],
-    pre: str.slice(0, r[0]),
-    body: str.slice(r[0] + a.length, r[1]),
-    post: str.slice(r[1] + b.length)
-  };
-}
-
-function maybeMatch(reg, str) {
-  var m = str.match(reg);
-  return m ? m[0] : null;
-}
-
-balanced.range = range;
-function range(a, b, str) {
-  var begs, beg, left, right, result;
-  var ai = str.indexOf(a);
-  var bi = str.indexOf(b, ai + 1);
-  var i = ai;
-
-  if (ai >= 0 && bi > 0) {
-    begs = [];
-    left = str.length;
-
-    while (i >= 0 && !result) {
-      if (i == ai) {
-        begs.push(i);
-        ai = str.indexOf(a, i + 1);
-      } else if (begs.length == 1) {
-        result = [ begs.pop(), bi ];
-      } else {
-        beg = begs.pop();
-        if (beg < left) {
-          left = beg;
-          right = bi;
-        }
-
-        bi = str.indexOf(b, i + 1);
-      }
-
-      i = ai < bi && ai >= 0 ? ai : bi;
-    }
-
-    if (begs.length) {
-      result = [ left, right ];
-    }
-  }
-
-  return result;
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/reduce-function-call/index.js":
 /*!****************************************************!*\
   !*** ./node_modules/reduce-function-call/index.js ***!
@@ -49027,7 +49184,7 @@ function range(a, b, str) {
 /*
  * Module dependencies
  */
-var balanced = __webpack_require__(/*! balanced-match */ "./node_modules/balanced-match/index.js")
+var balanced = __webpack_require__(/*! balanced-match */ "./node_modules/reduce-function-call/node_modules/balanced-match/index.js")
 
 /**
  * Expose `reduceFunctionCall`
@@ -49097,6 +49254,77 @@ function getFunctionCalls(call, functionRE) {
 function evalFunctionCall (string, functionIdentifier, callback, call, functionRE) {
   // allow recursivity
   return callback(reduceFunctionCall(string, functionRE, callback), functionIdentifier, call)
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/reduce-function-call/node_modules/balanced-match/index.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/reduce-function-call/node_modules/balanced-match/index.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = balanced;
+function balanced(a, b, str) {
+  if (a instanceof RegExp) a = maybeMatch(a, str);
+  if (b instanceof RegExp) b = maybeMatch(b, str);
+
+  var r = range(a, b, str);
+
+  return r && {
+    start: r[0],
+    end: r[1],
+    pre: str.slice(0, r[0]),
+    body: str.slice(r[0] + a.length, r[1]),
+    post: str.slice(r[1] + b.length)
+  };
+}
+
+function maybeMatch(reg, str) {
+  var m = str.match(reg);
+  return m ? m[0] : null;
+}
+
+balanced.range = range;
+function range(a, b, str) {
+  var begs, beg, left, right, result;
+  var ai = str.indexOf(a);
+  var bi = str.indexOf(b, ai + 1);
+  var i = ai;
+
+  if (ai >= 0 && bi > 0) {
+    begs = [];
+    left = str.length;
+
+    while (i >= 0 && !result) {
+      if (i == ai) {
+        begs.push(i);
+        ai = str.indexOf(a, i + 1);
+      } else if (begs.length == 1) {
+        result = [ begs.pop(), bi ];
+      } else {
+        beg = begs.pop();
+        if (beg < left) {
+          left = beg;
+          right = bi;
+        }
+
+        bi = str.indexOf(b, i + 1);
+      }
+
+      i = ai < bi && ai >= 0 ? ai : bi;
+    }
+
+    if (begs.length) {
+      result = [ left, right ];
+    }
+  }
+
+  return result;
 }
 
 

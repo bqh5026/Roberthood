@@ -72,7 +72,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
@@ -193,7 +195,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
@@ -254,7 +258,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
@@ -335,7 +341,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_count__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/count */ "./node_modules/react-tabs/esm/helpers/count.js");
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
@@ -448,7 +456,9 @@ Tabs.defaultProps = {
   defaultFocus: false,
   forceRenderTabPanel: false,
   selectedIndex: null,
-  defaultIndex: null
+  defaultIndex: null,
+  environment: null,
+  disableUpDownKeys: false
 };
 
 Tabs.propTypes =  true ? {
@@ -458,12 +468,14 @@ Tabs.propTypes =  true ? {
   defaultFocus: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   defaultIndex: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.number,
   disabledTabClassName: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
+  disableUpDownKeys: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   domRef: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func,
   forceRenderTabPanel: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   onSelect: _helpers_propTypes__WEBPACK_IMPORTED_MODULE_2__["onSelectPropType"],
   selectedIndex: _helpers_propTypes__WEBPACK_IMPORTED_MODULE_2__["selectedIndexPropType"],
   selectedTabClassName: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
-  selectedTabPanelClassName: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string
+  selectedTabPanelClassName: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
+  environment: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object
 } : undefined;
 Tabs.tabsRole = 'Tabs';
 
@@ -493,7 +505,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
@@ -520,14 +534,18 @@ function isTabDisabled(node) {
 
 var canUseActiveElement;
 
-try {
-  canUseActiveElement = !!(typeof window !== 'undefined' && window.document && window.document.activeElement);
-} catch (e) {
-  // Work around for IE bug when accessing document.activeElement in an iframe
-  // Refer to the following resources:
-  // http://stackoverflow.com/a/10982960/369687
-  // https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12733599
-  canUseActiveElement = false;
+function determineCanUseActiveElement(environment) {
+  var env = environment || (typeof window !== 'undefined' ? window : undefined);
+
+  try {
+    canUseActiveElement = !!(typeof env !== 'undefined' && env.document && env.document.activeElement);
+  } catch (e) {
+    // Work around for IE bug when accessing document.activeElement in an iframe
+    // Refer to the following resources:
+    // http://stackoverflow.com/a/10982960/369687
+    // https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12733599
+    canUseActiveElement = false;
+  }
 }
 
 var UncontrolledTabs = /*#__PURE__*/function (_Component) {
@@ -544,7 +562,9 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
     _this.tabNodes = [];
 
     _this.handleKeyDown = function (e) {
-      var direction = _this.props.direction;
+      var _this$props = _this.props,
+          direction = _this$props.direction,
+          disableUpDownKeys = _this$props.disableUpDownKeys;
 
       if (_this.isTabFromContainer(e.target)) {
         var index = _this.props.selectedIndex;
@@ -558,8 +578,8 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
           _this.handleClick(e);
         }
 
-        if (e.keyCode === 37 || e.keyCode === 38) {
-          // Select next tab to the left
+        if (e.keyCode === 37 || !disableUpDownKeys && e.keyCode === 38) {
+          // Select next tab to the left, validate if up arrow is not disabled
           if (direction === 'rtl') {
             index = _this.getNextTab(index);
           } else {
@@ -568,8 +588,8 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
 
           preventDefault = true;
           useSelectedIndex = true;
-        } else if (e.keyCode === 39 || e.keyCode === 40) {
-          // Select next tab to the right
+        } else if (e.keyCode === 39 || !disableUpDownKeys && e.keyCode === 40) {
+          // Select next tab to the right, validate if down arrow is not disabled
           if (direction === 'rtl') {
             index = _this.getPrevTab(index);
           } else {
@@ -616,8 +636,7 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
           _this.setSelected(index, e);
 
           return;
-        } // eslint-disable-next-line no-cond-assign
-
+        }
       } while ((node = node.parentNode) != null);
     };
 
@@ -629,9 +648,9 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
   _proto.setSelected = function setSelected(index, event) {
     // Check index boundary
     if (index < 0 || index >= this.getTabsCount()) return;
-    var _this$props = this.props,
-        onSelect = _this$props.onSelect,
-        selectedIndex = _this$props.selectedIndex; // Call change event handler
+    var _this$props2 = this.props,
+        onSelect = _this$props2.onSelect,
+        selectedIndex = _this$props2.selectedIndex; // Call change event handler
 
     onSelect(index, selectedIndex, event);
   };
@@ -720,14 +739,15 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
     var _this2 = this;
 
     var index = 0;
-    var _this$props2 = this.props,
-        children = _this$props2.children,
-        disabledTabClassName = _this$props2.disabledTabClassName,
-        focus = _this$props2.focus,
-        forceRenderTabPanel = _this$props2.forceRenderTabPanel,
-        selectedIndex = _this$props2.selectedIndex,
-        selectedTabClassName = _this$props2.selectedTabClassName,
-        selectedTabPanelClassName = _this$props2.selectedTabPanelClassName;
+    var _this$props3 = this.props,
+        children = _this$props3.children,
+        disabledTabClassName = _this$props3.disabledTabClassName,
+        focus = _this$props3.focus,
+        forceRenderTabPanel = _this$props3.forceRenderTabPanel,
+        selectedIndex = _this$props3.selectedIndex,
+        selectedTabClassName = _this$props3.selectedTabClassName,
+        selectedTabPanelClassName = _this$props3.selectedTabPanelClassName,
+        environment = _this$props3.environment;
     this.tabIds = this.tabIds || [];
     this.panelIds = this.panelIds || [];
     var diff = this.tabIds.length - this.getTabsCount(); // Add ids if new tabs have been added
@@ -749,13 +769,18 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
 
         var wasTabFocused = false;
 
+        if (canUseActiveElement == null) {
+          determineCanUseActiveElement(environment);
+        }
+
         if (canUseActiveElement) {
           wasTabFocused = react__WEBPACK_IMPORTED_MODULE_1___default.a.Children.toArray(child.props.children).filter(_helpers_elementTypes__WEBPACK_IMPORTED_MODULE_7__["isTab"]).some(function (tab, i) {
-            return document.activeElement === _this2.getTab(i);
+            var env = environment || (typeof window !== 'undefined' ? window : undefined);
+            return env && env.document.activeElement === _this2.getTab(i);
           });
         }
 
-        result = Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(child, {
+        result = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(child, {
           children: Object(_helpers_childrenDeepMap__WEBPACK_IMPORTED_MODULE_6__["deepMap"])(child.props.children, function (tab) {
             var key = "tabs-" + listIndex;
             var selected = selectedIndex === listIndex;
@@ -771,7 +796,7 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
             if (selectedTabClassName) props.selectedClassName = selectedTabClassName;
             if (disabledTabClassName) props.disabledClassName = disabledTabClassName;
             listIndex++;
-            return Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(tab, props);
+            return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(tab, props);
           })
         });
       } else if (Object(_helpers_elementTypes__WEBPACK_IMPORTED_MODULE_7__["isTabPanel"])(child)) {
@@ -783,7 +808,7 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
         if (forceRenderTabPanel) props.forceRender = forceRenderTabPanel;
         if (selectedTabPanelClassName) props.selectedClassName = selectedTabPanelClassName;
         index++;
-        result = Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(child, props);
+        result = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(child, props);
       }
 
       return result;
@@ -817,18 +842,20 @@ var UncontrolledTabs = /*#__PURE__*/function (_Component) {
     var _this3 = this;
 
     // Delete all known props, so they don't get added to DOM
-    var _this$props3 = this.props,
-        children = _this$props3.children,
-        className = _this$props3.className,
-        disabledTabClassName = _this$props3.disabledTabClassName,
-        domRef = _this$props3.domRef,
-        focus = _this$props3.focus,
-        forceRenderTabPanel = _this$props3.forceRenderTabPanel,
-        onSelect = _this$props3.onSelect,
-        selectedIndex = _this$props3.selectedIndex,
-        selectedTabClassName = _this$props3.selectedTabClassName,
-        selectedTabPanelClassName = _this$props3.selectedTabPanelClassName,
-        attributes = _objectWithoutPropertiesLoose(_this$props3, ["children", "className", "disabledTabClassName", "domRef", "focus", "forceRenderTabPanel", "onSelect", "selectedIndex", "selectedTabClassName", "selectedTabPanelClassName"]);
+    var _this$props4 = this.props,
+        children = _this$props4.children,
+        className = _this$props4.className,
+        disabledTabClassName = _this$props4.disabledTabClassName,
+        domRef = _this$props4.domRef,
+        focus = _this$props4.focus,
+        forceRenderTabPanel = _this$props4.forceRenderTabPanel,
+        onSelect = _this$props4.onSelect,
+        selectedIndex = _this$props4.selectedIndex,
+        selectedTabClassName = _this$props4.selectedTabClassName,
+        selectedTabPanelClassName = _this$props4.selectedTabPanelClassName,
+        environment = _this$props4.environment,
+        disableUpDownKeys = _this$props4.disableUpDownKeys,
+        attributes = _objectWithoutPropertiesLoose(_this$props4, ["children", "className", "disabledTabClassName", "domRef", "focus", "forceRenderTabPanel", "onSelect", "selectedIndex", "selectedTabClassName", "selectedTabPanelClassName", "environment", "disableUpDownKeys"]);
 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", _extends({}, attributes, {
       className: Object(clsx__WEBPACK_IMPORTED_MODULE_2__["default"])(className),
@@ -855,13 +882,15 @@ UncontrolledTabs.propTypes =  true ? {
   direction: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOf(['rtl', 'ltr']),
   className: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.array, prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object]),
   disabledTabClassName: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
+  disableUpDownKeys: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   domRef: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func,
   focus: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   forceRenderTabPanel: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool,
   onSelect: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func.isRequired,
   selectedIndex: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.number.isRequired,
   selectedTabClassName: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
-  selectedTabPanelClassName: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string
+  selectedTabPanelClassName: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
+  environment: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object
 } : undefined;
 
 /***/ }),
@@ -880,11 +909,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _elementTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elementTypes */ "./node_modules/react-tabs/esm/helpers/elementTypes.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
 
@@ -905,7 +930,7 @@ function deepMap(children, callback) {
 
     if (child.props && child.props.children && typeof child.props.children === 'object') {
       // Clone the child that has children and map them too
-      return Object(react__WEBPACK_IMPORTED_MODULE_0__["cloneElement"])(child, _objectSpread(_objectSpread({}, child.props), {}, {
+      return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["cloneElement"])(child, _extends({}, child.props, {
         children: deepMap(child.props.children, callback)
       }));
     }
