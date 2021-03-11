@@ -18,6 +18,8 @@ export default ({ currentUser, logout }) => {
   const [fromAccountState, setFromAccountState] = useState("Cathay Bank");
   const [toAccountState, setToAccountState] = useState("Roberthood");
 
+  const [cashBalance, setCashBalance] = useState(null); 
+
   useEffect(() => {
     document.title = "Account | Robinhood";
   });
@@ -92,6 +94,23 @@ export default ({ currentUser, logout }) => {
     accountSearch();
     setSearchValue("");
   };
+
+
+  const getValue = (event) => {
+    setCashBalance(event.target.value); 
+    // console.log(`Event: ${event.target.value}`); 
+    // console.log(`State: ${cashBalance}`); 
+  }
+
+  const cashBalanceHandler = () => {
+    console.log(`State: ${cashBalance}`); 
+    axios.patch(
+      `./portfolios/${currentUser.username}/${stock.firebaseID}.json`,
+      {
+        Cash: cashBalance,
+      }
+    );
+  } 
 
   return (
     <div>
@@ -354,12 +373,13 @@ export default ({ currentUser, logout }) => {
                 type="number"
                 className="banking-page-amount"
                 placeholder="$0.00"
+                onChange={getValue}
               ></input>
             </label>
           </div>
           <br />
           <br />
-          <button className="banking-page-btn">Submit</button>
+          <button className="banking-page-btn" onClick={cashBalanceHandler}>Submit</button>
         </form>
       </div>
     </div>

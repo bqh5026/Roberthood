@@ -78,6 +78,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       toAccountState = _useState14[0],
       setToAccountState = _useState14[1];
 
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState16 = _slicedToArray(_useState15, 2),
+      cashBalance = _useState16[0],
+      setCashBalance = _useState16[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     document.title = "Account | Robinhood";
   });
@@ -155,6 +160,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     setSearchValue(item.symbol);
     accountSearch();
     setSearchValue("");
+  };
+
+  var getValue = function getValue(event) {
+    setCashBalance(event.target.value); // console.log(`Event: ${event.target.value}`); 
+    // console.log(`State: ${cashBalance}`); 
+  };
+
+  var cashBalanceHandler = function cashBalanceHandler() {
+    console.log("State: ".concat(cashBalance));
+    _axios_quotes__WEBPACK_IMPORTED_MODULE_2__["default"].patch("./portfolios/".concat(currentUser.username, "/").concat(stock.firebaseID, ".json"), {
+      Cash: cashBalance
+    });
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -370,9 +387,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   }, "Roberthood"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Amount", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "number",
     className: "banking-page-amount",
-    placeholder: "$0.00"
+    placeholder: "$0.00",
+    onChange: getValue
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "banking-page-btn"
+    className: "banking-page-btn",
+    onClick: cashBalanceHandler
   }, "Submit"))));
 });
 
