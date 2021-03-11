@@ -167,11 +167,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     // console.log(`State: ${cashBalance}`); 
   };
 
-  var cashBalanceHandler = function cashBalanceHandler() {
-    console.log("State: ".concat(cashBalance));
-    _axios_quotes__WEBPACK_IMPORTED_MODULE_2__["default"].patch("./portfolios/".concat(currentUser.username, "/").concat(stock.firebaseID, ".json"), {
-      Cash: cashBalance
-    });
+  var cashBalanceHandler = function cashBalanceHandler(event) {
+    event.preventDefault(); // const data = {
+    //   Cash:cashBalance
+    // }
+
+    _axios_quotes__WEBPACK_IMPORTED_MODULE_2__["default"].patch("./portfolios/".concat(currentUser.username, "/Cash.json"), {
+      cashBalance: cashBalance
+    }).then(console.log("State: ".concat(cashBalance)));
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -102,13 +102,18 @@ export default ({ currentUser, logout }) => {
     // console.log(`State: ${cashBalance}`); 
   }
 
-  const cashBalanceHandler = () => {
-    console.log(`State: ${cashBalance}`); 
+  const cashBalanceHandler = (event) => {
+    event.preventDefault();
+    // const data = {
+    //   Cash:cashBalance
+    // }
     axios.patch(
-      `./portfolios/${currentUser.username}/${stock.firebaseID}.json`,
+      `./portfolios/${currentUser.username}/Cash.json`,
       {
-        Cash: cashBalance,
+        cashBalance,
       }
+    ).then(
+      console.log(`State: ${cashBalance}`) 
     );
   } 
 
